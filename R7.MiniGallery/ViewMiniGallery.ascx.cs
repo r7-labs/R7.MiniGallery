@@ -47,42 +47,34 @@ namespace R7.MiniGallery
 			{
 				if (!IsPostBack) 
 				{
-					// read settings
-					var settings = new MiniGallerySettings (this);
-
 					// number of columns
 					// NOTE: Setting columns to auto need also special styleset!
-					if (settings.Columns > 0)
+					if (MiniGallerySettings.Columns > 0)
 					{	
-						listImages.RepeatColumns = settings.Columns;
-						if (settings.Expand)
+						listImages.RepeatColumns = MiniGallerySettings.Columns;
+						if (MiniGallerySettings.Expand)
 							listImages.ItemStyle.Width = Unit.Percentage(100 / listImages.RepeatColumns);
 					}
 
-					listImages.CssClass += " MG_" + settings.StyleSet;
+					listImages.CssClass += " MG_" + MiniGallerySettings.StyleSet;
 
 					if (ImageViewer == ImageViewer.YoxView)
 						listImages.CssClass += " yoxview";
 							
 					// set maximum height of a list
-					var maxHeight = settings.MaxHeight;
+					var maxHeight = MiniGallerySettings.MaxHeight;
 					if (maxHeight >= 0)
 						listImages.Style.Add ("max-height", maxHeight.ToString() + "px");
 
 					//listImages.RepeatLayout = RepeatLayout.Flow;
 
-
-
-
-					var ctrl = new MiniGalleryController ();
-
 					// get images
 					// if settings.Row <=0, all files displayed
 
-					var topn = (settings.Columns == Null.NullInteger || settings.Rows == Null.NullInteger)? 
-					           0 : settings.Columns * settings.Rows;
+					var topn = (MiniGallerySettings.Columns == Null.NullInteger || MiniGallerySettings.Rows == Null.NullInteger)? 
+					           0 : MiniGallerySettings.Columns * MiniGallerySettings.Rows;
 
-					var items = ctrl.GetImagesTopN (ModuleId, IsEditable, true, topn);
+					var items = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, true, topn);
 				
 					// check if we have some content to display, 
 					// otherwise display a sample default content from the resources
@@ -159,12 +151,6 @@ namespace R7.MiniGallery
 			// as we really know it is:
 			var image = e.Item.DataItem as ImageInfo;
 
-
-			// read module settings
-			var settings = new MiniGallerySettings (this);
-
-
-
 			// find controls in DataList item template
 			var labelTitle = e.Item.FindControl ("labelTitle") as Label;
 			var imageImage = e.Item.FindControl ("imageImage") as Image;
@@ -178,7 +164,7 @@ namespace R7.MiniGallery
 			// TODO: url type (secured or none) must be set in settings
 			linkImage.NavigateUrl = Utils.FormatURL (this, image.Url, false);
 
-			var target = settings.Target;
+			var target = MiniGallerySettings.Target;
 			if (target != "none")
 				linkImage.Target = target;
 
@@ -187,9 +173,6 @@ namespace R7.MiniGallery
 				linkImage.Attributes.Add("data-lightbox","module_" + ModuleId);
 				linkImage.Attributes.Remove("target");
 			}
-
-
-
 
 			#endregion
 
@@ -226,14 +209,14 @@ namespace R7.MiniGallery
 			*/
 
 			// HACK: Titles width hack - title rendering must be done on the client side!
-			e.Item.Width = Unit.Parse (settings.ImageWidth);
-			e.Item.Height = Unit.Parse (settings.ImageHeight);
+			e.Item.Width = Unit.Parse (MiniGallerySettings.ImageWidth);
+			e.Item.Height = Unit.Parse (MiniGallerySettings.ImageHeight);
 
 			#endregion
 
 			#region Title
 
-			labelTitle.Visible = settings.ShowTitles;
+			labelTitle.Visible = MiniGallerySettings.ShowTitles;
 
 			if (!string.IsNullOrWhiteSpace(image.Title))
 				labelTitle.Text = image.Title;
@@ -254,8 +237,6 @@ namespace R7.MiniGallery
 
 			if (!image.IsPublished)
 				e.Item.CssClass += " MG_NotPublished";
-
-		
 
 			// for testing:
 			// labelTitle.Text += " " + (e.Item.ItemIndex + 1) + " " + e.Item.CssClass ;

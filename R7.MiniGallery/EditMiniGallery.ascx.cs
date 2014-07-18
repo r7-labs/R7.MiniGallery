@@ -34,8 +34,7 @@ namespace R7.MiniGallery
 						int imageId;
 						if (int.TryParse (Request.QueryString ["ImageID"], out imageId))
 						{	
-							var ctrl = new MiniGalleryController ();
-							_image = ctrl.Get<ImageInfo> (imageId, ModuleId);
+							_image = MiniGalleryController.Get<ImageInfo> (imageId, ModuleId);
 							/*if (_image != null)
 								ViewState["Image"] = _image;*/
 						}
@@ -176,7 +175,6 @@ namespace R7.MiniGallery
 		{
 			try
 			{
-				var ctrl = new MiniGalleryController ();
 				// ImageInfo image;
 
 				// determine if we are adding or updating
@@ -204,7 +202,7 @@ namespace R7.MiniGallery
 						IsPublished = checkIsPublished.Checked
 					 };					
 
-					ctrl.Add<ImageInfo> (image);
+					MiniGalleryController.Add<ImageInfo> (image);
 				}
 				else
 				{
@@ -223,7 +221,7 @@ namespace R7.MiniGallery
 					image.LastModifiedByUserID = UserId;
 					image.IsPublished = checkIsPublished.Checked;
 
-					ctrl.Update<ImageInfo> (image);
+					MiniGalleryController.Update<ImageInfo> (image);
 				}
 
 				Response.Redirect (Globals.NavigateURL (), true);
@@ -271,8 +269,7 @@ namespace R7.MiniGallery
 			{
 				if (Image != null)
 				{
-					var ctrl = new MiniGalleryController ();
-					ctrl.Delete<ImageInfo> (Image);
+					MiniGalleryController.Delete<ImageInfo> (Image);
 
 					Response.Redirect (Globals.NavigateURL (), true);
 				}

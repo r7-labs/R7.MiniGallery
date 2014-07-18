@@ -252,7 +252,6 @@ namespace R7.MiniGallery
 		{
 			try 
 			{
-				var ctrl = new MiniGalleryController();
 				var now = DateTime.Now;
 				var sortIndex = 10;
 
@@ -282,7 +281,7 @@ namespace R7.MiniGallery
 							LastModifiedByUserID = UserId
 						};
 
-						ctrl.Add<ImageInfo>(image);
+						MiniGalleryController.Add<ImageInfo>(image);
 					}
 				}
 
