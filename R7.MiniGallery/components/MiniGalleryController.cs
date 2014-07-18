@@ -12,7 +12,7 @@ using DotNetNuke.Services.Search;
 
 namespace R7.MiniGallery
 {
-	public partial class MiniGalleryController : IPortable
+	public partial class MiniGalleryController  /* : IPortable */
 	{
         #region Public methods
 
@@ -266,6 +266,8 @@ namespace R7.MiniGallery
 
 		#endregion
 
+		/*
+
         #region IPortable members
 
 		/// <summary>
@@ -314,7 +316,7 @@ namespace R7.MiniGallery
 			}
 		}
 		
-        #endregion
-	}
+	    #endregion
+*/
 }
 

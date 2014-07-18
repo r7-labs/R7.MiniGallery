@@ -93,13 +93,13 @@
     <None Include="App_LocalResources\Import.ascx.resx" />
     <None Include="sql\MiniGallery_Images.sql" />
     <None Include="R7.MiniGallery.dnn" />
+    <None Include="components\MiniGalleryInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lib\MiniGallerySettings.cs" />
     <Compile Include="lib\Properties\AssemblyInfo.cs" />
     <Compile Include="components\MiniGallerySettings.cs" />
     <Compile Include="components\MiniGalleryController.cs" />
-    <Compile Include="components\MiniGalleryInfo.cs" />
     <Compile Include="ViewMiniGallery.ascx.cs">
       <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
     </Compile>
