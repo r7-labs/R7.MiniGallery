@@ -126,6 +126,7 @@
     <Compile Include="entities\EntityBase.cs" />
     <Compile Include="entities\IAuditable.cs" />
     <Compile Include="entities\ImageInfo.cs" />
+    <Compile Include="components\MiniGalleryModuleBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

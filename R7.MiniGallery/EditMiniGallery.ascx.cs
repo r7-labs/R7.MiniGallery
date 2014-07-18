@@ -14,7 +14,7 @@ using DotNetNuke.UI.UserControls;
 
 namespace R7.MiniGallery
 {
-	public partial class EditMiniGallery : PortalModuleBase
+	public partial class EditMiniGallery : MiniGalleryPortalModuleBase
 	{
 		#region Properties
 

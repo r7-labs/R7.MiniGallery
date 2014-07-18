@@ -20,7 +20,7 @@ using DotNetNuke.UI.Utilities;
 
 namespace R7.MiniGallery
 {
-	public partial class ViewMiniGallery : PortalModuleBase, IActionable
+	public partial class ViewMiniGallery : MiniGalleryPortalModuleBase, IActionable
 	{
 		#region Properties 
 

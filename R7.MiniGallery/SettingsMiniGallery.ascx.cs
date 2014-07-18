@@ -11,7 +11,7 @@ using DotNetNuke.Common.Utilities;
 
 namespace R7.MiniGallery
 {	
-	public partial class SettingsMiniGallery : ModuleSettingsBase
+	public partial class SettingsMiniGallery : MiniGalleryModuleSettingsBase
 	{
 		/// <summary>
 		/// Handles the loading of the module setting for this control

@@ -176,7 +176,7 @@ namespace R7.MiniGallery
 	// compare thumb1 & file1 => filter to files
 
 
-	public partial class Import : PortalModuleBase
+	public partial class Import : MiniGalleryPortalModuleBase
 	{
 		#region Handlers
 
