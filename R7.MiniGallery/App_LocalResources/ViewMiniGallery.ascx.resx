@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="AddContent.Action" xml:space="preserve">
+    <value>Add Content</value>
+  </data>
+	<data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;P&gt;A MiniGallery module&lt;/P&gt;</value>
+  </data>
+	<data name="DefaultContent.Text" xml:space="preserve">
+    <value>Here is some sample content</value>
+  </data>
+  <data name="AddMultipleImages.Text" xml:space="preserve">
+    <value>Add by filter</value>
+  </data>
+  <data name="AddSingleImage.Text" xml:space="preserve">
+    <value>Add image</value>
+  </data>
+  <data name="AddImages.Help" xml:space="preserve">
+  	<value>Add some images to gallery by using &lt;b&gt;Add image&lt;/b&gt; command in module actions.</value>
+  </data>
+</root>

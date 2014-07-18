@@ -1,0 +1,98 @@
+/* Common styles */
+
+/* important to right footer positioning */
+/* .ModMiniGallery2C { display:block } */
+
+.MG_Preview 
+{ 
+	margin-bottom:10px;
+}
+
+.MG_TinyDropDown
+{
+	width:96px!important;
+}
+
+.MG_Import_CustomFilter
+{
+	font-family:monospace!important;
+	margin-right:10px;
+}
+
+.MG_Import_PairsContainer
+{
+	overflow:auto;
+	overflow-x:hidden;
+	overflow-y:auto;
+	max-height:440px;
+	width:440px;
+}
+
+/*
+.MG_PreviewButton 
+{
+	margin-left:10px
+}
+*/
+
+/* Style sets */
+
+/* .MG_Default & .MG_List */
+.MG_Default.MG_List 
+{
+	display:block;
+	width:100%;
+	overflow:auto;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+
+
+.MG_Default .MG_Item, .MG_Default .MG_AltItem
+{
+	display:block;
+	float:left;
+	margin-top:4px;
+	margin-left:4px;
+	text-align:center;
+	/* important for edit label positioning */
+	position:relative;
+
+}
+
+.MG_Default .MG_AltItem {}
+
+.MG_Default .MG_ColumnStart { margin-top:0 }
+.MG_Default .MG_RowStart { margin-left:0 }
+
+.MG_Default .MG_Image { 
+	/*  TITLE HACK */
+	width:100%;
+	height:100%;
+	/* END HACK */ 
+}
+
+.MG_Default .MG_Title
+{
+	/* TITLE HACK */
+	/* height:40px; */
+	/* white-space:pre-wrap; */
+	/* END HACK */
+	display:block;
+	font-size:10px;
+	font-style:italic;
+	background-color:#ccc;
+	text-align:center;
+}
+
+.MG_Default .MG_Edit 
+{
+	position:absolute;
+	z-index:10;
+	padding:4px;
+}
+
+.MG_Default .MG_NotPublished { opacity:0.3 }
+
+.MG_Default .MG_NotPublished:hover { opacity:1 }

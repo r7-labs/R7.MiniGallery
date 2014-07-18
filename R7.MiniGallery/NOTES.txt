@@ -1,0 +1,5 @@
+http://www.dotnetnuke.com/Resources/Blogs/EntryId/3098/Modal-Popups-in-DotNetNuke-6-0-Extensions.aspx
+
+http://dotnetnuke.codeplex.com/SourceControl/changeset/view/61904#986203
+
+http://www.dotnetnuke.com/Resources/Blogs/EntryId/3118/Tips-on-how-to-make-your-Module-Popup-Friendly.aspxs

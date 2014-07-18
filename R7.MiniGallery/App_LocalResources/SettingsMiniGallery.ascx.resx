@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="ControlTitle_settings.Text" xml:space="preserve">
+    <value>MiniGallery Settings</value>
+  </data>
+	<data name="ModuleHelp.Text" xml:space="preserve">
+    <value>About MiniGallery Settings</value>
+  </data>
+	<data name="labelStyleSet.Text" xml:space="preserve">
+    <value>Style Set</value>
+  </data>
+	<data name="labelStyleSet.Help" xml:space="preserve">
+    <value>Style set name for MiniGallery elements</value>
+  </data>
+	<data name="labelMaxHeight.Text" xml:space="preserve">
+    <value>Max. Height</value>
+  </data>
+	<data name="labelMaxHeight.Help" xml:space="preserve">
+    <value>Maximum height of a module, used to define scrollbars appearance, in pixels. Set this to negative value or leave empty to disable.</value>
+  </data>
+	<data name="labelTarget.Text" xml:space="preserve">
+    <value>Target</value>
+  </data>
+	<data name="labelTarget.Help" xml:space="preserve">
+    <value>Set link target. Has no meaning for jQuery image viewer, but may be useful without it.</value>
+  </data>
+  <data name="ddlTargetItemNone.Text" xml:space="preserve">
+  	<value>(none)</value>
+  </data>
+  <data name="ddlTargetItemOther.Text" xml:space="preserve">
+  	<value>(other)</value>
+  </data>
+	<data name="labelUseViewer.Text" xml:space="preserve">
+    <value>Use jQuery Viewer</value>
+  </data>
+	<data name="labelUseViewer.Help" xml:space="preserve">
+    <value>Check to use jQuery viewer / image gallery module.</value>
+  </data>
+	<data name="labelUseScrollbar.Text" xml:space="preserve">
+    <value>Use jQuery Scrollbar</value>
+  </data>
+  <data name="labelUseScrollbar.Help" xml:space="preserve">
+    <value>Check to use jQuery scrollbar module.</value>
+  </data>
+  <data name="labelShowTitles.Text" xml:space="preserve">
+    <value>Show Titles</value>
+  </data>
+  <data name="labelShowTitles.Help" xml:space="preserve">
+    <value>If checked, images title is displayed</value>
+  </data>
+ <data name="labelExpand.Text" xml:space="preserve">
+    <value>Expand Columns</value>
+  </data>
+  <data name="labelExpand.Help" xml:space="preserve">
+    <value>If checked, each column width are calculated as 100% / number of columns. Have meaning only if number of columns are specified directly.</value>
+  </data>
+  <data name="labelTextBefore.Text" xml:space="preserve">
+    <value>Text Before</value>
+  </data>
+	<data name="labelTextBefore.Help" xml:space="preserve">
+    <value>Enter HTML to be placed before (above) image list. This property overrides Header value from Module Settings / Advanced tab.</value>
+  </data>
+  <data name="labelTextAfter.Text" xml:space="preserve">
+    <value>Text After</value>
+  </data>
+	<data name="labelTextAfter.Help" xml:space="preserve">
+    <value>Enter HTML to be placed after (below) image list. This property overrides Footer value from Module Settings / Advanced tab.</value>
+  </data>
+  <data name="sectionBaseSettings.Text" xml:space="preserve">
+    <value>MiniGallery Settings</value>
+  </data>
+  <data name="sectionHeader.Text" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="sectionFooter.Text" xml:space="preserve">
+    <value>Footer</value>
+  </data>
+  <data name="Auto.Text" xml:space="preserve">
+  	<value>(auto)</value>
+  </data>
+  <data name="labelRowsAndColumns.Text" xml:space="preserve">
+  	<value>Columns and Rows</value>
+  </data>
+   <data name="labelRowsAndColumns.Help" xml:space="preserve">
+  	<value>Set number columns and rows in the image list. If columns set to auto, then rows value has no meaning. 
+  	If both columns and rows values are set, then gallery displays only first (columns x rows) items.</value>
+  </data>
+  <data name="labelImageWidth.Text" xml:space="preserve">
+  	<value>Image Width</value>
+  </data>
+  <data name="labelImageWidth.Help" xml:space="preserve">
+  	<value>Specify custom image width in px, % or other CSS units. Leave empty or set to zero or negative value to disable.</value>
+  </data>
+ <data name="labelImageHeight.Text" xml:space="preserve">
+  	<value>Image Height</value>
+  </data>
+  <data name="labelImageHeight.Help" xml:space="preserve">
+  	<value>Specify custom image height in px, % or other CSS units. Leave empty or set to zero or negative value to disable.</value>
+  </data>
+  
+</root>

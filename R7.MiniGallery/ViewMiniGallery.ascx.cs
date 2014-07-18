@@ -1,0 +1,268 @@
+// TODO: Make styles for vertical and flow layouts
+// THINK: How to display headers on images?
+// TODO: Simplify styleset names: MG_Default => mgDefault 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Linq;
+
+using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Modules;
+using DotNetNuke.Entities.Modules.Actions;
+using DotNetNuke.Services.Exceptions;
+using DotNetNuke.Services.FileSystem;
+using DotNetNuke.Services.Localization;
+using DotNetNuke.UI.Utilities;
+
+namespace R7.MiniGallery
+{
+	public partial class ViewMiniGallery : PortalModuleBase, IActionable
+	{
+		#region Properties 
+
+		#endregion
+
+    	#region Handlers 
+    	
+		protected override void OnInit(EventArgs e)
+		{
+			base.OnInit (e);
+		}
+
+		private ImageViewer ImageViewer = ImageViewer.LightBox2;
+
+		/// <summary>
+		/// Handles Page_Load event for a control
+		/// </summary>
+		/// <param name="e">Event args.</param>
+		protected override void OnLoad (EventArgs e)
+		{
+			base.OnLoad(e);
+
+			try 
+			{
+				if (!IsPostBack) 
+				{
+					// read settings
+					var settings = new MiniGallerySettings (ModuleId, this.TabModuleId);
+
+					// number of columns
+					// NOTE: Setting columns to auto need also special styleset!
+					if (settings.Columns > 0)
+					{	
+						listImages.RepeatColumns = settings.Columns;
+						if (settings.Expand)
+							listImages.ItemStyle.Width = Unit.Percentage(100 / listImages.RepeatColumns);
+					}
+
+					listImages.CssClass += " MG_" + settings.StyleSet;
+
+					if (ImageViewer == ImageViewer.YoxView)
+						listImages.CssClass += " yoxview";
+							
+					// set maximum height of a list
+					var maxHeight = settings.MaxHeight;
+					if (maxHeight >= 0)
+						listImages.Style.Add ("max-height", maxHeight.ToString() + "px");
+
+					//listImages.RepeatLayout = RepeatLayout.Flow;
+
+
+
+
+					var ctrl = new MiniGalleryController ();
+
+					// get images
+					// if settings.Row <=0, all files displayed
+
+					var topn = (settings.Columns == Null.NullInteger || settings.Rows == Null.NullInteger)? 
+					           0 : settings.Columns * settings.Rows;
+
+					var items = ctrl.GetImagesTopN (ModuleId, IsEditable, true, topn);
+				
+					// check if we have some content to display, 
+					// otherwise display a sample default content from the resources
+					if (items.Count == 0 && IsEditable) 
+						Utils.Message(this, MessageSeverity.Info, Localization.GetString("AddImages.Help", LocalResourceFile));
+			
+//					if (listImages.RepeatColumns % 2 == 0 && items.Count % 2 == 1)
+//						items.Add(new ImageInfo() {ThumbFileID = Null.NullInteger} );
+
+					// bind the data
+					//n = 0;
+					listImages.DataSource = items;
+					listImages.DataBind ();
+				}
+			} catch (Exception ex) 
+			{
+				Exceptions.ProcessModuleLoadException (this, ex);
+			}
+		}
+		
+		#endregion		
+			
+        #region IActionable implementation
+        
+		public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions {
+			get {
+				// create a new action to add an item, this will be added 
+				// to the controls dropdown menu
+				var actions = new ModuleActionCollection ();
+
+				actions.Add 
+				(
+					GetNextActionID (), 
+					Localization.GetString ("AddMultipleImages.Text", LocalResourceFile),
+                    ModuleActionType.AddContent, 
+                    "", "", 
+                    Utils.EditUrl (this, "Filter"), 
+                    false, 
+                    DotNetNuke.Security.SecurityAccessLevel.Edit,
+                    true, 
+                    false
+				);
+
+				actions.Add 
+				(
+					GetNextActionID (), 
+					Localization.GetString ("AddSingleImage.Text", LocalResourceFile),
+					ModuleActionType.AddContent, 
+					"", "", 
+					Utils.EditUrl (this, "Edit"), 
+					false, 
+					DotNetNuke.Security.SecurityAccessLevel.Edit,
+					true, 
+					false
+				);
+
+				return actions;
+			}
+		}
+
+        #endregion
+
+
+
+		/// <summary>
+		/// Handles the items being bound to the datalist control. In this method we merge the data with the
+		/// template defined for this control to produce the result to display to the user
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		protected void listImages_ItemDataBound (object sender, System.Web.UI.WebControls.DataListItemEventArgs e)
+		{
+			// use e.Item.DataItem as object of MiniGalleryInfo class,
+			// as we really know it is:
+			var image = e.Item.DataItem as ImageInfo;
+
+
+			// read module settings
+			var settings = new MiniGallerySettings (ModuleId, TabModuleId);
+
+
+
+			// find controls in DataList item template
+			var labelTitle = e.Item.FindControl ("labelTitle") as Label;
+			var imageImage = e.Item.FindControl ("imageImage") as Image;
+			var linkImage = e.Item.FindControl ("linkImage") as HyperLink;
+			var linkEdit = e.Item.FindControl ("linkEdit") as HyperLink;
+            
+			// fill out the controls
+
+			#region Link
+
+			// TODO: url type (secured or none) must be set in settings
+			linkImage.NavigateUrl = Utils.FormatURL (this, image.Url, false);
+
+			var target = settings.Target;
+			if (target != "none")
+				linkImage.Target = target;
+
+			if (ImageViewer == ImageViewer.LightBox2)
+			{
+				linkImage.Attributes.Add("data-lightbox","module_" + ModuleId);
+				linkImage.Attributes.Remove("target");
+			}
+
+
+
+
+			#endregion
+
+			#region Edit Link
+
+			linkEdit.NavigateUrl = Utils.EditUrl (this, "Edit", "ImageID", image.ImageID.ToString());
+
+				// ModuleContext.NavigateUrl (TabId, "Edit", false, "mid", ModuleId.ToString(), "ImageID", image.ImageID.ToString());
+
+			// without popups support:
+			// linkEdit.NavigateUrl = EditUrl (TabId, "Edit",  false, "mid", ModuleId.ToString(), "ImageID", image.ImageID.ToString());
+
+			#endregion
+
+			#region Image
+
+			imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ThumbFileID, false);
+			imageImage.ToolTip = image.Title;
+			imageImage.AlternateText = image.Alt;
+
+			// NOTE: img width is always 100%, so we don't need this		
+			// imageImage.Width = Unit.Parse (settings.ImageWidth);
+			// imageImage.Height = Unit.Parse (settings.ImageHeight);
+		
+			// NOTE: All thumbs stored in filesystem, so we know their size 
+			/*
+			var thumbFile = FileManager.Instance.GetFile (image.ThumbFileID);
+
+			var width = Unit.Parse (settings.ImageWidth);
+			var height = Unit.Parse (settings.ImageHeight);
+
+			imageImage.Width = width.IsEmpty? Unit.Pixel(thumbFile.Width) : width;
+			imageImage.Height = height.IsEmpty? Unit.Pixel(thumbFile.Height) : height;
+			*/
+
+			// HACK: Titles width hack - title rendering must be done on the client side!
+			e.Item.Width = Unit.Parse (settings.ImageWidth);
+			e.Item.Height = Unit.Parse (settings.ImageHeight);
+
+			#endregion
+
+			#region Title
+
+			labelTitle.Visible = settings.ShowTitles;
+
+			if (!string.IsNullOrWhiteSpace(image.Title))
+				labelTitle.Text = image.Title;
+			// THINK: Separate option to hide empty titles?
+			// else labelTitle.Visible = false;
+
+			#endregion
+
+			#region Item styles
+
+			e.Item.CssClass = (e.Item.ItemIndex % 2 == 0)? "MG_Item" : "MG_AltItem";
+
+			if (listImages.RepeatColumns > 0)
+			{
+				e.Item.CssClass += (e.Item.ItemIndex < listImages.RepeatColumns)? " MG_ColumnStart" : "";
+				e.Item.CssClass += (e.Item.ItemIndex % listImages.RepeatColumns == 0)? " MG_RowStart dnnClear" : "";
+			}
+
+			if (!image.IsPublished)
+				e.Item.CssClass += " MG_NotPublished";
+
+		
+
+			// for testing:
+			// labelTitle.Text += " " + (e.Item.ItemIndex + 1) + " " + e.Item.CssClass ;
+
+			#endregion
+
+		}
+	}
+}
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;P&gt;A MiniGallery module&lt;/P&gt;</value>
+  </data>
+	<data name="ControlTitle_edit.Text" xml:space="preserve">
+    <value>Edit Image</value>
+  </data>
+  <data name="ConfirmDelete.Text" xml:space="preserve">
+  	<value>Do you really want to delete this image?</value>
+  </data>
+  <data name="sectionEditImage.Text" xml:space="preserve">
+    <value>Edit Image</value>
+  </data>
+  <data name="labelAlt.Text" xml:space="preserve">
+  	<value>Alt</value>
+  </data>
+  <data name="labelAlt.Help" xml:space="preserve">
+  	<value>Provide an alternate description for the image.</value>
+  </data>
+  <data name="labelTitle.Text" xml:space="preserve">
+  	<value>Title</value>
+  </data>
+  <data name="labelTitle.Help" xml:space="preserve">
+  	<value>Provide title for the image.</value>
+  </data>
+  <data name="labelImage.Text" xml:space="preserve">
+  	<value>Image</value>
+  </data>
+  <data name="labelImage.Help" xml:space="preserve">
+  	<value>A thumbnail image.</value>
+  </data>
+  <data name="labelLink.Text" xml:space="preserve">
+  	<value>Link</value>
+  </data>
+  <data name="labelLink.Help" xml:space="preserve">
+  	<value>Link to a resource to open then image is clicked.</value>
+  </data>
+  <data name="labelPreview.Text" xml:space="preserve">
+  	<value>Preview</value>
+  </data>
+  <data name="labelPreview.Help" xml:space="preserve">
+  	<value>A preview of the selected image.</value>
+  </data>
+  <data name="labelSortIndex.Text" xml:space="preserve">
+  	<value>Sort Index</value>
+  </data>
+  <data name="labelSortIndex.Help" xml:space="preserve">
+  	<value>Sort index value. </value>
+  </data>
+  <data name="labelIsPublished.Text" xml:space="preserve">
+  	<value>Published</value>
+  </data>
+  <data name="labelIsPublished.Help" xml:space="preserve">
+  	<value>Uncheck this flag to disable image publication. Unpublished images are visible only to module editors.</value>
+  </data><data name="buttonApplyFilter.Text" xml:space="preserve">
+  	<value>Apply Filter</value>
+  </data>
+</root>
