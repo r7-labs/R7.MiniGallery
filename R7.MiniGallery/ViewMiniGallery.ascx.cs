@@ -189,7 +189,9 @@ namespace R7.MiniGallery
 
 			#region Image
 
-			imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
+			// imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
+			imageImage.ImageUrl = string.Format("/imagehandler.ashx?fileid={0}&width={1}",
+				image.ImageFileID, MiniGallerySettings.ImageWidth.Replace("px",""));
 			imageImage.ToolTip = image.Title;
 			imageImage.AlternateText = image.Alt;
 
