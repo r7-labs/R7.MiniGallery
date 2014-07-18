@@ -12,7 +12,7 @@ using DotNetNuke.Services.Search;
 
 namespace R7.MiniGallery
 {
-	public partial class MiniGalleryController : ISearchable, IPortable
+	public partial class MiniGalleryController : IPortable
 	{
         #region Public methods
 
@@ -265,38 +265,6 @@ namespace R7.MiniGallery
 		}
 
 		#endregion
-
-        #region ISearchable members
-
-		/// <summary>
-		/// Implements the search interface required to allow DNN to index/search the content of your
-		/// module
-		/// </summary>
-		/// <param name="modInfo"></param>
-		/// <returns></returns>
-		public DotNetNuke.Services.Search.SearchItemInfoCollection GetSearchItems (ModuleInfo modInfo)
-		{
-			var searchItems = new SearchItemInfoCollection ();
-			var infos = GetObjects<MiniGalleryInfo> (modInfo.ModuleID);
-
-			foreach (MiniGalleryInfo info in infos) {
-				searchItems.Add (
-					new SearchItemInfo (
-						modInfo.ModuleTitle, 
-						info.Content, 
-						info.CreatedByUser, 
-						info.CreatedOnDate,
-                        modInfo.ModuleID, 
-                        info.MiniGalleryID.ToString (),
-                        info.Content, 
-                        "Item=" + info.MiniGalleryID.ToString ())
-				);
-			}
-
-			return searchItems;
-		}
-
-        #endregion
 
         #region IPortable members
 
