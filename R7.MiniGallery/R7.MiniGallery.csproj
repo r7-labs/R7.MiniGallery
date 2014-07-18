@@ -91,6 +91,7 @@
     <None Include="doc\install.txt" />
     <None Include="NOTES.txt" />
     <None Include="App_LocalResources\Import.ascx.resx" />
+    <None Include="lightbox\lightbox-2.7.1.zip" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lib\Properties\AssemblyInfo.cs" />
