@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="js\" />
-    <Folder Include="sql\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
@@ -91,7 +90,6 @@
     <None Include="doc\install.txt" />
     <None Include="NOTES.txt" />
     <None Include="App_LocalResources\Import.ascx.resx" />
-    <None Include="sql\MiniGallery_Images.sql" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lib\MiniGallerySettings.cs" />
