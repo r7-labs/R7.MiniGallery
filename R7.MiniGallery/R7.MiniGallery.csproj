@@ -124,6 +124,8 @@
     <Compile Include="EditMiniGallery.ascx.controls.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
     </Compile>
+    <Compile Include="components\EntityBase.cs" />
+    <Compile Include="components\IAuditable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
