@@ -276,8 +276,8 @@ namespace R7.MiniGallery
 							SortIndex = sortIndex += 10,
 							IsPublished = true,
 							ModuleID = ModuleId,
-							CreatedDate = now,
-							LastModifiedDate = now,
+							CreatedOnDate = now,
+							LastModifiedOnDate = now,
 							CreatedByUserID = UserId,
 							LastModifiedByUserID = UserId
 						};

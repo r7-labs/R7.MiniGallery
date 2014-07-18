@@ -127,11 +127,11 @@ namespace R7.MiniGallery
 							
 						// setup audit control
 						ctlAudit.CreatedDate = 
-							Image.CreatedDate.ToShortDateString () + " " + 
-							Image.CreatedDate.ToLongTimeString();
+							Image.CreatedOnDate.ToShortDateString () + " " + 
+							Image.CreatedOnDate.ToLongTimeString();
 						ctlAudit.LastModifiedDate = 
-							Image.LastModifiedDate.ToShortDateString() + " " +
-							Image.LastModifiedDate.ToLongTimeString();
+							Image.LastModifiedOnDate.ToShortDateString() + " " +
+							Image.LastModifiedOnDate.ToLongTimeString();
 						ctlAudit.CreatedByUser = Image.CreatedByUserName;
 						ctlAudit.LastModifiedByUser = Image.LastModifiedByUserName;
 
@@ -197,8 +197,8 @@ namespace R7.MiniGallery
 						Url = urlLink.Url,
 						//ThumbFileID = int.Parse(urlImage.Url.Replace ("FileID=", "")),
 						ThumbFileID = pickerImage.FileID,
-						CreatedDate = now,
-						LastModifiedDate = now,
+						CreatedOnDate = now,
+						LastModifiedOnDate = now,
 						CreatedByUserID = UserId,
 						LastModifiedByUserID = UserId,
 						IsPublished = checkIsPublished.Checked
@@ -219,7 +219,7 @@ namespace R7.MiniGallery
 					image.Url = urlLink.Url;
 					//image.ThumbFileID = int.Parse (urlImage.Url.Replace ("FileID=", ""));
 					image.ThumbFileID = pickerImage.FileID;
-					image.LastModifiedDate = DateTime.Now;
+					image.LastModifiedOnDate = DateTime.Now;
 					image.LastModifiedByUserID = UserId;
 					image.IsPublished = checkIsPublished.Checked;
 

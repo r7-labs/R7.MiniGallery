@@ -8,7 +8,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.FileSystem;
 
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery 
 {
 	// More attributes for class:
 	// Set caching for table: [Cacheable("Redhound.MiniGallery_Images", CacheItemPriority.Default, 20)] 
@@ -21,7 +21,7 @@ namespace R7.MiniGallery
 	[TableName("MiniGallery_Images")]
 	[PrimaryKey("ImageID", AutoIncrement = true)]
 	[Scope("ModuleID")]
-	public class ImageInfo
+	public class ImageInfo : EntityBase
 	{
 
         #region Fields
@@ -53,15 +53,7 @@ namespace R7.MiniGallery
 		public int SortIndex { get;  set; }
 
 		public bool IsPublished { get; set; }
-		
-		public DateTime CreatedDate { get; set; }
-
-		public int CreatedByUserID { get; set; }
-
-		public DateTime LastModifiedDate { get; set; }
-
-		public int LastModifiedByUserID { get; set; }
-
+	
 		#endregion
 
 		#region Joins
