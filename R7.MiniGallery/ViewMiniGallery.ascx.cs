@@ -1,6 +1,11 @@
 // TODO: Make styles for vertical and flow layouts
 // THINK: How to display headers on images?
 // TODO: Simplify styleset names: MG_Default => mgDefault 
+// TODO: Use imagehandler only if image dimensions specified in px
+// THINK: Don't imagehandler if both width and height isn't set
+// THINK: Separate setting for image dimension units (same for width and height)
+// THINK: Don't use rows, only columns to get bootstrap-like flow
+// THINK: Display image title only on hover
 
 using System;
 using System.Collections;
