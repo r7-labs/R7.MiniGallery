@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="components\EntityBase.cs" />
     <Compile Include="components\IAuditable.cs" />
+    <Compile Include="components\ControllerBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
