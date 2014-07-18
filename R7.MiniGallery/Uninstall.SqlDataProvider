@@ -4,22 +4,10 @@
 
 -- Drop tables
 
-ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_MiniGallerys] 
-	DROP CONSTRAINT [FK_{objectQualifier}MiniGallery_MiniGallerys_{objectQualifier}Modules]
-GO
-
-ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_MiniGallerys] 
-	DROP CONSTRAINT [PK_{objectQualifier}MiniGallery_MiniGallerys]
-GO
-
-DROP INDEX {databaseOwner}[{objectQualifier}MiniGallery_MiniGallerys].[IX_{objectQualifier}MiniGallery_MiniGallerys_ModuleID]
-GO
-
-DROP TABLE {databaseOwner}[{objectQualifier}MiniGallery_MiniGallerys]
+DROP TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
 GO
 
 -- Drop stored procedures
 
 -- DROP PROCEDURE {databaseOwner}[{objectQualifier}MiniGallery_GetMiniGallerys]
 -- GO
-
