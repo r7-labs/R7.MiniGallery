@@ -2,14 +2,23 @@
 
 using System;
 using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Modules;
+using DotNetNuke.UI.Modules;
 
 namespace R7.MiniGallery
 {
 	/// <summary>
 	/// Provides strong typed access to settings used by module
 	/// </summary>
-	public partial class MiniGallerySettings
+	public partial class MiniGallerySettings : SettingsWrapper
 	{
+ 		public MiniGallerySettings (IModuleControl module) : base (module)
+		{
+		}
+
+		public MiniGallerySettings (ModuleInfo module) : base (module)
+		{
+		}
 		#region Properties for settings
 
 		/// <summary>

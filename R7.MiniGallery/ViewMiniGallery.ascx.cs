@@ -48,7 +48,7 @@ namespace R7.MiniGallery
 				if (!IsPostBack) 
 				{
 					// read settings
-					var settings = new MiniGallerySettings (ModuleId, this.TabModuleId);
+					var settings = new MiniGallerySettings (this);
 
 					// number of columns
 					// NOTE: Setting columns to auto need also special styleset!
@@ -161,7 +161,7 @@ namespace R7.MiniGallery
 
 
 			// read module settings
-			var settings = new MiniGallerySettings (ModuleId, TabModuleId);
+			var settings = new MiniGallerySettings (this);
 
 
 

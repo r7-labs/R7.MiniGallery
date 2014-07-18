@@ -22,7 +22,7 @@ namespace R7.MiniGallery
 			{
 				if (!IsPostBack)
 				{
-					var settings = new MiniGallerySettings (ModuleId, TabModuleId);
+					var settings = new MiniGallerySettings (this);
 
 					// fill columns and rows lists
 					ddlRows.Items.Add (new ListItem (
@@ -86,7 +86,7 @@ namespace R7.MiniGallery
 		{
 			try
 			{
-				var settings = new MiniGallerySettings (ModuleId, TabModuleId);
+				var settings = new MiniGallerySettings (this);
 
 				// style
 				settings.StyleSet = textStyleSet.Text;
