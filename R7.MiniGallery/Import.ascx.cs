@@ -268,7 +268,7 @@ namespace R7.MiniGallery
 					{
 						var image = new ImageInfo ()
 						{
-							ThumbFileID = int.Parse(hiddenThumb.Value),
+							ImageFileID = int.Parse(hiddenThumb.Value),
 							Alt = "",
 							Title = "",
 							Url = "FileID=" + ddlFiles.SelectedValue,

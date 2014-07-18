@@ -42,7 +42,7 @@ namespace R7.MiniGallery
 
 		public int ModuleID { get; set; }
 
-		public int ThumbFileID { get; set; }
+		public int ImageFileID { get; set; }
 
 		public string Alt { get; set; }
 
@@ -66,7 +66,7 @@ namespace R7.MiniGallery
 			get 
 			{
 				if (thumbFile == null)
-					thumbFile = (FileInfo)FileManager.Instance.GetFile(ThumbFileID);
+					thumbFile = (FileInfo)FileManager.Instance.GetFile(ImageFileID);
 				return thumbFile;
 			}
 		}

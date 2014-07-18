@@ -121,7 +121,7 @@ namespace R7.MiniGallery
 						// make portal-relative path
 						// form url like /portals/0/common/121325/image.jpg
 						pickerImage.FilePath = FileManager.Instance.GetUrl(
-							FileManager.Instance.GetFile(Image.ThumbFileID))
+							FileManager.Instance.GetFile(Image.ImageFileID))
 							.Remove(0, PortalSettings.HomeDirectory.Length);
 							
 						// setup audit control
@@ -194,7 +194,7 @@ namespace R7.MiniGallery
 						ModuleID = ModuleId,
 						Url = urlLink.Url,
 						//ThumbFileID = int.Parse(urlImage.Url.Replace ("FileID=", "")),
-						ThumbFileID = pickerImage.FileID,
+						ImageFileID = pickerImage.FileID,
 						CreatedOnDate = now,
 						LastModifiedOnDate = now,
 						CreatedByUserID = UserId,
@@ -216,7 +216,7 @@ namespace R7.MiniGallery
 					// image.ModuleID = ModuleId;
 					image.Url = urlLink.Url;
 					//image.ThumbFileID = int.Parse (urlImage.Url.Replace ("FileID=", ""));
-					image.ThumbFileID = pickerImage.FileID;
+					image.ImageFileID = pickerImage.FileID;
 					image.LastModifiedOnDate = DateTime.Now;
 					image.LastModifiedByUserID = UserId;
 					image.IsPublished = checkIsPublished.Checked;

@@ -11,7 +11,7 @@ IF NOT EXISTS (select * from dbo.sysobjects where id = object_id(N'{databaseOwne
 			[Alt] [nvarchar](255) NOT NULL,
 			[Title] [nvarchar](255) NULL,
 			[URL] [nvarchar](255) NULL,
-			[ThumbFileID] [int] NOT NULL,
+			[ImageFileID] [int] NOT NULL,
 			[ModuleID] [int] NOT NULL,
 			[SortIndex] [int] NOT NULL,
 			[IsPublished] [bit] NOT NULL,
@@ -35,7 +35,7 @@ IF NOT EXISTS (select * from dbo.sysobjects where id = object_id(N'{databaseOwne
 	
 		ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
 			WITH CHECK ADD CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Files] 
-				FOREIGN KEY([ThumbFileID]) REFERENCES {databaseOwner}[{objectQualifier}Files] ([FileId])
+				FOREIGN KEY([ImageFileID]) REFERENCES {databaseOwner}[{objectQualifier}Files] ([FileId])
 					ON DELETE CASCADE
 	
 		ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 

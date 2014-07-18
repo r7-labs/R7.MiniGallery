@@ -189,7 +189,7 @@ namespace R7.MiniGallery
 
 			#region Image
 
-			imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ThumbFileID, false);
+			imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
 			imageImage.ToolTip = image.Title;
 			imageImage.AlternateText = image.Alt;
 
