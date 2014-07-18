@@ -39,10 +39,10 @@ namespace R7.MiniGallery
 						ddlColumns.Items.Add (new ListItem (i.ToString ()));
 					}
 
-					Utils.SetIndexByValue (ddlColumns, settings.Columns, 0); 
+					Utils.SelectByValue (ddlColumns, settings.Columns, 0); 
 					// row number value have meaning only if columns number is set
 					if (settings.Columns != Null.NullInteger)
-						Utils.SetIndexByValue (ddlRows, settings.Rows, 0); 
+						Utils.SelectByValue (ddlRows, settings.Rows, 0); 
 
 					// Localize ();	
                 	
@@ -56,7 +56,7 @@ namespace R7.MiniGallery
 						(settings.MaxHeight >= 0) ? settings.MaxHeight.ToString () : string.Empty;
 
 					// 0 = none, 1 = other
-					Utils.SetIndexByValue (ddlTarget, settings.Target, 1);
+					Utils.SelectByValue (ddlTarget, settings.Target, 1);
 					if (ddlTarget.SelectedIndex == 1)
 						textTarget.Text = settings.Target;
 
