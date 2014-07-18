@@ -37,6 +37,9 @@
     <None Include="Install.targets" />
     <None Include="Source.targets" />
     <None Include="Packages.csproj" />
+    <None Include="R7.MiniGallery.dnn" />
+    <None Include="ReleaseNotes.txt" />
+    <None Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />

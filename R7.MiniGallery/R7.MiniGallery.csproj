@@ -92,7 +92,6 @@
     <None Include="NOTES.txt" />
     <None Include="App_LocalResources\Import.ascx.resx" />
     <None Include="sql\MiniGallery_Images.sql" />
-    <None Include="R7.MiniGallery.dnn" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lib\MiniGallerySettings.cs" />

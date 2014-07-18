@@ -36,7 +36,7 @@
 			<InstallInclude Include="..\**\images\*.*" />
 		</ItemGroup>
 		<!-- Declare manifest files -->
-		<CreateItem Include="..\R7.MiniGallery\R7.MiniGallery.dnn;..\R7.MiniGallery\License.txt;..\R7.MiniGallery\ReleaseNotes.txt">
+		<CreateItem Include="R7.MiniGallery.dnn;License.txt;ReleaseNotes.txt">
 			<Output TaskParameter="Include" ItemName="PackageManifestFiles" />
 		</CreateItem>
 		<!-- Declare binaries -->
