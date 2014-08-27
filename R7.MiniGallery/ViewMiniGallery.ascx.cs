@@ -69,6 +69,7 @@ namespace R7.MiniGallery
 							listImages.ItemStyle.Width = Unit.Percentage(100 / listImages.RepeatColumns);
 					}
 
+					// add current style CSS class to the list
 					listImages.CssClass += " MG_" + MiniGallerySettings.StyleSet;
 
 					// if (ImageViewer == ImageViewer.YoxView)
@@ -79,12 +80,11 @@ namespace R7.MiniGallery
 					if (maxHeight >= 0)
 						listImages.Style.Add ("max-height", maxHeight + "px");
 
-					// get images
-					// if settings.Row <=0, all files displayed
-
+					// how many images to display
 					var topn = (Null.IsNull(MiniGallerySettings.Columns) || Null.IsNull(MiniGallerySettings.Rows))? 
 					           0 : MiniGallerySettings.Columns * MiniGallerySettings.Rows;
 
+					// get images
 					var images = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, true, topn);
 				
 					// check if we have some content to display, 
