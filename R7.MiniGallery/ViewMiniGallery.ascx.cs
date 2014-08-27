@@ -18,6 +18,7 @@ using System.Linq;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
+using DotNetNuke.Entities.Icons;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.FileSystem;
 using DotNetNuke.Services.Localization;
@@ -28,6 +29,11 @@ namespace R7.MiniGallery
 	public partial class ViewMiniGallery : MiniGalleryPortalModuleBase, IActionable
 	{
 		#region Properties 
+		
+		public string EditIconUrl
+		{
+			get { return IconController.IconURL ("Edit"); }
+		}
 
 		#endregion
 

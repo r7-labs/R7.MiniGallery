@@ -1,10 +1,10 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewMiniGallery.ascx.cs" Inherits="R7.MiniGallery.ViewMiniGallery" %>
-<%-- <asp:Label id="labelMessage" runat="server" CssClass="dnnFormMessage dnnFormInfo" Visible="false" />--%>
-<asp:DataList id="listImages" DataKeyField="ImageID" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" OnItemDataBound="listImages_ItemDataBound" CssClass="MG_List">
+<asp:DataList id="listImages" DataKeyField="ImageID" runat="server" CssClass="MG_List"
+	RepeatLayout="Flow" RepeatDirection="Horizontal" OnItemDataBound="listImages_ItemDataBound">
 	<ItemTemplate>
 		<div style="display:inline-block">
 			<asp:HyperLink id="linkEdit" runat="server" Visible="<%# IsEditable %>">
-				<asp:Image id="imageEdit" runat="server" ImageUrl="~/images/edit.gif" Visible="<%#IsEditable%>" ResourceKey="Edit" CssClass="MG_Edit" />
+				<asp:Image id="imageEdit" runat="server" ImageUrl="<%# EditIconUrl %>" Visible="<%# IsEditable %>" ResourceKey="Edit" CssClass="MG_Edit" />
 			</asp:HyperLink>
 			<asp:HyperLink id="linkImage" runat="server">
 				<asp:Image id="imageImage" runat="server" CssClass="MG_Image" />
