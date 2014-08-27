@@ -58,17 +58,17 @@ namespace R7.MiniGallery
 		}
 		*/
 
-		public IList<ImageInfo> GetImagesTopN (int moduleId, bool showAll, bool sortAscending, int topn = 0)
+		public IEnumerable<ImageInfo> GetImagesTopN (int moduleId, bool showAll, bool sortAscending, int topn = 0)
 		{
 			var sql = string.Format (
 				"SELECT {0} * FROM dbo.MiniGallery_Images WHERE ModuleId={1} {2} ORDER BY SortIndex {3};",
-				(topn > 0)? string.Format("TOP({0})", topn) : "", 
+				(topn > 0)? string.Format("TOP({0})", topn) : string.Empty, 
 				moduleId,
-				showAll? "" : "AND IsPublished=1",
+				!showAll? "AND IsPublished=1" : string.Empty,
 				sortAscending ? "ASC" : "DESC"
 			);
 		
-			return GetObjects<ImageInfo> (System.Data.CommandType.Text, sql).ToList(); 
+			return GetObjects<ImageInfo> (System.Data.CommandType.Text, sql); 
 		}
 
 		#endregion
