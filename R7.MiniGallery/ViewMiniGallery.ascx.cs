@@ -117,8 +117,7 @@ namespace R7.MiniGallery
 		#endregion
 
 		/// <summary>
-		/// Handles the items being bound to the datalist control. In this method we merge the data with the
-		/// template defined for this control to produce the result to display to the user
+		/// Handles the items being bound to the datalist control.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -139,15 +138,19 @@ namespace R7.MiniGallery
 			#region Link
 
 			// TODO: url type (secured or none) must be set in settings
-			linkImage.NavigateUrl = Utils.FormatURL (this, image.Url, false);
 
-			var target = MiniGallerySettings.Target;
-			if (target != "none")
-				linkImage.Target = target;
+			if (!string.IsNullOrWhiteSpace (image.Url))
+			{	
+				linkImage.NavigateUrl = Utils.FormatURL (this, image.Url, false);
+
+				var target = MiniGallerySettings.Target;
+				if (target != "none")
+					linkImage.Target = target;
+			}
 
 			if (ImageViewer == ImageViewer.LightBox2)
 			{
-				linkImage.Attributes.Add ("data-lightbox", "module_" + ModuleId);
+				linkImage.Attributes.Add ("data-lightbox", "module_" + TabModuleId);
 				linkImage.Attributes.Remove ("target");
 			}
 
@@ -157,8 +160,6 @@ namespace R7.MiniGallery
 
 			linkEdit.NavigateUrl = Utils.EditUrl (this, "Edit", "ImageID", image.ImageID.ToString ());
 
-			// ModuleContext.NavigateUrl (TabId, "Edit", false, "mid", ModuleId.ToString(), "ImageID", image.ImageID.ToString());
-
 			// without popups support:
 			// linkEdit.NavigateUrl = EditUrl (TabId, "Edit",  false, "mid", ModuleId.ToString(), "ImageID", image.ImageID.ToString());
 
@@ -166,12 +167,15 @@ namespace R7.MiniGallery
 
 			#region Image
 
+			// old:
 			// imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
+
 			imageImage.ImageUrl = string.Format ("/imagehandler.ashx?fileid={0}&width={1}",
 				image.ImageFileID, MiniGallerySettings.ImageWidth.Replace ("px", ""));
-			imageImage.ToolTip = image.Title;
-			imageImage.AlternateText = image.Alt;
 
+			imageImage.AlternateText = image.Alt;
+			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;
+			
 			// NOTE: img width is always 100%, so we don't need this		
 			// imageImage.Width = Unit.Parse (settings.ImageWidth);
 			// imageImage.Height = Unit.Parse (settings.ImageHeight);
