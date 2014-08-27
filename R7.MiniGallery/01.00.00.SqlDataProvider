@@ -5,73 +5,44 @@
 -- Create tables
 
 IF NOT EXISTS (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}MiniGallery_Images]') and OBJECTPROPERTY(id, N'IsTable') = 1)
-	BEGIN
-		CREATE TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images](
-			[ImageID] [int] IDENTITY(1,1) NOT NULL,
-			[Alt] [nvarchar](255) NOT NULL,
-			[Title] [nvarchar](255) NULL,
-			[URL] [nvarchar](255) NULL,
-			[ImageFileID] [int] NOT NULL,
-			[ModuleID] [int] NOT NULL,
-			[SortIndex] [int] NOT NULL,
-			[IsPublished] [bit] NOT NULL,
-			[CreatedOnDate] [datetime] NOT NULL,
-			[CreatedByUserID] [int] NULL,
-			[LastModifiedOnDate] [datetime] NOT NULL,
-			[LastModifiedByUserID] [int] NULL,
-		 CONSTRAINT [PK_{objectQualifier}MiniGallery_Images] PRIMARY KEY CLUSTERED 
-		(
-			[ImageID] ASC
-		) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-		) ON [PRIMARY]
-	
-		/*
-		ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
-			ADD CONSTRAINT [DF_{objectQualifier}MiniGallery_Images_SortIndex] DEFAULT ((0)) FOR [SortIndex]
-	
-		ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
-			ADD CONSTRAINT [DF_{objectQualifier}MiniGallery_Images_IsEnabled] DEFAULT ((1)) FOR [IsPublished]
-		*/
-	
-		ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
-			WITH CHECK ADD CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Files] 
-				FOREIGN KEY([ImageFileID]) REFERENCES {databaseOwner}[{objectQualifier}Files] ([FileId])
-					ON DELETE CASCADE
-	
-		ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
-			CHECK CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Files]
-	
-		ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
-			WITH CHECK ADD CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Modules] 
-				FOREIGN KEY([ModuleID]) REFERENCES {databaseOwner}[{objectQualifier}Modules] ([ModuleID])
-					ON DELETE CASCADE
-	
-		ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
-			CHECK CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Modules]
+BEGIN
+	CREATE TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
+	(
+		[ImageID] [int] IDENTITY(1,1) NOT NULL,
+		[ModuleID] [int] NOT NULL,
+		[ImageFileID] [int] NOT NULL,
+		[Alt] [nvarchar](255) NOT NULL,
+		[Title] [nvarchar](255) NULL,
+		[URL] [nvarchar](255) NULL,
+		[SortIndex] [int] NOT NULL,
+		[IsPublished] [bit] NOT NULL,
+		[CreatedOnDate] [datetime] NOT NULL,
+		[CreatedByUserID] [int] NULL,
+		[LastModifiedOnDate] [datetime] NOT NULL,
+		[LastModifiedByUserID] [int] NULL,
+	)
 
-	END
+	ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
+		ADD CONSTRAINT [PK_{objectQualifier}MiniGallery_Images] PRIMARY KEY CLUSTERED ([ImageID])
+	
+	CREATE NONCLUSTERED INDEX [IX_{objectQualifier}MiniGallery_Images_Modules] 
+		ON {databaseOwner}[{objectQualifier}MiniGallery_Images] ([ModuleID])
+
+	ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
+		WITH CHECK ADD CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Files] 
+			FOREIGN KEY([ImageFileID]) REFERENCES {databaseOwner}[{objectQualifier}Files] ([FileId])
+				ON DELETE CASCADE
+
+	ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
+		CHECK CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Files]
+
+	ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
+		WITH CHECK ADD CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Modules] 
+			FOREIGN KEY([ModuleID]) REFERENCES {databaseOwner}[{objectQualifier}Modules] ([ModuleID])
+				ON DELETE CASCADE
+
+	ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images] 
+		CHECK CONSTRAINT [FK_{objectQualifier}MiniGallery_Images_{objectQualifier}Modules]
+
+END
 GO
-
--- Drop existing stored procedures
-
----- Just example:
--- IF EXISTS (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}MiniGallery_GetMiniGallerys]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
---	DROP PROCEDURE {databaseOwner}{objectQualifier}MiniGallery_GetMiniGallerys
--- GO
-
--- Create stored procedures
-
----- Just example:
--- CREATE PROCEDURE {databaseOwner}{objectQualifier}MiniGallery_GetMiniGallerys
---	@ModuleId int
--- AS 
--- SELECT [MiniGalleryID]
---	[ModuleID],
---	[Content],
---	[CreatedByUser],
---	[CreatedOnDate],
---	'CreatedByUserName' = {objectQualifier}Users.FirstName + ' ' + {objectQualifier}Users.LastName
--- FROM {objectQualifier}MiniGallery_MiniGallerys
--- INNER JOIN {objectQualifier}Users on {objectQualifier}MiniGallery_MiniGallerys.CreatedByUser = {objectQualifier}Users.UserId
--- WHERE [ModuleID] = @ModuleId
--- GO
