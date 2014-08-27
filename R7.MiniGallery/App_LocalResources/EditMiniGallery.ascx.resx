@@ -49,7 +49,7 @@
   	<value>Sort index value. </value>
   </data>
   <data name="labelIsPublished.Text" xml:space="preserve">
-  	<value>Published</value>
+  	<value>Is published</value>
   </data>
   <data name="labelIsPublished.Help" xml:space="preserve">
   	<value>Uncheck this flag to disable image publication. Unpublished images are visible only to module editors.</value>
