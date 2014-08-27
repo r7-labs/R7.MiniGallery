@@ -116,50 +116,6 @@ namespace R7.MiniGallery
 
 		#endregion
 
-		#region IActionable implementation
-
-		public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions
-		{
-			get
-			{
-				// create a new action to add an item, this will be added 
-				// to the controls dropdown menu
-				var actions = new ModuleActionCollection ();
-
-				actions.Add 
-				(
-					GetNextActionID (), 
-					Localization.GetString ("AddMultipleImages.Text", LocalResourceFile),
-					ModuleActionType.AddContent, 
-					"", "", 
-					Utils.EditUrl (this, "Filter"), 
-					false, 
-					DotNetNuke.Security.SecurityAccessLevel.Edit,
-					true, 
-					false
-				);
-
-				actions.Add 
-				(
-					GetNextActionID (), 
-					Localization.GetString ("AddSingleImage.Text", LocalResourceFile),
-					ModuleActionType.AddContent, 
-					"", "", 
-					Utils.EditUrl (this, "Edit"), 
-					false, 
-					DotNetNuke.Security.SecurityAccessLevel.Edit,
-					true, 
-					false
-				);
-
-				return actions;
-			}
-		}
-
-		#endregion
-
-
-
 		/// <summary>
 		/// Handles the items being bound to the datalist control. In this method we merge the data with the
 		/// template defined for this control to produce the result to display to the user
@@ -265,8 +221,48 @@ namespace R7.MiniGallery
 			// labelTitle.Text += " " + (e.Item.ItemIndex + 1) + " " + e.Item.CssClass ;
 
 			#endregion
-
 		}
+
+		#region IActionable implementation
+
+		public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions
+		{
+			get
+			{
+				// create a new action to add an item, this will be added 
+				// to the controls dropdown menu
+				var actions = new ModuleActionCollection ();
+
+				actions.Add 
+				(
+					GetNextActionID (), 
+					Localization.GetString ("AddMultipleImages.Text", LocalResourceFile),
+					ModuleActionType.AddContent, 
+					"", "", 
+					Utils.EditUrl (this, "Filter"), 
+					false, 
+					DotNetNuke.Security.SecurityAccessLevel.Edit,
+					true, 
+					false
+				);
+
+				actions.Add 
+				(
+					GetNextActionID (), 
+					Localization.GetString ("AddSingleImage.Text", LocalResourceFile),
+					ModuleActionType.AddContent, 
+					"", "", 
+					Utils.EditUrl (this, "Edit"), 
+					false, 
+					DotNetNuke.Security.SecurityAccessLevel.Edit,
+					true, 
+					false
+				);
+
+				return actions;
+			}
+		}
+
+		#endregion
 	}
 }
-
