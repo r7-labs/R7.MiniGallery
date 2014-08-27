@@ -28,7 +28,7 @@
 		
 		<div class="dnnFormItem">
 			<dnn:Label id="labelTarget" runat="server" controlname="ddlTarget" suffix=":" />
-				<asp:DropDownList ID="ddlTarget" runat="server" >
+				<asp:DropDownList ID="ddlTarget" runat="server" Style="width:100px" >
 				    <asp:ListItem Value="none" ResourceKey="ddlTargetItemNone.Text" />
 			        <asp:ListItem Value="other" ResourceKey="ddlTargetItemOther.Text" />
 			        <asp:ListItem Value="_blank" Selected="True" Text="_blank" />
@@ -36,11 +36,9 @@
 	                <asp:ListItem Value="_parent" Text="_parent" />
 	                <asp:ListItem Value="_self" Text="_self" />
 	          </asp:DropDownList>
+			  &#160;
+			  <asp:TextBox id="textTarget" runat="server" CssClass="NormalTextBox" Style="width:310px" />
 	   	</div>
-		<div class="dnnFormItem">
-		    <div class="dnnLabel"></div>
-			<asp:TextBox id="textTarget" runat="server" CssClass="NormalTextBox" />
-		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelUseViewer" runat="server" controlname="checkUseViewer" suffix="?" />
 			<asp:CheckBox id="checkUseViewer" runat="server" />
@@ -55,9 +53,9 @@
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelRowsAndColumns" runat="server" suffix=":" />
-			<asp:DropDownList ID="ddlColumns" runat="server" CssClass="MG_TinyDropDown" />
+			<asp:DropDownList ID="ddlColumns" runat="server" Style="width:100px" />
 			<b> x </b> 
-			<asp:DropDownList ID="ddlRows" runat="server" CssClass="MG_TinyDropDown" /> 
+			<asp:DropDownList ID="ddlRows" runat="server" Style="width:100px" /> 
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelExpand" runat="server" controlname="checkExpand" suffix="?" />
