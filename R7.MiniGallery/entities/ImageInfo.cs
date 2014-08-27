@@ -8,27 +8,27 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.FileSystem;
 
 
-namespace R7.MiniGallery 
+namespace R7.MiniGallery
 {
 	// More attributes for class:
-	// Set caching for table: [Cacheable("Redhound.MiniGallery_Images", CacheItemPriority.Default, 20)] 
+	// Set caching for table: [Cacheable("Redhound.MiniGallery_Images", CacheItemPriority.Default, 20)]
 	// Explicit mapping declaration: [DeclareColumns]
 	
 	// More attributes for class properties:
 	// Custom column name: [ColumnName("ImageID")]
 	// Explicit include column: [IncludeColumn]
 	// Note: DAL 2 have no AutoJoin analogs from PetaPOCO at this time
-	[TableName("MiniGallery_Images")]
-	[PrimaryKey("ImageID", AutoIncrement = true)]
-	[Scope("ModuleID")]
+	[TableName ("MiniGallery_Images")]
+	[PrimaryKey ("ImageID", AutoIncrement = true)]
+	[Scope ("ModuleID")]
 	public class ImageInfo : EntityBase
 	{
 
-        #region Fields
- 
+		#region Fields
+
 
 		#endregion
-		
+
 		/// <summary>
 		/// Empty default cstor
 		/// </summary>
@@ -36,7 +36,7 @@ namespace R7.MiniGallery
 		{
 		}
 
-        #region Properties
+		#region Properties
 
 		public int ImageID { get; set; }
 
@@ -50,10 +50,10 @@ namespace R7.MiniGallery
 
 		public string Url { get; set; }
 
-		public int SortIndex { get;  set; }
+		public int SortIndex { get; set; }
 
 		public bool IsPublished { get; set; }
-	
+
 		#endregion
 
 		#region Joins
@@ -61,12 +61,12 @@ namespace R7.MiniGallery
 		private FileInfo thumbFile;
 
 		[IgnoreColumn]
-		public FileInfo ThumbFile 
+		public FileInfo ThumbFile
 		{
-			get 
+			get
 			{
 				if (thumbFile == null)
-					thumbFile = (FileInfo)FileManager.Instance.GetFile(ImageFileID);
+					thumbFile = (FileInfo)FileManager.Instance.GetFile (ImageFileID);
 				return thumbFile;
 			}
 		}
@@ -74,14 +74,14 @@ namespace R7.MiniGallery
 		private ModuleInfo module;
 
 		[IgnoreColumn]
-		public ModuleInfo Module 
+		public ModuleInfo Module
 		{
-			get 
+			get
 			{
 				if (module == null)
 				{
-					var mc = new ModuleController();
-					module = mc.GetModule(ModuleID);
+					var mc = new ModuleController ();
+					module = mc.GetModule (ModuleID);
 				}
 				return module;
 			}
@@ -90,37 +90,37 @@ namespace R7.MiniGallery
 		private string createdByUserName;
 
 		[IgnoreColumn]
-		public string CreatedByUserName 
+		public string CreatedByUserName
 		{ 
 			get
 			{
-				if (createdByUserName == null) 
+				if (createdByUserName == null)
 				{
 					var portalId = PortalController.GetCurrentPortalSettings ().PortalId;
 					var user = UserController.GetUserById (portalId, CreatedByUserID);
-					if (user != null) 
+					if (user != null)
 						createdByUserName = user.DisplayName;
-					else 
+					else
 						createdByUserName = "unknown";
 				}
 				return createdByUserName;
 			}
 		}
-		
+
 		private string lastModifiedByUserName;
-		
+
 		[IgnoreColumn]
 		public string LastModifiedByUserName
 		{ 
 			get
 			{
-				if (lastModifiedByUserName == null) 
+				if (lastModifiedByUserName == null)
 				{
 					var portalId = PortalController.GetCurrentPortalSettings ().PortalId;
 					var user = UserController.GetUserById (portalId, LastModifiedByUserID);
-					if (user != null) 
+					if (user != null)
 						lastModifiedByUserName = user.DisplayName;
-					else 
+					else
 						lastModifiedByUserName = "unknown";
 				}
 				return lastModifiedByUserName;
@@ -135,7 +135,7 @@ namespace R7.MiniGallery
 			lastModifiedByUserName = null;
 		}
 
-        #endregion
+		#endregion
 	}
 }
 

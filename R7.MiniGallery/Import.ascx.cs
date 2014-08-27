@@ -201,7 +201,7 @@ namespace R7.MiniGallery
 		{
 			base.OnLoad (e);
 
-			try 
+			try
 			{
 				/*
 				if (DotNetNuke.Framework.AJAX.IsInstalled())
@@ -211,7 +211,7 @@ namespace R7.MiniGallery
 					sm.RegisterAsyncPostBackControl(listFiles);
 				}*/
 
-				if (!IsPostBack) 
+				if (!IsPostBack)
 				{
 					// fill custom filter textbox with current selection in a filter list
 					textCustomThumbFilter.Text = ddlThumbFilter.SelectedValue;
@@ -223,17 +223,17 @@ namespace R7.MiniGallery
 					//ddlFolder.SelectedIndex = 0;
 
 					foreach (var folder in FolderManager.Instance.GetFolders(PortalId).OrderBy(f => f.FolderPath))
-						ddlFolder.Items.Add(new ListItem(folder.FolderPath, folder.FolderID.ToString()));
+						ddlFolder.Items.Add (new ListItem (folder.FolderPath, folder.FolderID.ToString ()));
 
 					// set text for portal root folder
-					ddlFolder.Items[0].Text = Localization.GetString("PortalRoot.Text", LocalResourceFile);
-   				}
+					ddlFolder.Items [0].Text = Localization.GetString ("PortalRoot.Text", LocalResourceFile);
+				}
 				else
 				{
 
 				}
-			} 
-			catch (Exception ex) 
+			}
+			catch (Exception ex)
 			{
 				Exceptions.ProcessModuleLoadException (this, ex);
 			}
@@ -250,25 +250,24 @@ namespace R7.MiniGallery
 		/// </param>
 		protected void buttonUpdate_Click (object sender, EventArgs e)
 		{
-			try 
+			try
 			{
 				var now = DateTime.Now;
 				var sortIndex = 10;
 
 				foreach (DataListItem item in listPairs.Items)
 				{
-					var checkThumb = item.FindControl("checkThumb") as CheckBox;
-					var hiddenThumb = item.FindControl("hiddenThumb") as HiddenField;
-					var ddlFiles = item.FindControl("ddlFiles") as DropDownList;
+					var checkThumb = item.FindControl ("checkThumb") as CheckBox;
+					var hiddenThumb = item.FindControl ("hiddenThumb") as HiddenField;
+					var ddlFiles = item.FindControl ("ddlFiles") as DropDownList;
 
 					var dataItem = item.DataItem as Tuple<IFileInfo, IFileInfo>;
 
 					// add only selected items
 					if (checkThumb.Checked)
 					{
-						var image = new ImageInfo ()
-						{
-							ImageFileID = int.Parse(hiddenThumb.Value),
+						var image = new ImageInfo () {
+							ImageFileID = int.Parse (hiddenThumb.Value),
 							Alt = "",
 							Title = "",
 							Url = "FileID=" + ddlFiles.SelectedValue,
@@ -281,13 +280,13 @@ namespace R7.MiniGallery
 							LastModifiedByUserID = UserId
 						};
 
-						MiniGalleryController.Add<ImageInfo>(image);
+						MiniGalleryController.Add<ImageInfo> (image);
 					}
 				}
 
 				Response.Redirect (Globals.NavigateURL (), true);
-			} 
-			catch (Exception ex) 
+			}
+			catch (Exception ex)
 			{
 				Exceptions.ProcessModuleLoadException (this, ex);
 			}
@@ -295,7 +294,7 @@ namespace R7.MiniGallery
 
 		protected void ddlFolder_SelectedIndexChanged (object sender, EventArgs e)
 		{
- 			MakePairs ();
+			MakePairs ();
 		}
 
 		protected void ddlThumbFilter_SelectedIndexChanged (object sender, EventArgs e)
@@ -314,7 +313,7 @@ namespace R7.MiniGallery
 			MakePairs ();
 		}
 
-		protected void buttonApplyFilter_Click(object sender, EventArgs e)
+		protected void buttonApplyFilter_Click (object sender, EventArgs e)
 		{
 			MakePairs ();
 		}
@@ -324,56 +323,56 @@ namespace R7.MiniGallery
 			if (ddlFolder.SelectedIndex >= 0)
 			{
 				
-				var folderId = Utils.TryParseInt32(ddlFolder.SelectedValue, Null.NullInteger);
+				var folderId = Utils.TryParseInt32 (ddlFolder.SelectedValue, Null.NullInteger);
 				
-				if (!Null.IsNull(folderId))
+				if (!Null.IsNull (folderId))
 				{
-					var folder = FolderManager.Instance.GetFolder(folderId);	
+					var folder = FolderManager.Instance.GetFolder (folderId);	
 					
 					// use one of the 2 default filter regexes or a user-defined one
-					var filterRegex = (ddlThumbFilter.SelectedIndex < 2)? 
+					var filterRegex = (ddlThumbFilter.SelectedIndex < 2) ? 
 						ddlThumbFilter.SelectedItem.Value : textCustomThumbFilter.Text;
 
 					// lists for thumbs and other files
-					var thumbs = new List<IFileInfo>();
-					var files = new List<IFileInfo>();
+					var thumbs = new List<IFileInfo> ();
+					var files = new List<IFileInfo> ();
 				
 					// separate thumbs from other files, using filter regex
-					foreach (var file in FolderManager.Instance.GetFiles(folder)) 
+					foreach (var file in FolderManager.Instance.GetFiles(folder))
 					{
-						if (Regex.IsMatch(
-							Path.GetFileNameWithoutExtension(file.FileName), 
-						    	filterRegex, RegexOptions.IgnoreCase))
+						if (Regex.IsMatch (
+							    Path.GetFileNameWithoutExtension (file.FileName), 
+							    filterRegex, RegexOptions.IgnoreCase))
 							thumbs.Add (file);
 						else
 							files.Add (file);
 					}
 
 					// pass this var to listPairs_ItemDataBound
-					tmpFiles = new List<IFileInfo>(files);
+					tmpFiles = new List<IFileInfo> (files);
 
 					// make a list of IFileInfo pairs
-					var pairs = new List<Tuple<IFileInfo, IFileInfo>>();
+					var pairs = new List<Tuple<IFileInfo, IFileInfo>> ();
 
 					// assume pairs
-					foreach (var thumb in thumbs) 
+					foreach (var thumb in thumbs)
 						for (var i = 0; i < files.Count; i++)
-					{ 
-						var thumbShort = Path.GetFileNameWithoutExtension(thumb.FileName).ToLowerInvariant();
-						var fileShort = Path.GetFileNameWithoutExtension(files[i].FileName).ToLowerInvariant();
+						{ 
+							var thumbShort = Path.GetFileNameWithoutExtension (thumb.FileName).ToLowerInvariant ();
+							var fileShort = Path.GetFileNameWithoutExtension (files [i].FileName).ToLowerInvariant ();
 
-						// the thumb filename must be a substring of target filename
-						if (thumbShort.Contains(fileShort))
-						{
-							pairs.Add (new Tuple<IFileInfo,IFileInfo>(thumb, files[i]));
-							files.RemoveAt(i);
-							break;
+							// the thumb filename must be a substring of target filename
+							if (thumbShort.Contains (fileShort))
+							{
+								pairs.Add (new Tuple<IFileInfo,IFileInfo> (thumb, files [i]));
+								files.RemoveAt (i);
+								break;
+							}
 						}
-					}
 
 					// bound pairs to the datalist
 					listPairs.DataSource = pairs;
-					listPairs.DataBind();
+					listPairs.DataBind ();
 					// if no pairs, list are empty (it's usefull)
 
 					// define Update button visibility
@@ -383,24 +382,24 @@ namespace R7.MiniGallery
 		}
 
 		private List<IFileInfo> tmpFiles;
-		
+
 		protected void listPairs_ItemDataBound (object sender, System.Web.UI.WebControls.DataListItemEventArgs e)
 		{
 			var pair = e.Item.DataItem as Tuple<IFileInfo,IFileInfo>;
 
-			var checkThumb = e.Item.FindControl("checkThumb") as CheckBox;
-			var hiddenThumb = e.Item.FindControl("hiddenThumb") as HiddenField;
-			var ddlFiles = e.Item.FindControl("ddlFiles") as DropDownList;
+			var checkThumb = e.Item.FindControl ("checkThumb") as CheckBox;
+			var hiddenThumb = e.Item.FindControl ("hiddenThumb") as HiddenField;
+			var ddlFiles = e.Item.FindControl ("ddlFiles") as DropDownList;
 			
 			checkThumb.Checked = true;
 			checkThumb.Text = pair.Item1.FileName;
 
 			// store FileId for a thumb in a hidden field
-			hiddenThumb.Value = pair.Item1.FileId.ToString();
+			hiddenThumb.Value = pair.Item1.FileId.ToString ();
 
-			foreach (var file in tmpFiles) 
+			foreach (var file in tmpFiles)
 			{
-				ddlFiles.Items.Add (new ListItem (file.FileName, file.FileId.ToString()));
+				ddlFiles.Items.Add (new ListItem (file.FileName, file.FileId.ToString ()));
 				if (file.FileId == pair.Item2.FileId)
 					ddlFiles.SelectedIndex = ddlFiles.Items.Count - 1;
 			}

@@ -10,7 +10,7 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.UserControls;
 
-// TODO: Update imagePreview then new file in urlImage is selected 
+// TODO: Update imagePreview then new file in urlImage is selected
 
 namespace R7.MiniGallery
 {
@@ -22,9 +22,9 @@ namespace R7.MiniGallery
 
 		// TODO: ImageInfo must be Serializable
 
-		private ImageInfo Image 
+		private ImageInfo Image
 		{
-			get 
+			get
 			{
 				if (_image == null)
 				{
@@ -49,7 +49,7 @@ namespace R7.MiniGallery
 				}
 				return _image;
 			}
-			set 
+			set
 			{
 				_image = value;
 				//ViewState["Image"] = _image;
@@ -120,23 +120,23 @@ namespace R7.MiniGallery
 
 						// make portal-relative path
 						// form url like /portals/0/common/121325/image.jpg
-						pickerImage.FilePath = FileManager.Instance.GetUrl(
-							FileManager.Instance.GetFile(Image.ImageFileID))
-							.Remove(0, PortalSettings.HomeDirectory.Length);
+						pickerImage.FilePath = FileManager.Instance.GetUrl (
+							FileManager.Instance.GetFile (Image.ImageFileID))
+							.Remove (0, PortalSettings.HomeDirectory.Length);
 							
 						// setup audit control
 						ctlAudit.CreatedDate = 
-							Image.CreatedOnDate.ToShortDateString () + " " + 
-							Image.CreatedOnDate.ToLongTimeString();
+							Image.CreatedOnDate.ToShortDateString () + " " +
+						Image.CreatedOnDate.ToLongTimeString ();
 						ctlAudit.LastModifiedDate = 
-							Image.LastModifiedOnDate.ToShortDateString() + " " +
-							Image.LastModifiedOnDate.ToLongTimeString();
+							Image.LastModifiedOnDate.ToShortDateString () + " " +
+						Image.LastModifiedOnDate.ToLongTimeString ();
 						ctlAudit.CreatedByUser = Image.CreatedByUserName;
 						ctlAudit.LastModifiedByUser = Image.LastModifiedByUserName;
 
 						// UpdatePreview ();
 					}
-					else if (Request.QueryString["ImageID"] != null)
+					else if (Request.QueryString ["ImageID"] != null)
 					{
 						// no image with ImageID=x was found in a DB
 						Response.Redirect (Globals.NavigateURL (), true);
@@ -152,7 +152,7 @@ namespace R7.MiniGallery
 				}
 				else // in postback
 				{
-				//	labelTest.Text = pickerImage.FilePath;
+					//	labelTest.Text = pickerImage.FilePath;
 					// UpdatePreview();
 				}
 			}
@@ -184,13 +184,12 @@ namespace R7.MiniGallery
 					// populate new object properties with data from controls 
 					// to add new record
 
-					 var now = DateTime.Now;
+					var now = DateTime.Now;
 
-					 var image = new ImageInfo () 
-					 {
+					var image = new ImageInfo () {
 						Alt = textAlt.Text,
 						Title = textTitle.Text,
-						SortIndex = Utils.TryParseInt32(textSortIndex.Text, 1),
+						SortIndex = Utils.TryParseInt32 (textSortIndex.Text, 1),
 						ModuleID = ModuleId,
 						Url = urlLink.Url,
 						//ThumbFileID = int.Parse(urlImage.Url.Replace ("FileID=", "")),
@@ -200,7 +199,7 @@ namespace R7.MiniGallery
 						CreatedByUserID = UserId,
 						LastModifiedByUserID = UserId,
 						IsPublished = checkIsPublished.Checked
-					 };					
+					};					
 
 					MiniGalleryController.Add<ImageInfo> (image);
 				}

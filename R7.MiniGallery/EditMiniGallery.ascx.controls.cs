@@ -9,7 +9,7 @@ using DotNetNuke.Web.UI.WebControls;
 namespace R7.MiniGallery
 {
 	public partial class EditMiniGallery
-	{	
+	{
 		protected LinkButton buttonUpdate;
 		protected LinkButton buttonDelete;
 		protected HyperLink linkCancel;

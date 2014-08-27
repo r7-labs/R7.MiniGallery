@@ -10,7 +10,7 @@ using DotNetNuke.UI.UserControls;
 using DotNetNuke.Common.Utilities;
 
 namespace R7.MiniGallery
-{	
+{
 	public partial class SettingsMiniGallery : MiniGalleryModuleSettingsBase
 	{
 		/// <summary>
@@ -76,7 +76,7 @@ namespace R7.MiniGallery
 				Exceptions.ProcessModuleLoadException (this, ex);
 			}
 		}
-      
+
 		/// <summary>
 		/// handles updating the module settings for this control
 		/// </summary>
@@ -92,8 +92,8 @@ namespace R7.MiniGallery
 				MiniGallerySettings.MaxHeight = int.TryParse (textMaxHeight.Text, out maxHeight) ? maxHeight : -1;
 
 				// parse and store image size
-				MiniGallerySettings.ImageWidth = Utils.ParseToUnit (textImageWidth.Text, 1).ToString();
-				MiniGallerySettings.ImageHeight = Utils.ParseToUnit (textImageHeight.Text, 1).ToString();
+				MiniGallerySettings.ImageWidth = Utils.ParseToUnit (textImageWidth.Text, 1).ToString ();
+				MiniGallerySettings.ImageHeight = Utils.ParseToUnit (textImageHeight.Text, 1).ToString ();
 /*
 				try 
 				{

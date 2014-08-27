@@ -8,7 +8,7 @@ using DotNetNuke.UI.WebControls;
 namespace R7.MiniGallery
 {
 	public partial class SettingsMiniGallery
-	{	
+	{
 		protected LabelControl labelViewerCssClass;
 		protected TextBox textViewerCssClass;
 		protected LabelControl labelStyleSet;

@@ -40,10 +40,23 @@ using DotNetNuke.Services.Localization;
 
 namespace R7.MiniGallery
 {
-	public enum ImageViewer { LightBox2, YoxView, FancyBox2, ColorBox }
+	public enum ImageViewer
+	{
+		LightBox2,
+		YoxView,
+		FancyBox2,
+		ColorBox
+
+	}
 
 	// public enum ScrollBar { ? }
-	public enum SortType { Index = 0, DateCreated, DateModified }
+	public enum SortType
+	{
+		Index = 0,
+		DateCreated,
+		DateModified
+
+	}
 
 	/// <summary>
 	/// Module message types.
@@ -279,10 +292,10 @@ namespace R7.MiniGallery
 
 		public static Unit ParseToUnit (string value, double minvalue)
 		{
-			try 
+			try
 			{
-				var unit = Unit.Parse(value);
-				if (unit.Value <= minvalue) 
+				var unit = Unit.Parse (value);
+				if (unit.Value <= minvalue)
 					return Unit.Empty;
 				return unit; 
 			}
@@ -295,7 +308,7 @@ namespace R7.MiniGallery
 		public static int TryParseInt32 (string _value, int defValue)
 		{
 			int tmp;
-			return int.TryParse (_value, out tmp)? tmp : defValue; 
+			return int.TryParse (_value, out tmp) ? tmp : defValue; 
 		}
 	}
 	// class

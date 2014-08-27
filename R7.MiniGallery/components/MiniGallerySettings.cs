@@ -12,13 +12,14 @@ namespace R7.MiniGallery
 	/// </summary>
 	public partial class MiniGallerySettings : SettingsWrapper
 	{
- 		public MiniGallerySettings (IModuleControl module) : base (module)
+		public MiniGallerySettings (IModuleControl module) : base (module)
 		{
 		}
 
 		public MiniGallerySettings (ModuleInfo module) : base (module)
 		{
 		}
+
 		#region Properties for settings
 
 		/// <summary>
@@ -78,7 +79,7 @@ namespace R7.MiniGallery
 			get { return ReadSetting<string> ("MiniGallery_ImageWidth", string.Empty, true); }
 			set { WriteSetting<string> ("MiniGallery_ImageWidth", value, true); }
 		}
-		
+
 		public string ImageHeight
 		{
 			get { return ReadSetting<string> ("MiniGallery_ImageHeight", string.Empty, true); }
@@ -117,7 +118,7 @@ namespace R7.MiniGallery
 
 
 
-        #endregion
+		#endregion
 	}
 }
 

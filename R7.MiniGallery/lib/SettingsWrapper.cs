@@ -133,5 +133,5 @@ namespace R7.MiniGallery
 	}
 	// class
 }
- // namespace
+// namespace
 

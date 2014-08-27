@@ -28,8 +28,8 @@ namespace R7.MiniGallery
 {
 	public partial class ViewMiniGallery : MiniGalleryPortalModuleBase, IActionable
 	{
-		#region Properties 
-		
+		#region Properties
+
 		public string EditIconUrl
 		{
 			get { return IconController.IconURL ("Edit"); }
@@ -37,7 +37,7 @@ namespace R7.MiniGallery
 
 		#endregion
 
-    	#region Handlers 
+		#region Handlers
 
 		/*
 		protected override void OnInit(EventArgs e)
@@ -54,11 +54,11 @@ namespace R7.MiniGallery
 		/// <param name="e">Event args.</param>
 		protected override void OnLoad (EventArgs e)
 		{
-			base.OnLoad(e);
+			base.OnLoad (e);
 
-			try 
+			try
 			{
-				if (!IsPostBack) 
+				if (!IsPostBack)
 				{
 					// number of columns
 					// NOTE: Setting columns to auto need also special styleset!
@@ -66,7 +66,7 @@ namespace R7.MiniGallery
 					{	
 						listImages.RepeatColumns = MiniGallerySettings.Columns;
 						if (MiniGallerySettings.Expand)
-							listImages.ItemStyle.Width = Unit.Percentage(100 / listImages.RepeatColumns);
+							listImages.ItemStyle.Width = Unit.Percentage (100 / listImages.RepeatColumns);
 					}
 
 					// add current style CSS class to the list
@@ -81,7 +81,7 @@ namespace R7.MiniGallery
 						listImages.Style.Add ("max-height", maxHeight + "px");
 
 					// how many images to display
-					var topn = (Null.IsNull(MiniGallerySettings.Columns) || Null.IsNull(MiniGallerySettings.Rows))? 
+					var topn = (Null.IsNull (MiniGallerySettings.Columns) || Null.IsNull (MiniGallerySettings.Rows)) ? 
 					           0 : MiniGallerySettings.Columns * MiniGallerySettings.Rows;
 
 					// get images
@@ -89,10 +89,10 @@ namespace R7.MiniGallery
 				
 					// check if we have some content to display, 
 					// otherwise display a sample default content from the resources
-					if (!images.Any())
+					if (!images.Any ())
 					{
-						if (IsEditable) 
-							Utils.Message(this, "AddImages.Help", MessageType.Info, true);
+						if (IsEditable)
+							Utils.Message (this, "AddImages.Help", MessageType.Info, true);
 						else 
 							// hide module if there are no content to display
 							ContainerControl.Visible = false;
@@ -107,18 +107,21 @@ namespace R7.MiniGallery
 //					if (listImages.RepeatColumns % 2 == 0 && items.Count % 2 == 1)
 //						items.Add(new ImageInfo() {ThumbFileID = Null.NullInteger} );
 				}
-			} catch (Exception ex) 
+			}
+			catch (Exception ex)
 			{
 				Exceptions.ProcessModuleLoadException (this, ex);
 			}
 		}
-		
-		#endregion		
-			
-        #region IActionable implementation
-        
-		public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions {
-			get {
+
+		#endregion
+
+		#region IActionable implementation
+
+		public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions
+		{
+			get
+			{
 				// create a new action to add an item, this will be added 
 				// to the controls dropdown menu
 				var actions = new ModuleActionCollection ();
@@ -127,13 +130,13 @@ namespace R7.MiniGallery
 				(
 					GetNextActionID (), 
 					Localization.GetString ("AddMultipleImages.Text", LocalResourceFile),
-                    ModuleActionType.AddContent, 
-                    "", "", 
-                    Utils.EditUrl (this, "Filter"), 
-                    false, 
-                    DotNetNuke.Security.SecurityAccessLevel.Edit,
-                    true, 
-                    false
+					ModuleActionType.AddContent, 
+					"", "", 
+					Utils.EditUrl (this, "Filter"), 
+					false, 
+					DotNetNuke.Security.SecurityAccessLevel.Edit,
+					true, 
+					false
 				);
 
 				actions.Add 
@@ -153,7 +156,7 @@ namespace R7.MiniGallery
 			}
 		}
 
-        #endregion
+		#endregion
 
 
 
@@ -188,17 +191,17 @@ namespace R7.MiniGallery
 
 			if (ImageViewer == ImageViewer.LightBox2)
 			{
-				linkImage.Attributes.Add("data-lightbox","module_" + ModuleId);
-				linkImage.Attributes.Remove("target");
+				linkImage.Attributes.Add ("data-lightbox", "module_" + ModuleId);
+				linkImage.Attributes.Remove ("target");
 			}
 
 			#endregion
 
 			#region Edit Link
 
-			linkEdit.NavigateUrl = Utils.EditUrl (this, "Edit", "ImageID", image.ImageID.ToString());
+			linkEdit.NavigateUrl = Utils.EditUrl (this, "Edit", "ImageID", image.ImageID.ToString ());
 
-				// ModuleContext.NavigateUrl (TabId, "Edit", false, "mid", ModuleId.ToString(), "ImageID", image.ImageID.ToString());
+			// ModuleContext.NavigateUrl (TabId, "Edit", false, "mid", ModuleId.ToString(), "ImageID", image.ImageID.ToString());
 
 			// without popups support:
 			// linkEdit.NavigateUrl = EditUrl (TabId, "Edit",  false, "mid", ModuleId.ToString(), "ImageID", image.ImageID.ToString());
@@ -208,8 +211,8 @@ namespace R7.MiniGallery
 			#region Image
 
 			// imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
-			imageImage.ImageUrl = string.Format("/imagehandler.ashx?fileid={0}&width={1}",
-				image.ImageFileID, MiniGallerySettings.ImageWidth.Replace("px",""));
+			imageImage.ImageUrl = string.Format ("/imagehandler.ashx?fileid={0}&width={1}",
+				image.ImageFileID, MiniGallerySettings.ImageWidth.Replace ("px", ""));
 			imageImage.ToolTip = image.Title;
 			imageImage.AlternateText = image.Alt;
 
@@ -238,7 +241,7 @@ namespace R7.MiniGallery
 
 			labelTitle.Visible = MiniGallerySettings.ShowTitles;
 
-			if (!string.IsNullOrWhiteSpace(image.Title))
+			if (!string.IsNullOrWhiteSpace (image.Title))
 				labelTitle.Text = image.Title;
 			// THINK: Separate option to hide empty titles?
 			// else labelTitle.Visible = false;
@@ -247,12 +250,12 @@ namespace R7.MiniGallery
 
 			#region Item styles
 
-			e.Item.CssClass = (e.Item.ItemIndex % 2 == 0)? "MG_Item" : "MG_AltItem";
+			e.Item.CssClass = (e.Item.ItemIndex % 2 == 0) ? "MG_Item" : "MG_AltItem";
 
 			if (listImages.RepeatColumns > 0)
 			{
-				e.Item.CssClass += (e.Item.ItemIndex < listImages.RepeatColumns)? " MG_ColumnStart" : "";
-				e.Item.CssClass += (e.Item.ItemIndex % listImages.RepeatColumns == 0)? " MG_RowStart dnnClear" : "";
+				e.Item.CssClass += (e.Item.ItemIndex < listImages.RepeatColumns) ? " MG_ColumnStart" : "";
+				e.Item.CssClass += (e.Item.ItemIndex % listImages.RepeatColumns == 0) ? " MG_RowStart dnnClear" : "";
 			}
 
 			if (!image.IsPublished)

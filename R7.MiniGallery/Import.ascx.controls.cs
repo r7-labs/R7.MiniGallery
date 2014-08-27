@@ -9,7 +9,7 @@ using DotNetNuke.Web.UI.WebControls;
 namespace R7.MiniGallery
 {
 	public partial class Import
-	{	
+	{
 		protected LinkButton buttonUpdate;
 		protected HyperLink linkCancel;
 	
