@@ -92,7 +92,7 @@ namespace R7.MiniGallery
 					// check if we have some content to display, 
 					// otherwise display a sample default content from the resources
 					if (items.Count == 0 && IsEditable) 
-						Utils.Message(this, MessageSeverity.Info, Localization.GetString("AddImages.Help", LocalResourceFile));
+						Utils.Message(this, "AddImages.Help", MessageType.Info, true);
 			
 //					if (listImages.RepeatColumns % 2 == 0 && items.Count % 2 == 1)
 //						items.Add(new ImageInfo() {ThumbFileID = Null.NullInteger} );
