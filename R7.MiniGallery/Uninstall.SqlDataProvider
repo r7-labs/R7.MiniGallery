@@ -2,12 +2,5 @@
 -- replace {databaseOwner} and {objectQualifier} with real values. 
 -- Defaults is "dbo." for database owner and "" for object qualifier 
 
--- Drop tables
-
 DROP TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
 GO
-
--- Drop stored procedures
-
--- DROP PROCEDURE {databaseOwner}[{objectQualifier}MiniGallery_GetMiniGallerys]
--- GO
