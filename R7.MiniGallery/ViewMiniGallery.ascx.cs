@@ -38,11 +38,13 @@ namespace R7.MiniGallery
 		#endregion
 
     	#region Handlers 
-    	
+
+		/*
 		protected override void OnInit(EventArgs e)
 		{
 			base.OnInit (e);
 		}
+        */
 
 		private ImageViewer ImageViewer = ImageViewer.LightBox2;
 
