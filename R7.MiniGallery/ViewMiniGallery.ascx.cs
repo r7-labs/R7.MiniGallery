@@ -71,36 +71,41 @@ namespace R7.MiniGallery
 
 					listImages.CssClass += " MG_" + MiniGallerySettings.StyleSet;
 
-					if (ImageViewer == ImageViewer.YoxView)
-						listImages.CssClass += " yoxview";
+					// if (ImageViewer == ImageViewer.YoxView)
+					// 	listImages.CssClass += " yoxview";
 							
 					// set maximum height of a list
 					var maxHeight = MiniGallerySettings.MaxHeight;
 					if (maxHeight >= 0)
-						listImages.Style.Add ("max-height", maxHeight.ToString() + "px");
-
-					//listImages.RepeatLayout = RepeatLayout.Flow;
+						listImages.Style.Add ("max-height", maxHeight + "px");
 
 					// get images
 					// if settings.Row <=0, all files displayed
 
-					var topn = (MiniGallerySettings.Columns == Null.NullInteger || MiniGallerySettings.Rows == Null.NullInteger)? 
+					var topn = (Null.IsNull(MiniGallerySettings.Columns) || Null.IsNull(MiniGallerySettings.Rows))? 
 					           0 : MiniGallerySettings.Columns * MiniGallerySettings.Rows;
 
-					var items = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, true, topn);
+					var images = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, true, topn);
 				
 					// check if we have some content to display, 
 					// otherwise display a sample default content from the resources
-					if (items.Count == 0 && IsEditable) 
-						Utils.Message(this, "AddImages.Help", MessageType.Info, true);
-			
+					if (!images.Any())
+					{
+						if (IsEditable) 
+							Utils.Message(this, "AddImages.Help", MessageType.Info, true);
+						else 
+							// hide module if there are no content to display
+							ContainerControl.Visible = false;
+					}
+					else
+					{
+						// bind the data
+						listImages.DataSource = images;
+						listImages.DataBind ();
+					}
+
 //					if (listImages.RepeatColumns % 2 == 0 && items.Count % 2 == 1)
 //						items.Add(new ImageInfo() {ThumbFileID = Null.NullInteger} );
-
-					// bind the data
-					//n = 0;
-					listImages.DataSource = items;
-					listImages.DataBind ();
 				}
 			} catch (Exception ex) 
 			{
