@@ -77,7 +77,7 @@
 {
 	/* TITLE HACK */
 	/* height:40px; */
-	/* white-space:pre-wrap; */
+	white-space:pre-wrap;
 	/* END HACK */
 	display:block;
 	font-size:10px;
