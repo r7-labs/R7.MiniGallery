@@ -28,6 +28,14 @@ namespace R7.MiniGallery
 {
 	public partial class ViewMiniGallery : MiniGalleryPortalModuleBase, IActionable
 	{
+		#region Fields
+		
+		// TODO: Add more R7.Imagehandler tags 
+
+		private string [] imageHandlerTags = new [] { "fileid", "width", "height" };
+		
+		#endregion
+
 		#region Properties
 
 		public string EditIconUrl
@@ -65,8 +73,8 @@ namespace R7.MiniGallery
 					if (MiniGallerySettings.Columns > 0)
 					{	
 						listImages.RepeatColumns = MiniGallerySettings.Columns;
-						if (MiniGallerySettings.Expand)
-							listImages.ItemStyle.Width = Unit.Percentage (100 / listImages.RepeatColumns);
+						if (MiniGallerySettings.ExpandColumns)
+							listImages.ItemStyle.Width = Unit.Percentage (100 / listImages.RepeatColumns - 1);
 					}
 
 					// add current style CSS class to the list
@@ -80,12 +88,8 @@ namespace R7.MiniGallery
 					if (maxHeight >= 0)
 						listImages.Style.Add ("max-height", maxHeight + "px");
 
-					// how many images to display
-					var topn = (Null.IsNull (MiniGallerySettings.Columns) || Null.IsNull (MiniGallerySettings.Rows)) ? 
-					           0 : MiniGallerySettings.Columns * MiniGallerySettings.Rows;
-
 					// get images
-					var images = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, true, topn);
+					var images = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, true, MiniGallerySettings.NumberOfRecords);
 				
 					// check if we have some content to display, 
 					// otherwise display a sample default content from the resources
@@ -128,7 +132,7 @@ namespace R7.MiniGallery
 			var image = e.Item.DataItem as ImageInfo;
 
 			// find controls in DataList item template
-			var labelTitle = e.Item.FindControl ("labelTitle") as Label;
+			// var labelTitle = e.Item.FindControl ("labelTitle") as Label;
 			var imageImage = e.Item.FindControl ("imageImage") as Image;
 			var linkImage = e.Item.FindControl ("linkImage") as HyperLink;
 			var linkEdit = e.Item.FindControl ("linkEdit") as HyperLink;
@@ -153,7 +157,7 @@ namespace R7.MiniGallery
 				linkImage.NavigateUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
 			}
 
-			if (ImageViewer == ImageViewer.LightBox2)
+			if (MiniGallerySettings.UseViewer && ImageViewer == ImageViewer.LightBox2)
 			{
 				linkImage.Attributes.Add ("data-lightbox", "module_" + TabModuleId);
 				linkImage.Attributes.Remove ("target");
@@ -172,8 +176,6 @@ namespace R7.MiniGallery
 
 			#region Image
 
-			var formatTags = new [] { "fileid", "width", "height" };
-
 			if (!MiniGallerySettings.UseImageHandler)
 			{
 				imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
@@ -185,7 +187,7 @@ namespace R7.MiniGallery
 				if (!string.IsNullOrWhiteSpace (MiniGallerySettings.ImageHandlerFormat))
 					hanglerUrl += "&" + MiniGallerySettings.ImageHandlerFormat;
 				
-				foreach (var tag in formatTags)
+				foreach (var tag in imageHandlerTags)
 				{
 					var enclosedTag = "{" + tag + "}";
 					
@@ -208,6 +210,26 @@ namespace R7.MiniGallery
 				imageImage.ImageUrl = hanglerUrl;
 			}
 			
+			#region Image size
+
+			if (MiniGallerySettings.FrameWidth.IsEmpty)
+			{
+				if (MiniGallerySettings.ImageWidth != null)
+					imageImage.Width = Unit.Pixel(MiniGallerySettings.ImageWidth.Value);
+			}
+			else
+				imageImage.Width = MiniGallerySettings.FrameWidth;
+			
+			if (MiniGallerySettings.FrameHeight.IsEmpty)
+			{
+				if (MiniGallerySettings.ImageHeight != null)
+					imageImage.Height = Unit.Pixel(MiniGallerySettings.ImageHeight.Value);
+			}
+			else
+				imageImage.Height = MiniGallerySettings.FrameHeight;
+			
+			#endregion
+
 			imageImage.AlternateText = image.Alt;
 			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;
 			
@@ -227,11 +249,12 @@ namespace R7.MiniGallery
 			*/
 
 			// HACK: Titles width hack - title rendering must be done on the client side!
-			e.Item.Width = Unit.Parse (MiniGallerySettings.FrameWidth);
-			e.Item.Height = Unit.Parse (MiniGallerySettings.FrameHeight);
+			// e.Item.Width = Unit.Parse (MiniGallerySettings.FrameWidth);
+			// e.Item.Height = Unit.Parse (MiniGallerySettings.FrameHeight);
 
 			#endregion
 
+			/*
 			#region Title
 
 			labelTitle.Visible = MiniGallerySettings.ShowTitles;
@@ -242,6 +265,7 @@ namespace R7.MiniGallery
 			// else labelTitle.Visible = false;
 
 			#endregion
+             */
 
 			#region Item styles
 

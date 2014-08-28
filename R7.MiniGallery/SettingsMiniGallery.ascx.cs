@@ -22,10 +22,10 @@ namespace R7.MiniGallery
 			{
 				if (!IsPostBack)
 				{
-					// fill columns and rows lists
-					ddlRows.Items.Add (new ListItem (
+					// fill columns list
+					/*ddlRows.Items.Add (new ListItem (
 						Localization.GetString ("Auto.Text", LocalResourceFile), 
-						Null.NullInteger.ToString ()));
+						Null.NullInteger.ToString ()));*/
 
 					ddlColumns.Items.Add (new ListItem (
 						Localization.GetString ("Auto.Text", LocalResourceFile), 
@@ -33,19 +33,21 @@ namespace R7.MiniGallery
 
 					for (var i = 1; i <= 50; i++)
 					{
-						ddlRows.Items.Add (new ListItem (i.ToString ()));
+						// ddlRows.Items.Add (new ListItem (i.ToString ()));
 						ddlColumns.Items.Add (new ListItem (i.ToString ()));
 					}
 
-					Utils.SelectByValue (ddlColumns, MiniGallerySettings.Columns, 0); 
-					// row number value have meaning only if columns number is set
+					Utils.SelectByValue (ddlColumns, MiniGallerySettings.Columns); 
+					/*// row number value have meaning only if columns number is set
 					if (MiniGallerySettings.Columns != Null.NullInteger)
-						Utils.SelectByValue (ddlRows, MiniGallerySettings.Rows, 0); 
-
+						Utils.SelectByValue (ddlRows, MiniGallerySettings.Rows, 0); */
 					// Localize ();	
                 	
 					textImageWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
 					textImageHeight.Text = MiniGallerySettings.ImageHeight.ToString ();
+
+					textFrameWidth.Text = MiniGallerySettings.FrameWidth.ToString ();
+					textFrameHeight.Text = MiniGallerySettings.FrameHeight.ToString ();
 
 					//textViewerCssClass.Text = settings.ViewerCssClass;
 					textStyleSet.Text = MiniGallerySettings.StyleSet;
@@ -63,7 +65,7 @@ namespace R7.MiniGallery
 					checkUseScrollbar.Checked = MiniGallerySettings.UseScrollbar;
 
 					checkShowTitles.Checked = MiniGallerySettings.ShowTitles;
-					checkExpand.Checked = MiniGallerySettings.Expand;
+					checkExpand.Checked = MiniGallerySettings.ExpandColumns;
 
 					// read text before  / text after
 					var module = new ModuleController ().GetTabModule (TabModuleId);
@@ -93,8 +95,18 @@ namespace R7.MiniGallery
 
 				// parse and store image size
 				
-				MiniGallerySettings.ImageWidth = int.Parse (textImageWidth.Text);
-				MiniGallerySettings.ImageHeight = int.Parse (textImageHeight.Text);
+				MiniGallerySettings.ImageWidth = Utils.ParseToNullableInt (textImageWidth.Text);
+				MiniGallerySettings.ImageHeight = Utils.ParseToNullableInt (textImageHeight.Text);
+
+				if (!string.IsNullOrWhiteSpace(textFrameWidth.Text))
+					MiniGallerySettings.FrameWidth = Unit.Parse(textFrameWidth.Text);
+				else
+					MiniGallerySettings.FrameWidth = Unit.Empty;
+
+				if (!string.IsNullOrWhiteSpace(textFrameHeight.Text))
+					MiniGallerySettings.FrameHeight = Unit.Parse(textFrameHeight.Text);
+				else
+					MiniGallerySettings.FrameHeight = Unit.Empty;
 
 				// MiniGallerySettings.FrameWidth = Utils.ParseToUnit (textImageWidth.Text, 1).ToString ();
 				// MiniGallerySettings.FrameHeight = Utils.ParseToUnit (textImageHeight.Text, 1).ToString ();
@@ -118,13 +130,12 @@ namespace R7.MiniGallery
 
 				// columns & rows
 				MiniGallerySettings.Columns = int.Parse (ddlColumns.SelectedValue);
-				MiniGallerySettings.Rows = int.Parse (ddlRows.SelectedValue);
-
+				
 				// settings.UserScrollbar = checkUseScrollbar.Checked;
 				// settings.UseViewer = checkUseViewer.Checked;
 
 				MiniGallerySettings.ShowTitles = checkShowTitles.Checked;
-				MiniGallerySettings.Expand = checkExpand.Checked;
+				MiniGallerySettings.ExpandColumns = checkExpand.Checked;
 
 				// store text before / text after
 				var mctrl = new ModuleController ();

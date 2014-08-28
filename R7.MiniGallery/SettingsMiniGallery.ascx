@@ -25,7 +25,14 @@
 			<dnn:Label id="labelImageHeight" runat="server" controlname="textImageHeight" suffix=":" />
 			<asp:TextBox id="textImageHeight" runat="server" CssClass="NormalTextBox" />
 		</div>
-		
+	<div class="dnnFormItem">
+			<dnn:Label id="labelFrameWidth" runat="server" controlname="textFrameWidth" suffix=":" />
+			<asp:TextBox id="textFrameWidth" runat="server" CssClass="NormalTextBox" />
+		</div>
+		<div class="dnnFormItem">
+			<dnn:Label id="labelFrameHeight" runat="server" controlname="textFrameHeight" suffix=":" />
+			<asp:TextBox id="textFrameHeight" runat="server" CssClass="NormalTextBox" />
+		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelTarget" runat="server" controlname="ddlTarget" suffix=":" />
 				<asp:DropDownList ID="ddlTarget" runat="server" Style="width:100px" >
@@ -45,17 +52,17 @@
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelUseScrollbar" runat="server" controlname="checkUseScrollbar" suffix="?" />
-			<asp:CheckBox id="checkUseScrollbar" runat="server" />
+			<asp:CheckBox id="checkUseScrollbar" runat="server" Enabled="false" />
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelShowTitles" runat="server" controlname="checkShowTitles" suffix="?" />
 			<asp:CheckBox id="checkShowTitles" runat="server" />
 		</div>
 		<div class="dnnFormItem">
-			<dnn:Label id="labelRowsAndColumns" runat="server" suffix=":" />
+			<dnn:Label id="labelColumns" runat="server" controlname="ddlColumns" suffix=":" />
 			<asp:DropDownList ID="ddlColumns" runat="server" Style="width:100px" />
-			<b> x </b> 
-			<asp:DropDownList ID="ddlRows" runat="server" Style="width:100px" /> 
+			<%-- <b> x </b> 
+			<asp:DropDownList ID="ddlRows" runat="server" Style="width:100px" /> --%>
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelExpand" runat="server" controlname="checkExpand" suffix="?" />

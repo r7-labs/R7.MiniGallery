@@ -30,13 +30,16 @@ namespace R7.MiniGallery
 		protected TextEditor editorHeader;
 		protected LabelControl labelTextAfter;
 		protected TextEditor editorFooter;
-		protected LabelControl labelRowsAndColumns;
+		protected LabelControl labelColumns;
 		protected DropDownList ddlColumns;
-		protected DropDownList ddlRows;
+		// protected DropDownList ddlRows;
 		protected LabelControl labelImageWidth;
 		protected TextBox textImageWidth;
 		protected LabelControl labelImageHeight;
 		protected TextBox textImageHeight;
-
+		protected LabelControl labelFrameWidth;
+		protected TextBox textFrameWidth;
+		protected LabelControl labelFrameHeight;
+		protected TextBox textFrameHeight;
 	}
 }

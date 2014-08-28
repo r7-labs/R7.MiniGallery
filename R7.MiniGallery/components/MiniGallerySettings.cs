@@ -1,6 +1,7 @@
 // TODO: Shorter setting prefix, e.g. MiniGallery_ => r7mg_
 
 using System;
+using System.Web.UI.WebControls;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.UI.Modules;
@@ -90,28 +91,36 @@ namespace R7.MiniGallery
 			set { WriteSetting<string> ("MiniGallery_Target", value, true); }
 		}
 
-		public string FrameWidth
+		public Unit FrameWidth
 		{
-			get { return ReadSetting<string> ("MiniGallery_FrameWidth", string.Empty, true); }
-			set { WriteSetting<string> ("MiniGallery_FrameWidth", value, true); }
+			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_FrameWidth", string.Empty, true)); }
+			set { WriteSetting<string> ("MiniGallery_FrameWidth", value.ToString(), true); }
 		}
 
-		public string FrameHeight
+		public Unit FrameHeight
 		{
-			get { return ReadSetting<string> ("MiniGallery_FrameHeight", string.Empty, true); }
-			set { WriteSetting<string> ("MiniGallery_FrameHeight", value, true); }
+			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_FrameHeight", string.Empty, true)); }
+			set { WriteSetting<string> ("MiniGallery_FrameHeight", value.ToString(), true); }
 		}
 
-		public int ImageWidth
+		public int? ImageWidth
 		{
-			get { return ReadSetting<int> ("MiniGallery_ImageWidth", Null.NullInteger, true); }
-			set { WriteSetting<int> ("MiniGallery_ImageWidth", value, true); }
+			get 
+			{ 
+				var imageWidth = ReadSetting<int> ("MiniGallery_ImageWidth", 240, true);
+				return Null.IsNull (imageWidth) ? null : (int?)imageWidth; 
+			}
+			set { WriteSetting<int> ("MiniGallery_ImageWidth", value ?? Null.NullInteger, true); }
 		}
 		
-		public int ImageHeight
+		public int? ImageHeight
 		{
-			get { return ReadSetting<int> ("MiniGallery_ImageHeight", Null.NullInteger, true); }
-			set { WriteSetting<int> ("MiniGallery_ImageHeight", value, true); }
+			get 
+			{ 
+				var imageHeight = ReadSetting<int> ("MiniGallery_ImageHeight", Null.NullInteger, true);
+				return Null.IsNull(imageHeight)? null : (int?)imageHeight;
+			}
+			set { WriteSetting<int> ("MiniGallery_ImageHeight", value ?? Null.NullInteger, true); }
 		}		
 
 		public bool ShowInfo
@@ -126,10 +135,10 @@ namespace R7.MiniGallery
 			set { WriteSetting<bool> ("MiniGallery_ShowTitles", value, true); }
 		}
 
-		public bool Expand
+		public bool ExpandColumns
 		{
-			get { return ReadSetting<bool> ("MiniGallery_Expand", false, true); }
-			set { WriteSetting<bool> ("MiniGallery_Expand", value, true); }
+			get { return ReadSetting<bool> ("MiniGallery_ExpandColumns", false, true); }
+			set { WriteSetting<bool> ("MiniGallery_ExpandColumns", value, true); }
 		}
 
 		public int Columns
@@ -137,12 +146,19 @@ namespace R7.MiniGallery
 			get { return ReadSetting<int> ("MiniGallery_Columns", Null.NullInteger, true); }
 			set { WriteSetting<int> ("MiniGallery_Columns", value, true); }
 		}
+		
+		public int NumberOfRecords
+		{
+			get { return ReadSetting<int> ("MiniGallery_NumberOfRecords", Null.NullInteger, true); }
+			set { WriteSetting<int> ("MiniGallery_NumberOfRecords", value, true); }
+		}
 
+		/*
 		public int Rows
 		{
 			get { return ReadSetting<int> ("MiniGallery_Rows", Null.NullInteger, true); }
 			set { WriteSetting<int> ("MiniGallery_Rows", value, true); }
-		}
+		}*/
 		
         #endregion
 	}

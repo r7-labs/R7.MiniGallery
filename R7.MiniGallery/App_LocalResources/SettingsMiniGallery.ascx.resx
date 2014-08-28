@@ -52,7 +52,7 @@
     <value>Expand Columns</value>
   </data>
   <data name="labelExpand.Help" xml:space="preserve">
-    <value>If checked, each column width are calculated as 100% / number of columns. Have meaning only if number of columns are specified directly.</value>
+    <value>If checked, each column width are calculated as 100% / number of columns approximately. This setting only effective if a columns number is specified explicitly (not auto).</value>
   </data>
   <data name="labelTextBefore.Text" xml:space="preserve">
     <value>Text Before</value>
@@ -76,26 +76,36 @@
     <value>Footer</value>
   </data>
   <data name="Auto.Text" xml:space="preserve">
-  	<value>(auto)</value>
+  	<value>None (auto)</value>
   </data>
-  <data name="labelRowsAndColumns.Text" xml:space="preserve">
+  <data name="labelColumns.Text" xml:space="preserve">
   	<value>Columns and Rows</value>
   </data>
-   <data name="labelRowsAndColumns.Help" xml:space="preserve">
-  	<value>Set number columns and rows in the image list. If columns set to auto, then rows value has no meaning. 
-  	If both columns and rows values are set, then gallery displays only first (columns x rows) items.</value>
+   <data name="labelColumns.Help" xml:space="preserve">
+  	<value>Set number of columns in the image list. If columns set to auto, all available width will be taken by images.</value>
   </data>
   <data name="labelImageWidth.Text" xml:space="preserve">
   	<value>Image Width</value>
   </data>
   <data name="labelImageWidth.Help" xml:space="preserve">
-  	<value>Specify custom image width in px, % or other CSS units. Leave empty or set to zero or negative value to disable.</value>
+  	<value>Specify thumbnail image width in px. Leave empty or set to zero or negative value to disable.</value>
   </data>
  <data name="labelImageHeight.Text" xml:space="preserve">
   	<value>Image Height</value>
   </data>
   <data name="labelImageHeight.Help" xml:space="preserve">
-  	<value>Specify custom image height in px, % or other CSS units. Leave empty or set to zero or negative value to disable.</value>
+  	<value>Specify thumbnail image width in px. Leave empty or set to zero or negative value to disable.</value>
   </data>
-  
+   <data name="labelFrameWidth.Text" xml:space="preserve">
+    <value>Frame width</value>
+  </data>
+  <data name="labelFrameWidth.Help" xml:space="preserve">
+    <value>Specify width of the displayed image in any CSS units, except percents (%). If not set, thumbnail width or original image width will be used.</value>
+  </data>
+ <data name="labelFrameHeight.Text" xml:space="preserve">
+    <value>Frame Height</value>
+  </data>
+  <data name="labelFrameHeight.Help" xml:space="preserve">
+    <value>Specify height of the displayed image in any CSS units, except percents (%). If not set, thumbnail height or original image height will be used.</value>
+  </data>
 </root>

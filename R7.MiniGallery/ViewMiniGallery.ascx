@@ -2,17 +2,14 @@
 <asp:DataList id="listImages" DataKeyField="ImageID" runat="server" CssClass="MG_List"
 	RepeatLayout="Flow" RepeatDirection="Horizontal" OnItemDataBound="listImages_ItemDataBound">
 	<ItemTemplate>
-		<div style="display:inline-block">
-			<asp:HyperLink id="linkEdit" runat="server" Visible="<%# IsEditable %>">
-				<asp:Image id="imageEdit" runat="server" ImageUrl="<%# EditIconUrl %>" Visible="<%# IsEditable %>" ResourceKey="Edit" CssClass="MG_Edit" />
-			</asp:HyperLink>
-			<asp:HyperLink id="linkImage" runat="server">
-				<asp:Image id="imageImage" runat="server" CssClass="MG_Image" />
-
-			</asp:HyperLink>
-			<asp:Label id="labelTitle" runat="server" CssClass="MG_Title" />
-			<asp:Label id="labelInfo" runat="server" />
-		</div>
+		<asp:HyperLink id="linkEdit" runat="server" Visible="<%# IsEditable %>">
+			<asp:Image id="imageEdit" runat="server" ImageUrl="<%# EditIconUrl %>" Visible="<%# IsEditable %>" ResourceKey="Edit" CssClass="MG_Edit" />
+		</asp:HyperLink>
+		<asp:HyperLink id="linkImage" runat="server">
+			<asp:Image id="imageImage" runat="server" CssClass="MG_Image" />
+		</asp:HyperLink>
+		<%-- <asp:Label id="labelTitle" runat="server" CssClass="MG_Title" /> --%>
+		<%-- <asp:Label id="labelInfo" runat="server" /> --%>
 	</ItemTemplate>
 	<ItemStyle CssClass="MG_Item" />
 	<AlternatingItemStyle CssClass="MG_AltItem" />
