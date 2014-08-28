@@ -43,5 +43,9 @@ namespace R7.MiniGallery
 		protected TextBox textImageHeight;
 		protected CheckBox checkUseImageHandler;
 		protected TextBox textImageHandlerParams;
+		protected LabelControl labelNumberOfRecords;
+		protected TextBox textNumberOfRecords;
+		protected LabelControl labelSortOrder;
+		protected CheckBox checkSortOrder;
 	}
 }

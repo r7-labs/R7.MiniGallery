@@ -123,4 +123,16 @@
   <data name="labelThumbHeight.Help" xml:space="preserve">
     <value>Specify thumbnail image width in px. Leave empty or set to zero or negative value to disable.</value>
   </data>
+  <data name="labelNumberOfRecords.Text" xml:space="preserve">
+    <value>Show records</value>
+  </data>
+    <data name="labelNumberOfRecords.Help" xml:space="preserve">
+    <value>Enter the number of records to show or leave empty to show it all.</value>
+  </data>
+    <data name="labelSortOrder.Text" xml:space="preserve">
+    <value>Sort Ascending</value>
+  </data>
+    <data name="labelNumberOfRecords.Help" xml:space="preserve">
+    <value>Check if image list should be sorted by SortIndex ascending.</value>
+  </data>
 </root>

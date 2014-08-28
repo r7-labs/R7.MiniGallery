@@ -145,6 +145,12 @@ namespace R7.MiniGallery
 			set { WriteSetting<int> ("MiniGallery_NumberOfRecords", value, true); }
 		}
 
+		public string SortOrder
+		{
+			get { return ReadSetting<string> ("MiniGallery_SortOrder", "SortIndex", true); }
+			set { WriteSetting<string> ("MiniGallery_SortOrder", value, true); }
+		}
+
 		/*
 		public int Rows
 		{

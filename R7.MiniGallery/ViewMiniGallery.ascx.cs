@@ -89,7 +89,8 @@ namespace R7.MiniGallery
 						listImages.Style.Add ("max-height", maxHeight + "px");
 
 					// get images
-					var images = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, true, MiniGallerySettings.NumberOfRecords);
+					var images = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, 
+						MiniGallerySettings.SortOrder == "SortIndex", MiniGallerySettings.NumberOfRecords);
 				
 					// check if we have some content to display, 
 					// otherwise display a sample default content from the resources

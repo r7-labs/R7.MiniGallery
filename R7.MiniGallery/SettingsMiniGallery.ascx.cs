@@ -49,6 +49,9 @@ namespace R7.MiniGallery
 					if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
 						textThumbHeight.Text = MiniGallerySettings.ThumbHeight.ToString ();
 
+					if (!Null.IsNull (MiniGallerySettings.NumberOfRecords))
+						textNumberOfRecords.Text = MiniGallerySettings.NumberOfRecords.ToString ();
+
 					textImageHandlerParams.Text = MiniGallerySettings.ImageHandlerParams;
 
 					textImageWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
@@ -65,7 +68,9 @@ namespace R7.MiniGallery
 					if (ddlTarget.SelectedIndex == 1)
 						textTarget.Text = MiniGallerySettings.Target;
 
-					// TODO: realize 
+					// DESC sorting done if "-SortIndex" value
+					checkSortOrder.Checked = MiniGallerySettings.SortOrder == "SortIndex";
+					
 					checkUseLightbox.Checked = MiniGallerySettings.UseLightbox;
 					checkUseScrollbar.Checked = MiniGallerySettings.UseScrollbar;
 					checkUseImageHandler.Checked = MiniGallerySettings.UseImageHandler;
@@ -102,6 +107,8 @@ namespace R7.MiniGallery
 				
 				MiniGallerySettings.ThumbWidth = Utils.TryParseInt32 (textThumbWidth.Text, Null.NullInteger);
 				MiniGallerySettings.ThumbHeight = Utils.TryParseInt32 (textThumbHeight.Text, Null.NullInteger);
+				
+				MiniGallerySettings.NumberOfRecords = Utils.TryParseInt32 (textNumberOfRecords.Text, Null.NullInteger);
 
 				MiniGallerySettings.ImageHandlerParams = textImageHandlerParams.Text;
 
@@ -140,9 +147,8 @@ namespace R7.MiniGallery
 
 				// columns & rows
 				MiniGallerySettings.Columns = int.Parse (ddlColumns.SelectedValue);
-				
-				// settings.UserScrollbar = checkUseScrollbar.Checked;
-				// settings.UseViewer = checkUseViewer.Checked;
+
+				MiniGallerySettings.SortOrder = checkSortOrder.Checked? "SortIndex" : "-SortIndex";
 
 				MiniGallerySettings.UseLightbox = checkUseLightbox.Checked;
 				MiniGallerySettings.UseScrollbar = checkUseScrollbar.Checked;

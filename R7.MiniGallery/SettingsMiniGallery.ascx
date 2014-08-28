@@ -67,7 +67,15 @@
 			<dnn:Label id="labelRows" runat="server" controlname="ddlRows" suffix=":" />
 			
 	   	</div>--%>
-		
+		<div class="dnnFormItem">
+			<dnn:Label id="labelNumberOfRecords" runat="server" controlname="textNumberOfRecords" suffix=":" />
+			<asp:TextBox id="textNumberOfRecords" runat="server" CssClass="NormalTextBox" />
+		</div>
+		<div class="dnnFormItem">
+			<dnn:Label id="labelSortOrder" runat="server" controlname="checkSortOrder" suffix=":" />
+			<asp:CheckBox id="checkSortOrder" runat="server" />
+		</div>
+
 	</fieldset>
 	
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="ImageHandler.Section" /></a></h2>
