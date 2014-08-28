@@ -91,16 +91,16 @@ namespace R7.MiniGallery
 			set { WriteSetting<string> ("MiniGallery_Target", value, true); }
 		}
 
-		public Unit FrameWidth
+		public Unit ImageWidth
 		{
-			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_FrameWidth", string.Empty, true)); }
-			set { WriteSetting<string> ("MiniGallery_FrameWidth", value.ToString(), true); }
+			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_ImageWidth", string.Empty, true)); }
+			set { WriteSetting<string> ("MiniGallery_ImageWidth", value.ToString(), true); }
 		}
 
-		public Unit FrameHeight
+		public Unit ImageHeight
 		{
-			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_FrameHeight", string.Empty, true)); }
-			set { WriteSetting<string> ("MiniGallery_FrameHeight", value.ToString(), true); }
+			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_ImageHeight", string.Empty, true)); }
+			set { WriteSetting<string> ("MiniGallery_ImageHeight", value.ToString(), true); }
 		}
 
 		public int ThumbWidth

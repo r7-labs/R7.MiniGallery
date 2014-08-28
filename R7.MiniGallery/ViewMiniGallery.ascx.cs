@@ -212,21 +212,21 @@ namespace R7.MiniGallery
 			
 			#region Image size
 
-			if (MiniGallerySettings.FrameWidth.IsEmpty)
+			if (MiniGallerySettings.ImageWidth.IsEmpty)
 			{
 				if (!Null.IsNull(MiniGallerySettings.ThumbWidth))
 					imageImage.Width = Unit.Pixel(MiniGallerySettings.ThumbWidth);
 			}
 			else
-				imageImage.Width = MiniGallerySettings.FrameWidth;
+				imageImage.Width = MiniGallerySettings.ImageWidth;
 			
-			if (MiniGallerySettings.FrameHeight.IsEmpty)
+			if (MiniGallerySettings.ImageHeight.IsEmpty)
 			{
 				if (!Null.IsNull(MiniGallerySettings.ThumbHeight))
 					imageImage.Height = Unit.Pixel(MiniGallerySettings.ThumbHeight);
 			}
 			else
-				imageImage.Height = MiniGallerySettings.FrameHeight;
+				imageImage.Height = MiniGallerySettings.ImageHeight;
 			
 			#endregion
 

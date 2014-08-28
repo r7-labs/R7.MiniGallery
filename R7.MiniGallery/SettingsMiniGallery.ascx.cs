@@ -49,8 +49,8 @@ namespace R7.MiniGallery
 					if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
 						textImageHeight.Text = MiniGallerySettings.ThumbHeight.ToString ();
 
-					textFrameWidth.Text = MiniGallerySettings.FrameWidth.ToString ();
-					textFrameHeight.Text = MiniGallerySettings.FrameHeight.ToString ();
+					textFrameWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
+					textFrameHeight.Text = MiniGallerySettings.ImageHeight.ToString ();
 
 					//textViewerCssClass.Text = settings.ViewerCssClass;
 					textStyleSet.Text = MiniGallerySettings.StyleSet;
@@ -102,14 +102,14 @@ namespace R7.MiniGallery
 				MiniGallerySettings.ThumbHeight = Utils.TryParseInt32 (textImageHeight.Text, Null.NullInteger);
 
 				if (!string.IsNullOrWhiteSpace(textFrameWidth.Text))
-					MiniGallerySettings.FrameWidth = Unit.Parse(textFrameWidth.Text);
+					MiniGallerySettings.ImageWidth = Unit.Parse(textFrameWidth.Text);
 				else
-					MiniGallerySettings.FrameWidth = Unit.Empty;
+					MiniGallerySettings.ImageWidth = Unit.Empty;
 
 				if (!string.IsNullOrWhiteSpace(textFrameHeight.Text))
-					MiniGallerySettings.FrameHeight = Unit.Parse(textFrameHeight.Text);
+					MiniGallerySettings.ImageHeight = Unit.Parse(textFrameHeight.Text);
 				else
-					MiniGallerySettings.FrameHeight = Unit.Empty;
+					MiniGallerySettings.ImageHeight = Unit.Empty;
 
 				// MiniGallerySettings.FrameWidth = Utils.ParseToUnit (textImageWidth.Text, 1).ToString ();
 				// MiniGallerySettings.FrameHeight = Utils.ParseToUnit (textImageHeight.Text, 1).ToString ();
