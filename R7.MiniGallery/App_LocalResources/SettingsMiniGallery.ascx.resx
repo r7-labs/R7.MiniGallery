@@ -30,11 +30,11 @@
   <data name="ddlTargetItemOther.Text" xml:space="preserve">
   	<value>(other)</value>
   </data>
-	<data name="labelUseViewer.Text" xml:space="preserve">
-    <value>Use jQuery Viewer</value>
+	<data name="labelUseLightbox.Text" xml:space="preserve">
+    <value>Use Lightbox</value>
   </data>
-	<data name="labelUseViewer.Help" xml:space="preserve">
-    <value>Check to use jQuery viewer / image gallery module.</value>
+	<data name="labelUseLightbox.Help" xml:space="preserve">
+    <value>Check to use Lightbox-like viewer / image gallery jQuery module.</value>
   </data>
   <data name="labelUseScrollbar.Text" xml:space="preserve">
     <value>Use jQuery Scrollbar</value>

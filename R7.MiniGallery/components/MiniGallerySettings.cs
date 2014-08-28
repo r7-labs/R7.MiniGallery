@@ -43,10 +43,10 @@ namespace R7.MiniGallery
 		/// A jQuery viewer, used by gallery. Default is YoxView
 		/// </summary>
 		/// <value>A jQuery viewer, used by gallery</value>
-		public bool UseViewer
+		public bool UseLightbox
 		{
-			get { return ReadSetting<bool> ("MiniGallery_UseViewer", true, true); }
-			set { WriteSetting<bool> ("MiniGallery_UseViewer", value, true); }
+			get { return ReadSetting<bool> ("MiniGallery_UseLightbox", true, true); }
+			set { WriteSetting<bool> ("MiniGallery_UseLightbox", value, true); }
 		}
 
 		public bool UseScrollbar

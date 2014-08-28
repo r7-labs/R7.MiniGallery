@@ -18,8 +18,8 @@ namespace R7.MiniGallery
 		protected LabelControl labelTarget;
 		protected DropDownList ddlTarget;
 		protected TextBox textTarget;
-		protected LabelControl labelUseViewer;
-		protected CheckBox checkUseViewer;
+		protected LabelControl labelUseLightbox;
+		protected CheckBox checkUseLightbox;
 		protected LabelControl labelUseScrollbar;
 		protected CheckBox checkUseScrollbar;
 		protected LabelControl labelShowTitles;

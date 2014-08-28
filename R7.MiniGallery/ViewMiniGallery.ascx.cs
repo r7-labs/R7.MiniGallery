@@ -157,7 +157,7 @@ namespace R7.MiniGallery
 				linkImage.NavigateUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
 			}
 
-			if (MiniGallerySettings.UseViewer && ImageViewer == ImageViewer.LightBox2)
+			if (MiniGallerySettings.UseLightbox && ImageViewer == ImageViewer.LightBox2)
 			{
 				linkImage.Attributes.Add ("data-lightbox", "module_" + TabModuleId);
 				linkImage.Attributes.Remove ("target");

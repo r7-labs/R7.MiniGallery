@@ -66,7 +66,7 @@ namespace R7.MiniGallery
 						textTarget.Text = MiniGallerySettings.Target;
 
 					// TODO: realize 
-					checkUseViewer.Checked = MiniGallerySettings.UseViewer;
+					checkUseLightbox.Checked = MiniGallerySettings.UseLightbox;
 					checkUseScrollbar.Checked = MiniGallerySettings.UseScrollbar;
 					checkUseImageHandler.Checked = MiniGallerySettings.UseImageHandler;
 					checkShowTitles.Checked = MiniGallerySettings.ShowTitles;
@@ -144,6 +144,8 @@ namespace R7.MiniGallery
 				// settings.UserScrollbar = checkUseScrollbar.Checked;
 				// settings.UseViewer = checkUseViewer.Checked;
 
+				MiniGallerySettings.UseLightbox = checkUseLightbox.Checked;
+				MiniGallerySettings.UseScrollbar = checkUseScrollbar.Checked;
 				MiniGallerySettings.ShowTitles = checkShowTitles.Checked;
 				MiniGallerySettings.ExpandColumns = checkExpand.Checked;
 				MiniGallerySettings.UseImageHandler = checkUseImageHandler.Checked;

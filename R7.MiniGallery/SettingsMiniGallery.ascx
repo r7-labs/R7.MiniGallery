@@ -39,8 +39,8 @@
 			  <asp:TextBox id="textTarget" runat="server" CssClass="NormalTextBox" Style="width:310px" />
 	   	</div>
 		<div class="dnnFormItem">
-			<dnn:Label id="labelUseViewer" runat="server" controlname="checkUseViewer" suffix="?" />
-			<asp:CheckBox id="checkUseViewer" runat="server" />
+			<dnn:Label id="labelUseLightbox" runat="server" controlname="checkUseLightbox" suffix="?" />
+			<asp:CheckBox id="checkUseLightbox" runat="server" />
 		</div>
 		<!--
 		<div class="dnnFormItem">
@@ -54,7 +54,7 @@
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelColumns" runat="server" controlname="ddlColumns" suffix=":" />
-			<asp:DropDownList ID="ddlColumns" runat="server" Style="width:100px" />
+			<asp:DropDownList ID="ddlColumns" runat="server" Style="width:120px" />
 			<%-- <b> x </b> 
 			<asp:DropDownList ID="ddlRows" runat="server" Style="width:100px" /> --%>
 		</div>
