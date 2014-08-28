@@ -44,8 +44,8 @@ namespace R7.MiniGallery
 
 					// Localize ();	
                 	
-					textImageWidth.Text = MiniGallerySettings.ImageWidth;
-					textImageHeight.Text = MiniGallerySettings.ImageHeight;
+					textImageWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
+					textImageHeight.Text = MiniGallerySettings.ImageHeight.ToString ();
 
 					//textViewerCssClass.Text = settings.ViewerCssClass;
 					textStyleSet.Text = MiniGallerySettings.StyleSet;
@@ -92,8 +92,12 @@ namespace R7.MiniGallery
 				MiniGallerySettings.MaxHeight = int.TryParse (textMaxHeight.Text, out maxHeight) ? maxHeight : -1;
 
 				// parse and store image size
-				MiniGallerySettings.ImageWidth = Utils.ParseToUnit (textImageWidth.Text, 1).ToString ();
-				MiniGallerySettings.ImageHeight = Utils.ParseToUnit (textImageHeight.Text, 1).ToString ();
+				
+				MiniGallerySettings.ImageWidth = int.Parse (textImageWidth.Text);
+				MiniGallerySettings.ImageHeight = int.Parse (textImageHeight.Text);
+
+				// MiniGallerySettings.FrameWidth = Utils.ParseToUnit (textImageWidth.Text, 1).ToString ();
+				// MiniGallerySettings.FrameHeight = Utils.ParseToUnit (textImageHeight.Text, 1).ToString ();
 /*
 				try 
 				{

@@ -20,7 +20,23 @@ namespace R7.MiniGallery
 		{
 		}
 
-		#region Properties for settings
+		#region Module settings
+
+		public bool UseImageHandler 
+		{
+			get { return ReadSetting<bool> ("MiniGallery_UseImageHandler", true, false); }
+			set { WriteSetting<bool> ("MiniGallery_UseImageHandler", value, false); }
+		}
+
+		public string ImageHandlerFormat
+		{
+			get { return ReadSetting<string> ("MiniGallery_ImageHandlerFormat", "width={width}", false); }
+			set { WriteSetting<string> ("MiniGallery_ImageHandlerFormat", value, false); }
+		}
+
+		#endregion
+		
+		#region TabModule settings
 
 		/// <summary>
 		/// A jQuery viewer, used by gallery. Default is YoxView
@@ -74,17 +90,29 @@ namespace R7.MiniGallery
 			set { WriteSetting<string> ("MiniGallery_Target", value, true); }
 		}
 
-		public string ImageWidth
+		public string FrameWidth
 		{
-			get { return ReadSetting<string> ("MiniGallery_ImageWidth", string.Empty, true); }
-			set { WriteSetting<string> ("MiniGallery_ImageWidth", value, true); }
+			get { return ReadSetting<string> ("MiniGallery_FrameWidth", string.Empty, true); }
+			set { WriteSetting<string> ("MiniGallery_FrameWidth", value, true); }
 		}
 
-		public string ImageHeight
+		public string FrameHeight
 		{
-			get { return ReadSetting<string> ("MiniGallery_ImageHeight", string.Empty, true); }
-			set { WriteSetting<string> ("MiniGallery_ImageHeight", value, true); }
+			get { return ReadSetting<string> ("MiniGallery_FrameHeight", string.Empty, true); }
+			set { WriteSetting<string> ("MiniGallery_FrameHeight", value, true); }
 		}
+
+		public int ImageWidth
+		{
+			get { return ReadSetting<int> ("MiniGallery_ImageWidth", Null.NullInteger, true); }
+			set { WriteSetting<int> ("MiniGallery_ImageWidth", value, true); }
+		}
+		
+		public int ImageHeight
+		{
+			get { return ReadSetting<int> ("MiniGallery_ImageHeight", Null.NullInteger, true); }
+			set { WriteSetting<int> ("MiniGallery_ImageHeight", value, true); }
+		}		
 
 		public bool ShowInfo
 		{
@@ -115,10 +143,8 @@ namespace R7.MiniGallery
 			get { return ReadSetting<int> ("MiniGallery_Rows", Null.NullInteger, true); }
 			set { WriteSetting<int> ("MiniGallery_Rows", value, true); }
 		}
-
-
-
-		#endregion
+		
+        #endregion
 	}
 }
 

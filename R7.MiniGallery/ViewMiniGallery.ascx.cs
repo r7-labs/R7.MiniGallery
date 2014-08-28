@@ -147,6 +147,11 @@ namespace R7.MiniGallery
 				if (target != "none")
 					linkImage.Target = target;
 			}
+			else
+			{
+				// no url specified, link to image itself
+				linkImage.NavigateUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
+			}
 
 			if (ImageViewer == ImageViewer.LightBox2)
 			{
@@ -167,12 +172,42 @@ namespace R7.MiniGallery
 
 			#region Image
 
-			// old:
-			// imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
+			var formatTags = new [] { "fileid", "width", "height" };
 
-			imageImage.ImageUrl = string.Format ("/imagehandler.ashx?fileid={0}&width={1}",
-				image.ImageFileID, MiniGallerySettings.ImageWidth.Replace ("px", ""));
+			if (!MiniGallerySettings.UseImageHandler)
+			{
+				imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
+			}
+			else
+			{	
+				var hanglerUrl = "/imagehandler.ashx?fileid={fileid}";
 
+				if (!string.IsNullOrWhiteSpace (MiniGallerySettings.ImageHandlerFormat))
+					hanglerUrl += "&" + MiniGallerySettings.ImageHandlerFormat;
+				
+				foreach (var tag in formatTags)
+				{
+					var enclosedTag = "{" + tag + "}";
+					
+					switch (tag)
+					{
+						case "fileid": 
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, image.ImageFileID.ToString());
+							break;
+							
+						case "width":
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ImageWidth.ToString());
+							break;
+							
+						case "height":
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ImageHeight.ToString());
+							break;
+					}
+				}
+				
+				imageImage.ImageUrl = hanglerUrl;
+			}
+			
 			imageImage.AlternateText = image.Alt;
 			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;
 			
@@ -192,8 +227,8 @@ namespace R7.MiniGallery
 			*/
 
 			// HACK: Titles width hack - title rendering must be done on the client side!
-			e.Item.Width = Unit.Parse (MiniGallerySettings.ImageWidth);
-			e.Item.Height = Unit.Parse (MiniGallerySettings.ImageHeight);
+			e.Item.Width = Unit.Parse (MiniGallerySettings.FrameWidth);
+			e.Item.Height = Unit.Parse (MiniGallerySettings.FrameHeight);
 
 			#endregion
 
