@@ -44,13 +44,15 @@ namespace R7.MiniGallery
 					// Localize ();	
 					
 					if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
-						textImageWidth.Text = MiniGallerySettings.ThumbWidth.ToString ();
+						textThumbWidth.Text = MiniGallerySettings.ThumbWidth.ToString ();
 
 					if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
-						textImageHeight.Text = MiniGallerySettings.ThumbHeight.ToString ();
+						textThumbHeight.Text = MiniGallerySettings.ThumbHeight.ToString ();
 
-					textFrameWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
-					textFrameHeight.Text = MiniGallerySettings.ImageHeight.ToString ();
+					textImageHandlerParams.Text = MiniGallerySettings.ImageHandlerParams;
+
+					textImageWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
+					textImageHeight.Text = MiniGallerySettings.ImageHeight.ToString ();
 
 					//textViewerCssClass.Text = settings.ViewerCssClass;
 					textStyleSet.Text = MiniGallerySettings.StyleSet;
@@ -66,7 +68,7 @@ namespace R7.MiniGallery
 					// TODO: realize 
 					checkUseViewer.Checked = MiniGallerySettings.UseViewer;
 					checkUseScrollbar.Checked = MiniGallerySettings.UseScrollbar;
-
+					checkUseImageHandler.Checked = MiniGallerySettings.UseImageHandler;
 					checkShowTitles.Checked = MiniGallerySettings.ShowTitles;
 					checkExpand.Checked = MiniGallerySettings.ExpandColumns;
 
@@ -98,16 +100,21 @@ namespace R7.MiniGallery
 
 				// parse and store image size
 				
-				MiniGallerySettings.ThumbWidth = Utils.TryParseInt32 (textImageWidth.Text, Null.NullInteger);
-				MiniGallerySettings.ThumbHeight = Utils.TryParseInt32 (textImageHeight.Text, Null.NullInteger);
+				MiniGallerySettings.ThumbWidth = Utils.TryParseInt32 (textThumbWidth.Text, Null.NullInteger);
+				MiniGallerySettings.ThumbHeight = Utils.TryParseInt32 (textThumbHeight.Text, Null.NullInteger);
 
-				if (!string.IsNullOrWhiteSpace(textFrameWidth.Text))
-					MiniGallerySettings.ImageWidth = Unit.Parse(textFrameWidth.Text);
+				MiniGallerySettings.ImageHandlerParams = textImageHandlerParams.Text;
+
+				// MiniGallerySettings.ImageWidth = Utils.ParseToUnit (textImageWidth.Text, 1);
+				// MiniGallerySettings.ImageHeight = Utils.ParseToUnit (textImageHeight.Text, 1);
+
+				if (!string.IsNullOrWhiteSpace(textImageWidth.Text))
+					MiniGallerySettings.ImageWidth = Unit.Parse(textImageWidth.Text);
 				else
 					MiniGallerySettings.ImageWidth = Unit.Empty;
 
-				if (!string.IsNullOrWhiteSpace(textFrameHeight.Text))
-					MiniGallerySettings.ImageHeight = Unit.Parse(textFrameHeight.Text);
+				if (!string.IsNullOrWhiteSpace(textImageHeight.Text))
+					MiniGallerySettings.ImageHeight = Unit.Parse(textImageHeight.Text);
 				else
 					MiniGallerySettings.ImageHeight = Unit.Empty;
 
@@ -139,6 +146,7 @@ namespace R7.MiniGallery
 
 				MiniGallerySettings.ShowTitles = checkShowTitles.Checked;
 				MiniGallerySettings.ExpandColumns = checkExpand.Checked;
+				MiniGallerySettings.UseImageHandler = checkUseImageHandler.Checked;
 
 				// store text before / text after
 				var mctrl = new ModuleController ();

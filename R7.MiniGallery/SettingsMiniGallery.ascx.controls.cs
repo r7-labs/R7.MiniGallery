@@ -33,13 +33,15 @@ namespace R7.MiniGallery
 		protected LabelControl labelColumns;
 		protected DropDownList ddlColumns;
 		// protected DropDownList ddlRows;
+		protected LabelControl labelThumbWidth;
+		protected TextBox textThumbWidth;
+		protected LabelControl labelThumbHeight;
+		protected TextBox textThumbHeight;
 		protected LabelControl labelImageWidth;
 		protected TextBox textImageWidth;
 		protected LabelControl labelImageHeight;
 		protected TextBox textImageHeight;
-		protected LabelControl labelFrameWidth;
-		protected TextBox textFrameWidth;
-		protected LabelControl labelFrameHeight;
-		protected TextBox textFrameHeight;
+		protected CheckBox checkUseImageHandler;
+		protected TextBox textImageHandlerParams;
 	}
 }

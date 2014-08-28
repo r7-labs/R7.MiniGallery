@@ -29,10 +29,10 @@ namespace R7.MiniGallery
 			set { WriteSetting<bool> ("MiniGallery_UseImageHandler", value, false); }
 		}
 
-		public string ImageHandlerFormat
+		public string ImageHandlerParams
 		{
-			get { return ReadSetting<string> ("MiniGallery_ImageHandlerFormat", "width={width}", false); }
-			set { WriteSetting<string> ("MiniGallery_ImageHandlerFormat", value, false); }
+			get { return ReadSetting<string> ("MiniGallery_ImageHandlerParams", "fileid={fileid}&width={width}", false); }
+			set { WriteSetting<string> ("MiniGallery_ImageHandlerParams", value, false); }
 		}
 
 		#endregion

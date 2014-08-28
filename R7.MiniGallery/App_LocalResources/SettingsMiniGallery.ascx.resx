@@ -36,11 +36,23 @@
 	<data name="labelUseViewer.Help" xml:space="preserve">
     <value>Check to use jQuery viewer / image gallery module.</value>
   </data>
-	<data name="labelUseScrollbar.Text" xml:space="preserve">
+  <data name="labelUseScrollbar.Text" xml:space="preserve">
     <value>Use jQuery Scrollbar</value>
   </data>
   <data name="labelUseScrollbar.Help" xml:space="preserve">
     <value>Check to use jQuery scrollbar module.</value>
+  </data>
+  <data name="labelUseImageHandler.Text" xml:space="preserve">
+    <value>Use Image Handler</value>
+  </data>
+  <data name="labelUseImageHandler.Help" xml:space="preserve">
+    <value>Check to use external image handler to create thumbnails. Only R7.ImageHandler is supported at this time.</value>
+  </data>
+   <data name="labelImageHandlerParams.Text" xml:space="preserve">
+    <value>Image Handler Params</value>
+  </data>
+  <data name="labelImageHandlerParams.Help" xml:space="preserve">
+    <value>Add URL parameter string which will be added to image handler URL if name-value pairs format. Supported tags: {width}, {height}, {fileid}.</value>
   </data>
   <data name="labelShowTitles.Text" xml:space="preserve">
     <value>Show Titles</value>
@@ -75,11 +87,14 @@
   <data name="sectionFooter.Text" xml:space="preserve">
     <value>Footer</value>
   </data>
+  <data name="ImageHandler.Section" xml:space="preserve">
+    <value>Image Handler Settings</value>
+  </data>
   <data name="Auto.Text" xml:space="preserve">
   	<value>None (auto)</value>
   </data>
   <data name="labelColumns.Text" xml:space="preserve">
-  	<value>Columns and Rows</value>
+  	<value>Columns</value>
   </data>
    <data name="labelColumns.Help" xml:space="preserve">
   	<value>Set number of columns in the image list. If columns set to auto, all available width will be taken by images.</value>
@@ -88,24 +103,24 @@
   	<value>Image Width</value>
   </data>
   <data name="labelImageWidth.Help" xml:space="preserve">
-  	<value>Specify thumbnail image width in px. Leave empty or set to zero or negative value to disable.</value>
+  	<value>Specify width of the displayed image in any CSS units, except percents (%). If not set, thumbnail width or original image width will be used.</value>
   </data>
  <data name="labelImageHeight.Text" xml:space="preserve">
   	<value>Image Height</value>
   </data>
   <data name="labelImageHeight.Help" xml:space="preserve">
-  	<value>Specify thumbnail image width in px. Leave empty or set to zero or negative value to disable.</value>
+  	<value>Specify height of the displayed image in any CSS units, except percents (%). If not set, thumbnail height or original image height will be used.</value>
   </data>
-   <data name="labelFrameWidth.Text" xml:space="preserve">
-    <value>Frame width</value>
+  <data name="labelThumbWidth.Text" xml:space="preserve">
+    <value>Thumb Width</value>
   </data>
-  <data name="labelFrameWidth.Help" xml:space="preserve">
-    <value>Specify width of the displayed image in any CSS units, except percents (%). If not set, thumbnail width or original image width will be used.</value>
+  <data name="labelThumbWidth.Help" xml:space="preserve">
+    <value>Specify thumbnail image width in px. Leave empty or set to zero or negative value to disable.</value>
   </data>
- <data name="labelFrameHeight.Text" xml:space="preserve">
-    <value>Frame Height</value>
+ <data name="labelThumbHeight.Text" xml:space="preserve">
+    <value>Thumb Height</value>
   </data>
-  <data name="labelFrameHeight.Help" xml:space="preserve">
-    <value>Specify height of the displayed image in any CSS units, except percents (%). If not set, thumbnail height or original image height will be used.</value>
+  <data name="labelThumbHeight.Help" xml:space="preserve">
+    <value>Specify thumbnail image width in px. Leave empty or set to zero or negative value to disable.</value>
   </data>
 </root>

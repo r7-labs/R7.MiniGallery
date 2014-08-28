@@ -25,14 +25,6 @@
 			<dnn:Label id="labelImageHeight" runat="server" controlname="textImageHeight" suffix=":" />
 			<asp:TextBox id="textImageHeight" runat="server" CssClass="NormalTextBox" />
 		</div>
-	<div class="dnnFormItem">
-			<dnn:Label id="labelFrameWidth" runat="server" controlname="textFrameWidth" suffix=":" />
-			<asp:TextBox id="textFrameWidth" runat="server" CssClass="NormalTextBox" />
-		</div>
-		<div class="dnnFormItem">
-			<dnn:Label id="labelFrameHeight" runat="server" controlname="textFrameHeight" suffix=":" />
-			<asp:TextBox id="textFrameHeight" runat="server" CssClass="NormalTextBox" />
-		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelTarget" runat="server" controlname="ddlTarget" suffix=":" />
 				<asp:DropDownList ID="ddlTarget" runat="server" Style="width:100px" >
@@ -50,10 +42,12 @@
 			<dnn:Label id="labelUseViewer" runat="server" controlname="checkUseViewer" suffix="?" />
 			<asp:CheckBox id="checkUseViewer" runat="server" />
 		</div>
+		<!--
 		<div class="dnnFormItem">
 			<dnn:Label id="labelUseScrollbar" runat="server" controlname="checkUseScrollbar" suffix="?" />
 			<asp:CheckBox id="checkUseScrollbar" runat="server" Enabled="false" />
 		</div>
+		-->
 		<div class="dnnFormItem">
 			<dnn:Label id="labelShowTitles" runat="server" controlname="checkShowTitles" suffix="?" />
 			<asp:CheckBox id="checkShowTitles" runat="server" />
@@ -76,6 +70,26 @@
 		
 	</fieldset>
 	
+	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="ImageHandler.Section" /></a></h2>
+	<fieldset>
+		<div class="dnnFormItem" style="margin-bottom:15px">
+			<dnn:Label id="labelUseImageHandler" runat="server" controlname="checkUseImageHandler" suffix="?" />
+			<asp:CheckBox id="checkUseImageHandler" runat="server" />
+		</div>
+		<div class="dnnFormItem">
+			<dnn:Label id="labelImageHandlerParams" runat="server" controlname="textImageHandlerParams" suffix=":" />
+			<asp:TextBox id="textImageHandlerParams" runat="server" Style="font-family:Monospace" />
+		</div>
+		<div class="dnnFormItem">
+			<dnn:Label id="labelThumbWidth" runat="server" controlname="textThumbWidth" suffix=":" />
+			<asp:TextBox id="textThumbWidth" runat="server" CssClass="NormalTextBox" />
+		</div>
+		<div class="dnnFormItem">
+			<dnn:Label id="labelThumbHeight" runat="server" controlname="textThumbHeight" suffix=":" />
+			<asp:TextBox id="textThumbHeight" runat="server" CssClass="NormalTextBox" />
+		</div>
+	</fieldset>
+
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionHeader.Text" /></a></h2>
 	<fieldset>
 		<div class="dnnFormItem">
