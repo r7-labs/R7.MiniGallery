@@ -42,7 +42,7 @@
 			
 		<div class="dnnFormItem">
 			<dnn:Label id="labelLink" runat="server" ControlName="urlLink" Suffix=":" />
-			<dnn:Url id="urlLink" runat="server" UrlType="F" Style="float:left"
+			<dnn:Url id="urlLink" runat="server" UrlType="N" Style="float:left"
 			        ShowFiles="true" ShowTabs="true"
 			        ShowUrls="true" ShowUsers="true"
 					ShowLog="false" ShowTrack="false"
@@ -51,7 +51,7 @@
 		
 		<div class="dnnFormItem">
 		    <dnn:Label id="labelSortIndex" runat="server" ControlName="textSortIndex" Suffix=":" />
-			<asp:TextBox id="textSortIndex" runat="server">10</asp:TextBox>
+			<asp:TextBox id="textSortIndex" runat="server">0</asp:TextBox>
 		</div>
 		
 		<div class="dnnFormItem">

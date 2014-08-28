@@ -98,8 +98,6 @@ namespace R7.MiniGallery
 						textSortIndex.Text = Image.SortIndex.ToString ();
 						checkIsPublished.Checked = Image.IsPublished;
 
-
-
 						/*
 						 * //labelTest.Text = PortalSettings.HomeDirectoryMapPath + FileManager.Instance.GetFile(Image.ThumbFileID).Folder;
 						pickerImage.FolderPath = 
