@@ -103,24 +103,16 @@ namespace R7.MiniGallery
 			set { WriteSetting<string> ("MiniGallery_FrameHeight", value.ToString(), true); }
 		}
 
-		public int? ImageWidth
+		public int ThumbWidth
 		{
-			get 
-			{ 
-				var imageWidth = ReadSetting<int> ("MiniGallery_ImageWidth", 240, true);
-				return Null.IsNull (imageWidth) ? null : (int?)imageWidth; 
-			}
-			set { WriteSetting<int> ("MiniGallery_ImageWidth", value ?? Null.NullInteger, true); }
+			get { return ReadSetting<int> ("MiniGallery_ThumbWidth", 240, true); }
+			set { WriteSetting<int> ("MiniGallery_ImageWidth", value, true); }
 		}
 		
-		public int? ImageHeight
+		public int ThumbHeight
 		{
-			get 
-			{ 
-				var imageHeight = ReadSetting<int> ("MiniGallery_ImageHeight", Null.NullInteger, true);
-				return Null.IsNull(imageHeight)? null : (int?)imageHeight;
-			}
-			set { WriteSetting<int> ("MiniGallery_ImageHeight", value ?? Null.NullInteger, true); }
+			get { return ReadSetting<int> ("MiniGallery_ThumbHeight", Null.NullInteger, true); }
+			set { WriteSetting<int> ("MiniGallery_ImageHeight", value, true); }
 		}		
 
 		public bool ShowInfo

@@ -198,11 +198,11 @@ namespace R7.MiniGallery
 							break;
 							
 						case "width":
-							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ImageWidth.ToString());
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ThumbWidth.ToString());
 							break;
 							
 						case "height":
-							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ImageHeight.ToString());
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ThumbHeight.ToString());
 							break;
 					}
 				}
@@ -214,16 +214,16 @@ namespace R7.MiniGallery
 
 			if (MiniGallerySettings.FrameWidth.IsEmpty)
 			{
-				if (MiniGallerySettings.ImageWidth != null)
-					imageImage.Width = Unit.Pixel(MiniGallerySettings.ImageWidth.Value);
+				if (!Null.IsNull(MiniGallerySettings.ThumbWidth))
+					imageImage.Width = Unit.Pixel(MiniGallerySettings.ThumbWidth);
 			}
 			else
 				imageImage.Width = MiniGallerySettings.FrameWidth;
 			
 			if (MiniGallerySettings.FrameHeight.IsEmpty)
 			{
-				if (MiniGallerySettings.ImageHeight != null)
-					imageImage.Height = Unit.Pixel(MiniGallerySettings.ImageHeight.Value);
+				if (!Null.IsNull(MiniGallerySettings.ThumbHeight))
+					imageImage.Height = Unit.Pixel(MiniGallerySettings.ThumbHeight);
 			}
 			else
 				imageImage.Height = MiniGallerySettings.FrameHeight;

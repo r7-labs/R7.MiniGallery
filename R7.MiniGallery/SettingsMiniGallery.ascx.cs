@@ -42,9 +42,12 @@ namespace R7.MiniGallery
 					if (MiniGallerySettings.Columns != Null.NullInteger)
 						Utils.SelectByValue (ddlRows, MiniGallerySettings.Rows, 0); */
 					// Localize ();	
-                	
-					textImageWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
-					textImageHeight.Text = MiniGallerySettings.ImageHeight.ToString ();
+					
+					if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
+						textImageWidth.Text = MiniGallerySettings.ThumbWidth.ToString ();
+
+					if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
+						textImageHeight.Text = MiniGallerySettings.ThumbHeight.ToString ();
 
 					textFrameWidth.Text = MiniGallerySettings.FrameWidth.ToString ();
 					textFrameHeight.Text = MiniGallerySettings.FrameHeight.ToString ();
@@ -95,8 +98,8 @@ namespace R7.MiniGallery
 
 				// parse and store image size
 				
-				MiniGallerySettings.ImageWidth = Utils.ParseToNullableInt (textImageWidth.Text);
-				MiniGallerySettings.ImageHeight = Utils.ParseToNullableInt (textImageHeight.Text);
+				MiniGallerySettings.ThumbWidth = Utils.TryParseInt32 (textImageWidth.Text, Null.NullInteger);
+				MiniGallerySettings.ThumbHeight = Utils.TryParseInt32 (textImageHeight.Text, Null.NullInteger);
 
 				if (!string.IsNullOrWhiteSpace(textFrameWidth.Text))
 					MiniGallerySettings.FrameWidth = Unit.Parse(textFrameWidth.Text);
