@@ -25,55 +25,41 @@ namespace R7.MiniGallery
 
 		public bool UseImageHandler 
 		{
-			get { return ReadSetting<bool> ("MiniGallery_UseImageHandler", true, false); }
-			set { WriteSetting<bool> ("MiniGallery_UseImageHandler", value, false); }
+			get { return ReadSetting<bool> ("MiniGallery_UseImageHandler", true); }
+			set { WriteModuleSetting<bool> ("MiniGallery_UseImageHandler", value); }
 		}
-
+		
 		public string ImageHandlerParams
 		{
-			get { return ReadSetting<string> ("MiniGallery_ImageHandlerParams", "fileid={fileid}&width={width}", false); }
-			set { WriteSetting<string> ("MiniGallery_ImageHandlerParams", value, false); }
+			get { return ReadSetting<string> ("MiniGallery_ImageHandlerParams", "fileid={fileid}&width={width}"); }
+			set { WriteModuleSetting<string> ("MiniGallery_ImageHandlerParams", value); }
 		}
 
 		#endregion
 		
 		#region TabModule settings
-
+		
 		/// <summary>
 		/// A jQuery viewer, used by gallery. Default is YoxView
 		/// </summary>
 		/// <value>A jQuery viewer, used by gallery</value>
 		public bool UseLightbox
 		{
-			get { return ReadSetting<bool> ("MiniGallery_UseLightbox", true, true); }
-			set { WriteSetting<bool> ("MiniGallery_UseLightbox", value, true); }
+			get { return ReadSetting<bool> ("MiniGallery_UseLightbox", true); }
+			set { WriteTabModuleSetting<bool> ("MiniGallery_UseLightbox", value); }
 		}
 
 		public bool UseScrollbar
 		{
-			get { return ReadSetting<bool> ("MiniGallery_UseScrollbar", true, true); }
-			set { WriteSetting<bool> ("MiniGallery_UseScrollbar", value, true); }
+			get { return ReadSetting<bool> ("MiniGallery_UseScrollbar", true); }
+			set { WriteTabModuleSetting<bool> ("MiniGallery_UseScrollbar", value); }
 		}
 
 		public string StyleSet
 		{
-			get { return ReadSetting<string> ("MiniGallery_StyleSet", "Default", true); }
-			set { WriteSetting<string> ("MiniGallery_StyleSet", value, true); }
+			get { return ReadSetting<string> ("MiniGallery_StyleSet", "Default"); }
+			set { WriteTabModuleSetting<string> ("MiniGallery_StyleSet", value); }
 		}
-
-		/*
-		public string ImageCssClass
-		{
-			get { return ReadSetting<string> ("MiniGallery_ImageCssClass", "MiniGallery_Image", true); }
-			set { WriteSetting ("MiniGallery_ImageCssClass", value, true); }
-		}
-
-		public string ImageListCssClass
-		{
-			get { return ReadSetting<string> ("MiniGallery_ImageListCssClass", "MiniGallery_ImageList", true); }
-			set { WriteSetting ("MiniGallery_ImageListCssClass", value, true); }
-		}
-		*/
 
 		/// <summary>
 		/// Gets or sets the maximum height of a module
@@ -81,82 +67,75 @@ namespace R7.MiniGallery
 		/// <value>Gets or sets the maximum height of a module</value>
 		public int MaxHeight
 		{
-			get { return ReadSetting<int> ("MiniGallery_MaxHeight", Null.NullInteger, true); }
-			set { WriteSetting<int> ("MiniGallery_MaxHeight", value, true); }
+			get { return ReadSetting<int> ("MiniGallery_MaxHeight", Null.NullInteger); }
+			set { WriteTabModuleSetting<int> ("MiniGallery_MaxHeight", value); }
 		}
 
 		public string Target
 		{
-			get { return ReadSetting<string> ("MiniGallery_Target", "_blank", true); }
-			set { WriteSetting<string> ("MiniGallery_Target", value, true); }
+			get { return ReadSetting<string> ("MiniGallery_Target", "_blank"); }
+			set { WriteTabModuleSetting<string> ("MiniGallery_Target", value); }
 		}
 
 		public Unit ImageWidth
 		{
-			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_ImageWidth", string.Empty, true)); }
-			set { WriteSetting<string> ("MiniGallery_ImageWidth", value.ToString(), true); }
+			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_ImageWidth", string.Empty)); }
+			set { WriteTabModuleSetting<string> ("MiniGallery_ImageWidth", value.ToString()); }
 		}
 
 		public Unit ImageHeight
 		{
-			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_ImageHeight", string.Empty, true)); }
-			set { WriteSetting<string> ("MiniGallery_ImageHeight", value.ToString(), true); }
+			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_ImageHeight", string.Empty)); }
+			set { WriteTabModuleSetting<string> ("MiniGallery_ImageHeight", value.ToString()); }
 		}
 
 		public int ThumbWidth
 		{
-			get { return ReadSetting<int> ("MiniGallery_ThumbWidth", 240, true); }
-			set { WriteSetting<int> ("MiniGallery_ImageWidth", value, true); }
+			get { return ReadSetting<int> ("MiniGallery_ThumbWidth", 240); }
+			set { WriteTabModuleSetting<int> ("MiniGallery_ImageWidth", value); }
 		}
 		
 		public int ThumbHeight
 		{
-			get { return ReadSetting<int> ("MiniGallery_ThumbHeight", Null.NullInteger, true); }
-			set { WriteSetting<int> ("MiniGallery_ImageHeight", value, true); }
+			get { return ReadSetting<int> ("MiniGallery_ThumbHeight", Null.NullInteger); }
+			set { WriteTabModuleSetting<int> ("MiniGallery_ImageHeight", value); }
 		}		
 
 		public bool ShowInfo
 		{
-			get { return ReadSetting<bool> ("MiniGallery_ShowInfo", false, true); }
-			set { WriteSetting<bool> ("MiniGallery_ShowInfo", value, true); }
+			get { return ReadSetting<bool> ("MiniGallery_ShowInfo", false); }
+			set { WriteTabModuleSetting<bool> ("MiniGallery_ShowInfo", value); }
 		}
 
 		public bool ShowTitles
 		{
-			get { return ReadSetting<bool> ("MiniGallery_ShowTitles", true, true); }
-			set { WriteSetting<bool> ("MiniGallery_ShowTitles", value, true); }
+			get { return ReadSetting<bool> ("MiniGallery_ShowTitles", true); }
+			set { WriteTabModuleSetting<bool> ("MiniGallery_ShowTitles", value); }
 		}
 
 		public bool ExpandColumns
 		{
-			get { return ReadSetting<bool> ("MiniGallery_ExpandColumns", false, true); }
-			set { WriteSetting<bool> ("MiniGallery_ExpandColumns", value, true); }
+			get { return ReadSetting<bool> ("MiniGallery_ExpandColumns", false); }
+			set { WriteTabModuleSetting<bool> ("MiniGallery_ExpandColumns", value); }
 		}
 
 		public int Columns
 		{
-			get { return ReadSetting<int> ("MiniGallery_Columns", Null.NullInteger, true); }
-			set { WriteSetting<int> ("MiniGallery_Columns", value, true); }
+			get { return ReadSetting<int> ("MiniGallery_Columns", Null.NullInteger); }
+			set { WriteTabModuleSetting<int> ("MiniGallery_Columns", value); }
 		}
 		
 		public int NumberOfRecords
 		{
-			get { return ReadSetting<int> ("MiniGallery_NumberOfRecords", Null.NullInteger, true); }
-			set { WriteSetting<int> ("MiniGallery_NumberOfRecords", value, true); }
+			get { return ReadSetting<int> ("MiniGallery_NumberOfRecords", Null.NullInteger); }
+			set { WriteTabModuleSetting<int> ("MiniGallery_NumberOfRecords", value); }
 		}
 
 		public string SortOrder
 		{
-			get { return ReadSetting<string> ("MiniGallery_SortOrder", "SortIndex", true); }
-			set { WriteSetting<string> ("MiniGallery_SortOrder", value, true); }
+			get { return ReadSetting<string> ("MiniGallery_SortOrder", "SortIndex"); }
+			set { WriteTabModuleSetting<string> ("MiniGallery_SortOrder", value); }
 		}
-
-		/*
-		public int Rows
-		{
-			get { return ReadSetting<int> ("MiniGallery_Rows", Null.NullInteger, true); }
-			set { WriteSetting<int> ("MiniGallery_Rows", value, true); }
-		}*/
 		
         #endregion
 	}

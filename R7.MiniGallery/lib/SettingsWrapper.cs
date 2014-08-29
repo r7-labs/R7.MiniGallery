@@ -39,18 +39,31 @@ namespace R7.MiniGallery
 		protected ModuleController ctrl;
 		protected int ModuleId;
 		protected int TabModuleId;
+		protected Hashtable settings;
 
+		private SettingsWrapper (int moduleId, int tabModuleId)
+		{
+			ctrl = new ModuleController ();
+			ModuleId = moduleId;
+			TabModuleId = tabModuleId;
+
+			// from PortalModuleBase settings definition
+			settings = new Hashtable (ctrl.GetModuleSettings (ModuleId));
+			var tabModuleSettings = ctrl.GetTabModuleSettings (TabModuleId);
+
+			// combine settings
+			foreach (string key in tabModuleSettings.Keys)
+       			settings [key] = tabModuleSettings [key];
+		}
+		
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MiniGallery.SettingsWrapper"/> class.
 		/// </summary>
 		/// <param name='module'>
 		/// Module control.
 		/// </param>
-		public SettingsWrapper (IModuleControl module)
+		public SettingsWrapper (IModuleControl module) : this (module.ModuleContext.ModuleId, module.ModuleContext.TabModuleId)
 		{
-			ctrl = new ModuleController (); 
-			ModuleId = module.ModuleContext.ModuleId;
-			TabModuleId = module.ModuleContext.TabModuleId;
 		}
 
 		/// <summary>
@@ -59,11 +72,8 @@ namespace R7.MiniGallery
 		/// <param name='module'>
 		/// Module info.
 		/// </param>
-		public SettingsWrapper (ModuleInfo module)
+		public SettingsWrapper (ModuleInfo module) : this (module.ModuleID, module.TabModuleID)
 		{
-			ctrl = new ModuleController ();
-			ModuleId = module.ModuleID;
-			TabModuleId = module.TabModuleID;
 		}
 
 		/// <summary>
@@ -78,18 +88,11 @@ namespace R7.MiniGallery
 		/// <param name='defaultValue'>
 		/// Default value for setting.
 		/// </param>
-		/// <param name='tabSpecific'>
-		/// If set to <c>true</c>, read tab-specific setting.
-		/// </param>
 		/// <typeparam name='T'>
 		/// Type of the setting
 		/// </typeparam>
-		protected T ReadSetting<T> (string settingName, T defaultValue, bool tabSpecific)
+		protected T ReadSetting<T> (string settingName, T defaultValue)
 		{
-			var settings = (tabSpecific) ? 
-				ctrl.GetTabModuleSettings (TabModuleId) :
-				ctrl.GetModuleSettings (ModuleId);
-
 			T ret = default(T);
 
 			if (settings.ContainsKey (settingName))
@@ -111,7 +114,7 @@ namespace R7.MiniGallery
 		}
 
 		/// <summary>
-		/// Writes module setting.
+		/// Writes module or tabmodule setting.
 		/// </summary>
 		/// <param name='settingName'>
 		/// Setting name.
@@ -129,6 +132,34 @@ namespace R7.MiniGallery
 				ctrl.UpdateTabModuleSetting (TabModuleId, settingName, value.ToString ());
 			else
 				ctrl.UpdateModuleSetting (ModuleId, settingName, value.ToString ());
+		}
+
+		/// <summary>
+		/// Writes module setting.
+		/// </summary>
+		/// <param name='settingName'>
+		/// Setting name.
+		/// </param>
+		/// <param name='value'>
+		/// Setting value.
+		/// </param>
+		protected void WriteModuleSetting<T> (string settingName, T value)
+		{
+			ctrl.UpdateModuleSetting (ModuleId, settingName, value.ToString ());
+		}
+
+		/// <summary>
+		/// Writes tabmodule setting.
+		/// </summary>
+		/// <param name='settingName'>
+		/// Setting name.
+		/// </param>
+		/// <param name='value'>
+		/// Setting value.
+		/// </param>
+		protected void WriteTabModuleSetting<T> (string settingName, T value)
+		{
+			ctrl.UpdateTabModuleSetting (TabModuleId, settingName, value.ToString ());
 		}
 	}
 	// class
