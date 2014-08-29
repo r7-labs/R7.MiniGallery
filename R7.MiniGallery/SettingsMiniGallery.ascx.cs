@@ -162,6 +162,8 @@ namespace R7.MiniGallery
 				module.Header = editorHeader.Text;
 				module.Footer = editorFooter.Text;
 				mctrl.UpdateModule (module);
+
+				Utils.SynchronizeModule (this);
 			}
 			catch (Exception ex)
 			{

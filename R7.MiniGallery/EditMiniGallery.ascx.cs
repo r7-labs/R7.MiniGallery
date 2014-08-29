@@ -221,6 +221,8 @@ namespace R7.MiniGallery
 					MiniGalleryController.Update<ImageInfo> (image);
 				}
 
+				Utils.SynchronizeModule (this);
+
 				Response.Redirect (Globals.NavigateURL (), true);
 			}
 			catch (Exception ex)
