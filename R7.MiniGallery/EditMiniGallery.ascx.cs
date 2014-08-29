@@ -150,8 +150,11 @@ namespace R7.MiniGallery
 				}
 				else // in postback
 				{
-					//	labelTest.Text = pickerImage.FilePath;
-					// UpdatePreview();
+					// HACK: update FilePath every postback to don't lose picked image
+					if (pickerImage.FileID > 0)
+						pickerImage.FilePath = FileManager.Instance.GetUrl (
+							FileManager.Instance.GetFile (pickerImage.FileID))
+							.Remove (0, PortalSettings.HomeDirectory.Length);
 				}
 			}
 			catch (Exception ex)
