@@ -67,6 +67,18 @@
                    <supportsPopUps>False</supportsPopUps>
                    <viewOrder>0</viewOrder>
                  </moduleControl>
+			     <moduleControl>
+                   <controlKey>BulkAdd</controlKey>
+                   <controlSrc>DesktopModules/R7.MiniGallery/R7.MiniGallery/BulkAdd.ascx</controlSrc>
+                   <supportsPartialRendering>False</supportsPartialRendering>
+                   <controlTitle>Bulk Add</controlTitle>
+                   <controlType>Edit</controlType>
+                   <iconFile />
+                   <helpUrl />
+                   <supportsPartialRendering>False</supportsPartialRendering>
+                   <supportsPopUps>True</supportsPopUps>
+                   <viewOrder>0</viewOrder>
+                 </moduleControl>
                </moduleControls>
              </moduleDefinition>
            </moduleDefinitions>

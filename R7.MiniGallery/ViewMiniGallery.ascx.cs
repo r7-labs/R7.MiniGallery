@@ -303,7 +303,7 @@ namespace R7.MiniGallery
 					Localization.GetString ("AddMultipleImages.Text", LocalResourceFile),
 					ModuleActionType.AddContent, 
 					"", "", 
-					Utils.EditUrl (this, "Filter"), 
+					Utils.EditUrl (this, "BulkAdd"), 
 					false, 
 					DotNetNuke.Security.SecurityAccessLevel.Edit,
 					true, 

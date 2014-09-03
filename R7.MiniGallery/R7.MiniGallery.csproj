@@ -75,6 +75,9 @@
     <Content Include="Import.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
+    <Content Include="BulkAdd.ascx">
+      <DeployService-Deploy>True</DeployService-Deploy>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App_LocalResources\ViewMiniGallery.ascx.resx" />
@@ -93,6 +96,7 @@
     <None Include="lightbox\lightbox-2.7.1.zip" />
     <None Include="SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
+    <None Include="App_LocalResources\BulkAdd.ascx.resx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lib\Properties\AssemblyInfo.cs" />
@@ -129,6 +133,12 @@
     <Compile Include="entities\IAuditable.cs" />
     <Compile Include="entities\ImageInfo.cs" />
     <Compile Include="components\MiniGalleryModuleBase.cs" />
+    <Compile Include="BulkAdd.cs">
+      <DependentUpon>BulkAdd.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="BulkAdd.controls.cs">
+      <DependentUpon>BulkAdd.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
