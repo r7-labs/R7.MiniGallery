@@ -36,7 +36,9 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Users;
+using DotNetNuke.Services.FileSystem;
 using DotNetNuke.Services.Localization;
+using DotNetNuke.Web.UI.WebControls;
 
 namespace R7.MiniGallery
 {
@@ -309,6 +311,14 @@ namespace R7.MiniGallery
 		{
 			int tmp;
 			return int.TryParse (_value, out tmp) ? tmp : defValue; 
+		}
+
+		public static void DnnFilePickerUploaderHack (DnnFilePickerUploader picker, PortalSettings portalSettings)
+		{
+			if (picker.FileID > 0)
+				picker.FilePath = FileManager.Instance.GetUrl (
+					FileManager.Instance.GetFile (picker.FileID))
+					.Remove (0, portalSettings.HomeDirectory.Length);
 		}
 	}
 	// class
