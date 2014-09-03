@@ -25,7 +25,14 @@ namespace R7.MiniGallery
 	{
 
 		#region Fields
+		
+		private ModuleInfo module;
 
+		private FileInfo thumbFile;
+
+		private string createdByUserName;
+
+		private string lastModifiedByUserName;
 
 		#endregion
 
@@ -58,8 +65,6 @@ namespace R7.MiniGallery
 
 		#region Joins
 
-		private FileInfo thumbFile;
-
 		[IgnoreColumn]
 		public FileInfo ThumbFile
 		{
@@ -67,11 +72,10 @@ namespace R7.MiniGallery
 			{
 				if (thumbFile == null)
 					thumbFile = (FileInfo)FileManager.Instance.GetFile (ImageFileID);
+				
 				return thumbFile;
 			}
 		}
-
-		private ModuleInfo module;
 
 		[IgnoreColumn]
 		public ModuleInfo Module
@@ -86,8 +90,6 @@ namespace R7.MiniGallery
 				return module;
 			}
 		}
-
-		private string createdByUserName;
 
 		[IgnoreColumn]
 		public string CreatedByUserName
@@ -106,8 +108,6 @@ namespace R7.MiniGallery
 				return createdByUserName;
 			}
 		}
-
-		private string lastModifiedByUserName;
 
 		[IgnoreColumn]
 		public string LastModifiedByUserName
