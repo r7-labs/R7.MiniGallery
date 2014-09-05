@@ -94,3 +94,11 @@
 .MG_Default .MG_NotPublished { opacity:0.3 }
 
 .MG_Default .MG_NotPublished:hover { opacity:1 }
+
+.MG_BulkAddImagesList_Item 
+{
+	display:block;
+	margin-top:5px;
+	clear:both;
+	vertical-align:top;
+}

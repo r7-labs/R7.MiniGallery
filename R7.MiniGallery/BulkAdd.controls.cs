@@ -16,6 +16,8 @@ namespace R7.MiniGallery
 		protected LabelControl labelFolder;
 		protected DnnFolderDropDownList ddlFolders;
 
+		protected DataList listImages;
+
 	/*	protected DropDownList ddlFolder;
 
 		//protected LabelControl labelFiles;

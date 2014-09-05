@@ -8,7 +8,7 @@
 	<fieldset>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelFolder" runat="server" ControlName="ddlFolders" Suffix=":" />
-			<dnn:DnnFolderDropDownList id="ddlFolders" runat="server" />
+			<dnn:DnnFolderDropDownList id="ddlFolders" runat="server" AutoPostBack="true" />
 			<%-- <asp:DropDownList id="ddlFolder" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFolder_SelectedIndexChanged" /> --%>
 		</div>
 		<%--
@@ -25,19 +25,22 @@
 			<asp:TextBox id="textCustomThumbFilter" runat="server" CssClass="MG_Import_CustomFilter" />
 			<asp:Button id="buttonApplyFilter" runat="server" ResourceKey="buttonApplyFilter" OnClick="buttonApplyFilter_Click" />
 		</div>
+		--%>
 		<div class="dnnFormItem">
-		    <div class="dnnLabel"></div>
-		    <div class="MG_Import_PairsContainer">
-			   	<asp:DataList ID="listPairs" runat="server" OnItemDataBound="listPairs_ItemDataBound" RepeatLayout="Flow">
-			  		<ItemTemplate>
-						<asp:HiddenField id="hiddenThumb" runat="server" />
-						<asp:CheckBox id="checkThumb" runat="server" />
-						<br />
-						<asp:DropDownList id="ddlFiles" runat="server" Width="300px" />
-					</ItemTemplate>
-				</asp:DataList>
-			<div>
-		</div>--%>
+			<div class="dnnLabel"></div>
+		    <asp:DataList ID="listImages" runat="server" OnItemDataBound="listImages_ItemDataBound" 
+				RepeatLayout="Flow" Style="width:47%">
+				<ItemTemplate>
+					<asp:Image id="imageImage" runat="server" Style="float:left;width:120px" />
+					<div style="float:left;padding-left:10px">
+						<asp:CheckBox id="checkIsIncluded" runat="server" />
+						<asp:TextBox id="textAlt" runat="server" Style="float:left;display:inline-block" />
+						<asp:TextBox id="textSortIndex" runat="server" Style="float:left" />
+					</div>
+				</ItemTemplate>
+				<ItemStyle CssClass="MG_BulkAddImagesList_Item" />
+			</asp:DataList>
+		</div>
 	</fieldset>
 	
 	<ul class="dnnActions dnnClear">

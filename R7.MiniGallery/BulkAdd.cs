@@ -293,7 +293,14 @@ namespace R7.MiniGallery
 
 		protected void dllFolders_SelectionChanged (object sender, EventArgs e)
 		{
-			// MakePairs ();
+			var folder = ddlFolders.SelectedFolder;
+			var files = FolderManager.Instance.GetFiles (folder);
+			
+			files = files.Where (file => 
+				Globals.glbImageFileTypes.Contains (file.Extension.ToLowerInvariant ()));
+
+			listImages.DataSource = files;
+			listImages.DataBind ();
 		}
 
 		protected void ddlThumbFilter_SelectedIndexChanged (object sender, EventArgs e)
@@ -382,28 +389,19 @@ namespace R7.MiniGallery
 */
 		private List<IFileInfo> tmpFiles;
 
-		protected void listPairs_ItemDataBound (object sender, System.Web.UI.WebControls.DataListItemEventArgs e)
+		protected void listImages_ItemDataBound (object sender, System.Web.UI.WebControls.DataListItemEventArgs e)
 		{
-			/*
-			var pair = e.Item.DataItem as Tuple<IFileInfo,IFileInfo>;
+			var file = e.Item.DataItem as IFileInfo;
 
-			var checkThumb = e.Item.FindControl ("checkThumb") as CheckBox;
-			var hiddenThumb = e.Item.FindControl ("hiddenThumb") as HiddenField;
-			var ddlFiles = e.Item.FindControl ("ddlFiles") as DropDownList;
+			var imageImage = e.Item.FindControl ("imageImage") as Image;
+			var checkIsIncluded = e.Item.FindControl ("checkIsIncluded") as CheckBox;
+			var textAlt = e.Item.FindControl ("textAlt") as TextBox;
+			var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
 			
-			checkThumb.Checked = true;
-			checkThumb.Text = pair.Item1.FileName;
-
-			// store FileId for a thumb in a hidden field
-			hiddenThumb.Value = pair.Item1.FileId.ToString ();
-
-			foreach (var file in tmpFiles)
-			{
-				ddlFiles.Items.Add (new ListItem (file.FileName, file.FileId.ToString ()));
-				if (file.FileId == pair.Item2.FileId)
-					ddlFiles.SelectedIndex = ddlFiles.Items.Count - 1;
-			}*/
-		}
+			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
+			checkIsIncluded.Checked = true;
+			checkIsIncluded.Text = file.FileName;
+	}
 
 		#endregion
 	
