@@ -297,7 +297,8 @@ namespace R7.MiniGallery
 			var files = FolderManager.Instance.GetFiles (folder);
 			
 			files = files.Where (file => 
-				Globals.glbImageFileTypes.Contains (file.Extension.ToLowerInvariant ()));
+				Globals.glbImageFileTypes.Contains (file.Extension.ToLowerInvariant ()))
+				.OrderBy (file => file.FileName);
 
 			listImages.DataSource = files;
 			listImages.DataBind ();
@@ -401,6 +402,7 @@ namespace R7.MiniGallery
 			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
 			checkIsIncluded.Checked = true;
 			checkIsIncluded.Text = file.FileName;
+			
 	}
 
 		#endregion
