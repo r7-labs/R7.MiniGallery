@@ -4,7 +4,7 @@
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke" Namespace="DotNetNuke.UI.WebControls" %>
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
 
-<div class="dnnForm dnnClear">
+<div class="dnnForm dnnClear MG_BulkAdd">
 	<fieldset>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelFolder" runat="server" ControlName="ddlFolders" Suffix=":" />
@@ -26,21 +26,24 @@
 			<asp:Button id="buttonApplyFilter" runat="server" ResourceKey="buttonApplyFilter" OnClick="buttonApplyFilter_Click" />
 		</div>
 		--%>
-		<div class="dnnFormItem">
-			<div class="dnnLabel"></div>
-		    <asp:DataList ID="listImages" runat="server" OnItemDataBound="listImages_ItemDataBound" 
-				RepeatLayout="Flow" Style="width:47%">
-				<ItemTemplate>
-					<asp:Image id="imageImage" runat="server" Style="float:left;width:120px" />
-					<div style="float:left;padding-left:10px">
-						<asp:CheckBox id="checkIsIncluded" runat="server" />
-						<asp:TextBox id="textAlt" runat="server" Style="float:left;display:inline-block" />
-						<asp:TextBox id="textSortIndex" runat="server" Style="float:left" />
-					</div>
-				</ItemTemplate>
-				<ItemStyle CssClass="MG_BulkAddImagesList_Item" />
-			</asp:DataList>
-		</div>
+		
+	    <asp:DataList ID="listImages" runat="server" OnItemDataBound="listImages_ItemDataBound" 
+			RepeatLayout="Flow" CssClass="listImages" >
+			<ItemTemplate>
+				<div class="dnnLabel"></div>
+				<div class="divImage">	
+					<asp:Image id="imageImage" runat="server" CssClass="imageImage" />
+				</div>
+				<div class="divMiniForm">
+					<asp:CheckBox id="checkIsIncluded" runat="server" />	
+					<asp:TextBox id="textSortIndex" runat="server" CssClass="textSortIndex" ToolTip="Sort Index" />
+					<br />
+					<asp:TextBox id="textAlt" runat="server" CssClass="textAlt" ToolTip="Alt" MaxLength="255"  />
+				</div>
+			</ItemTemplate>
+			<ItemStyle CssClass="dnnFormItem" />
+		</asp:DataList>
+		
 	</fieldset>
 	
 	<ul class="dnnActions dnnClear">

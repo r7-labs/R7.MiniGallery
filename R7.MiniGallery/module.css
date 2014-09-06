@@ -95,10 +95,29 @@
 
 .MG_Default .MG_NotPublished:hover { opacity:1 }
 
-.MG_BulkAddImagesList_Item 
+.MG_BulkAdd .listImages .imageImage 
 {
-	display:block;
-	margin-top:5px;
-	clear:both;
-	vertical-align:top;
+	float:right;
+	max-width:120px;
+	margin-top:9px
 }
+
+.MG_BulkAdd .listImages .divImage 
+{
+	float:left;
+	width:120px
+}
+
+.MG_BulkAdd .listImages .divMiniForm
+{
+	float:left;
+	margin-left:10px
+}
+
+.MG_BulkAdd .listImages .textSortIndex
+{
+	float:right;
+	width:30px
+}
+
+.MG_BulkAdd .listImages .textAlt { min-width:290px }
