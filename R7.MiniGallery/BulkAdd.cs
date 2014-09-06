@@ -251,26 +251,28 @@ namespace R7.MiniGallery
 		{
 			try
 			{
-			/*	var now = DateTime.Now;
-				var sortIndex = 10;
+				var now = DateTime.Now;
+				// var sortIndex = 10;
 
-				foreach (DataListItem item in listPairs.Items)
+				foreach (DataListItem item in listImages.Items)
 				{
-					var checkThumb = item.FindControl ("checkThumb") as CheckBox;
-					var hiddenThumb = item.FindControl ("hiddenThumb") as HiddenField;
-					var ddlFiles = item.FindControl ("ddlFiles") as DropDownList;
+					var imageImage = item.FindControl ("imageImage") as Image;
+					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
+					var textAlt = item.FindControl ("textAlt") as TextBox;
+					var textSortIndex = item.FindControl ("textSortIndex") as TextBox;
+					var hiddenImageFileID = item.FindControl ("hiddenImageFileID") as HiddenField;
 
-					var dataItem = item.DataItem as Tuple<IFileInfo, IFileInfo>;
+					// var dataItem = item.DataItem as ImageToAdd;
 
 					// add only selected items
-					if (checkThumb.Checked)
+					if (checkIsIncluded.Checked)
 					{
 						var image = new ImageInfo () {
-							ImageFileID = int.Parse (hiddenThumb.Value),
-							Alt = "",
-							Title = "",
-							Url = "FileID=" + ddlFiles.SelectedValue,
-							SortIndex = sortIndex += 10,
+							ImageFileID = int.Parse (hiddenImageFileID.Value),
+							Alt = textAlt.Text,
+							Title = string.Empty,
+							Url = string.Empty,
+							SortIndex = Utils.TryParseInt32 (textSortIndex.Text, 0),
 							IsPublished = true,
 							ModuleID = ModuleId,
 							CreatedOnDate = now,
@@ -281,8 +283,10 @@ namespace R7.MiniGallery
 
 						MiniGalleryController.Add<ImageInfo> (image);
 					}
-				}*/
-
+				}
+				
+				Utils.SynchronizeModule (this);
+				
 				Response.Redirect (Globals.NavigateURL (), true);
 			}
 			catch (Exception ex)
