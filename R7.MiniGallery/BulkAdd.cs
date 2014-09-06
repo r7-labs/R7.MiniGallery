@@ -300,10 +300,17 @@ namespace R7.MiniGallery
 				Globals.glbImageFileTypes.Contains (file.Extension.ToLowerInvariant ()))
 				.OrderBy (file => file.FileName);
 
-			var imagesToAdd = files.Select (file => new ImageToAdd(file));
+			var imagesToAdd = files.Select (file => new ImageToAdd (file));
 
-			listImages.DataSource = imagesToAdd;
-			listImages.DataBind ();
+			if (imagesToAdd.Any ())
+			{
+				listImages.DataSource = imagesToAdd;
+				listImages.DataBind ();
+
+				buttonUpdate.Visible = true;
+			}
+			else
+				buttonUpdate.Visible = false;
 		}
 
 		protected void ddlThumbFilter_SelectedIndexChanged (object sender, EventArgs e)
