@@ -139,18 +139,14 @@
     <Compile Include="BulkAdd.controls.cs">
       <DependentUpon>BulkAdd.ascx</DependentUpon>
     </Compile>
+    <Compile Include="entities\ImageToAdd.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
     <MonoDevelop>
-      <Properties VerifyCodeBehindFields="True" VerifyCodeBehindEvents="True">
+      <Properties>
         <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
-        <WebDeployTargets>
-          <Target Name="">
-            <FileCopier Handler="MonoDevelop.Deployment.LocalFileCopyHandler" TargetDirectory="C:\Temp\1" ctype="LocalFileCopyConfiguration" />
-          </Target>
-        </WebDeployTargets>
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>

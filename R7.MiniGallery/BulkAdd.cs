@@ -300,7 +300,9 @@ namespace R7.MiniGallery
 				Globals.glbImageFileTypes.Contains (file.Extension.ToLowerInvariant ()))
 				.OrderBy (file => file.FileName);
 
-			listImages.DataSource = files;
+			var imagesToAdd = files.Select (file => new ImageToAdd(file));
+
+			listImages.DataSource = imagesToAdd;
 			listImages.DataBind ();
 		}
 
@@ -392,15 +394,17 @@ namespace R7.MiniGallery
 
 		protected void listImages_ItemDataBound (object sender, System.Web.UI.WebControls.DataListItemEventArgs e)
 		{
-			var file = e.Item.DataItem as IFileInfo;
+			var image = e.Item.DataItem as ImageToAdd;
 
 			var imageImage = e.Item.FindControl ("imageImage") as Image;
 			var checkIsIncluded = e.Item.FindControl ("checkIsIncluded") as CheckBox;
 			var textAlt = e.Item.FindControl ("textAlt") as TextBox;
 			var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
+			var hiddenImageFileID = e.Item.FindControl ("hiddenImageFileID") as HiddenField;
 			
-			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
-			checkIsIncluded.Text = file.FileName;
+			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + image.ImageFileID, false);
+			checkIsIncluded.Text = image.FileName;
+			hiddenImageFileID.Value = image.ImageFileID.ToString();
 		}
 
 		#endregion

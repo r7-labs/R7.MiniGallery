@@ -39,7 +39,8 @@
 					<asp:TextBox id="textSortIndex" runat="server" CssClass="textSortIndex" ToolTip="Sort Index">0</asp:TextBox>
 					<br />
 					<asp:TextBox id="textAlt" runat="server" CssClass="textAlt" ToolTip="Alt" MaxLength="255"  />
-				</div>
+				</div>		
+				<asp:HiddenField id="hiddenImageFileID" runat="server" />
 			</ItemTemplate>
 			<ItemStyle CssClass="dnnFormItem" />
 		</asp:DataList>
