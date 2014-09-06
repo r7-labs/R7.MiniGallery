@@ -35,8 +35,8 @@
 					<asp:Image id="imageImage" runat="server" CssClass="imageImage" />
 				</div>
 				<div class="divMiniForm">
-					<asp:CheckBox id="checkIsIncluded" runat="server" />	
-					<asp:TextBox id="textSortIndex" runat="server" CssClass="textSortIndex" ToolTip="Sort Index" />
+					<asp:CheckBox id="checkIsIncluded" runat="server" Checked="true" />	
+					<asp:TextBox id="textSortIndex" runat="server" CssClass="textSortIndex" ToolTip="Sort Index">0</asp:TextBox>
 					<br />
 					<asp:TextBox id="textAlt" runat="server" CssClass="textAlt" ToolTip="Alt" MaxLength="255"  />
 				</div>

@@ -400,10 +400,8 @@ namespace R7.MiniGallery
 			var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
 			
 			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
-			checkIsIncluded.Checked = true;
 			checkIsIncluded.Text = file.FileName;
-			
-	}
+		}
 
 		#endregion
 	
