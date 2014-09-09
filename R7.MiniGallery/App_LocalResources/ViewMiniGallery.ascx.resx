@@ -9,11 +9,11 @@
 	<data name="DefaultContent.Text" xml:space="preserve">
     <value>Here is some sample content</value>
   </data>
-  <data name="AddMultipleImages.Text" xml:space="preserve">
-    <value>Add by filter</value>
+  <data name="BulkAddImages.Text" xml:space="preserve">
+    <value>Bulk Add Images</value>
   </data>
-  <data name="AddSingleImage.Text" xml:space="preserve">
-    <value>Add image</value>
+  <data name="AddImage.Text" xml:space="preserve">
+    <value>Add Image</value>
   </data>
   <data name="AddImages.Help" xml:space="preserve">
   	<value>Add some images to gallery by using &lt;b&gt;Add image&lt;/b&gt; command in module actions.</value>

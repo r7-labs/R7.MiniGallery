@@ -296,11 +296,24 @@ namespace R7.MiniGallery
 				// create a new action to add an item, this will be added 
 				// to the controls dropdown menu
 				var actions = new ModuleActionCollection ();
+				
+				actions.Add 
+				(
+					GetNextActionID (), 
+					Localization.GetString ("AddImage.Text", LocalResourceFile),
+					ModuleActionType.AddContent, 
+					"", "", 
+					Utils.EditUrl (this, "Edit"), 
+					false, 
+					DotNetNuke.Security.SecurityAccessLevel.Edit,
+					true, 
+					false
+				);
 
 				actions.Add 
 				(
 					GetNextActionID (), 
-					Localization.GetString ("AddMultipleImages.Text", LocalResourceFile),
+					Localization.GetString ("BulkAddImages.Text", LocalResourceFile),
 					ModuleActionType.AddContent, 
 					"", "", 
 					Utils.EditUrl (this, "BulkAdd"), 
@@ -310,18 +323,7 @@ namespace R7.MiniGallery
 					false
 				);
 
-				actions.Add 
-				(
-					GetNextActionID (), 
-					Localization.GetString ("AddSingleImage.Text", LocalResourceFile),
-					ModuleActionType.AddContent, 
-					"", "", 
-					Utils.EditUrl (this, "Edit"), 
-					false, 
-					DotNetNuke.Security.SecurityAccessLevel.Edit,
-					true, 
-					false
-				);
+				
 
 				return actions;
 			}
