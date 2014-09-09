@@ -188,6 +188,10 @@ namespace R7.MiniGallery
 			linkCancel.NavigateUrl = Globals.NavigateURL ();
 
 			ddlFolders.SelectionChanged += dllFolders_SelectionChanged;
+			
+			buttonCheckAll.Click += buttonCheckUncheckAll_Click;
+			buttonUncheckAll.Click += buttonCheckUncheckAll_Click;
+			buttonInvertSelection.Click += buttonInvertSelection_Click;
 		}
 
 		/// <summary>
@@ -310,9 +314,13 @@ namespace R7.MiniGallery
 				listImages.DataBind ();
 
 				buttonUpdate.Visible = true;
+				panelCheck.Visible = true;
 			}
 			else
+			{
 				buttonUpdate.Visible = false;
+				panelCheck.Visible = false;
+			}
 		}
 
 		protected void ddlThumbFilter_SelectedIndexChanged (object sender, EventArgs e)
@@ -414,6 +422,40 @@ namespace R7.MiniGallery
 			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
 			checkIsIncluded.Text = file.FileName;
 			hiddenImageFileID.Value = file.FileId.ToString();
+		}
+
+		protected void buttonCheckUncheckAll_Click (object sender, EventArgs e)
+		{
+			try
+			{
+				foreach (DataListItem item in listImages.Items)
+				{
+					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
+					
+					checkIsIncluded.Checked = (sender == buttonCheckAll);
+				}
+			}
+			catch (Exception ex)
+			{
+				Exceptions.ProcessModuleLoadException (this, ex);
+			}
+		}
+
+		protected void buttonInvertSelection_Click (object sender, EventArgs e)
+		{
+			try
+			{
+				foreach (DataListItem item in listImages.Items)
+				{
+					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
+					
+					checkIsIncluded.Checked = !checkIsIncluded.Checked;
+				}
+			}
+			catch (Exception ex)
+			{
+				Exceptions.ProcessModuleLoadException (this, ex);
+			}
 		}
 
 		#endregion

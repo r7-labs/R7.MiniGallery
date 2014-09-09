@@ -18,6 +18,11 @@ namespace R7.MiniGallery
 
 		protected DataList listImages;
 
+		protected Panel panelCheck;
+		protected LinkButton buttonCheckAll;
+		protected LinkButton buttonUncheckAll;
+		protected LinkButton buttonInvertSelection;
+
 	/*	protected DropDownList ddlFolder;
 
 		//protected LabelControl labelFiles;

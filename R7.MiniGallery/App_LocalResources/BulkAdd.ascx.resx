@@ -35,4 +35,13 @@
 	<data name="PortalRoot.Text" xml:space="preserve">
 		<value>(Portal Root)</value>
 	</data>
+    <data name="buttonCheckAll.Text" xml:space="preserve">
+        <value>Check All</value>
+    </data>
+    <data name="buttonUncheckAll.Text" xml:space="preserve">
+        <value>Uncheck All</value>
+    </data>
+    <data name="buttonInvertSelection.Text" xml:space="preserve">
+        <value>Invert Selection</value>
+    </data>
 </root>

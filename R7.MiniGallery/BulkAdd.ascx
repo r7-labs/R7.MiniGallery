@@ -11,6 +11,14 @@
 			<dnn:DnnFolderDropDownList id="ddlFolders" runat="server" AutoPostBack="true" />
 			<%-- <asp:DropDownList id="ddlFolder" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFolder_SelectedIndexChanged" /> --%>
 		</div>
+		<asp:Panel id="panelCheck" runat="server" Visible="false" CssClass="dnnFormItem">
+			<div class="dnnLabel"></div>
+			<asp:LinkButton id="buttonCheckAll" runat="server" CssClass="dnnSecondaryAction" ResourceKey="buttonCheckAll" />
+			&#160;
+			<asp:LinkButton id="buttonUncheckAll" runat="server" CssClass="dnnSecondaryAction" ResourceKey="buttonUncheckAll" />
+			&#160;
+			<asp:LinkButton id="buttonInvertSelection" runat="server" CssClass="dnnSecondaryAction" ResourceKey="buttonInvertSelection" />
+		</asp:Panel>
 		<%--
 		<div class="dnnFormItem">
 			<dnn:Label id="labelThumbFilter" runat="server" ControlName="ddlThumbFilter" Suffix=":" />
