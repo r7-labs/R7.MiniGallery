@@ -140,6 +140,9 @@ namespace R7.MiniGallery
             
 			// fill out the controls
 
+			imageImage.AlternateText = image.Alt;
+			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;
+
 			#region Link
 
 			// TODO: url type (secured or none) must be set in settings
@@ -158,10 +161,14 @@ namespace R7.MiniGallery
 				linkImage.NavigateUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
 			}
 
+			// lightbox
 			if (MiniGallerySettings.UseLightbox && ImageViewer == ImageViewer.LightBox2)
 			{
 				linkImage.Attributes.Add ("data-lightbox", "module_" + TabModuleId);
 				linkImage.Attributes.Remove ("target");
+				
+				if (!string.IsNullOrWhiteSpace (imageImage.ToolTip))
+				linkImage.Attributes.Add ("data-title", imageImage.ToolTip);
 			}
 
 			#endregion
@@ -231,8 +238,7 @@ namespace R7.MiniGallery
 			
 			#endregion
 
-			imageImage.AlternateText = image.Alt;
-			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;
+			
 			
 			// NOTE: img width is always 100%, so we don't need this		
 			// imageImage.Width = Unit.Parse (settings.ImageWidth);

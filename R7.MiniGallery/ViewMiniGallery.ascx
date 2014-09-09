@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewMiniGallery.ascx.cs" Inherits="R7.MiniGallery.ViewMiniGallery" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-<dnn:DnnJsInclude id="lightboxJS" runat="server" FilePath="js/lightbox2/js/lightbox-2.6.min.js" />
+<dnn:DnnJsInclude id="lightboxJS" runat="server" FilePath="js/lightbox2/js/lightbox.min.js" />
 <dnn:DnnCssInclude id="lightboxCSS" runat="server" FilePath="js/lightbox2/css/lightbox.css" />
 
 <asp:DataList id="listImages" DataKeyField="ImageID" runat="server" CssClass="MG_List"
