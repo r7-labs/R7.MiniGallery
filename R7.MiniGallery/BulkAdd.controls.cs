@@ -12,34 +12,12 @@ namespace R7.MiniGallery
 	{
 		protected LinkButton buttonUpdate;
 		protected HyperLink linkCancel;
-	
 		protected LabelControl labelFolder;
 		protected DnnFolderDropDownList ddlFolders;
-
 		protected DataList listImages;
-
 		protected Panel panelCheck;
 		protected LinkButton buttonCheckAll;
 		protected LinkButton buttonUncheckAll;
 		protected LinkButton buttonInvertSelection;
-
-	/*	protected DropDownList ddlFolder;
-
-		//protected LabelControl labelFiles;
-		protected LabelControl labelThumbFilter;
-		protected DropDownList ddlThumbFilter;
-		protected TextBox textCustomThumbFilter;
-		protected HtmlControl divCustomThumbFilter;
-		protected Button buttonApplyFilter;
-
-		//protected CheckBoxList listFiles;
-		//protected DnnListBox listFiles;
-		//protected Button buttonSelectAll;
-		//protected Button buttonUnselectAll;
-
-		protected DataList listPairs;
-	*/
-		//protected TextBox textTest;
-
 	}
 }
