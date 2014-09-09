@@ -28,9 +28,9 @@ namespace R7.MiniGallery
 
 			// wireup handlers
 			ddlFolders.SelectionChanged += dllFolders_SelectionChanged;
-			buttonCheckAll.Click += buttonCheckUncheckAll_Click;
-			buttonUncheckAll.Click += buttonCheckUncheckAll_Click;
-			buttonInvertSelection.Click += buttonInvertSelection_Click;
+			buttonCheckAll.Click += buttonChecks_Click;
+			buttonUncheckAll.Click += buttonChecks_Click;
+			buttonInvertSelection.Click += buttonChecks_Click;
 		}
 
 		/// <summary>
@@ -155,7 +155,7 @@ namespace R7.MiniGallery
 			hiddenImageFileID.Value = file.FileId.ToString();
 		}
 
-		protected void buttonCheckUncheckAll_Click (object sender, EventArgs e)
+		protected void buttonChecks_Click (object sender, EventArgs e)
 		{
 			try
 			{
@@ -163,24 +163,14 @@ namespace R7.MiniGallery
 				{
 					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
 					
-					checkIsIncluded.Checked = (sender == buttonCheckAll);
-				}
-			}
-			catch (Exception ex)
-			{
-				Exceptions.ProcessModuleLoadException (this, ex);
-			}
-		}
-
-		protected void buttonInvertSelection_Click (object sender, EventArgs e)
-		{
-			try
-			{
-				foreach (DataListItem item in listImages.Items)
-				{
-					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
-					
-					checkIsIncluded.Checked = !checkIsIncluded.Checked;
+					if (sender == buttonCheckAll)
+						checkIsIncluded.Checked = true;
+					else if (sender == buttonUncheckAll)
+						checkIsIncluded.Checked = false;
+					else if (sender == buttonInvertSelection)
+						checkIsIncluded.Checked = !checkIsIncluded.Checked;
+					else 
+						break;
 				}
 			}
 			catch (Exception ex)
