@@ -117,7 +117,8 @@
 .MG_BulkAdd .listImages .textSortIndex
 {
 	float:right;
-	width:30px
+	width:30px;
+	margin-bottom:8px
 }
 
 .MG_BulkAdd .listImages .textAlt { min-width:290px }
