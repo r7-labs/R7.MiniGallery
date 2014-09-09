@@ -72,9 +72,6 @@
     <Content Include="EditMiniGallery.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
-    <Content Include="Import.ascx">
-      <DeployService-Deploy>True</DeployService-Deploy>
-    </Content>
     <Content Include="BulkAdd.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
@@ -92,7 +89,6 @@
     <None Include="App_LocalResources\SettingsMiniGallery.ascx.ru-RU.resx" />
     <None Include="doc\install.txt" />
     <None Include="NOTES.txt" />
-    <None Include="App_LocalResources\Import.ascx.resx" />
     <None Include="lightbox\lightbox-2.7.1.zip" />
     <None Include="SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
@@ -112,17 +108,11 @@
     <Compile Include="EditMiniGallery.ascx.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Import.ascx.cs">
-      <DependentUpon>Import.ascx</DependentUpon>
-    </Compile>
     <Compile Include="ViewMiniGallery.ascx.controls.cs">
       <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="SettingsMiniGallery.ascx.controls.cs">
       <DependentUpon>SettingsMiniGallery.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Import.ascx.controls.cs">
-      <DependentUpon>Import.ascx</DependentUpon>
     </Compile>
     <Compile Include="EditMiniGallery.ascx.controls.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
