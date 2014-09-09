@@ -1,4 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewMiniGallery.ascx.cs" Inherits="R7.MiniGallery.ViewMiniGallery" %>
+<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
+
+<dnn:DnnJsInclude id="lightboxJS" runat="server" FilePath="js/lightbox2/js/lightbox-2.6.min.js" />
+<dnn:DnnCssInclude id="lightboxCSS" runat="server" FilePath="js/lightbox2/css/lightbox.css" />
+
 <asp:DataList id="listImages" DataKeyField="ImageID" runat="server" CssClass="MG_List"
 	RepeatLayout="Flow" RepeatDirection="Horizontal" OnItemDataBound="listImages_ItemDataBound">
 	<ItemTemplate>
@@ -14,6 +19,3 @@
 	<ItemStyle CssClass="MG_Item" />
 	<AlternatingItemStyle CssClass="MG_AltItem" />
 </asp:DataList>
-
-	<!--- <script language="javascript" type="text/javascript" src="/js/lightbox2/js/lightbox-2.6.min.js"></script>
-<link href="/js/lightbox2/js/css/lightbox.css" rel="stylesheet" /> -->
