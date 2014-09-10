@@ -54,7 +54,7 @@ namespace R7.MiniGallery
 		}
         */
 
-		private ImageViewer ImageViewer = ImageViewer.LightBox2;
+		private LightboxType LightboxType = LightboxType.ColorBox;
 
 		/// <summary>
 		/// Handles Page_Load event for a control
@@ -162,13 +162,28 @@ namespace R7.MiniGallery
 			}
 
 			// lightbox
-			if (MiniGallerySettings.UseLightbox && ImageViewer == ImageViewer.LightBox2)
+			if (MiniGallerySettings.UseLightbox)
 			{
-				linkImage.Attributes.Add ("data-lightbox", "module_" + TabModuleId);
-				linkImage.Attributes.Remove ("target");
-				
-				if (!string.IsNullOrWhiteSpace (imageImage.ToolTip))
-				linkImage.Attributes.Add ("data-title", imageImage.ToolTip);
+				if (LightboxType == LightboxType.LightBox2)
+				{
+					linkImage.Attributes.Add ("data-lightbox", "module_" + TabModuleId);
+					linkImage.Attributes.Remove ("target");
+					
+					if (!string.IsNullOrWhiteSpace (imageImage.ToolTip))
+					linkImage.Attributes.Add ("data-title", imageImage.ToolTip);
+				}
+				else if (LightboxType == LightboxType.ColorBox)
+				{
+					// add attribute to use with selector
+					linkImage.Attributes.Add ("data-colorbox", "module_" + TabModuleId);
+					linkImage.Attributes.Remove ("target");
+
+					// Colorbox displays link title, not image title
+					linkImage.ToolTip = imageImage.ToolTip;
+
+					// HACK: Colorbox require link URL have file extension or photo=true to load image properly
+					// linkImage.NavigateUrl += "&ext=." + image.File.Extension;
+				}
 			}
 
 			#endregion

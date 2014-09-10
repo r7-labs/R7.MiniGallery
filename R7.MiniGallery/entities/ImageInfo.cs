@@ -28,7 +28,7 @@ namespace R7.MiniGallery
 		
 		private ModuleInfo module;
 
-		private FileInfo thumbFile;
+		private IFileInfo file;
 
 		private string createdByUserName;
 
@@ -66,14 +66,14 @@ namespace R7.MiniGallery
 		#region Joins
 
 		[IgnoreColumn]
-		public FileInfo ThumbFile
+		public IFileInfo File
 		{
 			get
 			{
-				if (thumbFile == null)
-					thumbFile = (FileInfo)FileManager.Instance.GetFile (ImageFileID);
+				if (file == null)
+					file = FileManager.Instance.GetFile (ImageFileID);
 				
-				return thumbFile;
+				return file;
 			}
 		}
 
@@ -129,7 +129,7 @@ namespace R7.MiniGallery
 
 		public void ResetJoins ()
 		{
-			thumbFile = null;
+			file = null;
 			module = null;
 			createdByUserName = null;
 			lastModifiedByUserName = null;

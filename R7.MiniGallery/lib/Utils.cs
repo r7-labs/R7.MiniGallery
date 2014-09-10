@@ -42,13 +42,12 @@ using DotNetNuke.Web.UI.WebControls;
 
 namespace R7.MiniGallery
 {
-	public enum ImageViewer
+	public enum LightboxType
 	{
 		LightBox2,
 		YoxView,
 		FancyBox2,
 		ColorBox
-
 	}
 
 	// public enum ScrollBar { ? }
