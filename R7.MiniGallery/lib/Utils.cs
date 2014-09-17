@@ -44,10 +44,12 @@ namespace R7.MiniGallery
 {
 	public enum LightboxType
 	{
-		LightBox2,
-		YoxView,
-		FancyBox2,
+		LightBox,
 		ColorBox
+		/*
+		YoxView,
+		FancyBox
+        */
 	}
 
 	// public enum ScrollBar { ? }

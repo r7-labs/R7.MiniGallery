@@ -164,7 +164,7 @@ namespace R7.MiniGallery
 			// lightbox
 			if (MiniGallerySettings.UseLightbox)
 			{
-				if (LightboxType == LightboxType.LightBox2)
+				if (LightboxType == LightboxType.LightBox)
 				{
 					linkImage.Attributes.Add ("data-lightbox", "module_" + TabModuleId);
 					linkImage.Attributes.Remove ("target");
