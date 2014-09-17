@@ -4,6 +4,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using DotNetNuke.UI.UserControls;
 using DotNetNuke.UI.WebControls;
+using DotNetNuke.Web.UI.WebControls;
 
 namespace R7.MiniGallery
 {
@@ -31,8 +32,7 @@ namespace R7.MiniGallery
 		protected LabelControl labelTextAfter;
 		protected TextEditor editorFooter;
 		protected LabelControl labelColumns;
-		protected DropDownList ddlColumns;
-		// protected DropDownList ddlRows;
+		protected DnnComboBox comboColumns;
 		protected LabelControl labelThumbWidth;
 		protected TextBox textThumbWidth;
 		protected LabelControl labelThumbHeight;

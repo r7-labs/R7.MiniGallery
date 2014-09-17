@@ -53,8 +53,9 @@
 			<asp:CheckBox id="checkShowTitles" runat="server" />
 		</div>
 		<div class="dnnFormItem">
-			<dnn:Label id="labelColumns" runat="server" controlname="ddlColumns" suffix=":" />
-			<asp:DropDownList ID="ddlColumns" runat="server" Style="width:120px" />
+			<dnn:Label id="labelColumns" runat="server" controlname="comboColumns" suffix=":" />
+			<dnn:DnnComboBox id="comboColumns" runat="server" />
+			<%-- <asp:DropDownList ID="ddlColumns" runat="server" Style="width:120px" /> --%>
 			<%-- <b> x </b> 
 			<asp:DropDownList ID="ddlRows" runat="server" Style="width:100px" /> --%>
 		</div>

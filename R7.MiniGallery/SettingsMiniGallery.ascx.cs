@@ -13,6 +13,19 @@ namespace R7.MiniGallery
 {
 	public partial class SettingsMiniGallery : MiniGalleryModuleSettingsBase
 	{
+		protected override void OnInit (EventArgs e)
+		{
+			base.OnInit (e);
+			
+			// fill columns list
+			comboColumns.AddItem (
+				Localization.GetString ("Auto.Text", LocalResourceFile), 
+				Null.NullInteger.ToString ());
+
+			for (var i = 1; i <= 50; i++)
+				comboColumns.AddItem (i.ToString (), i.ToString());
+		}
+
 		/// <summary>
 		/// Handles the loading of the module setting for this control
 		/// </summary>
@@ -22,27 +35,8 @@ namespace R7.MiniGallery
 			{
 				if (!IsPostBack)
 				{
-					// fill columns list
-					/*ddlRows.Items.Add (new ListItem (
-						Localization.GetString ("Auto.Text", LocalResourceFile), 
-						Null.NullInteger.ToString ()));*/
+					comboColumns.Select (MiniGallerySettings.Columns.ToString(), false);
 
-					ddlColumns.Items.Add (new ListItem (
-						Localization.GetString ("Auto.Text", LocalResourceFile), 
-						Null.NullInteger.ToString ()));
-
-					for (var i = 1; i <= 50; i++)
-					{
-						// ddlRows.Items.Add (new ListItem (i.ToString ()));
-						ddlColumns.Items.Add (new ListItem (i.ToString ()));
-					}
-
-					Utils.SelectByValue (ddlColumns, MiniGallerySettings.Columns); 
-					/*// row number value have meaning only if columns number is set
-					if (MiniGallerySettings.Columns != Null.NullInteger)
-						Utils.SelectByValue (ddlRows, MiniGallerySettings.Rows, 0); */
-					// Localize ();	
-					
 					if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
 						textThumbWidth.Text = MiniGallerySettings.ThumbWidth.ToString ();
 
@@ -146,7 +140,7 @@ namespace R7.MiniGallery
 					 ddlTarget.SelectedValue : textTarget.Text;
 
 				// columns & rows
-				MiniGallerySettings.Columns = int.Parse (ddlColumns.SelectedValue);
+				MiniGallerySettings.Columns = int.Parse (comboColumns.SelectedValue);
 
 				MiniGallerySettings.SortOrder = checkSortOrder.Checked? "SortIndex" : "-SortIndex";
 
