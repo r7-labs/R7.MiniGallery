@@ -52,7 +52,7 @@
     <value>Image Handler Params</value>
   </data>
   <data name="labelImageHandlerParams.Help" xml:space="preserve">
-    <value>Add URL parameter string which will be added to image handler URL if name-value pairs format. Supported tags: {width}, {height}, {fileid}.</value>
+    <value>Add URL parameter string which will be added to image handler URL if name-value pairs format, or leave empty to use default URL. Supported tags: {fileticket}, {fileid}, {width}, {height}.</value>
   </data>
   <data name="labelShowTitles.Text" xml:space="preserve">
     <value>Show Titles</value>

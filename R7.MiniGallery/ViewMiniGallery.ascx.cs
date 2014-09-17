@@ -32,7 +32,7 @@ namespace R7.MiniGallery
 		
 		// TODO: Add more R7.Imagehandler tags 
 
-		private string [] imageHandlerTags = new [] { "fileid", "width", "height" };
+		private string [] imageHandlerTags = new [] { "fileticket", "width", "fileid", "height" };
 		
 		#endregion
 
@@ -210,7 +210,7 @@ namespace R7.MiniGallery
 				if (!string.IsNullOrWhiteSpace (MiniGallerySettings.ImageHandlerParams))
 					hanglerUrl += MiniGallerySettings.ImageHandlerParams;
 				else
-					hanglerUrl += "fileid={fileid}&width={width}";
+					hanglerUrl += "fileticket={fileticket}&width={width}";
 
 				foreach (var tag in imageHandlerTags)
 				{
@@ -218,12 +218,16 @@ namespace R7.MiniGallery
 					
 					switch (tag)
 					{
-						case "fileid": 
-							hanglerUrl = hanglerUrl.Replace (enclosedTag, image.ImageFileID.ToString());
+						case "fileticket":
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, UrlUtils.EncryptParameter (image.ImageFileID.ToString ()));
 							break;
-							
+						
 						case "width":
 							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ThumbWidth.ToString());
+							break;
+
+						case "fileid": 
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, image.ImageFileID.ToString());
 							break;
 							
 						case "height":
