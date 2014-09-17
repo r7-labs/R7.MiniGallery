@@ -111,7 +111,7 @@ namespace R7.MiniGallery
 				MiniGallerySettings.NumberOfRecords = Utils.TryParseInt32 (textNumberOfRecords.Text, Null.NullInteger);
 
 				MiniGallerySettings.ImageHandlerParams = textImageHandlerParams.Text;
-
+				
 				// MiniGallerySettings.ImageWidth = Utils.ParseToUnit (textImageWidth.Text, 1);
 				// MiniGallerySettings.ImageHeight = Utils.ParseToUnit (textImageHeight.Text, 1);
 

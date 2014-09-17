@@ -208,8 +208,10 @@ namespace R7.MiniGallery
 				var hanglerUrl = "/imagehandler.ashx?";
 
 				if (!string.IsNullOrWhiteSpace (MiniGallerySettings.ImageHandlerParams))
-					hanglerUrl += "&" + MiniGallerySettings.ImageHandlerParams;
-				
+					hanglerUrl += MiniGallerySettings.ImageHandlerParams;
+				else
+					hanglerUrl += "fileid={fileid}&width={width}";
+
 				foreach (var tag in imageHandlerTags)
 				{
 					var enclosedTag = "{" + tag + "}";

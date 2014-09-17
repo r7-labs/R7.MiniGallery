@@ -32,7 +32,7 @@ namespace R7.MiniGallery
 		public string ImageHandlerParams
 		{
 			// HACK: DNN SPs have a special handle of SettingValues starting with "fileid" 
-			get { return ReadSetting<string> ("MiniGallery_ImageHandlerParams", "__" + "fileid={fileid}&width={width}").TrimStart('_'); }
+			get { return ReadSetting<string> ("MiniGallery_ImageHandlerParams", "__").TrimStart('_'); }
 			set { WriteModuleSetting<string> ("MiniGallery_ImageHandlerParams", "__" + value ); }
 		}
 
