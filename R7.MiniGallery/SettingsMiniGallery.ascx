@@ -4,7 +4,12 @@
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web" %>
 
-<div class="dnnForm dnnClear">
+<style type="text/css">
+.MG_Settings .comboTarget { float:left;width:100px }
+.MG_Settings .textTarget { float:left;width:310px!important;margin-left:10px }
+</style>
+
+<div class="dnnForm dnnClear MG_Settings">
 	
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionBaseSettings.Text" /></a></h2>
 	<fieldset>
@@ -26,17 +31,9 @@
 			<asp:TextBox id="textImageHeight" runat="server" CssClass="NormalTextBox" />
 		</div>
 		<div class="dnnFormItem">
-			<dnn:Label id="labelTarget" runat="server" controlname="ddlTarget" suffix=":" />
-				<asp:DropDownList ID="ddlTarget" runat="server" Style="width:100px" >
-				    <asp:ListItem Value="none" ResourceKey="ddlTargetItemNone.Text" />
-			        <asp:ListItem Value="other" ResourceKey="ddlTargetItemOther.Text" />
-			        <asp:ListItem Value="_blank" Selected="True" Text="_blank" />
-	                <asp:ListItem Value="_top" Text="_top" />
-	                <asp:ListItem Value="_parent" Text="_parent" />
-	                <asp:ListItem Value="_self" Text="_self" />
-	          </asp:DropDownList>
-			  &#160;
-			  <asp:TextBox id="textTarget" runat="server" CssClass="NormalTextBox" Style="width:310px" />
+			<dnn:Label id="labelTarget" runat="server" controlname="comboTarget" suffix=":" />
+			<dnn:DnnComboBox id="comboTarget" runat="server" CssClass="comboTarget" />
+			<asp:TextBox id="textTarget" runat="server" CssClass="textTarget" />
 	   	</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelUseLightbox" runat="server" controlname="checkUseLightbox" suffix="?" />

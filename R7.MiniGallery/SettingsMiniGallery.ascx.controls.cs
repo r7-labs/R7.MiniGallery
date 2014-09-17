@@ -17,7 +17,7 @@ namespace R7.MiniGallery
 		protected LabelControl labelMaxHeight;
 		protected TextBox textMaxHeight;
 		protected LabelControl labelTarget;
-		protected DropDownList ddlTarget;
+		protected DnnComboBox comboTarget;
 		protected TextBox textTarget;
 		protected LabelControl labelUseLightbox;
 		protected CheckBox checkUseLightbox;

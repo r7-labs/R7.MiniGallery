@@ -17,13 +17,21 @@ namespace R7.MiniGallery
 		{
 			base.OnInit (e);
 			
-			// fill columns list
-			comboColumns.AddItem (
-				Localization.GetString ("Auto.Text", LocalResourceFile), 
-				Null.NullInteger.ToString ());
+			// fill columns combo
+			comboColumns.AddItem (LocalizeString ("Auto.Text"), Null.NullInteger.ToString ());
 
 			for (var i = 1; i <= 50; i++)
 				comboColumns.AddItem (i.ToString (), i.ToString());
+
+			// fill target combo
+			comboTarget.AddItem (LocalizeString ("ddlTargetItemNone.Text"), "none");
+			comboTarget.AddItem (LocalizeString ("ddlTargetItemOther.Text"), "other");
+			comboTarget.AddItem ("_blank", "_blank");
+			comboTarget.AddItem ("_top", "_top");
+			comboTarget.AddItem ("_parent", "_parent");
+			comboTarget.AddItem ("_self", "_self");
+
+			comboTarget.Select ("_blank", false);
 		}
 
 		/// <summary>
@@ -57,10 +65,16 @@ namespace R7.MiniGallery
 					textMaxHeight.Text = 
 						(MiniGallerySettings.MaxHeight >= 0) ? MiniGallerySettings.MaxHeight.ToString () : string.Empty;
 
-					// 0 = none, 1 = other
-					Utils.SelectByValue (ddlTarget, MiniGallerySettings.Target, 1);
-					if (ddlTarget.SelectedIndex == 1)
+					var item = comboTarget.FindItemByValue (MiniGallerySettings.Target);
+					if (item != null)
+					{
+						item.Selected = true;
+					}
+					else
+					{
+						comboTarget.SelectedIndex = 1; // other
 						textTarget.Text = MiniGallerySettings.Target;
+					}
 
 					// DESC sorting done if "-SortIndex" value
 					checkSortOrder.Checked = MiniGallerySettings.SortOrder == "SortIndex";
@@ -136,8 +150,8 @@ namespace R7.MiniGallery
 				}*/
 
 				// link target, 1 = other
-				MiniGallerySettings.Target = (ddlTarget.SelectedIndex != 1) ?
-					 ddlTarget.SelectedValue : textTarget.Text;
+				MiniGallerySettings.Target = (comboTarget.SelectedIndex != 1) ?
+					 comboTarget.SelectedValue : textTarget.Text;
 
 				// columns & rows
 				MiniGallerySettings.Columns = int.Parse (comboColumns.SelectedValue);
