@@ -6,6 +6,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7114412B-E74A-4A0A-BC96-C846EF50A2BF}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		LICENSE.md = LICENSE.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packages", "Packages\Packages.csproj", "{5BF047E1-1EC1-4A80-8393-F1E1D6A1482F}"
