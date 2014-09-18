@@ -41,13 +41,16 @@ namespace R7.MiniGallery
 			ClientResourceManager.RegisterStyleSheet (page, "~/js/colorbox/example1/colorbox.css");
 			ClientResourceManager.RegisterScript (page, "~/js/colorbox/jquery.colorbox-min.js");
 
-			var scriptTemplate = "$(document).ready(function(){" +
-				"$(\"a[data-colorbox=module_[KEY]]\")" +
-				".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
-				"});";
-		
-			page.ClientScript.RegisterStartupScript (page.GetType(), 
-				"colorbox_" + key, scriptTemplate.Replace ("[KEY]", key), true);
+			if (!page.ClientScript.IsStartupScriptRegistered (page.GetType (), "colorbox_" + key))
+			{
+				var scriptTemplate = "$(document).ready(function(){" +
+					"$(\"a[data-colorbox=module_[KEY]]\")" +
+					".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
+			        "});";
+
+				page.ClientScript.RegisterStartupScript (page.GetType (), 
+					"colorbox_" + key, scriptTemplate.Replace ("[KEY]", key), true);
+			}
 		}
 
 		public override void ApplyTo (Image image, HyperLink link)
