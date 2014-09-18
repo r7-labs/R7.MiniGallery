@@ -57,6 +57,9 @@
     <Reference Include="Telerik.Web.UI">
       <HintPath>..\..\..\bin\Telerik.Web.UI.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetNuke.Web.Client">
+      <HintPath>..\..\..\bin\DotNetNuke.Web.Client.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="js\" />
@@ -130,6 +133,9 @@
     <Compile Include="BulkAdd.controls.cs">
       <DependentUpon>BulkAdd.ascx</DependentUpon>
     </Compile>
+    <Compile Include="lib\LightboxBase.cs" />
+    <Compile Include="lib\Lightbox.cs" />
+    <Compile Include="lib\Colorbox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -1,11 +1,4 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewMiniGallery.ascx.cs" Inherits="R7.MiniGallery.ViewMiniGallery" %>
-<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
-
-<dnn:DnnJsInclude id="lightboxJS" runat="server" FilePath="js/lightbox2/js/lightbox.min.js" />
-<dnn:DnnCssInclude id="lightboxCSS" runat="server" FilePath="js/lightbox2/css/lightbox.css" />
-
-<dnn:DnnJsInclude id="colorboxJS" runat="server" FilePath="js/colorbox/jquery.colorbox-min.js" />
-<dnn:DnnCssInclude id="colorboxCSS" runat="server" FilePath="js/colorbox/example1/colorbox.css" />
 
 <asp:DataList id="listImages" DataKeyField="ImageID" runat="server" CssClass="MG_List"
 	RepeatLayout="Flow" RepeatDirection="Horizontal" OnItemDataBound="listImages_ItemDataBound">

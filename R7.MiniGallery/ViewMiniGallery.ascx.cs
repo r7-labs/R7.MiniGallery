@@ -33,6 +33,8 @@ namespace R7.MiniGallery
 		// TODO: Add more R7.Imagehandler tags 
 
 		private string [] imageHandlerTags = new [] { "fileticket", "width", "fileid", "height" };
+
+		protected LightboxBase Lightbox;
 		
 		#endregion
 
@@ -47,14 +49,13 @@ namespace R7.MiniGallery
 
 		#region Handlers
 
-		/*
 		protected override void OnInit(EventArgs e)
 		{
 			base.OnInit (e);
+			
+			Lightbox = new Lightbox (Page);
+			Lightbox.Register ();
 		}
-        */
-
-		private LightboxType LightboxType = LightboxType.ColorBox;
 
 		/// <summary>
 		/// Handles Page_Load event for a control
@@ -164,26 +165,7 @@ namespace R7.MiniGallery
 			// lightbox
 			if (MiniGallerySettings.UseLightbox)
 			{
-				if (LightboxType == LightboxType.LightBox)
-				{
-					linkImage.Attributes.Add ("data-lightbox", "module_" + TabModuleId);
-					linkImage.Attributes.Remove ("target");
-					
-					if (!string.IsNullOrWhiteSpace (imageImage.ToolTip))
-					linkImage.Attributes.Add ("data-title", imageImage.ToolTip);
-				}
-				else if (LightboxType == LightboxType.ColorBox)
-				{
-					// add attribute to use with selector
-					linkImage.Attributes.Add ("data-colorbox", "module_" + TabModuleId);
-					linkImage.Attributes.Remove ("target");
-
-					// Colorbox displays link title, not image title
-					linkImage.ToolTip = imageImage.ToolTip;
-
-					// HACK: Colorbox require link URL have file extension or photo=true to load image properly
-					// linkImage.NavigateUrl += "&ext=." + image.File.Extension;
-				}
+				Lightbox.ApplyTo (imageImage, linkImage, TabModuleId);
 			}
 
 			#endregion
