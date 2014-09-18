@@ -32,7 +32,7 @@ namespace R7.MiniGallery
 {
 	public class Lightbox : LightboxBase
 	{
-		public Lightbox (Page page): base (LightboxType.LightBox, page)
+		public Lightbox (Page page, string key): base (LightboxType.LightBox, page, key)
 		{
 		}
 		
@@ -42,7 +42,7 @@ namespace R7.MiniGallery
 			ClientResourceManager.RegisterScript (page, "~/js/lightbox2/js/lightbox.min.js");
 		}
 
-		public override void ApplyTo (Image image, HyperLink link, int key)
+		public override void ApplyTo (Image image, HyperLink link)
 		{
 			link.Attributes.Add ("data-lightbox", "module_" + key);
 			link.Attributes.Remove ("target");

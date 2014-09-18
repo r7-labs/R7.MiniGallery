@@ -32,7 +32,7 @@ namespace R7.MiniGallery
 {
 	public class Colorbox : LightboxBase
 	{
-		public Colorbox (Page page): base (LightboxType.LightBox, page)
+		public Colorbox (Page page, string key): base (LightboxType.ColorBox, page, key)
 		{
 		}
 		
@@ -40,9 +40,17 @@ namespace R7.MiniGallery
 		{
 			ClientResourceManager.RegisterStyleSheet (page, "~/js/colorbox/example1/colorbox.css");
 			ClientResourceManager.RegisterScript (page, "~/js/colorbox/jquery.colorbox-min.js");
+
+			var scriptTemplate = "$(document).ready(function(){" +
+				"$(\"a[data-colorbox=module_[KEY]]\")" +
+				".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
+				"});";
+		
+			page.ClientScript.RegisterStartupScript (page.GetType(), 
+				"colorbox_" + key, scriptTemplate.Replace ("[KEY]", key), true);
 		}
 
-		public override void ApplyTo (Image image, HyperLink link, int key)
+		public override void ApplyTo (Image image, HyperLink link)
 		{
 			// add attribute to use with selector
 			link.Attributes.Add ("data-colorbox", "module_" + key);

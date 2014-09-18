@@ -32,6 +32,8 @@ namespace R7.MiniGallery
 	public abstract class LightboxBase
 	{
 		protected Page page;
+
+		protected string key;
 		
 		public LightboxType LightboxType { get; set; }
 
@@ -39,15 +41,16 @@ namespace R7.MiniGallery
 		{
 		}
 
-		protected LightboxBase (LightboxType lightboxType, Page page)
+		protected LightboxBase (LightboxType lightboxType, Page page, string key)
 		{
 			LightboxType = lightboxType;
 			this.page = page; 
+			this.key = key;
 		}
 
 		public abstract void Register ();
 		
-		public abstract void ApplyTo (Image image, HyperLink link, int key);
+		public abstract void ApplyTo (Image image, HyperLink link);
 	}
 }
 

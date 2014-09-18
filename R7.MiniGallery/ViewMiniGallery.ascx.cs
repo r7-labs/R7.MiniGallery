@@ -53,7 +53,9 @@ namespace R7.MiniGallery
 		{
 			base.OnInit (e);
 			
-			Lightbox = new Lightbox (Page);
+			Lightbox = new Lightbox (Page, TabModuleId.ToString());
+			// Lightbox = new Colorbox (Page, TabModuleId.ToString());
+			
 			Lightbox.Register ();
 		}
 
@@ -165,7 +167,7 @@ namespace R7.MiniGallery
 			// lightbox
 			if (MiniGallerySettings.UseLightbox)
 			{
-				Lightbox.ApplyTo (imageImage, linkImage, TabModuleId);
+				Lightbox.ApplyTo (imageImage, linkImage);
 			}
 
 			#endregion

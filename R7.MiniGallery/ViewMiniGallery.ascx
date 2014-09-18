@@ -15,9 +15,3 @@
 	<ItemStyle CssClass="MG_Item" />
 	<AlternatingItemStyle CssClass="MG_AltItem" />
 </asp:DataList>
-
-<script type="text/javascript">
-$(document).ready(function () {
-	$("a[data-colorbox=module_<%= TabModuleId %>]").colorbox({rel:"module_<%= TabModuleId %>", photo:true, maxWidth:"95%", maxHeight:"95%"});	
-});
-</script>
