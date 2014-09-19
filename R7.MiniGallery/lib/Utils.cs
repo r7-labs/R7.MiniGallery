@@ -42,16 +42,6 @@ using DotNetNuke.Web.UI.WebControls;
 
 namespace R7.MiniGallery
 {
-	public enum LightboxType
-	{
-		LightBox,
-		ColorBox
-		/*
-		YoxView,
-		FancyBox
-        */
-	}
-
 	// public enum ScrollBar { ? }
 	public enum SortType
 	{

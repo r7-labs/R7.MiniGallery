@@ -30,6 +30,16 @@ using DotNetNuke.Web.Client.ClientResourceManagement;
 
 namespace R7.MiniGallery
 {
+	public enum LightboxType
+	{
+		LightBox,
+		ColorBox
+		/*
+		YoxView,
+		FancyBox
+        */
+	}
+
 	public abstract class LightboxBase
 	{
 		protected string Key;
