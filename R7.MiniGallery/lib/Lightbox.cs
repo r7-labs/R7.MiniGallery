@@ -38,8 +38,8 @@ namespace R7.MiniGallery
 		
 		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
 		{
-			includeJs.FilePath = "~/js/lightbox2/css/lightbox.css";
-			includeCss.FilePath = "~/js/lightbox2/js/lightbox.min.js";
+			includeJs.FilePath = "~/Resources/Shared/components/lightbox/js/lightbox.min.js";
+			includeCss.FilePath = "~/Resources/Shared/components/lightbox/css/lightbox.css";
 
 			// no startup script required for the Lightbox
 			literalScript.Visible = false;

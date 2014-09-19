@@ -54,7 +54,7 @@ namespace R7.MiniGallery
 			base.OnInit (e);
 	
 			// Lightbox = new Lightbox (TabModuleId.ToString());
-			Lightbox = new Colorbox (TabModuleId.ToString());
+			Lightbox = new Lightbox (TabModuleId.ToString());
 			Lightbox.Register (includeLightboxJs, includeLightboxCss, literalLightboxScript);
 		}
 

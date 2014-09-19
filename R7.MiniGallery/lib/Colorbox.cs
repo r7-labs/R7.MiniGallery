@@ -38,8 +38,8 @@ namespace R7.MiniGallery
 
 		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
 		{
-			includeJs.FilePath = "~/js/colorbox/jquery.colorbox-min.js";
-			includeCss.FilePath = "~/js/colorbox/example1/colorbox.css";
+			includeJs.FilePath = "~/Resources/Shared/components/colorbox/jquery.colorbox-min.js";
+			includeCss.FilePath = "~/Resources/Shared/components/colorbox/example1/colorbox.css";
 
 			var scriptTemplate = "<script type=\"text/javascript\">" +
 				"$(document).ready(function(){" +
