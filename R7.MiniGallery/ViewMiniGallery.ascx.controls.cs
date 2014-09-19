@@ -6,12 +6,15 @@ using System.Linq;
 
 using DotNetNuke.UI.UserControls;
 using DotNetNuke.UI.WebControls;
+using DotNetNuke.Web.Client.ClientResourceManagement;
 
 namespace R7.MiniGallery
 {
 	public partial class ViewMiniGallery
 	{
 		protected DataList listImages;
-		//protected Label labelMessage;
+		protected Literal literalLightboxScript;
+		protected DnnJsInclude includeLightboxJs;
+		protected DnnCssInclude includeLightboxCss;
 	}
 }

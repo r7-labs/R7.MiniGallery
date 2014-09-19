@@ -1,4 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewMiniGallery.ascx.cs" Inherits="R7.MiniGallery.ViewMiniGallery" %>
+<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
+
+<dnn:DnnJsInclude id="includeLightboxJs" runat="server" />
+<dnn:DnnCssInclude id="includeLightboxCss" runat="server" />
+<asp:Literal id="literalLightboxScript" runat="server" Mode="PassThrough" />
 
 <asp:DataList id="listImages" DataKeyField="ImageID" runat="server" CssClass="MG_List"
 	RepeatLayout="Flow" RepeatDirection="Horizontal" OnItemDataBound="listImages_ItemDataBound">

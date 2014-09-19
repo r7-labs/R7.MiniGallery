@@ -26,29 +26,32 @@
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DotNetNuke.Web.Client.ClientResourceManagement;
 
 namespace R7.MiniGallery
 {
 	public abstract class LightboxBase
 	{
-		protected Page page;
-
-		protected string key;
+		protected string Key;
 		
 		public LightboxType LightboxType { get; set; }
-
+	
 		protected LightboxBase ()
 		{
 		}
 
-		protected LightboxBase (LightboxType lightboxType, Page page, string key)
+		protected LightboxBase (LightboxType lightboxType, string key)
 		{
 			LightboxType = lightboxType;
-			this.page = page; 
-			this.key = key;
+			Key = key;
 		}
 
-		public abstract void Register ();
+		// NOTE: using ClientResourceManager.RegisterStyleSheet(), ClientResourceManager.RegisterScript() and
+		// Page.ClientScript.RegisterStartupScript() methods won't produce cached content, 
+		// so we use DnnJsInclude, DnnCssInclude controls to make links on the lighbox scripts and stylesheets, 
+		// and literal to store startup script block. Produced content will be cached this way. 	
+
+		public abstract void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript);
 		
 		public abstract void ApplyTo (Image image, HyperLink link);
 	}

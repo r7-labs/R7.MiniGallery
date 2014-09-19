@@ -32,31 +32,28 @@ namespace R7.MiniGallery
 {
 	public class Colorbox : LightboxBase
 	{
-		public Colorbox (Page page, string key): base (LightboxType.ColorBox, page, key)
+		public Colorbox (string key): base (LightboxType.ColorBox, key)
 		{
 		}
-		
-		public override void Register ()
+
+		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
 		{
-			ClientResourceManager.RegisterStyleSheet (page, "~/js/colorbox/example1/colorbox.css");
-			ClientResourceManager.RegisterScript (page, "~/js/colorbox/jquery.colorbox-min.js");
+			includeJs.FilePath = "~/js/colorbox/jquery.colorbox-min.js";
+			includeCss.FilePath = "~/js/colorbox/example1/colorbox.css";
 
-			if (!page.ClientScript.IsStartupScriptRegistered (page.GetType (), "colorbox_" + key))
-			{
-				var scriptTemplate = "$(document).ready(function(){" +
-					"$(\"a[data-colorbox=module_[KEY]]\")" +
-					".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
-			        "});";
+			var scriptTemplate = "<script type=\"text/javascript\">" +
+				"$(document).ready(function(){" +
+				"$(\"a[data-colorbox=module_[KEY]]\")" +
+				".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
+			    "});</script>";
 
-				page.ClientScript.RegisterStartupScript (page.GetType (), 
-					"colorbox_" + key, scriptTemplate.Replace ("[KEY]", key), true);
-			}
+			literalScript.Text = scriptTemplate.Replace ("[KEY]", Key);
 		}
 
 		public override void ApplyTo (Image image, HyperLink link)
 		{
 			// add attribute to use with selector
-			link.Attributes.Add ("data-colorbox", "module_" + key);
+			link.Attributes.Add ("data-colorbox", "module_" + Key);
 			link.Attributes.Remove ("target");
 
 			// Colorbox displays link title, not image title

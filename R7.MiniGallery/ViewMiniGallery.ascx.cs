@@ -52,11 +52,10 @@ namespace R7.MiniGallery
 		protected override void OnInit(EventArgs e)
 		{
 			base.OnInit (e);
-			
-			// Lightbox = new Lightbox (Page, TabModuleId.ToString());
-			Lightbox = new Colorbox (Page, TabModuleId.ToString());
-			
-			Lightbox.Register ();
+	
+			// Lightbox = new Lightbox (TabModuleId.ToString());
+			Lightbox = new Colorbox (TabModuleId.ToString());
+			Lightbox.Register (includeLightboxJs, includeLightboxCss, literalLightboxScript);
 		}
 
 		/// <summary>

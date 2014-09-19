@@ -32,19 +32,22 @@ namespace R7.MiniGallery
 {
 	public class Lightbox : LightboxBase
 	{
-		public Lightbox (Page page, string key): base (LightboxType.LightBox, page, key)
+		public Lightbox (string key): base (LightboxType.LightBox, key)
 		{
 		}
 		
-		public override void Register ()
+		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
 		{
-			ClientResourceManager.RegisterStyleSheet (page, "~/js/lightbox2/css/lightbox.css");
-			ClientResourceManager.RegisterScript (page, "~/js/lightbox2/js/lightbox.min.js");
+			includeJs.FilePath = "~/js/lightbox2/css/lightbox.css";
+			includeCss.FilePath = "~/js/lightbox2/js/lightbox.min.js";
+
+			// no startup script required for the Lightbox
+			literalScript.Visible = false;
 		}
 
 		public override void ApplyTo (Image image, HyperLink link)
 		{
-			link.Attributes.Add ("data-lightbox", "module_" + key);
+			link.Attributes.Add ("data-lightbox", "module_" + Key);
 			link.Attributes.Remove ("target");
 					
 			if (!string.IsNullOrWhiteSpace (image.ToolTip))
