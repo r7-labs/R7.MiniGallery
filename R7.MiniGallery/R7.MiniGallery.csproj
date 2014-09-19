@@ -68,6 +68,7 @@
     <Folder Include="js\" />
     <Folder Include="entities\" />
     <Folder Include="SqlDataProvider\" />
+    <Folder Include="doc\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
@@ -93,7 +94,6 @@
     <None Include="App_LocalResources\EditMiniGallery.ascx.ru-RU.resx" />
     <None Include="App_LocalResources\SettingsMiniGallery.ascx.resx" />
     <None Include="App_LocalResources\SettingsMiniGallery.ascx.ru-RU.resx" />
-    <None Include="doc\install.txt" />
     <None Include="SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
