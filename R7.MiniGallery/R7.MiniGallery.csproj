@@ -94,7 +94,6 @@
     <None Include="App_LocalResources\SettingsMiniGallery.ascx.resx" />
     <None Include="App_LocalResources\SettingsMiniGallery.ascx.ru-RU.resx" />
     <None Include="doc\install.txt" />
-    <None Include="lightbox\lightbox-2.7.1.zip" />
     <None Include="SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
