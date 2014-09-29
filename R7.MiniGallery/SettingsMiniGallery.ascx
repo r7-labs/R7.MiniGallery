@@ -36,8 +36,8 @@
 			<asp:TextBox id="textTarget" runat="server" CssClass="textTarget" />
 	   	</div>
 		<div class="dnnFormItem">
-			<dnn:Label id="labelUseLightbox" runat="server" controlname="checkUseLightbox" suffix="?" />
-			<asp:CheckBox id="checkUseLightbox" runat="server" />
+			<dnn:Label id="labelLightboxType" runat="server" controlname="checkLightboxType" suffix=":" />
+			<dnn:DnnComboBox id="comboLightboxType" runat="server" />
 		</div>
 		<!--
 		<div class="dnnFormItem">

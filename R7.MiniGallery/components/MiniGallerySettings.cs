@@ -40,14 +40,17 @@ namespace R7.MiniGallery
 		
 		#region TabModule settings
 		
-		/// <summary>
-		/// A jQuery viewer, used by gallery. Default is YoxView
-		/// </summary>
-		/// <value>A jQuery viewer, used by gallery</value>
+		/*
 		public bool UseLightbox
 		{
 			get { return ReadSetting<bool> ("MiniGallery_UseLightbox", true); }
 			set { WriteTabModuleSetting<bool> ("MiniGallery_UseLightbox", value); }
+		}*/
+
+		public LightboxType LightboxType
+		{
+			get { return (LightboxType)Enum.Parse (typeof(LightboxType), ReadSetting<string> ("MiniGallery_LightboxType", LightboxType.LightBox.ToString())); }
+			set { WriteTabModuleSetting<string> ("MiniGallery_LightboxType", value.ToString()); }
 		}
 
 		public bool UseScrollbar

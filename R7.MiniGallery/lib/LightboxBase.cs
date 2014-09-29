@@ -32,6 +32,7 @@ namespace R7.MiniGallery
 {
 	public enum LightboxType
 	{
+		None = -1, // Null.NullInteger
 		LightBox,
 		ColorBox
 		/*
@@ -64,6 +65,21 @@ namespace R7.MiniGallery
 		public abstract void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript);
 		
 		public abstract void ApplyTo (Image image, HyperLink link);
+
+		public static LightboxBase Create (LightboxType lightboxType, string key)
+		{
+			switch (lightboxType)
+			{
+				case LightboxType.LightBox:
+					return new Lightbox (key);
+
+				case LightboxType.ColorBox:
+					return new Colorbox (key);
+
+				default: 
+					return null;
+			}
+		}
 	}
 }
 

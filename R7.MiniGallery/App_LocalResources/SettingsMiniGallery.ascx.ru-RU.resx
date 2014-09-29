@@ -12,4 +12,13 @@
 	<data name="ModuleHelp.Text" xml:space="preserve">
     <value>О настройках MiniGallery</value>
   </data>
+    <data name="None.Text" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+   <data name="labelLightboxType.Text" xml:space="preserve">
+    <value>Тип Lightbox</value>
+  </data>
+    <data name="labelLightboxType.Help" xml:space="preserve">
+    <value>Выберите используемый модуль Lightbox.</value>
+  </data>
 </root>

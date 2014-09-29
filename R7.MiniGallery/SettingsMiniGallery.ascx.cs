@@ -32,6 +32,13 @@ namespace R7.MiniGallery
 			comboTarget.AddItem ("_self", "_self");
 
 			comboTarget.Select ("_blank", false);
+			
+			comboLightboxType.AddItem (LocalizeString ("None.Text"), LightboxType.None.ToString());
+			comboLightboxType.AddItem (LightboxType.LightBox.ToString(), LightboxType.LightBox.ToString());
+			comboLightboxType.AddItem (LightboxType.ColorBox.ToString(), LightboxType.ColorBox.ToString());
+
+			comboLightboxType.SelectedIndex = 0;
+
 		}
 
 		/// <summary>
@@ -44,6 +51,8 @@ namespace R7.MiniGallery
 				if (!IsPostBack)
 				{
 					comboColumns.Select (MiniGallerySettings.Columns.ToString(), false);
+
+					comboLightboxType.Select (MiniGallerySettings.LightboxType.ToString(), false);
 
 					if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
 						textThumbWidth.Text = MiniGallerySettings.ThumbWidth.ToString ();
@@ -78,8 +87,6 @@ namespace R7.MiniGallery
 
 					// DESC sorting done if "-SortIndex" value
 					checkSortOrder.Checked = MiniGallerySettings.SortOrder == "SortIndex";
-					
-					checkUseLightbox.Checked = MiniGallerySettings.UseLightbox;
 					checkUseScrollbar.Checked = MiniGallerySettings.UseScrollbar;
 					checkUseImageHandler.Checked = MiniGallerySettings.UseImageHandler;
 					checkShowTitles.Checked = MiniGallerySettings.ShowTitles;
@@ -156,9 +163,9 @@ namespace R7.MiniGallery
 				// columns & rows
 				MiniGallerySettings.Columns = int.Parse (comboColumns.SelectedValue);
 
-				MiniGallerySettings.SortOrder = checkSortOrder.Checked? "SortIndex" : "-SortIndex";
+				MiniGallerySettings.LightboxType = (LightboxType)Enum.Parse (typeof(LightboxType), comboLightboxType.SelectedValue);
 
-				MiniGallerySettings.UseLightbox = checkUseLightbox.Checked;
+				MiniGallerySettings.SortOrder = checkSortOrder.Checked? "SortIndex" : "-SortIndex";
 				MiniGallerySettings.UseScrollbar = checkUseScrollbar.Checked;
 				MiniGallerySettings.ShowTitles = checkShowTitles.Checked;
 				MiniGallerySettings.ExpandColumns = checkExpand.Checked;

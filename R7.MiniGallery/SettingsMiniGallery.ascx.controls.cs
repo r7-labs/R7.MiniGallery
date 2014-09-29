@@ -19,8 +19,8 @@ namespace R7.MiniGallery
 		protected LabelControl labelTarget;
 		protected DnnComboBox comboTarget;
 		protected TextBox textTarget;
-		protected LabelControl labelUseLightbox;
-		protected CheckBox checkUseLightbox;
+		protected LabelControl labelLightboxType;
+		protected DnnComboBox comboLightboxType;
 		protected LabelControl labelUseScrollbar;
 		protected CheckBox checkUseScrollbar;
 		protected LabelControl labelShowTitles;

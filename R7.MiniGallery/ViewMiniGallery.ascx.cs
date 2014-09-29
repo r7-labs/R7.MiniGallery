@@ -34,7 +34,7 @@ namespace R7.MiniGallery
 
 		private string [] imageHandlerTags = new [] { "fileticket", "width", "fileid", "height" };
 
-		protected LightboxBase Lightbox;
+		private LightboxBase lightbox;
 		
 		#endregion
 
@@ -45,17 +45,34 @@ namespace R7.MiniGallery
 			get { return IconController.IconURL ("Edit"); }
 		}
 
+		protected LightboxBase Lightbox
+		{
+			get
+			{
+				if (lightbox == null)
+					lightbox = LightboxBase.Create (MiniGallerySettings.LightboxType, TabModuleId.ToString());
+				
+				return lightbox;
+			}	
+		}
+
 		#endregion
 
 		#region Handlers
 
-		protected override void OnInit(EventArgs e)
+		protected override void OnInit (EventArgs e)
 		{
 			base.OnInit (e);
 	
-			// Lightbox = new Lightbox (TabModuleId.ToString());
-			Lightbox = new Lightbox (TabModuleId.ToString());
-			Lightbox.Register (includeLightboxJs, includeLightboxCss, literalLightboxScript);
+			if (Lightbox != null)
+				Lightbox.Register (includeLightboxJs, includeLightboxCss, literalLightboxScript);
+			else
+			{
+				// BUG: not working!
+				includeLightboxJs.Visible = false;
+				includeLightboxCss.Visible = false;
+				literalLightboxScript.Visible = false;
+			}
 		}
 
 		/// <summary>
@@ -164,11 +181,9 @@ namespace R7.MiniGallery
 			}
 
 			// lightbox
-			if (MiniGallerySettings.UseLightbox)
-			{
+			if (Lightbox != null)
 				Lightbox.ApplyTo (imageImage, linkImage);
-			}
-
+			
 			#endregion
 
 			#region Edit Link

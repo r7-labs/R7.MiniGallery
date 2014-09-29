@@ -135,4 +135,13 @@
     <data name="labelNumberOfRecords.Help" xml:space="preserve">
     <value>Check if image list should be sorted by SortIndex ascending.</value>
   </data>
+    <data name="None.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+    <data name="labelLightboxType.Text" xml:space="preserve">
+    <value>Lightbox Type</value>
+  </data>
+    <data name="labelLightboxType.Help" xml:space="preserve">
+    <value>Select the lightbox module type for use.</value>
+  </data>
 </root>
