@@ -1,24 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<data name="lblTemplate.Text" xml:space="preserve">
-    <value>Шаблон</value>
+    <data name="ControlTitle_settings.Text" xml:space="preserve">
+    <value>Настройки R7.MiniGallery</value>
   </data>
-	<data name="lblTemplate.Help" xml:space="preserve">
-    <value>Позволяет задать пользовательский шаблон для отображения элементов. Используйте параметры для замены: [CONTENT] [CREATEDONDATE] [CREATEDBYUSER] [CREATEDBYUSERNAME]</value>
+    <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>О настройках R7.MiniGallery</value>
   </data>
-	<data name="ControlTitle_settings.Text" xml:space="preserve">
-    <value>Настройки MiniGallery</value>
+    <data name="labelStyleSet.Text" xml:space="preserve">
+    <value>Набор стилей</value>
   </data>
-	<data name="ModuleHelp.Text" xml:space="preserve">
-    <value>О настройках MiniGallery</value>
+    <data name="labelStyleSet.Help" xml:space="preserve">
+    <value>Имя набора стилей элементов галереи</value>
+  </data>
+    <data name="labelMaxHeight.Text" xml:space="preserve">
+    <value>Высота списка</value>
+  </data>
+    <data name="labelMaxHeight.Help" xml:space="preserve">
+    <value>Максимальная высота списка изображений в единицах CSS. Используется для включения вертикальной полосы (оставьте пустым, чтобы отключить).</value>
+  </data>
+    <data name="labelTarget.Text" xml:space="preserve">
+    <value>Цель ссылки</value>
+  </data>
+    <data name="labelTarget.Help" xml:space="preserve">
+    <value>Устанавливает цель для ссылки (имя фрейма). Значение не имеет смысла в случае, если используется модуль Lightbox, но может быть полезно без него.</value>
+  </data>
+    <data name="ddlTargetItemNone.Text" xml:space="preserve">
+    <value>(нет)</value>
+  </data>
+    <data name="ddlTargetItemOther.Text" xml:space="preserve">
+    <value>(фрейм)</value>
+  </data>
+    <data name="labelUseLightbox.Text" xml:space="preserve">
+    <value>Lightbox</value>
+  </data>
+    <data name="labelUseLightbox.Help" xml:space="preserve">
+    <value>Отметьте, чтобы использовать модуль просмотрщика изображений или галереи jQuery по типу Lightbox.</value>
+  </data>
+    <data name="labelUseScrollbar.Text" xml:space="preserve">
+    <value>Полоса прокрутки</value>
+  </data>
+    <data name="labelUseScrollbar.Help" xml:space="preserve">
+    <value>Отметьте, чтобы использовать модуль полосы прокрутки jQuery.</value>
+  </data>
+    <data name="labelUseImageHandler.Text" xml:space="preserve">
+    <value>Генератор миниатюр</value>
+  </data>
+    <data name="labelUseImageHandler.Help" xml:space="preserve">
+    <value>Отметьте, чтобы использовать внешний генератор миниатюр (в настоящее время поддерживается только R7.ImageHandler).</value>
+  </data>
+    <data name="labelImageHandlerParams.Text" xml:space="preserve">
+    <value>Параметры генератора миниатюр</value>
+  </data>
+    <data name="labelImageHandlerParams.Help" xml:space="preserve">
+    <value>Добавьте строку параметров URL для дополнения URL генератора миниатюр в формате имя=значение, или оставьте пустым для использования параметров по умолчанию. Поддерживаются метки: {fileticket}, {fileid}, {width}, {height}.</value>
+  </data>
+    <data name="labelShowTitles.Text" xml:space="preserve">
+    <value>Показывать заголовки</value>
+  </data>
+    <data name="labelShowTitles.Help" xml:space="preserve">
+    <value>Отметьте, чтобы отобразить заголовки изображений.</value>
+  </data>
+    <data name="labelExpand.Text" xml:space="preserve">
+    <value>Расширить колонки</value>
+  </data>
+    <data name="labelExpand.Help" xml:space="preserve">
+    <value>Если отмечено, ширина каждой колонки будет расчитана примерно как 100% / количество колонок. Эта настройка работает только в том случае, если количество колонок указано явно (не авто).</value>
+  </data>
+    <data name="labelTextBefore.Text" xml:space="preserve">
+    <value>Текст перед</value>
+  </data>
+    <data name="labelTextBefore.Help" xml:space="preserve">
+    <value>Введите код HTML для размещения перед (выше) списка изображений. Эта настройка переопределяет значение Заголовка модуля на вкладке Настройки модуля / Расширенные.</value>
+  </data>
+    <data name="labelTextAfter.Text" xml:space="preserve">
+    <value>Текст после</value>
+  </data>
+    <data name="labelTextAfter.Help" xml:space="preserve">
+    <value>Введите код HTML для размещения после (ниже) списка изображений. Эта настройка переопределяет значение Подвала модуля на вкладке Настройки модуля / Расширенные.</value>
+  </data>
+    <data name="sectionBaseSettings.Text" xml:space="preserve">
+    <value>Настройки R7.MiniGallery</value>
+  </data>
+    <data name="sectionHeader.Text" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+    <data name="sectionFooter.Text" xml:space="preserve">
+    <value>Подвал</value>
+  </data>
+    <data name="ImageHandler.Section" xml:space="preserve">
+    <value>Настройки генератора миниатюр</value>
+  </data>
+    <data name="Auto.Text" xml:space="preserve">
+    <value>Авто</value>
+  </data>
+    <data name="labelColumns.Text" xml:space="preserve">
+    <value>Колонок</value>
+  </data>
+    <data name="labelColumns.Help" xml:space="preserve">
+    <value>Устанавливает количество колонок в списке изображений. Если выбрано значение 'Авто', изображения будут пытаться занять все доступное пространство.</value>
+  </data>
+    <data name="labelImageWidth.Text" xml:space="preserve">
+    <value>Ширина изображения</value>
+  </data>
+    <data name="labelImageWidth.Help" xml:space="preserve">
+    <value>Укажите ширину изображения в любых единицах CSS, кроме процентов (%). Если это значение не задано, будет использоваться ширина миниатюры или исходного изображения.</value>
+  </data>
+    <data name="labelImageHeight.Text" xml:space="preserve">
+    <value>Высота изображения</value>
+  </data>
+    <data name="labelImageHeight.Help" xml:space="preserve">
+    <value>Укажите высоту изображения в любых единицах CSS, кроме процентов (%). Если это значение не задано, будет использоваться высота миниатюры или исходного изображения.</value>
+  </data>
+    <data name="labelThumbWidth.Text" xml:space="preserve">
+    <value>Ширина миниатюры</value>
+  </data>
+    <data name="labelThumbWidth.Help" xml:space="preserve">
+    <value>Укажите ширину миниатюры в пикселах или оставьте поле пустым.</value>
+  </data>
+    <data name="labelThumbHeight.Text" xml:space="preserve">
+    <value>Высота миниатюры</value>
+  </data>
+    <data name="labelThumbHeight.Help" xml:space="preserve">
+    <value>Укажите высоту миниатюры в пикселах или оставьте поле пустым.</value>
+  </data>
+    <data name="labelNumberOfRecords.Text" xml:space="preserve">
+    <value>Отображать записей</value>
+  </data>
+    <data name="labelNumberOfRecords.Help" xml:space="preserve">
+    <value>Укажите количество отображаемых элементов списка или оставьте поле пустым, чтобы показать все изображения.</value>
+  </data>
+    <data name="labelSortOrder.Text" xml:space="preserve">
+    <value>По возрастанию</value>
+  </data>
+    <data name="labelNumberOfRecords.Help" xml:space="preserve">
+    <value>Отметьте, если элементы списка изображение должны быть отсортированы по возрастанию значения поля Индекс сортировки.</value>
   </data>
     <data name="None.Text" xml:space="preserve">
     <value>Нет</value>
   </data>
-   <data name="labelLightboxType.Text" xml:space="preserve">
+    <data name="labelLightboxType.Text" xml:space="preserve">
     <value>Тип Lightbox</value>
   </data>
     <data name="labelLightboxType.Help" xml:space="preserve">
-    <value>Выберите используемый модуль Lightbox.</value>
+    <value>Выберите используемый тип модуля Lightbox.</value>
   </data>
 </root>

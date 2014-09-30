@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<data name="AddContent.Action" xml:space="preserve">
-    <value>Добавить содержимое</value>
+    <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;P&gt;Модуль MiniGallery&lt;/P&gt;</value>
   </data>
-	<data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;P&gt; Модуль MiniGallery&lt;/P&gt;</value>
+    <data name="BulkAddImages.Text" xml:space="preserve">
+    <value>Добавить из папки</value>
   </data>
-	<data name="DefaultContent.Text" xml:space="preserve">
-    <value>Что-то вместо содержимого</value>
+    <data name="AddImage.Text" xml:space="preserve">
+    <value>Новое изображение</value>
+  </data>
+    <data name="AddImages.Help" xml:space="preserve">
+    <value>Нечего отображать - пожалуйста, добавьте изображения в галерею.</value>
   </data>
 </root>

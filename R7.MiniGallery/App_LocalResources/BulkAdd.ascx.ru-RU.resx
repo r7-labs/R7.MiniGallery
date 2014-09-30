@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
     <data name="labelFolder.Text" xml:space="preserve">
-        <value>Folder</value>
+        <value>Папка</value>
     </data>
     <data name="labelFolder.Help" xml:space="preserve">
-        <value>Select a folder from which you want to add images.</value>
+        <value>Выберите папку из которой нужно добавить изображения.</value>
     </data>
     <data name="buttonCheckAll.Text" xml:space="preserve">
-        <value>Check All</value>
+        <value>Выделить все</value>
     </data>
     <data name="buttonUncheckAll.Text" xml:space="preserve">
-        <value>Uncheck All</value>
+        <value>Сбросить все</value>
     </data>
     <data name="buttonInvertSelection.Text" xml:space="preserve">
-        <value>Invert Selection</value>
+        <value>Обратить выделение</value>
     </data>
 </root>

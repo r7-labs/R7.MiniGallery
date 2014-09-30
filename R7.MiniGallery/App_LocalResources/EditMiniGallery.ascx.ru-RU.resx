@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<data name="lblContent.Text" xml:space="preserve">
-    <value>Содержимое</value>
+    <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;p&gt;Модуль R7.MiniGallery&lt;/p&gt;</value>
   </data>
-	<data name="lblContent.Help" xml:space="preserve">
-    <value>Введите содержимое</value>
-  </data>
-	<data name="valContent.ErrorMessage" xml:space="preserve">
-    <value>&lt;br&gt;Содержимое обязательно!</value>
-  </data>
-	<data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;P&gt;Модуль MiniGallery&lt;/P&gt;</value>
-  </data>
-	<data name="ControlTitle_edit.Text" xml:space="preserve">
+    <data name="ControlTitle_edit.Text" xml:space="preserve">
     <value>Редактировать изображение</value>
+  </data>
+    <data name="ConfirmDelete.Text" xml:space="preserve">
+    <value>Уверены, что хотите удалить это изображение?</value>
+  </data>
+    <data name="sectionEditImage.Text" xml:space="preserve">
+    <value>Редактировать изображение</value>
+  </data>
+    <data name="labelAlt.Text" xml:space="preserve">
+    <value>Альт. описание</value>
+  </data>
+    <data name="labelAlt.Help" xml:space="preserve">
+    <value>Введите альтернативное описание для изображения.</value>
+  </data>
+    <data name="labelTitle.Text" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+    <data name="labelTitle.Help" xml:space="preserve">
+    <value>Введите заголовок изображения.</value>
+  </data>
+    <data name="labelImage.Text" xml:space="preserve">
+    <value>Изображение</value>
+  </data>
+    <data name="labelImage.Help" xml:space="preserve">
+    <value>Изображение для добавления в галерею.</value>
+  </data>
+    <data name="labelLink.Text" xml:space="preserve">
+    <value>Ссылка</value>
+  </data>
+    <data name="labelLink.Help" xml:space="preserve">
+    <value>Ссылка на ресурс, открываемый при нажатии на изображение.</value>
+  </data>
+    <data name="labelPreview.Text" xml:space="preserve">
+    <value>Предпросмотр</value>
+  </data>
+    <data name="labelPreview.Help" xml:space="preserve">
+    <value>Предварительный просмотр выбранного изображения.</value>
+  </data>
+    <data name="labelSortIndex.Text" xml:space="preserve">
+    <value>Индекс сортировки</value>
+  </data>
+    <data name="labelSortIndex.Help" xml:space="preserve">
+    <value>Значение индекса сортировки.</value>
+  </data>
+    <data name="labelIsPublished.Text" xml:space="preserve">
+    <value>Опубликовано</value>
+  </data>
+    <data name="labelIsPublished.Help" xml:space="preserve">
+    <value>Снимите этот флаг чтобы снять изображение с публикации. Такие изображения видны только редакторам модуля.</value>
+  </data>
+    <data name="buttonApplyFilter.Text" xml:space="preserve">
+    <value>Применить фильтр</value>
   </data>
 </root>
