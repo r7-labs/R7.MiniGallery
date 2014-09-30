@@ -208,7 +208,7 @@ namespace R7.MiniGallery
 		/// <value>The columns.</value>
 		public int Columns
 		{
-			get { return ReadSetting<int> ("MiniGallery_Columns", Null.NullInteger); }
+			get { return ReadSetting<int> ("MiniGallery_Columns", 1); }
 			set { WriteTabModuleSetting<int> ("MiniGallery_Columns", value); }
 		}
 		
