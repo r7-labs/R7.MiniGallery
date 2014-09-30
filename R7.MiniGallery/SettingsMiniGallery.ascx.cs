@@ -189,7 +189,7 @@ namespace R7.MiniGallery
 				// columns & rows
 				MiniGallerySettings.Columns = int.Parse (comboColumns.SelectedValue);
 
-				MiniGallerySettings.LightboxType = (LightboxType)Enum.Parse (typeof(LightboxType), comboLightboxType.SelectedValue);
+				MiniGallerySettings.LightboxType = (LightboxType)Enum.Parse (typeof(LightboxType), comboLightboxType.SelectedValue, true);
 
 				MiniGallerySettings.SortOrder = checkSortOrder.Checked? "SortIndex" : "-SortIndex";
 				MiniGallerySettings.UseScrollbar = checkUseScrollbar.Checked;
