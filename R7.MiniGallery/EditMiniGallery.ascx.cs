@@ -93,10 +93,12 @@ namespace R7.MiniGallery
 			// set url for Cancel link
 			linkCancel.NavigateUrl = Globals.NavigateURL ();
 
+			// setup image picker
+			pickerImage.FileFilter = Globals.glbImageFileTypes;
+
 			// event wireup
 			buttonUpdate.Click += OnUpdateClick;
 			buttonDelete.Click += OnDeleteClick;
-
 		}
 
 		/// <summary>
