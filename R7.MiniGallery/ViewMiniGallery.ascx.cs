@@ -113,8 +113,8 @@ namespace R7.MiniGallery
 							
 					// set maximum height of a list
 					var maxHeight = MiniGallerySettings.MaxHeight;
-					if (maxHeight >= 0)
-						listImages.Style.Add ("max-height", maxHeight + "px");
+					if (!maxHeight.IsEmpty)
+						listImages.Style.Add ("max-height", maxHeight.ToString());
 
 					// get images
 					var images = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, 

@@ -97,9 +97,8 @@ namespace R7.MiniGallery
 					//textViewerCssClass.Text = settings.ViewerCssClass;
 					textStyleSet.Text = MiniGallerySettings.StyleSet;
 
-					textMaxHeight.Text = 
-						(MiniGallerySettings.MaxHeight >= 0) ? MiniGallerySettings.MaxHeight.ToString () : string.Empty;
-
+					textMaxHeight.Text = MiniGallerySettings.MaxHeight.ToString();
+						
 					var item = comboTarget.FindItemByValue (MiniGallerySettings.Target);
 					if (item != null)
 					{
@@ -141,8 +140,7 @@ namespace R7.MiniGallery
 				MiniGallerySettings.StyleSet = textStyleSet.Text;
 
 				// max. height
-				int maxHeight;
-				MiniGallerySettings.MaxHeight = int.TryParse (textMaxHeight.Text, out maxHeight) ? maxHeight : -1;
+				MiniGallerySettings.MaxHeight = Unit.Parse (textMaxHeight.Text);
 
 				// parse and store image size
 				

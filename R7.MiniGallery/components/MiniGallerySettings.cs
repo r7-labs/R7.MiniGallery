@@ -95,10 +95,10 @@ namespace R7.MiniGallery
 		/// Gets or sets the maximum height of a module
 		/// </summary>
 		/// <value>Gets or sets the maximum height of a module</value>
-		public int MaxHeight
+		public Unit MaxHeight
 		{
-			get { return ReadSetting<int> ("MiniGallery_MaxHeight", Null.NullInteger); }
-			set { WriteTabModuleSetting<int> ("MiniGallery_MaxHeight", value); }
+			get { return ReadSetting<Unit> ("MiniGallery_MaxHeight", Unit.Empty); }
+			set { WriteTabModuleSetting<Unit> ("MiniGallery_MaxHeight", value); }
 		}
 
 		/// <summary>
