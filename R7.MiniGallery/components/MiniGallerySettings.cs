@@ -55,38 +55,12 @@ namespace R7.MiniGallery
 
 		#region Module settings
 
-		/// <summary>
-		/// Gets or sets a value indicating whether this <see cref="R7.MiniGallery.MiniGallerySettings"/> use image handler.
-		/// </summary>
-		/// <value><c>true</c> if use image handler; otherwise, <c>false</c>.</value>
-		public bool UseImageHandler 
-		{
-			get { return ReadSetting<bool> ("MiniGallery_UseImageHandler", true); }
-			set { WriteModuleSetting<bool> ("MiniGallery_UseImageHandler", value); }
-		}
-		
-		/// <summary>
-		/// Gets or sets the image handler parameters.
-		/// </summary>
-		/// <value>The image handler parameters.</value>
-		public string ImageHandlerParams
-		{
-			// HACK: DNN SPs have a special handle of SettingValues starting with "fileid" 
-			get { return ReadSetting<string> ("MiniGallery_ImageHandlerParams", "__").TrimStart('_'); }
-			set { WriteModuleSetting<string> ("MiniGallery_ImageHandlerParams", "__" + value ); }
-		}
+		// NOTE: All current MiniGallery module settings are presentation related
 
 		#endregion
 		
 		#region TabModule settings
 		
-		/*
-		public bool UseLightbox
-		{
-			get { return ReadSetting<bool> ("MiniGallery_UseLightbox", true); }
-			set { WriteTabModuleSetting<bool> ("MiniGallery_UseLightbox", value); }
-		}*/
-
 		/// <summary>
 		/// Gets or sets the type of the lightbox.
 		/// </summary>
@@ -158,13 +132,34 @@ namespace R7.MiniGallery
 		}
 
 		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="R7.MiniGallery.MiniGallerySettings"/> use image handler.
+		/// </summary>
+		/// <value><c>true</c> if use image handler; otherwise, <c>false</c>.</value>
+		public bool UseImageHandler 
+		{
+			get { return ReadSetting<bool> ("MiniGallery_UseImageHandler", true); }
+			set { WriteTabModuleSetting<bool> ("MiniGallery_UseImageHandler", value); }
+		}
+		
+		/// <summary>
+		/// Gets or sets the image handler parameters.
+		/// </summary>
+		/// <value>The image handler parameters.</value>
+		public string ImageHandlerParams
+		{
+			// HACK: DNN SPs have a special handle of SettingValues starting with "fileid" 
+			get { return ReadSetting<string> ("MiniGallery_ImageHandlerParams", "__").TrimStart('_'); }
+			set { WriteTabModuleSetting<string> ("MiniGallery_ImageHandlerParams", "__" + value ); }
+		}
+		
+		/// <summary>
 		/// Gets or sets the width of the thumb.
 		/// </summary>
 		/// <value>The width of the thumb.</value>
 		public int ThumbWidth
 		{
 			get { return ReadSetting<int> ("MiniGallery_ThumbWidth", 240); }
-			set { WriteTabModuleSetting<int> ("MiniGallery_ImageWidth", value); }
+			set { WriteTabModuleSetting<int> ("MiniGallery_ThumbWidth", value); }
 		}
 		
 		/// <summary>
@@ -174,7 +169,7 @@ namespace R7.MiniGallery
 		public int ThumbHeight
 		{
 			get { return ReadSetting<int> ("MiniGallery_ThumbHeight", Null.NullInteger); }
-			set { WriteTabModuleSetting<int> ("MiniGallery_ImageHeight", value); }
+			set { WriteTabModuleSetting<int> ("MiniGallery_ThumbHeight", value); }
 		}		
 
 		/// <summary>
