@@ -99,6 +99,9 @@ namespace R7.MiniGallery
 			// event wireup
 			buttonUpdate.Click += OnUpdateClick;
 			buttonDelete.Click += OnDeleteClick;
+
+			// add confirmation dialog to delete button
+			buttonDelete.Attributes.Add ("onClick", "javascript:return confirm('" + Localization.GetString ("DeleteItem") + "');");
 		}
 
 		/// <summary>

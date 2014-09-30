@@ -40,17 +40,9 @@
 	</fieldset>
 	<ul class="dnnActions dnnClear">
 		<li><asp:LinkButton id="buttonUpdate" runat="server" CssClass="dnnPrimaryAction" ResourceKey="cmdUpdate" CausesValidation="true" /></li>
-		<li><asp:LinkButton id="buttonDelete" runat="server" CssClass="dnnSecondaryAction" ResourceKey="cmdDelete" /></li>
+		<li><asp:LinkButton id="buttonDelete" runat="server" CssClass="dnnSecondaryAction" ResourceKey="cmdDelete" CausesValidation="false" /></li>
 		<li><asp:HyperLink id="linkCancel" runat="server" CssClass="dnnSecondaryAction" ResourceKey="cmdCancel" /></li>
 	</ul>
 	<hr />
 	<dnn:Audit id="ctlAudit" runat="server" />
 </div>
-<script language="javascript" type="text/javascript">
-	$('#<%= buttonDelete.ClientID %>').dnnConfirm({
-	  text: '<%= LocalizeString("ConfirmDelete.Text") %>',
-	  yesText: '<%= Localization.GetString("Yes.Text", Localization.SharedResourceFile) %>',
-	  noText: '<%= Localization.GetString("No.Text", Localization.SharedResourceFile) %>',
-	  title: '<%= Localization.GetString("Confirm.Text", Localization.SharedResourceFile) %>'
-	});
-</script>
