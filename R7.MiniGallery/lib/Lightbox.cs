@@ -47,9 +47,9 @@ namespace R7.MiniGallery
 
 		public override void ApplyTo (Image image, HyperLink link)
 		{
+			// add attribute to use with selector
 			link.Attributes.Add ("data-lightbox", "module_" + Key);
-			link.Attributes.Remove ("target");
-					
+			
 			if (!string.IsNullOrWhiteSpace (image.ToolTip))
 				link.Attributes.Add ("data-title", image.ToolTip);
 		}

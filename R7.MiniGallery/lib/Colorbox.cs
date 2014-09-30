@@ -54,8 +54,7 @@ namespace R7.MiniGallery
 		{
 			// add attribute to use with selector
 			link.Attributes.Add ("data-colorbox", "module_" + Key);
-			link.Attributes.Remove ("target");
-
+			
 			// Colorbox displays link title, not image title
 			link.ToolTip = image.ToolTip;
 			

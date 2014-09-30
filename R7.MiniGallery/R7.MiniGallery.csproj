@@ -82,6 +82,7 @@
     <Content Include="BulkAdd.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
+    <Content Include="js\dummy.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_LocalResources\ViewMiniGallery.ascx.resx" />
@@ -137,6 +138,7 @@
     <Compile Include="lib\LightboxBase.cs" />
     <Compile Include="lib\Lightbox.cs" />
     <Compile Include="lib\Colorbox.cs" />
+    <Compile Include="lib\NoneBox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

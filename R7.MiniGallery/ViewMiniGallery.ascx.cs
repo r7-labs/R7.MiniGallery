@@ -64,15 +64,7 @@ namespace R7.MiniGallery
 		{
 			base.OnInit (e);
 	
-			if (Lightbox != null)
-				Lightbox.Register (includeLightboxJs, includeLightboxCss, literalLightboxScript);
-			else
-			{
-				// BUG: not working!
-				includeLightboxJs.Visible = false;
-				includeLightboxCss.Visible = false;
-				literalLightboxScript.Visible = false;
-			}
+			Lightbox.Register (includeLightboxJs, includeLightboxCss, literalLightboxScript);
 		}
 
 		/// <summary>
@@ -169,21 +161,26 @@ namespace R7.MiniGallery
 			if (!string.IsNullOrWhiteSpace (image.Url))
 			{	
 				linkImage.NavigateUrl = Utils.FormatURL (this, image.Url, false);
-
-				var target = MiniGallerySettings.Target;
-				if (target != "none")
-					linkImage.Target = target;
 			}
 			else
 			{
 				// no url specified, link to image itself
 				linkImage.NavigateUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
-			}
+			}			
 
 			// lightbox
-			if (Lightbox != null)
+			if (Lightbox.LightboxType != LightboxType.None)
+			{
 				Lightbox.ApplyTo (imageImage, linkImage);
-			
+			}
+			else
+			{
+				// no lightbox, set target
+				var target = MiniGallerySettings.Target;
+				if (target != "none")
+					linkImage.Target = target;
+			}
+
 			#endregion
 
 			#region Edit Link
