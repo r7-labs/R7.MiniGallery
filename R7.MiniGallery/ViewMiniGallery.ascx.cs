@@ -253,26 +253,25 @@ namespace R7.MiniGallery
 			
 			#region Image size
 
-			if (MiniGallerySettings.ImageWidth.IsEmpty)
+			if (MiniGallerySettings.ImageWidth.IsEmpty && MiniGallerySettings.ImageHeight.IsEmpty)
 			{
-				if (!Null.IsNull(MiniGallerySettings.ThumbWidth))
-					imageImage.Width = Unit.Pixel(MiniGallerySettings.ThumbWidth);
+				if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
+					imageImage.Width = Unit.Pixel (MiniGallerySettings.ThumbWidth);
+
+				if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
+					imageImage.Height = Unit.Pixel (MiniGallerySettings.ThumbHeight);
 			}
 			else
-				imageImage.Width = MiniGallerySettings.ImageWidth;
+			{
+				if (!MiniGallerySettings.ImageWidth.IsEmpty)
+					imageImage.Width = MiniGallerySettings.ImageWidth;
 			
-			if (MiniGallerySettings.ImageHeight.IsEmpty)
-			{
-				if (!Null.IsNull(MiniGallerySettings.ThumbHeight))
-					imageImage.Height = Unit.Pixel(MiniGallerySettings.ThumbHeight);
+				if (!MiniGallerySettings.ImageHeight.IsEmpty)
+					imageImage.Height = MiniGallerySettings.ImageHeight;
 			}
-			else
-				imageImage.Height = MiniGallerySettings.ImageHeight;
 			
 			#endregion
 
-			
-			
 			// NOTE: img width is always 100%, so we don't need this		
 			// imageImage.Width = Unit.Parse (settings.ImageWidth);
 			// imageImage.Height = Unit.Parse (settings.ImageHeight);
