@@ -4,7 +4,7 @@
         <value>Папка</value>
     </data>
     <data name="labelFolder.Help" xml:space="preserve">
-        <value>Выберите папку из которой нужно добавить изображения.</value>
+        <value>Выберите папку, из которой нужно добавить изображения.</value>
     </data>
     <data name="buttonCheckAll.Text" xml:space="preserve">
         <value>Выделить все</value>

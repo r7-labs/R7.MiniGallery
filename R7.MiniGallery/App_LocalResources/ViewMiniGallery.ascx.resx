@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;P&gt;A MiniGallery module&lt;/P&gt;</value>
+    <value>&lt;p&gt;A R7.MiniGallery module&lt;/p&gt;</value>
   </data>
     <data name="BulkAddImages.Text" xml:space="preserve">
     <value>Bulk Add Images</value>

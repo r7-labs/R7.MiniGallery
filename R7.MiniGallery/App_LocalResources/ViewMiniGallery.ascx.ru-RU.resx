@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;P&gt;Модуль MiniGallery&lt;/P&gt;</value>
+    <value>&lt;p&gt;Модуль R7.MiniGallery&lt;/p&gt;</value>
   </data>
     <data name="BulkAddImages.Text" xml:space="preserve">
-    <value>Добавить из папки</value>
+    <value>Новые из папки</value>
   </data>
     <data name="AddImage.Text" xml:space="preserve">
     <value>Новое изображение</value>

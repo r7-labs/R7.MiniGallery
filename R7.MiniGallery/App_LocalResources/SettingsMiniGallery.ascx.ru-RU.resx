@@ -25,25 +25,25 @@
     <value>Устанавливает цель для ссылки (имя фрейма). Значение не имеет смысла в случае, если используется модуль Lightbox, но может быть полезно без него.</value>
   </data>
     <data name="ddlTargetItemNone.Text" xml:space="preserve">
-    <value>(нет)</value>
+    <value>Нет</value>
   </data>
     <data name="ddlTargetItemOther.Text" xml:space="preserve">
-    <value>(фрейм)</value>
+    <value>Имя фрейма:</value>
   </data>
     <data name="labelUseLightbox.Text" xml:space="preserve">
-    <value>Lightbox</value>
+    <value>Использовать Lightbox</value>
   </data>
     <data name="labelUseLightbox.Help" xml:space="preserve">
     <value>Отметьте, чтобы использовать модуль просмотрщика изображений или галереи jQuery по типу Lightbox.</value>
   </data>
     <data name="labelUseScrollbar.Text" xml:space="preserve">
-    <value>Полоса прокрутки</value>
+    <value>Полоса прокрутки jQuery</value>
   </data>
     <data name="labelUseScrollbar.Help" xml:space="preserve">
     <value>Отметьте, чтобы использовать модуль полосы прокрутки jQuery.</value>
   </data>
     <data name="labelUseImageHandler.Text" xml:space="preserve">
-    <value>Генератор миниатюр</value>
+    <value>Использовать генератор миниатюр</value>
   </data>
     <data name="labelUseImageHandler.Help" xml:space="preserve">
     <value>Отметьте, чтобы использовать внешний генератор миниатюр (в настоящее время поддерживается только R7.ImageHandler).</value>
@@ -94,7 +94,7 @@
     <value>Авто</value>
   </data>
     <data name="labelColumns.Text" xml:space="preserve">
-    <value>Колонок</value>
+    <value>Число колонок</value>
   </data>
     <data name="labelColumns.Help" xml:space="preserve">
     <value>Устанавливает количество колонок в списке изображений. Если выбрано значение 'Авто', изображения будут пытаться занять все доступное пространство.</value>
@@ -112,13 +112,13 @@
     <value>Укажите высоту изображения в любых единицах CSS, кроме процентов (%). Если это значение не задано, будет использоваться высота миниатюры или исходного изображения.</value>
   </data>
     <data name="labelThumbWidth.Text" xml:space="preserve">
-    <value>Ширина миниатюры</value>
+    <value>Ширина миниатюры (px)</value>
   </data>
     <data name="labelThumbWidth.Help" xml:space="preserve">
     <value>Укажите ширину миниатюры в пикселах или оставьте поле пустым.</value>
   </data>
     <data name="labelThumbHeight.Text" xml:space="preserve">
-    <value>Высота миниатюры</value>
+    <value>Высота миниатюры (px)</value>
   </data>
     <data name="labelThumbHeight.Help" xml:space="preserve">
     <value>Укажите высоту миниатюры в пикселах или оставьте поле пустым.</value>
@@ -132,16 +132,16 @@
     <data name="labelSortOrder.Text" xml:space="preserve">
     <value>По возрастанию</value>
   </data>
-    <data name="labelNumberOfRecords.Help" xml:space="preserve">
+    <data name="labelSortOrder.Help" xml:space="preserve">
     <value>Отметьте, если элементы списка изображение должны быть отсортированы по возрастанию значения поля Индекс сортировки.</value>
   </data>
     <data name="None.Text" xml:space="preserve">
     <value>Нет</value>
   </data>
     <data name="labelLightboxType.Text" xml:space="preserve">
-    <value>Тип Lightbox</value>
+    <value>Использовать Lightbox</value>
   </data>
     <data name="labelLightboxType.Help" xml:space="preserve">
-    <value>Выберите используемый тип модуля Lightbox.</value>
+    <value>Выберите тип используемого модуля Lightbox.</value>
   </data>
 </root>

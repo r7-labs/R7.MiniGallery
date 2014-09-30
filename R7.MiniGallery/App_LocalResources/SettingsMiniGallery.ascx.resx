@@ -25,10 +25,10 @@
     <value>Set link target. Has no meaning if jQuery lightbox is used, but may be useful without it.</value>
   </data>
     <data name="ddlTargetItemNone.Text" xml:space="preserve">
-    <value>(none)</value>
+    <value>None</value>
   </data>
     <data name="ddlTargetItemOther.Text" xml:space="preserve">
-    <value>(other)</value>
+    <value>Frame:</value>
   </data>
     <data name="labelUseLightbox.Text" xml:space="preserve">
     <value>Use Lightbox</value>
@@ -112,16 +112,16 @@
     <value>Specify height of the displayed image in any CSS units, except percents (%). If not set, thumbnail height or original image height will be used.</value>
   </data>
     <data name="labelThumbWidth.Text" xml:space="preserve">
-    <value>Thumb Width</value>
+    <value>Thumb Width (px)</value>
   </data>
     <data name="labelThumbWidth.Help" xml:space="preserve">
     <value>Specify thumbnail image width in px or leave empty.</value>
   </data>
     <data name="labelThumbHeight.Text" xml:space="preserve">
-    <value>Thumb Height</value>
+    <value>Thumb Height (px)</value>
   </data>
     <data name="labelThumbHeight.Help" xml:space="preserve">
-    <value>Specify thumbnail image width in px or leave empty.</value>
+    <value>Specify thumbnail image width in pixels or leave empty.</value>
   </data>
     <data name="labelNumberOfRecords.Text" xml:space="preserve">
     <value>Show records</value>
@@ -132,7 +132,7 @@
     <data name="labelSortOrder.Text" xml:space="preserve">
     <value>Sort Ascending</value>
   </data>
-    <data name="labelNumberOfRecords.Help" xml:space="preserve">
+    <data name="labelSortOrder.Help" xml:space="preserve">
     <value>Check if image list should be sorted by SortIndex ascending.</value>
   </data>
     <data name="None.Text" xml:space="preserve">

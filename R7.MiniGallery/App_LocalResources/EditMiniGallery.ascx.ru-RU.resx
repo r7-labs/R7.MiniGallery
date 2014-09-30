@@ -16,7 +16,7 @@
     <value>Альт. описание</value>
   </data>
     <data name="labelAlt.Help" xml:space="preserve">
-    <value>Введите альтернативное описание для изображения.</value>
+    <value>Введите альтернативное описание для изображения, которое может быть показано браузером вместо изображения.</value>
   </data>
     <data name="labelTitle.Text" xml:space="preserve">
     <value>Заголовок</value>

@@ -16,7 +16,7 @@
     <value>Alt</value>
   </data>
     <data name="labelAlt.Help" xml:space="preserve">
-    <value>Provide an alternate description for the image.</value>
+    <value>Provide an alternate description for the image, which could be used by a browser instead of it.</value>
   </data>
     <data name="labelTitle.Text" xml:space="preserve">
     <value>Title</value>
