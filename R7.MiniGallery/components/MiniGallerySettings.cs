@@ -67,8 +67,8 @@ namespace R7.MiniGallery
 		/// <value>The type of the lightbox.</value>
 		public LightboxType LightboxType
 		{
-			get { return (LightboxType)Enum.Parse (typeof(LightboxType), ReadSetting<string> ("MiniGallery_LightboxType", LightboxType.LightBox.ToString())); }
-			set { WriteTabModuleSetting<string> ("MiniGallery_LightboxType", value.ToString()); }
+			get { return ReadSetting<LightboxType> ("MiniGallery_LightboxType", LightboxType.LightBox); }
+			set { WriteTabModuleSetting<LightboxType> ("MiniGallery_LightboxType", value); }
 		}
 
 		/// <summary>
