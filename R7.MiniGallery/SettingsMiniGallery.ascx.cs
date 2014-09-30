@@ -154,16 +154,9 @@ namespace R7.MiniGallery
 				// MiniGallerySettings.ImageWidth = Utils.ParseToUnit (textImageWidth.Text, 1);
 				// MiniGallerySettings.ImageHeight = Utils.ParseToUnit (textImageHeight.Text, 1);
 
-				if (!string.IsNullOrWhiteSpace(textImageWidth.Text))
-					MiniGallerySettings.ImageWidth = Unit.Parse(textImageWidth.Text);
-				else
-					MiniGallerySettings.ImageWidth = Unit.Empty;
-
-				if (!string.IsNullOrWhiteSpace(textImageHeight.Text))
-					MiniGallerySettings.ImageHeight = Unit.Parse(textImageHeight.Text);
-				else
-					MiniGallerySettings.ImageHeight = Unit.Empty;
-
+				MiniGallerySettings.ImageWidth = Unit.Parse (textImageWidth.Text);
+				MiniGallerySettings.ImageHeight = Unit.Parse (textImageHeight.Text);
+			
 				// MiniGallerySettings.FrameWidth = Utils.ParseToUnit (textImageWidth.Text, 1).ToString ();
 				// MiniGallerySettings.FrameHeight = Utils.ParseToUnit (textImageHeight.Text, 1).ToString ();
 /*
