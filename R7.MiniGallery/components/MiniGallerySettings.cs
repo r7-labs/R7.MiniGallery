@@ -117,8 +117,8 @@ namespace R7.MiniGallery
 		/// <value>The width of the image.</value>
 		public Unit ImageWidth
 		{
-			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_ImageWidth", string.Empty)); }
-			set { WriteTabModuleSetting<string> ("MiniGallery_ImageWidth", value.ToString()); }
+			get { return ReadSetting<Unit> ("MiniGallery_ImageWidth", Unit.Empty); }
+			set { WriteTabModuleSetting<Unit> ("MiniGallery_ImageWidth", value); }
 		}
 
 		/// <summary>
@@ -127,8 +127,8 @@ namespace R7.MiniGallery
 		/// <value>The height of the image.</value>
 		public Unit ImageHeight
 		{
-			get { return Unit.Parse(ReadSetting<string> ("MiniGallery_ImageHeight", string.Empty)); }
-			set { WriteTabModuleSetting<string> ("MiniGallery_ImageHeight", value.ToString()); }
+			get { return ReadSetting<Unit> ("MiniGallery_ImageHeight", Unit.Empty); }
+			set { WriteTabModuleSetting<Unit> ("MiniGallery_ImageHeight", value); }
 		}
 
 		/// <summary>
