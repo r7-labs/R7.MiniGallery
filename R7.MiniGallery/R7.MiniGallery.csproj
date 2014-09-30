@@ -99,6 +99,7 @@
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
     <None Include="entities\ImageToAdd.cs" />
+    <None Include="Tasks.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lib\Properties\AssemblyInfo.cs" />
