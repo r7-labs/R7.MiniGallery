@@ -7,9 +7,6 @@
 
 <div class="dnnForm dnnClear">
 	
-	<asp:Label id="labelTest" runat="server" />
-	<asp:ValidationSummary id="summaryTop" ValidationGroup="ValGroup1" />
-	
 	<fieldset>	
 		<div class="dnnFormItem">
 			<dnn:Label id="labelImage" runat="server" ControlName="urlImage" Suffix=":" />
@@ -29,10 +26,11 @@
 			<asp:Button id="buttonUpdatePreview" runat="server" CssClass="MG_PreviewButton" ResourceKey="buttonUpdatePreview.Text" OnClick="buttonUpdatePreview_Click" />
 		</div>--%>
 			
-		<div class="dnnFormItem">
+		<div class="dnnFormItem dnnFormRequired">
 			<dnn:Label id="labelAlt" runat="server" ControlName="textAlt" Suffix=":" />
 			<asp:TextBox id="textAlt" runat="server" />
-			<asp:RequiredFieldValidator id="valAlt" ControlToValidate="textAlt" ValidationGroup="ValGroup1" />
+			<asp:RequiredFieldValidator runat="server" ControlToValidate="textAlt" 
+				CssClass="dnnFormMessage dnnFormError" resourcekey="Alt.Required" />
 		</div>
 
 		<div class="dnnFormItem">

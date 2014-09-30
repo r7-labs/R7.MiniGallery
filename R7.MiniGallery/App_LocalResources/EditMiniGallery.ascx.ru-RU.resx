@@ -57,4 +57,7 @@
     <data name="buttonApplyFilter.Text" xml:space="preserve">
     <value>Применить фильтр</value>
   </data>
+    <data name="Alt.Required" xml:space="preserve">
+    <value>Укажите альтернативное описание изображения.</value>
+  </data>
 </root>
