@@ -138,6 +138,9 @@
     <data name="None.Text" xml:space="preserve">
     <value>Нет</value>
   </data>
+    <data name="Default.Text" xml:space="preserve">
+    <value>По умолчанию</value>
+  </data>
     <data name="labelLightboxType.Text" xml:space="preserve">
     <value>Использовать Lightbox</value>
   </data>

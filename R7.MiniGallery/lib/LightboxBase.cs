@@ -34,6 +34,7 @@ namespace R7.MiniGallery
 	public enum LightboxType
 	{
 		None = -1, // Null.NullInteger
+		Default,
 		LightBox,
 		ColorBox
 		/*
@@ -72,6 +73,7 @@ namespace R7.MiniGallery
 			switch (lightboxType)
 			{
 				case LightboxType.LightBox:
+				case LightboxType.Default:
 					return new Lightbox (key);
 
 				case LightboxType.ColorBox:

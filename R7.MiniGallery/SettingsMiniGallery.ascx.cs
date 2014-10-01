@@ -60,6 +60,7 @@ namespace R7.MiniGallery
 			comboTarget.Select ("_blank", false);
 			
 			comboLightboxType.AddItem (LocalizeString ("None.Text"), LightboxType.None.ToString());
+			comboLightboxType.AddItem (LocalizeString ("Default.Text"), LightboxType.Default.ToString());
 			comboLightboxType.AddItem (LightboxType.LightBox.ToString(), LightboxType.LightBox.ToString());
 			comboLightboxType.AddItem (LightboxType.ColorBox.ToString(), LightboxType.ColorBox.ToString());
 

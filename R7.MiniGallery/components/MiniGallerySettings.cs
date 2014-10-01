@@ -67,7 +67,7 @@ namespace R7.MiniGallery
 		/// <value>The type of the lightbox.</value>
 		public LightboxType LightboxType
 		{
-			get { return ReadSetting<LightboxType> ("MiniGallery_LightboxType", LightboxType.LightBox); }
+			get { return ReadSetting<LightboxType> ("MiniGallery_LightboxType", LightboxType.Default); }
 			set { WriteTabModuleSetting<LightboxType> ("MiniGallery_LightboxType", value); }
 		}
 
