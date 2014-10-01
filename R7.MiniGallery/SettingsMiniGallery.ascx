@@ -44,11 +44,11 @@
 			<dnn:Label id="labelUseScrollbar" runat="server" controlname="checkUseScrollbar" suffix="?" />
 			<asp:CheckBox id="checkUseScrollbar" runat="server" Enabled="false" />
 		</div>
-		-->
 		<div class="dnnFormItem">
 			<dnn:Label id="labelShowTitles" runat="server" controlname="checkShowTitles" suffix="?" />
 			<asp:CheckBox id="checkShowTitles" runat="server" />
 		</div>
+		-->
 		<div class="dnnFormItem">
 			<dnn:Label id="labelColumns" runat="server" controlname="comboColumns" suffix=":" />
 			<dnn:DnnComboBox id="comboColumns" runat="server" />
