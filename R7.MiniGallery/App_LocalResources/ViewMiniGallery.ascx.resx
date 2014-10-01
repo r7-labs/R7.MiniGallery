@@ -12,4 +12,7 @@
     <data name="AddImages.Help" xml:space="preserve">
     <value>Nothing to display - please add some images to the gallery.</value>
   </data>
+    <data name="AltAutoPrefix.Text" xml:space="preserve">
+    <value>image_</value>
+  </data>
 </root>

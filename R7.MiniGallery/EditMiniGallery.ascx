@@ -11,11 +11,12 @@
 			<dnn:Label id="labelImage" runat="server" ControlName="urlImage" Suffix=":" />
 			<dnn:Picker id="pickerImage" runat="server" Required="true" />
 		</div>
-		<div class="dnnFormItem dnnFormRequired">
+		<%-- <div class="dnnFormItem dnnFormRequired"> --%>
+		<div class="dnnFormItem">
 			<dnn:Label id="labelAlt" runat="server" ControlName="textAlt" Suffix=":" />
 			<asp:TextBox id="textAlt" runat="server" />
-			<asp:RequiredFieldValidator runat="server" ControlToValidate="textAlt" 
-				CssClass="dnnFormMessage dnnFormError" resourcekey="Alt.Required" />
+			<%-- <asp:RequiredFieldValidator runat="server" ControlToValidate="textAlt" 
+				CssClass="dnnFormMessage dnnFormError" resourcekey="Alt.Required" /> --%>
 		</div>
 		<div class="dnnFormItem">
 		    <dnn:Label id="labelTitle" runat="server" ControlName="textTitle" Suffix=":" />

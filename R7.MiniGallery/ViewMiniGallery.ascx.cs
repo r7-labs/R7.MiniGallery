@@ -168,9 +168,14 @@ namespace R7.MiniGallery
             
 			// fill out the controls
 
-			imageImage.AlternateText = image.Alt;
-			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;
+			#region Alternate text and title
 
+			// REVIEW: Use hash code instead of raw ImageID?
+			imageImage.AlternateText = (!string.IsNullOrWhiteSpace (image.Alt))? image.Alt : LocalizeString ("AltAutoPrefix.Text") + image.ImageID;
+			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;
+			
+			#endregion
+			
 			#region Link
 
 			// TODO: url type (secured or none) must be set in settings
