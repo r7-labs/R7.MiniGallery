@@ -77,26 +77,35 @@ namespace R7.MiniGallery
 			{
 				if (!IsPostBack)
 				{
+					// columns
 					comboColumns.Select (MiniGallerySettings.Columns.ToString(), false);
+					checkExpand.Checked = MiniGallerySettings.ExpandColumns;
 
 					comboLightboxType.Select (MiniGallerySettings.LightboxType.ToString(), false);
 
+					// thumb size
 					if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
 						textThumbWidth.Text = MiniGallerySettings.ThumbWidth.ToString ();
 
 					if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
 						textThumbHeight.Text = MiniGallerySettings.ThumbHeight.ToString ();
 
-					if (!Null.IsNull (MiniGallerySettings.NumberOfRecords))
-						textNumberOfRecords.Text = MiniGallerySettings.NumberOfRecords.ToString ();
-
-					textImageHandlerParams.Text = MiniGallerySettings.ImageHandlerParams;
-
+					// image size
 					textImageWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
 					textImageHeight.Text = MiniGallerySettings.ImageHeight.ToString ();
 
+					// number of records
+					if (!Null.IsNull (MiniGallerySettings.NumberOfRecords))
+						textNumberOfRecords.Text = MiniGallerySettings.NumberOfRecords.ToString ();
+
+					// image handler
+					checkUseImageHandler.Checked = MiniGallerySettings.UseImageHandler;
+					textImageHandlerParams.Text = MiniGallerySettings.ImageHandlerParams;
+
+					// max. height
 					textMaxHeight.Text = MiniGallerySettings.MaxHeight.ToString();
 
+					// style set
 					var styleSetItem = comboStyleSet.FindItemByValue (MiniGallerySettings.StyleSet);
 					if (styleSetItem != null)
 					{
@@ -108,6 +117,7 @@ namespace R7.MiniGallery
 						textStyleSet.Text = MiniGallerySettings.StyleSet;
 					}
 						
+					// link target
 					var targetItem = comboTarget.FindItemByValue (MiniGallerySettings.Target);
 					if (targetItem != null)
 					{
@@ -124,14 +134,14 @@ namespace R7.MiniGallery
 							comboTarget.SelectedIndex = 1; // none
 					}
 
-					// DESC sorting done if "-SortIndex" value
+					// sort order (DESC sorting done if "-SortIndex" value)
 					checkSortOrder.Checked = MiniGallerySettings.SortOrder == "SortIndex";
-					checkUseScrollbar.Checked = MiniGallerySettings.UseScrollbar;
-					checkUseImageHandler.Checked = MiniGallerySettings.UseImageHandler;
-					checkShowTitles.Checked = MiniGallerySettings.ShowTitles;
-					checkExpand.Checked = MiniGallerySettings.ExpandColumns;
 
-					// read text before  / text after
+					// other
+					checkUseScrollbar.Checked = MiniGallerySettings.UseScrollbar;
+					checkShowTitles.Checked = MiniGallerySettings.ShowTitles;
+
+					// read header and footer
 					var module = new ModuleController ().GetTabModule (TabModuleId);
 					editorHeader.Text = module.Header;
 					editorFooter.Text = module.Footer;
@@ -144,7 +154,7 @@ namespace R7.MiniGallery
 		}
 
 		/// <summary>
-		/// handles updating the module settings for this control
+		/// Handles updating the module settings for this control
 		/// </summary>
 		public override void UpdateSettings ()
 		{
@@ -153,37 +163,21 @@ namespace R7.MiniGallery
 				// max. height
 				MiniGallerySettings.MaxHeight = Unit.Parse (textMaxHeight.Text);
 
-				// parse and store image size
-				
+				// thumb size
 				MiniGallerySettings.ThumbWidth = Utils.TryParseInt32 (textThumbWidth.Text, Null.NullInteger);
 				MiniGallerySettings.ThumbHeight = Utils.TryParseInt32 (textThumbHeight.Text, Null.NullInteger);
-				
+
+				// number of records
 				MiniGallerySettings.NumberOfRecords = Utils.TryParseInt32 (textNumberOfRecords.Text, Null.NullInteger);
 
+				// image handler
+				MiniGallerySettings.UseImageHandler = checkUseImageHandler.Checked;
 				MiniGallerySettings.ImageHandlerParams = textImageHandlerParams.Text;
-				
-				// MiniGallerySettings.ImageWidth = Utils.ParseToUnit (textImageWidth.Text, 1);
-				// MiniGallerySettings.ImageHeight = Utils.ParseToUnit (textImageHeight.Text, 1);
 
+				// image size
 				MiniGallerySettings.ImageWidth = Unit.Parse (textImageWidth.Text);
 				MiniGallerySettings.ImageHeight = Unit.Parse (textImageHeight.Text);
 			
-				// MiniGallerySettings.FrameWidth = Utils.ParseToUnit (textImageWidth.Text, 1).ToString ();
-				// MiniGallerySettings.FrameHeight = Utils.ParseToUnit (textImageHeight.Text, 1).ToString ();
-/*
-				try 
-				{
-					var width = Unit.Parse (textImageWidth.Text);
-					if (width.Value <= 0)
-						settings.ImageWidth = string.Empty;
-					else
-						settings.ImageWidth = width.ToString();
-				}
-				catch 
-				{
-					settings.ImageWidth = string.Empty;
-				}*/
-
 				// style set, 0 = custom
 				MiniGallerySettings.StyleSet = (comboStyleSet.SelectedIndex != 0) ?
 					comboStyleSet.SelectedValue : textStyleSet.Text;
@@ -192,18 +186,21 @@ namespace R7.MiniGallery
 				MiniGallerySettings.Target = (comboTarget.SelectedIndex != 0) ?
 					 comboTarget.SelectedValue : textTarget.Text;
 
-				// columns & rows
+				// columns
 				MiniGallerySettings.Columns = int.Parse (comboColumns.SelectedValue);
+				MiniGallerySettings.ExpandColumns = checkExpand.Checked;
 
+				// lightbox type
 				MiniGallerySettings.LightboxType = (LightboxType)Enum.Parse (typeof(LightboxType), comboLightboxType.SelectedValue, true);
 
+				// sort order
 				MiniGallerySettings.SortOrder = checkSortOrder.Checked? "SortIndex" : "-SortIndex";
+
+				// other 
 				MiniGallerySettings.UseScrollbar = checkUseScrollbar.Checked;
 				MiniGallerySettings.ShowTitles = checkShowTitles.Checked;
-				MiniGallerySettings.ExpandColumns = checkExpand.Checked;
-				MiniGallerySettings.UseImageHandler = checkUseImageHandler.Checked;
 
-				// override header and footer
+				// replace header and footer
 				if (checkReplaceHeaderAndFooter.Checked)
 				{
 					var mctrl = new ModuleController ();
