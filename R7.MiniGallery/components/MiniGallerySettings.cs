@@ -87,7 +87,7 @@ namespace R7.MiniGallery
 		/// <value>The style set.</value>
 		public string StyleSet
 		{
-			get { return ReadSetting<string> ("MiniGallery_StyleSet", "Default"); }
+			get { return ReadSetting<string> ("MiniGallery_StyleSet", "Fixed"); }
 			set { WriteTabModuleSetting<string> ("MiniGallery_StyleSet", value); }
 		}
 
