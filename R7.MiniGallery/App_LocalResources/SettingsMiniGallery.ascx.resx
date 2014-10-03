@@ -144,6 +144,9 @@
     <data name="Default.Text" xml:space="preserve">
     <value>Default</value>
   </data>
+    <data name="CustomStyleSet.Text" xml:space="preserve">
+    <value>Custom:</value>
+  </data>
     <data name="labelLightboxType.Text" xml:space="preserve">
     <value>Lightbox Type</value>
   </data>

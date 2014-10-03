@@ -144,6 +144,9 @@
     <data name="Default.Text" xml:space="preserve">
     <value>По умолчанию</value>
   </data>
+    <data name="CustomStyleSet.Text" xml:space="preserve">
+    <value>Другой:</value>
+  </data>
     <data name="labelLightboxType.Text" xml:space="preserve">
     <value>Использовать Lightbox</value>
   </data>

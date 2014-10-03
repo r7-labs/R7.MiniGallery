@@ -66,6 +66,9 @@ namespace R7.MiniGallery
 
 			comboLightboxType.SelectedIndex = 0;
 
+			comboStyleSet.AddItem (LocalizeString ("CustomStyleSet.Text"), "Custom"); // value doesn't matter
+			comboStyleSet.AddItem ("Fixed", "Fixed");
+			comboStyleSet.AddItem ("Auto", "Auto");
 		}
 
 		/// <summary>
@@ -95,15 +98,23 @@ namespace R7.MiniGallery
 					textImageWidth.Text = MiniGallerySettings.ImageWidth.ToString ();
 					textImageHeight.Text = MiniGallerySettings.ImageHeight.ToString ();
 
-					//textViewerCssClass.Text = settings.ViewerCssClass;
-					textStyleSet.Text = MiniGallerySettings.StyleSet;
-
 					textMaxHeight.Text = MiniGallerySettings.MaxHeight.ToString();
-						
-					var item = comboTarget.FindItemByValue (MiniGallerySettings.Target);
-					if (item != null)
+
+					var styleSetItem = comboStyleSet.FindItemByValue (MiniGallerySettings.StyleSet);
+					if (styleSetItem != null)
 					{
-						item.Selected = true;
+						styleSetItem.Selected = true;
+					}
+					else
+					{
+						comboStyleSet.SelectedIndex = 0; // custom
+						textStyleSet.Text = MiniGallerySettings.StyleSet;
+					}
+						
+					var targetItem = comboTarget.FindItemByValue (MiniGallerySettings.Target);
+					if (targetItem  != null)
+					{
+						targetItem .Selected = true;
 					}
 					else
 					{
@@ -137,9 +148,6 @@ namespace R7.MiniGallery
 		{
 			try
 			{
-				// style
-				MiniGallerySettings.StyleSet = textStyleSet.Text;
-
 				// max. height
 				MiniGallerySettings.MaxHeight = Unit.Parse (textMaxHeight.Text);
 
@@ -173,6 +181,10 @@ namespace R7.MiniGallery
 				{
 					settings.ImageWidth = string.Empty;
 				}*/
+
+				// style set, 0 = custom
+				MiniGallerySettings.StyleSet = (comboStyleSet.SelectedIndex != 0) ?
+					comboStyleSet.SelectedValue : textStyleSet.Text;
 
 				// link target, 1 = other
 				MiniGallerySettings.Target = (comboTarget.SelectedIndex != 1) ?

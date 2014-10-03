@@ -32,13 +32,15 @@
 .MG_BulkAdd .listImages .textTitle { min-width:290px }
 
 /* Settings */
-.MG_Settings .comboTarget 
+.MG_Settings .comboTarget,
+.MG_Settings .comboStyleSet
 { 
 	float:left;
 	width:100px 
 }
 
-.MG_Settings .textTarget 
+.MG_Settings .textTarget,
+.MG_Settings .textStyleSet
 { 
 	float:left;
 	width:310px!important;

@@ -10,8 +10,9 @@
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionBaseSettings.Text" /></a></h2>
 	<fieldset>
 		<div class="dnnFormItem">
-			<dnn:Label id="labelStyleSet" runat="server" controlname="textStyleSet" suffix=":" />
-			<asp:TextBox id="textStyleSet" runat="server" CssClass="NormalTextBox" />
+			<dnn:Label id="labelStyleSet" runat="server" ControlName="textStyleSet" Suffix=":" />
+			<dnn:DnnComboBox id="comboStyleSet" runat="server" CssClass="comboStyleSet" /> 
+			<asp:TextBox id="textStyleSet" runat="server" CssClass="textStyleSet" />
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelMaxHeight" runat="server" controlname="textMaxHeight" suffix=":" />

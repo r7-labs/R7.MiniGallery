@@ -13,6 +13,7 @@ namespace R7.MiniGallery
 		protected LabelControl labelViewerCssClass;
 		protected TextBox textViewerCssClass;
 		protected LabelControl labelStyleSet;
+		protected DnnComboBox comboStyleSet;
 		protected TextBox textStyleSet;
 		protected LabelControl labelMaxHeight;
 		protected TextBox textMaxHeight;
