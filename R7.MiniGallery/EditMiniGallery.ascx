@@ -26,7 +26,7 @@
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelLink" runat="server" ControlName="urlLink" Suffix=":" />
-			<dnn:Url id="urlLink" runat="server" UrlType="N" Style="float:left"
+			<dnn:Url id="urlLink" runat="server" UrlType="N" CssClass="dnnLeft"
 			        ShowFiles="true" ShowTabs="true"
 			        ShowUrls="true" ShowUsers="true"
 					ShowLog="false" ShowTrack="false"
