@@ -52,19 +52,11 @@
 		<div class="dnnFormItem">
 			<dnn:Label id="labelColumns" runat="server" controlname="comboColumns" suffix=":" />
 			<dnn:DnnComboBox id="comboColumns" runat="server" />
-			<%-- <asp:DropDownList ID="ddlColumns" runat="server" Style="width:120px" /> --%>
-			<%-- <b> x </b> 
-			<asp:DropDownList ID="ddlRows" runat="server" Style="width:100px" /> --%>
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelExpand" runat="server" controlname="checkExpand" suffix="?" />
 			<asp:CheckBox id="checkExpand" runat="server" />
 		</div>
-		<%--
-		<div class="dnnFormItem">
-			<dnn:Label id="labelRows" runat="server" controlname="ddlRows" suffix=":" />
-			
-	   	</div>--%>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelNumberOfRecords" runat="server" controlname="textNumberOfRecords" suffix=":" />
 			<asp:TextBox id="textNumberOfRecords" runat="server" CssClass="NormalTextBox" />
