@@ -83,7 +83,7 @@
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
     <Content Include="js\dummy.js" />
-    <Content Include="settings.css" />
+    <Content Include="admin.css" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_LocalResources\ViewMiniGallery.ascx.resx" />
