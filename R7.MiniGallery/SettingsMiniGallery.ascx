@@ -64,13 +64,13 @@
 	</fieldset>
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="ImageHandler.Section" /></a></h2>
 	<fieldset>
-		<div class="dnnFormItem" style="margin-bottom:15px">
+		<div class="dnnFormItem divUseImageHandler">
 			<dnn:Label id="labelUseImageHandler" runat="server" controlname="checkUseImageHandler" suffix="?" />
 			<asp:CheckBox id="checkUseImageHandler" runat="server" />
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelImageHandlerParams" runat="server" controlname="textImageHandlerParams" suffix=":" />
-			<asp:TextBox id="textImageHandlerParams" runat="server" Style="font-family:Monospace" />
+			<asp:TextBox id="textImageHandlerParams" runat="server" CssClass="textImageHandlerParams" />
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelThumbWidth" runat="server" controlname="textThumbWidth" suffix=":" />
@@ -85,14 +85,14 @@
 	<fieldset>
 		<div class="dnnFormItem">
 			<div class="dnnLabel"></div>
-			<dnn:TextEditor id="editorHeader" runat="server" height="300" HtmlEncode="false" />
+			<dnn:TextEditor id="editorHeader" runat="server" CssClass="editorHeader" HtmlEncode="false" />
 		</div>
 	</fieldset>
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionFooter.Text" /></a></h2>
 	<fieldset>
 		<div class="dnnFormItem">
 			<div class="dnnLabel"></div>
-			<dnn:TextEditor id="editorFooter" runat="server" height="300" HtmlEncode="false" />
+			<dnn:TextEditor id="editorFooter" runat="server" CssClass="editorFooter" HtmlEncode="false" />
 		</div>
 	</fieldset>
 </div>
