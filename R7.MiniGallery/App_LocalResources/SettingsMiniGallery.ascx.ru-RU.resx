@@ -24,12 +24,6 @@
     <data name="labelTarget.Help" xml:space="preserve">
     <value>Устанавливает цель для ссылки (имя фрейма). Значение не имеет смысла в случае, если используется модуль Lightbox, но может быть полезно без него.</value>
   </data>
-    <data name="ddlTargetItemNone.Text" xml:space="preserve">
-    <value>Нет</value>
-  </data>
-    <data name="ddlTargetItemOther.Text" xml:space="preserve">
-    <value>Имя фрейма:</value>
-  </data>
     <data name="labelUseLightbox.Text" xml:space="preserve">
     <value>Использовать Lightbox</value>
   </data>
@@ -93,9 +87,6 @@
     <data name="ImageHandler.Section" xml:space="preserve">
     <value>Настройки генератора миниатюр</value>
   </data>
-    <data name="Auto.Text" xml:space="preserve">
-    <value>Авто</value>
-  </data>
     <data name="labelColumns.Text" xml:space="preserve">
     <value>Число колонок</value>
   </data>
@@ -138,14 +129,17 @@
     <data name="labelSortOrder.Help" xml:space="preserve">
     <value>Отметьте, если элементы списка изображение должны быть отсортированы по возрастанию значения поля Индекс сортировки.</value>
   </data>
+    <data name="Auto.Text" xml:space="preserve">
+    <value>Авто</value>
+  </data>
     <data name="None.Text" xml:space="preserve">
     <value>Нет</value>
   </data>
     <data name="Default.Text" xml:space="preserve">
     <value>По умолчанию</value>
   </data>
-    <data name="CustomStyleSet.Text" xml:space="preserve">
-    <value>Другой:</value>
+    <data name="Custom.Text" xml:space="preserve">
+    <value>Другое:</value>
   </data>
     <data name="labelLightboxType.Text" xml:space="preserve">
     <value>Использовать Lightbox</value>

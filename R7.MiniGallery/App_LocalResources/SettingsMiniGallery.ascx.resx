@@ -24,12 +24,6 @@
     <data name="labelTarget.Help" xml:space="preserve">
     <value>Set link target. Has no meaning if jQuery lightbox is used, but may be useful without it.</value>
   </data>
-    <data name="ddlTargetItemNone.Text" xml:space="preserve">
-    <value>None</value>
-  </data>
-    <data name="ddlTargetItemOther.Text" xml:space="preserve">
-    <value>Frame:</value>
-  </data>
     <data name="labelUseLightbox.Text" xml:space="preserve">
     <value>Use Lightbox</value>
   </data>
@@ -93,9 +87,6 @@
     <data name="ImageHandler.Section" xml:space="preserve">
     <value>Image Handler Settings</value>
   </data>
-    <data name="Auto.Text" xml:space="preserve">
-    <value>Auto</value>
-  </data>
     <data name="labelColumns.Text" xml:space="preserve">
     <value>Columns</value>
   </data>
@@ -138,13 +129,16 @@
     <data name="labelSortOrder.Help" xml:space="preserve">
     <value>Check if image list should be sorted by SortIndex ascending.</value>
   </data>
+    <data name="Auto.Text" xml:space="preserve">
+    <value>Auto</value>
+  </data>
     <data name="None.Text" xml:space="preserve">
     <value>None</value>
   </data>
     <data name="Default.Text" xml:space="preserve">
     <value>Default</value>
   </data>
-    <data name="CustomStyleSet.Text" xml:space="preserve">
+    <data name="Custom.Text" xml:space="preserve">
     <value>Custom:</value>
   </data>
     <data name="labelLightboxType.Text" xml:space="preserve">

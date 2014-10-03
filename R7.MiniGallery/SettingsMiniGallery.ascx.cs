@@ -45,28 +45,25 @@ namespace R7.MiniGallery
 			
 			// fill columns combo
 			comboColumns.AddItem (LocalizeString ("Auto.Text"), Null.NullInteger.ToString ());
-
 			for (var i = 1; i <= 50; i++)
 				comboColumns.AddItem (i.ToString (), i.ToString());
 
 			// fill target combo
-			comboTarget.AddItem (LocalizeString ("ddlTargetItemNone.Text"), "none");
-			comboTarget.AddItem (LocalizeString ("ddlTargetItemOther.Text"), "other");
+			comboTarget.AddItem (LocalizeString ("Custom.Text"), "@custom");
+			comboTarget.AddItem (LocalizeString ("None.Text"), string.Empty);
 			comboTarget.AddItem ("_blank", "_blank");
 			comboTarget.AddItem ("_top", "_top");
 			comboTarget.AddItem ("_parent", "_parent");
 			comboTarget.AddItem ("_self", "_self");
 
-			comboTarget.Select ("_blank", false);
-			
-			comboLightboxType.AddItem (LocalizeString ("None.Text"), LightboxType.None.ToString());
-			comboLightboxType.AddItem (LocalizeString ("Default.Text"), LightboxType.Default.ToString());
-			comboLightboxType.AddItem (LightboxType.LightBox.ToString(), LightboxType.LightBox.ToString());
-			comboLightboxType.AddItem (LightboxType.ColorBox.ToString(), LightboxType.ColorBox.ToString());
+			// fill lightbox type combo
+			comboLightboxType.AddItem (LocalizeString ("None.Text"), LightboxType.None.ToString ());
+			comboLightboxType.AddItem (LocalizeString ("Default.Text"), LightboxType.Default.ToString ());
+			comboLightboxType.AddItem (LightboxType.LightBox.ToString (), LightboxType.LightBox.ToString ());
+			comboLightboxType.AddItem (LightboxType.ColorBox.ToString (), LightboxType.LightBox.ToString ());
 
-			comboLightboxType.SelectedIndex = 0;
-
-			comboStyleSet.AddItem (LocalizeString ("CustomStyleSet.Text"), "Custom"); // value doesn't matter
+			// fill style set combo
+			comboStyleSet.AddItem (LocalizeString ("Custom.Text"), "@custom");
 			comboStyleSet.AddItem ("Fixed", "Fixed");
 			comboStyleSet.AddItem ("Auto", "Auto");
 		}
@@ -112,14 +109,19 @@ namespace R7.MiniGallery
 					}
 						
 					var targetItem = comboTarget.FindItemByValue (MiniGallerySettings.Target);
-					if (targetItem  != null)
+					if (targetItem != null)
 					{
-						targetItem .Selected = true;
+						targetItem.Selected = true;
 					}
 					else
 					{
-						comboTarget.SelectedIndex = 1; // other
-						textTarget.Text = MiniGallerySettings.Target;
+						if (!string.IsNullOrWhiteSpace (MiniGallerySettings.Target))
+						{
+							comboTarget.SelectedIndex = 0; // custom
+							textTarget.Text = MiniGallerySettings.Target;
+						}
+						else
+							comboTarget.SelectedIndex = 1; // none
 					}
 
 					// DESC sorting done if "-SortIndex" value
@@ -186,8 +188,8 @@ namespace R7.MiniGallery
 				MiniGallerySettings.StyleSet = (comboStyleSet.SelectedIndex != 0) ?
 					comboStyleSet.SelectedValue : textStyleSet.Text;
 
-				// link target, 1 = other
-				MiniGallerySettings.Target = (comboTarget.SelectedIndex != 1) ?
+				// link target, 0 = custom
+				MiniGallerySettings.Target = (comboTarget.SelectedIndex != 0) ?
 					 comboTarget.SelectedValue : textTarget.Text;
 
 				// columns & rows
