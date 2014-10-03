@@ -15,4 +15,7 @@
     <data name="buttonInvertSelection.Text" xml:space="preserve">
         <value>Invert Selection</value>
     </data>
+    <data name="buttonAdd.Text" xml:space="preserve">
+        <value>Add</value>
+    </data>
 </root>

@@ -10,7 +10,7 @@ namespace R7.MiniGallery
 {
 	public partial class BulkAdd
 	{
-		protected LinkButton buttonUpdate;
+		protected LinkButton buttonAdd;
 		protected HyperLink linkCancel;
 		protected LabelControl labelFolder;
 		protected DnnFolderDropDownList ddlFolders;

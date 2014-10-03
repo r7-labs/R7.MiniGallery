@@ -37,7 +37,7 @@
 		</asp:DataList>
 	</fieldset>
 	<ul class="dnnActions dnnClear">
-		<li><asp:LinkButton id="buttonUpdate" runat="server" CssClass="dnnPrimaryAction" ResourceKey="cmdUpdate" CausesValidation="true" OnClick="buttonUpdate_Click" Visible="false" /></li>
-		<li><asp:HyperLink id="linkCancel" runat="server" CssClass="dnnSecondaryAction" ResourceKey="cmdCancel" /></li>
+		<li><asp:LinkButton id="buttonAdd" runat="server" CssClass="dnnPrimaryAction" resourcekey="buttonAdd.Text" CausesValidation="true" OnClick="buttonAdd_Click" Visible="false" /></li>
+		<li><asp:HyperLink id="linkCancel" runat="server" CssClass="dnnSecondaryAction" resourcekey="cmdCancel" /></li>
 	</ul>
 </div>

@@ -89,7 +89,7 @@ namespace R7.MiniGallery
 		}
 
 		/// <summary>
-		/// Handles Click event for cmdUpdate button
+		/// Handles Click event for cmdAdd button
 		/// </summary>
 		/// <param name='sender'>
 		/// Sender.
@@ -97,7 +97,7 @@ namespace R7.MiniGallery
 		/// <param name='e'>
 		/// Event args.
 		/// </param>
-		protected void buttonUpdate_Click (object sender, EventArgs e)
+		protected void buttonAdd_Click (object sender, EventArgs e)
 		{
 			try
 			{
@@ -156,12 +156,12 @@ namespace R7.MiniGallery
 				listImages.DataSource = files;
 				listImages.DataBind ();
 
-				buttonUpdate.Visible = true;
+				buttonAdd.Visible = true;
 				panelCheck.Visible = true;
 			}
 			else
 			{
-				buttonUpdate.Visible = false;
+				buttonAdd.Visible = false;
 				panelCheck.Visible = false;
 			}
 		}

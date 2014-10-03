@@ -15,4 +15,7 @@
     <data name="buttonInvertSelection.Text" xml:space="preserve">
         <value>Обратить выделение</value>
     </data>
+    <data name="buttonAdd.Text" xml:space="preserve">
+        <value>Добавить</value>
+    </data>
 </root>
