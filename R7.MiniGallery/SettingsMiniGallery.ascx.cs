@@ -189,12 +189,15 @@ namespace R7.MiniGallery
 				MiniGallerySettings.ExpandColumns = checkExpand.Checked;
 				MiniGallerySettings.UseImageHandler = checkUseImageHandler.Checked;
 
-				// store text before / text after
-				var mctrl = new ModuleController ();
-				var module = mctrl.GetTabModule (TabModuleId);
-				module.Header = editorHeader.Text;
-				module.Footer = editorFooter.Text;
-				mctrl.UpdateModule (module);
+				// override header and footer
+				if (checkReplaceHeaderAndFooter.Checked)
+				{
+					var mctrl = new ModuleController ();
+					var module = mctrl.GetTabModule (TabModuleId);
+					module.Header = editorHeader.Text;
+					module.Footer = editorFooter.Text;
+					mctrl.UpdateModule (module);
+				}
 
 				Utils.SynchronizeModule (this);
 			}

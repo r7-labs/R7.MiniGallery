@@ -45,12 +45,6 @@
 	margin-left:10px 
 }
 
-.MG_Settings .editorHeader,
-.MG_Settings .editorFooter
-{
-	height:300px
-}
-
 .MG_Settings .textImageHandlerParams { font-family:Monospace }
 
 .MG_Settings .divUseImageHandler { margin-bottom:15px }

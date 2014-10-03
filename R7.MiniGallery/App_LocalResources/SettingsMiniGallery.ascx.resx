@@ -66,26 +66,29 @@
     <data name="labelExpand.Help" xml:space="preserve">
     <value>If checked, each column width are calculated as 100% / number of columns approximately. This setting only effective if a columns number is specified explicitly (not auto).</value>
   </data>
-    <data name="labelTextBefore.Text" xml:space="preserve">
-    <value>Text Before</value>
+    <data name="labelHeader.Text" xml:space="preserve">
+    <value>Header</value>
   </data>
-    <data name="labelTextBefore.Help" xml:space="preserve">
-    <value>Enter HTML to be placed before (above) image list. This setting overrides Header value from Module Settings / Advanced tab.</value>
+    <data name="labelHeader.Help" xml:space="preserve">
+    <value>Enter HTML to be placed before (above) image list. This setting could replace Header value from Module Settings / Advanced tab.</value>
   </data>
-    <data name="labelTextAfter.Text" xml:space="preserve">
-    <value>Text After</value>
+    <data name="labelFooter.Text" xml:space="preserve">
+    <value>Footer</value>
   </data>
-    <data name="labelTextAfter.Help" xml:space="preserve">
-    <value>Enter HTML to be placed after (below) image list. This setting overrides Footer value from Module Settings / Advanced tab.</value>
+    <data name="labelFooter.Help" xml:space="preserve">
+    <value>Enter HTML to be placed after (below) image list. This setting could replace Footer value from Module Settings / Advanced tab.</value>
+  </data>
+    <data name="labelReplaceHeaderAndFooter.Text" xml:space="preserve">
+    <value>Replace Module Header &amp; Footer</value>
+  </data>
+    <data name="labelReplaceHeaderAndFooter.Help" xml:space="preserve">
+    <value>Check to replace module Header and Footer settings from Module Settings / Advanced tab with the text editors content above.</value>
   </data>
     <data name="sectionBaseSettings.Text" xml:space="preserve">
     <value>R7.MiniGallery Settings</value>
   </data>
-    <data name="sectionHeader.Text" xml:space="preserve">
-    <value>Header</value>
-  </data>
-    <data name="sectionFooter.Text" xml:space="preserve">
-    <value>Footer</value>
+    <data name="HeaderAndFooter.Section" xml:space="preserve">
+    <value>Header &amp; Footer</value>
   </data>
     <data name="ImageHandler.Section" xml:space="preserve">
     <value>Image Handler Settings</value>

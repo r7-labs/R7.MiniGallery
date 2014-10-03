@@ -66,26 +66,29 @@
     <data name="labelExpand.Help" xml:space="preserve">
     <value>Если отмечено, ширина каждой колонки будет расчитана примерно как 100% / количество колонок. Эта настройка работает только в том случае, если количество колонок указано явно (не авто).</value>
   </data>
-    <data name="labelTextBefore.Text" xml:space="preserve">
-    <value>Текст перед</value>
+    <data name="labelHeader.Text" xml:space="preserve">
+    <value>Заголовок</value>
   </data>
-    <data name="labelTextBefore.Help" xml:space="preserve">
-    <value>Введите код HTML для размещения перед (выше) списка изображений. Эта настройка переопределяет значение Заголовка модуля на вкладке Настройки модуля / Расширенные.</value>
+    <data name="labelHeader.Help" xml:space="preserve">
+    <value>Введите код HTML для размещения перед (выше) списка изображений. Эта настройка может заменять значение Заголовка модуля на вкладке Настройки модуля / Расширенные.</value>
   </data>
-    <data name="labelTextAfter.Text" xml:space="preserve">
-    <value>Текст после</value>
+    <data name="labelFooter.Text" xml:space="preserve">
+    <value>Подвал</value>
   </data>
-    <data name="labelTextAfter.Help" xml:space="preserve">
-    <value>Введите код HTML для размещения после (ниже) списка изображений. Эта настройка переопределяет значение Подвала модуля на вкладке Настройки модуля / Расширенные.</value>
+    <data name="labelFooter.Help" xml:space="preserve">
+    <value>Введите код HTML для размещения после (ниже) списка изображений. Эта настройка может заменять значение Подвала модуля на вкладке Настройки модуля / Расширенные.</value>
+  </data>
+    <data name="labelReplaceHeaderAndFooter.Text" xml:space="preserve">
+    <value>Заменить заголовок и подвал</value>
+  </data>
+    <data name="labelReplaceHeaderAndFooter.Help" xml:space="preserve">
+    <value>Отметьте, чтобы заменить значения Заголовка и Подвала модуля, заданные на вкладке Настройки модуля / Расширенные, значениями из расположенных выше редакторов текста.</value>
   </data>
     <data name="sectionBaseSettings.Text" xml:space="preserve">
     <value>Настройки R7.MiniGallery</value>
   </data>
-    <data name="sectionHeader.Text" xml:space="preserve">
-    <value>Заголовок</value>
-  </data>
-    <data name="sectionFooter.Text" xml:space="preserve">
-    <value>Подвал</value>
+    <data name="HeaderAndFooter.Section" xml:space="preserve">
+    <value>Заголовок и подвал</value>
   </data>
     <data name="ImageHandler.Section" xml:space="preserve">
     <value>Настройки генератора миниатюр</value>

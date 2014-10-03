@@ -79,18 +79,19 @@
 			<asp:TextBox id="textThumbHeight" runat="server" CssClass="NormalTextBox" />
 		</div>
 	</fieldset>
-	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionHeader.Text" /></a></h2>
+	<h2 class="dnnFormSectionHead"><a href="#"><asp:Label runat="server" ResourceKey="HeaderAndFooter.Section" /></a></h2>
 	<fieldset>
 		<div class="dnnFormItem">
-			<div class="dnnLabel"></div>
-			<dnn:TextEditor id="editorHeader" runat="server" CssClass="editorHeader" HtmlEncode="false" />
+			<dnn:Label id="labelHeader" runat="server" ControlName="editorHeader" Suffix=":" />
+			<dnn:TextEditor id="editorHeader" runat="server" HtmlEncode="false" />
 		</div>
-	</fieldset>
-	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionFooter.Text" /></a></h2>
-	<fieldset>
 		<div class="dnnFormItem">
-			<div class="dnnLabel"></div>
-			<dnn:TextEditor id="editorFooter" runat="server" CssClass="editorFooter" HtmlEncode="false" />
+			<dnn:Label id="labelFooter" runat="server" ControlName="editorFooter" Suffix=":" />
+			<dnn:TextEditor id="editorFooter" runat="server" HtmlEncode="false" />
+		</div>
+		<div class="dnnFormItem">
+			<dnn:Label id="labelReplaceHeaderAndFooter" runat="server" ControlName="checkReplaceHeaderAndFooter" Suffix=":" />
+			<asp:CheckBox id="checkReplaceHeaderAndFooter" runat="server" Checked="false" />
 		</div>
 	</fieldset>
 </div>

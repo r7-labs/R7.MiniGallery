@@ -27,9 +27,9 @@ namespace R7.MiniGallery
 		protected CheckBox checkShowTitles;
 		protected LabelControl labelExpand;
 		protected CheckBox checkExpand;
-		protected LabelControl labelTextBefore;
+		protected LabelControl labelHeader;
 		protected TextEditor editorHeader;
-		protected LabelControl labelTextAfter;
+		protected LabelControl labelFooter;
 		protected TextEditor editorFooter;
 		protected LabelControl labelColumns;
 		protected DnnComboBox comboColumns;
@@ -47,5 +47,7 @@ namespace R7.MiniGallery
 		protected TextBox textNumberOfRecords;
 		protected LabelControl labelSortOrder;
 		protected CheckBox checkSortOrder;
+		protected LabelControl labelReplaceHeaderAndFooter;
+		protected CheckBox checkReplaceHeaderAndFooter;
 	}
 }
