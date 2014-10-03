@@ -10,7 +10,6 @@
 </style>
 
 <div class="dnnForm dnnClear MG_Settings">
-	
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionBaseSettings.Text" /></a></h2>
 	<fieldset>
 		<div class="dnnFormItem">
@@ -65,9 +64,7 @@
 			<dnn:Label id="labelSortOrder" runat="server" controlname="checkSortOrder" suffix=":" />
 			<asp:CheckBox id="checkSortOrder" runat="server" />
 		</div>
-
 	</fieldset>
-	
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="ImageHandler.Section" /></a></h2>
 	<fieldset>
 		<div class="dnnFormItem" style="margin-bottom:15px">
@@ -87,7 +84,6 @@
 			<asp:TextBox id="textThumbHeight" runat="server" CssClass="NormalTextBox" />
 		</div>
 	</fieldset>
-
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionHeader.Text" /></a></h2>
 	<fieldset>
 		<div class="dnnFormItem">
@@ -95,7 +91,6 @@
 			<dnn:TextEditor id="editorHeader" runat="server" height="300" HtmlEncode="false" />
 		</div>
 	</fieldset>
-	
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionFooter.Text" /></a></h2>
 	<fieldset>
 		<div class="dnnFormItem">
@@ -103,7 +98,4 @@
 			<dnn:TextEditor id="editorFooter" runat="server" height="300" HtmlEncode="false" />
 		</div>
 	</fieldset>
-	
-	<div class="dnnFormItem"></div>
-	
 </div>
