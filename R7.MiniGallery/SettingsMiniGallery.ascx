@@ -3,12 +3,9 @@
 <%@ Register TagPrefix="dnn" TagName="URL" Src="~/controls/URLControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web" %>
+<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-<style type="text/css">
-.MG_Settings .comboTarget { float:left;width:100px }
-.MG_Settings .textTarget { float:left;width:310px!important;margin-left:10px }
-</style>
-
+<dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/R7.MiniGallery/R7.MiniGallery/settings.css" Priority="200" />
 <div class="dnnForm dnnClear MG_Settings">
 	<h2 class="dnnFormSectionHead"><a href="" ><asp:Label runat="server" ResourceKey="sectionBaseSettings.Text" /></a></h2>
 	<fieldset>

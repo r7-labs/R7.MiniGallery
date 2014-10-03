@@ -1,0 +1,12 @@
+﻿.MG_Settings .comboTarget 
+{ 
+	float:left;
+	width:100px 
+}
+
+.MG_Settings .textTarget 
+{ 
+	float:left;
+	width:310px!important;
+	margin-left:10px 
+}
