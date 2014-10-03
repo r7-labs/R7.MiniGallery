@@ -1,10 +1,10 @@
 /* important to right footer positioning */
 /* .ModMiniGallery2C { display:block } */
 
-/* Style sets */
+/* Default Style Sets */
 
-/* .MG_Default & .MG_List */
-.MG_Default.MG_List 
+.MG_Auto.MG_List,
+.MG_Fixed.MG_List
 {
 	display:block;
 	width:100%;
@@ -13,31 +13,35 @@
 	overflow-y:auto;
 }
 
-.MG_Default .MG_Item, 
-.MG_Default .MG_AltItem
+.MG_Auto .MG_Item, 
+.MG_Auto .MG_AltItem
+{	
+	float:left;
+	display:inline-block;
+	margin:2px;
+	text-align:center;
+	position:relative; /* for edit label positioning */
+}
+
+.MG_Fixed .MG_Item, 
+.MG_Fixed .MG_AltItem
 {	
 	float:left;
 	display:inline-block;
 	margin-top:4px;
 	margin-left:4px;
 	text-align:center;
-	/* important for edit label positioning */
-	position:relative;
-
+	position:relative; /* for edit label positioning */
 }
 
-.MG_Default .MG_AltItem {}
+.MG_Fixed .MG_ColumnStart { margin-top:0 }
+.MG_Fixed .MG_RowStart { margin-left:0 }
 
-.MG_Default .MG_ColumnStart { margin-top:0 }
-.MG_Default .MG_RowStart { margin-left:0 }
+.MG_Auto .MG_Image,
+.MG_Fixed .MG_Image {}
 
-.MG_Default .MG_Image 
-{ 
-/*	width:100%;
-	height:100%;*/
-}
-
-.MG_Default .MG_Title
+.MG_Auto .MG_Title,
+.MG_Fixed .MG_Title
 {
 	/* TITLE HACK */
 	/* height:40px; */
@@ -50,15 +54,16 @@
 	text-align:center;
 }
 
-.MG_Default .MG_Edit 
+.MG_Auto .MG_Edit,
+.MG_Fixed .MG_Edit
 {
 	position:absolute;
 	z-index:10;
 	padding:4px;
 }
 
-.MG_Default .MG_NotPublished { opacity:0.3 }
+.MG_Auto .MG_NotPublished,
+.MG_Fixed .MG_NotPublished { opacity:0.3 }
 
-.MG_Default .MG_NotPublished:hover { opacity:1 }
-
-
+.MG_Auto .MG_NotPublished:hover,
+.MG_Fixed .MG_NotPublished:hover { opacity:1 }
