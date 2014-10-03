@@ -16,8 +16,6 @@
 		<div class="dnnFormItem">
 			<dnn:Label id="labelMaxHeight" runat="server" controlname="textMaxHeight" suffix=":" />
 			<asp:TextBox id="textMaxHeight" runat="server" CssClass="NormalTextBox" />
-			<asp:RangeValidator id="valMaxHeight" ControlToValidate="textMaxHeight" MinimumValue="-1" /> 
-		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelImageWidth" runat="server" controlname="textImageWidth" suffix=":" />
 			<asp:TextBox id="textImageWidth" runat="server" CssClass="NormalTextBox" />
