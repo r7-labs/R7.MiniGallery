@@ -1,39 +1,5 @@
-/* Common styles */
-
 /* important to right footer positioning */
 /* .ModMiniGallery2C { display:block } */
-
-.MG_Preview 
-{ 
-	margin-bottom:10px;
-}
-
-.MG_TinyDropDown
-{
-	width:96px!important;
-}
-
-.MG_Import_CustomFilter
-{
-	font-family:monospace!important;
-	margin-right:10px;
-}
-
-.MG_Import_PairsContainer
-{
-	overflow:auto;
-	overflow-x:hidden;
-	overflow-y:auto;
-	max-height:440px;
-	width:440px;
-}
-
-/*
-.MG_PreviewButton 
-{
-	margin-left:10px
-}
-*/
 
 /* Style sets */
 
@@ -95,30 +61,4 @@
 
 .MG_Default .MG_NotPublished:hover { opacity:1 }
 
-.MG_BulkAdd .listImages .imageImage 
-{
-	float:right;
-	max-width:120px;
-	margin-top:9px
-}
 
-.MG_BulkAdd .listImages .divImage 
-{
-	float:left;
-	width:120px
-}
-
-.MG_BulkAdd .listImages .divMiniForm
-{
-	float:left;
-	margin-left:10px
-}
-
-.MG_BulkAdd .listImages .textSortIndex
-{
-	float:right;
-	width:30px;
-	margin-bottom:8px
-}
-
-.MG_BulkAdd .listImages .textAlt { min-width:290px }

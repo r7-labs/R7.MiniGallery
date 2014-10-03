@@ -1,4 +1,38 @@
-﻿.MG_Settings .comboTarget 
+﻿/* Edit */
+
+.MG_TinyDropDown { width:96px!important; }
+
+/* Bulk Add */
+.MG_BulkAdd .listImages .imageImage 
+{
+	float:right;
+	max-width:120px;
+	margin-top:9px
+}
+
+.MG_BulkAdd .listImages .divImage 
+{
+	float:left;
+	width:120px
+}
+
+.MG_BulkAdd .listImages .divMiniForm
+{
+	float:left;
+	margin-left:10px
+}
+
+.MG_BulkAdd .listImages .textSortIndex
+{
+	float:right;
+	width:30px;
+	margin-bottom:8px
+}
+
+.MG_BulkAdd .listImages .textAlt { min-width:290px }
+
+/* Settings */
+.MG_Settings .comboTarget 
 { 
 	float:left;
 	width:100px 
