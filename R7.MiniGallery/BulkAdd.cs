@@ -107,7 +107,7 @@ namespace R7.MiniGallery
 				{
 					var imageImage = item.FindControl ("imageImage") as Image;
 					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
-					var textAlt = item.FindControl ("textAlt") as TextBox;
+					var textTitle = item.FindControl ("textTitle") as TextBox;
 					var textSortIndex = item.FindControl ("textSortIndex") as TextBox;
 					var hiddenImageFileID = item.FindControl ("hiddenImageFileID") as HiddenField;
 
@@ -116,8 +116,8 @@ namespace R7.MiniGallery
 					{
 						var image = new ImageInfo () {
 							ImageFileID = int.Parse (hiddenImageFileID.Value),
-							Alt = textAlt.Text,
-							Title = string.Empty,
+							Alt = string.Empty, // you can add custom alts later
+							Title = textTitle.Text,
 							Url = string.Empty,
 							SortIndex = Utils.TryParseInt32 (textSortIndex.Text, 0),
 							IsPublished = true,
@@ -172,8 +172,8 @@ namespace R7.MiniGallery
 
 			var imageImage = e.Item.FindControl ("imageImage") as Image;
 			var checkIsIncluded = e.Item.FindControl ("checkIsIncluded") as CheckBox;
-			var textAlt = e.Item.FindControl ("textAlt") as TextBox;
-			var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
+			//var textTitle = e.Item.FindControl ("textTitle") as TextBox;
+			//var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
 			var hiddenImageFileID = e.Item.FindControl ("hiddenImageFileID") as HiddenField;
 			
 			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
