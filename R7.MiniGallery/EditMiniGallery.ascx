@@ -30,7 +30,8 @@
 			        ShowFiles="true" ShowTabs="true"
 			        ShowUrls="true" ShowUsers="true"
 					ShowLog="false" ShowTrack="false"
-					ShowNone="true" ShowNewWindow="false" />                
+					ShowNone="true" ShowNewWindow="false"
+					IncludeActiveTab="true" />                
 		</div> 
 		<div class="dnnFormItem">
 		    <dnn:Label id="labelSortIndex" runat="server" ControlName="textSortIndex" Suffix=":" />
