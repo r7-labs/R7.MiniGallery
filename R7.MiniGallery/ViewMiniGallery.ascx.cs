@@ -252,8 +252,8 @@ namespace R7.MiniGallery
 							break;
 					}
 				}
-				
-				imageImage.ImageUrl = hanglerUrl;
+					
+				imageImage.ImageUrl = hanglerUrl + "&ext=." + image.File.Extension.ToLowerInvariant();
 			}
 			
 			#region Image size
