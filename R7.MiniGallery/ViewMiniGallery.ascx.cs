@@ -227,7 +227,15 @@ namespace R7.MiniGallery
 				if (!string.IsNullOrWhiteSpace (MiniGallerySettings.ImageHandlerParams))
 					hanglerUrl += MiniGallerySettings.ImageHandlerParams;
 				else
-					hanglerUrl += "fileticket={fileticket}&width={width}";
+				{
+					hanglerUrl += "fileticket={fileticket}";
+
+					if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
+						hanglerUrl += "&width={width}";
+
+					if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
+						hanglerUrl += "&height={height}";
+				}
 
 				foreach (var tag in imageHandlerTags)
 				{
