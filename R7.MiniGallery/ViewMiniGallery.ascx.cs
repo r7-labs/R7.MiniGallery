@@ -268,10 +268,15 @@ namespace R7.MiniGallery
 
 			if (MiniGallerySettings.ImageWidth.IsEmpty && MiniGallerySettings.ImageHeight.IsEmpty)
 			{
-				if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
+				if (!Null.IsNull (MiniGallerySettings.ThumbWidth) && !Null.IsNull (MiniGallerySettings.ThumbHeight))
+				{
+					// If both ThumbWidth & ThumbHeight are not null, produced image dimensions are determined
+					// also by ResizeMode image handler param. Default is "Fit" - so, by example, if produced
+					// images have same width, height may vary, and vice versa.
+				}
+				else if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
 					imageImage.Width = Unit.Pixel (MiniGallerySettings.ThumbWidth);
-
-				if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
+				else if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
 					imageImage.Height = Unit.Pixel (MiniGallerySettings.ThumbHeight);
 			}
 			else
