@@ -26,7 +26,7 @@
 					<asp:Image id="imageImage" runat="server" CssClass="imageImage" />
 				</div>
 				<div class="divMiniForm">
-					<asp:CheckBox id="checkIsIncluded" runat="server" Checked="true" />	
+					<asp:CheckBox id="checkIsIncluded" runat="server" Checked="false" />	
 					<asp:TextBox id="textSortIndex" runat="server" CssClass="textSortIndex" ToolTip="Sort Index" Text="0" />
 					<br />
 					<asp:TextBox id="textTitle" runat="server" CssClass="textTitle" ToolTip="Title" MaxLength="255"  />
