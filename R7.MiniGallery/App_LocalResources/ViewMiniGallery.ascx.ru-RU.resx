@@ -12,7 +12,7 @@
     <data name="AddImages.Help" xml:space="preserve">
     <value>Нечего отображать - пожалуйста, добавьте изображения в галерею.</value>
   </data>
-    <data name="AltAutoPrefix.Text" xml:space="preserve">
-    <value>изображение_</value>
+    <data name="AltAuto.Format" xml:space="preserve">
+    <value>Изображение {0} {1}</value>
   </data>
 </root>

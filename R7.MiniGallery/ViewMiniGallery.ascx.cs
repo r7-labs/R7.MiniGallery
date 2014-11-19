@@ -169,9 +169,9 @@ namespace R7.MiniGallery
 			// fill out the controls
 
 			#region Alternate text and title
+            imageImage.AlternateText = (!string.IsNullOrWhiteSpace (image.Alt))? image.Alt : 
+                string.Format (LocalizeString ("AltAuto.Format"), ModuleConfiguration.ModuleTitle, e.Item.ItemIndex);
 
-			// REVIEW: Use hash code instead of raw ImageID?
-			imageImage.AlternateText = (!string.IsNullOrWhiteSpace (image.Alt))? image.Alt : LocalizeString ("AltAutoPrefix.Text") + image.ImageID;
 			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;
 			
 			#endregion
