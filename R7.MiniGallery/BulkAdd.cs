@@ -117,7 +117,7 @@ namespace R7.MiniGallery
 					{
 						var image = new ImageInfo () {
 							ImageFileID = int.Parse (hiddenImageFileID.Value),
-							Alt = string.Empty, // you can add custom alts later
+                            Alt = textTitle.Text,
 							Title = textTitle.Text,
 							Url = string.Empty,
 							SortIndex = Utils.TryParseInt32 (textSortIndex.Text, 0),
