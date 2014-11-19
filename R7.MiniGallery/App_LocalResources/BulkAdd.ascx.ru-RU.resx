@@ -18,4 +18,10 @@
     <data name="buttonAdd.Text" xml:space="preserve">
         <value>Добавить</value>
     </data>
+    <data name="textSortIndex.ToolTip" xml:space="preserve">
+        <value>Индекс сортировки</value>
+    </data>
+    <data name="textTitle.ToolTip" xml:space="preserve">
+        <value>Альтернативный текст и заголовок</value>
+    </data>
 </root>

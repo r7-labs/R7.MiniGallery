@@ -27,9 +27,9 @@
 				</div>
 				<div class="divMiniForm">
 					<asp:CheckBox id="checkIsIncluded" runat="server" Checked="false" />	
-					<asp:TextBox id="textSortIndex" runat="server" CssClass="textSortIndex" ToolTip="Sort Index" Text="0" />
+					<asp:TextBox id="textSortIndex" runat="server" CssClass="textSortIndex" Text="0" />
 					<br />
-					<asp:TextBox id="textTitle" runat="server" CssClass="textTitle" ToolTip="Alt and Title" MaxLength="255"  />
+					<asp:TextBox id="textTitle" runat="server" CssClass="textTitle" MaxLength="255"  />
 				</div>		
 				<asp:HiddenField id="hiddenImageFileID" runat="server" />
 			</ItemTemplate>

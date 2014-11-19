@@ -173,9 +173,13 @@ namespace R7.MiniGallery
 
 			var imageImage = e.Item.FindControl ("imageImage") as Image;
 			var checkIsIncluded = e.Item.FindControl ("checkIsIncluded") as CheckBox;
-			//var textTitle = e.Item.FindControl ("textTitle") as TextBox;
+			var textTitle = e.Item.FindControl ("textTitle") as TextBox;
 			var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
 			var hiddenImageFileID = e.Item.FindControl ("hiddenImageFileID") as HiddenField;
+
+            // FIXME: Localize tooltips
+            textTitle.ToolTip = LocalizeString ("textTitle.ToolTip");
+            textSortIndex.ToolTip = LocalizeString ("textSortIndex.ToolTip");
 
 			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
 			checkIsIncluded.Text = file.FileName;
