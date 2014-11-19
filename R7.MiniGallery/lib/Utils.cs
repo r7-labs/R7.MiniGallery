@@ -28,6 +28,7 @@ using System;
 using System.Web;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using DotNetNuke.UI.Modules;
@@ -312,6 +313,19 @@ namespace R7.MiniGallery
 					FileManager.Instance.GetFile (picker.FileID))
 					.Remove (0, portalSettings.HomeDirectory.Length);
 		}
+
+        public static int ExtractInt32 (string text, int defaultValue = default (int))
+        {
+            var matches = Regex.Matches (text, @"\d+");
+            if (matches != null && matches.Count > 0)
+            {
+                int result;
+                if (int.TryParse(matches[0].Value, out result))
+                    return result;
+            }
+
+            return defaultValue;
+        }
 	}
 	// class
 }

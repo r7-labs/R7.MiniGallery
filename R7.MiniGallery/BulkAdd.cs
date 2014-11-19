@@ -38,6 +38,7 @@ using DotNetNuke.Services.Localization;
 using DotNetNuke.Services.FileSystem;
 using DotNetNuke.UI.UserControls;
 using Telerik.Web.UI;
+using DotNetNuke.Entities.Content.Common;
 
 namespace R7.MiniGallery
 {
@@ -173,12 +174,15 @@ namespace R7.MiniGallery
 			var imageImage = e.Item.FindControl ("imageImage") as Image;
 			var checkIsIncluded = e.Item.FindControl ("checkIsIncluded") as CheckBox;
 			//var textTitle = e.Item.FindControl ("textTitle") as TextBox;
-			//var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
+			var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
 			var hiddenImageFileID = e.Item.FindControl ("hiddenImageFileID") as HiddenField;
-			
+
 			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
 			checkIsIncluded.Text = file.FileName;
-			hiddenImageFileID.Value = file.FileId.ToString();
+			hiddenImageFileID.Value = file.FileId.ToString ();
+
+            // set default sort index as first number in a filename, multiplied by 10
+            textSortIndex.Text = (Utils.ExtractInt32 (Path.GetFileNameWithoutExtension (file.FileName)) * 10).ToString ();
 		}
 
 		protected void buttonChecks_Click (object sender, EventArgs e)
