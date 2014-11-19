@@ -117,7 +117,7 @@ namespace R7.MiniGallery
 					{
 						var image = new ImageInfo () {
 							ImageFileID = int.Parse (hiddenImageFileID.Value),
-                            Alt = textTitle.Text,
+                            Alt = string.Empty, // title value should be used for Alt dynamically in the View
 							Title = textTitle.Text,
 							Url = string.Empty,
 							SortIndex = Utils.TryParseInt32 (textSortIndex.Text, 0),

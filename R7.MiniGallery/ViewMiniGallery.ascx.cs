@@ -170,6 +170,7 @@ namespace R7.MiniGallery
 
 			#region Alternate text and title
             imageImage.AlternateText = (!string.IsNullOrWhiteSpace (image.Alt))? image.Alt : 
+                (!string.IsNullOrWhiteSpace (image.Title))? image.Title :
                 string.Format (LocalizeString ("AltAuto.Format"), ModuleConfiguration.ModuleTitle, e.Item.ItemIndex);
 
 			imageImage.ToolTip = (!string.IsNullOrWhiteSpace (image.Title))? image.Title : image.Alt;

@@ -22,6 +22,6 @@
         <value>Индекс сортировки</value>
     </data>
     <data name="textTitle.ToolTip" xml:space="preserve">
-        <value>Альтернативный текст и заголовок</value>
+        <value>Заголовок</value>
     </data>
 </root>
