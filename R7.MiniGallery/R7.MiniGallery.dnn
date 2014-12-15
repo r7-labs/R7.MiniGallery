@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
  <packages>
-   <package name="R7.MiniGallery" type="Module" version="01.00.01">
+   <package name="R7.MiniGallery" type="Module" version="01.00.02">
      <friendlyName>R7.MiniGallery</friendlyName>
      <description>Simple image gallery with lightbox and automatic thumbnails support.</description>
      <owner>
@@ -94,7 +94,7 @@
            </script>
            <script type="UnInstall">
              <name>SqlDataProvider\Uninstall.SqlDataProvider</name>
-             <version>01.00.01</version>
+             <version>01.00.02</version>
            </script>
          </scripts>
        </component>

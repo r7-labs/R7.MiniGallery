@@ -1,6 +1,6 @@
 # R7.MiniGallery
 
-Simple image gallery module for DNN Plaftorm with Lightbox2 and Colorbox support. 
+Simple image gallery module for DNN Plaftorm with automatic thumbnails, Lightbox2 and Colorbox support. 
 
 ## Installation
 

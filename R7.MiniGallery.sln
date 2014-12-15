@@ -30,6 +30,6 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = R7.MiniGallery\R7.MiniGallery.csproj
-		version = 1.0.1
+		version = 1.0.2
 	EndGlobalSection
 EndGlobal

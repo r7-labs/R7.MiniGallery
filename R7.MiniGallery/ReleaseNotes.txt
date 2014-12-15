@@ -1,5 +1,10 @@
-﻿<h3>Version 1.0.1</h3>
-<p>This is the stabilization release for 1.0.0.</p>
+﻿<h3>Version 1.0.2</h3>
+<ul>
+    <li>Fixed #8: item / column width set properly then ExpandColumns flag is set.</li>
+    <li>Packages project updated to use recent R7.DnnTemplates scripts.</li>
+</ul>
+
+<h3>Version 1.0.1</h3>
 <ul>
 	<li>Added ext param to the imagehandler URL to help external services to recognize images.</li>
     <li>Image alt or title now interchangable, if only one is specified.</li>
