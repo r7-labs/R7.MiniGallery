@@ -102,6 +102,9 @@
     <None Include="entities\ImageToAdd.cs" />
     <None Include="Tasks.cs" />
     <None Include="App_LocalResources\BulkAdd.ascx.ru-RU.resx" />
+    <None Include="License.txt" />
+    <None Include="ReleaseNotes.txt" />
+    <None Include="R7.MiniGallery.dnn" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lib\Properties\AssemblyInfo.cs" />
