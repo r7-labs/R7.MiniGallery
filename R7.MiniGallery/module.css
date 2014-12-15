@@ -67,3 +67,10 @@
 
 .MG_Auto .MG_NotPublished:hover,
 .MG_Fixed .MG_NotPublished:hover { opacity:1 }
+
+/* remove right and left margins */
+.MG_Fixed .MG_ExpandColumns
+{ 
+    margin-right:0;
+    margin-left:0
+}

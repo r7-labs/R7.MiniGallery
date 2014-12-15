@@ -102,7 +102,7 @@ namespace R7.MiniGallery
 					{	
 						listImages.RepeatColumns = MiniGallerySettings.Columns;
 						if (MiniGallerySettings.ExpandColumns)
-							listImages.ItemStyle.Width = Unit.Percentage (100 / listImages.RepeatColumns - 1);
+							listImages.ItemStyle.Width = Unit.Percentage (100.0 / listImages.RepeatColumns);
 					}
 
 					// add current style CSS class to the list
@@ -288,6 +288,7 @@ namespace R7.MiniGallery
 				if (!MiniGallerySettings.ImageHeight.IsEmpty)
 					imageImage.Height = MiniGallerySettings.ImageHeight;
 			}
+
 			
 			#endregion
 
@@ -327,14 +328,21 @@ namespace R7.MiniGallery
 
 			#region Item styles
 
+            // mark odd and even items
 			e.Item.CssClass = (e.Item.ItemIndex % 2 == 0) ? "MG_Item" : "MG_AltItem";
 
 			if (listImages.RepeatColumns > 0)
 			{
+                // mark column and row start items
 				e.Item.CssClass += (e.Item.ItemIndex < listImages.RepeatColumns) ? " MG_ColumnStart" : "";
 				e.Item.CssClass += (e.Item.ItemIndex % listImages.RepeatColumns == 0) ? " MG_RowStart dnnClear" : "";
+
+                // remove right and left margins
+                if (MiniGallerySettings.ExpandColumns)
+                    e.Item.CssClass += " MG_ExpandColumns";
 			}
 
+            // mark not published items
 			if (!image.IsPublished)
 				e.Item.CssClass += " MG_NotPublished";
 
@@ -379,8 +387,6 @@ namespace R7.MiniGallery
 					true, 
 					false
 				);
-
-				
 
 				return actions;
 			}
