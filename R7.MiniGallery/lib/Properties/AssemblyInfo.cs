@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle("R7.MiniGallery")]
-[assembly: AssemblyDescription("Simple image gallery module for DNN Plaftorm")]
+[assembly: AssemblyDescription("Simple image gallery with lightbox and automatic thumbnails support")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("R7.Solutions")]
 [assembly: AssemblyProduct("R7.MiniGallery")]
