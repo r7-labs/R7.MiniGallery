@@ -52,24 +52,49 @@ namespace R7.MiniGallery
 
 		#endregion
 
-		#region ModuleSearchBase implementaion
+        #region ModuleSearchBase implementaion
 
-		public override IList<SearchDocument> GetModifiedSearchDocuments (ModuleInfo modInfo, DateTime beginDate)
-		{
-			var searchDocs = new List<SearchDocument> ();
+        public override IList<SearchDocument> GetModifiedSearchDocuments (ModuleInfo modInfo, DateTime beginDate)
+        {
+            var searchDocs = new List<SearchDocument> ();
+            var settings = new MiniGallerySettings (modInfo);
 
-			// TODO: Realize GetModifiedSearchDocuments()
+            var images = GetImagesTopN (modInfo.ModuleID, false, 
+                settings.SortOrder == "SortIndex", settings.NumberOfRecords);
 
-			/* var sd = new SearchDocument();
-			searchDocs.Add(searchDoc);
-			*/
+            foreach (var image in images ?? Enumerable.Empty<ImageInfo>())
+            {
+                if (image.LastModifiedOnDate.ToUniversalTime () > beginDate.ToUniversalTime ())
+                {
+                    var imageTitle = !string.IsNullOrWhiteSpace (image.Title) ? image.Title : image.Alt;
 
-			return searchDocs;
-		}
+                    // add only images with text
+                    if (!string.IsNullOrWhiteSpace (imageTitle))
+                    {
+                        var sd = new SearchDocument ()
+                        {
+                            PortalId = modInfo.PortalID,
+                            AuthorUserId = image.LastModifiedByUserID,
+                            Title = imageTitle,
+                            // Description = HtmlUtils.Shorten (image.Description, 255, "..."),
+                            Body = Utils.FormatList (" ", image.Alt, image.Title),
+                            ModifiedTimeUtc = image.LastModifiedOnDate.ToUniversalTime (),
+                            UniqueKey = string.Format ("MiniGallery_Image_{0}", image.ImageID),
+                            Url = string.Format ("/Default.aspx?tabid={0}#{1}", modInfo.TabID, modInfo.ModuleID),
+                            IsActive = image.IsPublished
+                        };
 
-		#endregion
+                        searchDocs.Add (sd);
+                    }
+                }
 
-        
+            }
+
+            return searchDocs;
+        }
+
+        #endregion
+
 		#region Class-specific controller members (example)
 
 		/*

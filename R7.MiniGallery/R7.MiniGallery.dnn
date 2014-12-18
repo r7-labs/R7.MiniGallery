@@ -23,7 +23,7 @@
            <businessControllerClass>R7.MiniGallery.MiniGalleryController</businessControllerClass>
            <supportedFeatures>
              <!-- <supportedFeature type="Portable" /> -->
-             <!-- <supportedFeature type="Searchable" /> -->
+             <supportedFeature type="Searchable" />
            </supportedFeatures>
            <moduleDefinitions>
              <moduleDefinition>
