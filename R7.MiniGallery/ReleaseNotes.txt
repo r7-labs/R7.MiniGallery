@@ -1,7 +1,8 @@
 ﻿<h3>Version 1.0.2</h3>
 <ul>
-    <li>Fixed #8: item / column width set properly then ExpandColumns flag is set.</li>
-    <li>Packages project updated to use recent R7.DnnTemplates scripts.</li>
+    <li>Fixed #8: Item / column width now set properly then ExpandColumns flag is set.</li>
+    <li>Fixed #9: Could not select Colorbox in module settings.</li>
+    <li>Packaging project updated to use recent R7.DnnTemplates scripts and renamed to avoid conflicts with NuGet.</li>
 </ul>
 
 <h3>Version 1.0.1</h3>
