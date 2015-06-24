@@ -31,15 +31,13 @@ using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Linq;
-
+using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Entities.Icons;
 using DotNetNuke.Services.Exceptions;
-using DotNetNuke.Services.FileSystem;
 using DotNetNuke.Services.Localization;
-using DotNetNuke.UI.Utilities;
 
 namespace R7.MiniGallery
 {
@@ -262,7 +260,8 @@ namespace R7.MiniGallery
 					}
 				}
 					
-				imageImage.ImageUrl = hanglerUrl + "&ext=." + image.File.Extension.ToLowerInvariant();
+                imageImage.ImageUrl = Globals.AddHTTP (PortalAlias.HTTPAlias +
+                    hanglerUrl + "&ext=." + image.File.Extension.ToLowerInvariant ());
 			}
 			
 			#region Image size
