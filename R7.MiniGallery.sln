@@ -29,7 +29,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = R7.MiniGallery\R7.MiniGallery.csproj
-		version = 1.0.2
+		version = 1.0.3
 	EndGlobalSection
 EndGlobal

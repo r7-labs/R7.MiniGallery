@@ -1,4 +1,9 @@
-﻿<h3>Version 1.0.2</h3>
+﻿<h3>Version 1.0.3</h3>
+<ul>
+    <li>No need to hack DnnFilePickerUploader anymore (tested on DNN 7.4.2).</li>
+</ul>
+
+<h3>Version 1.0.2</h3>
 <ul>
     <li>Fixed #8: Item / column width now set properly then ExpandColumns flag is set.</li>
     <li>Fixed #9: Could not select Colorbox in module settings.</li>
