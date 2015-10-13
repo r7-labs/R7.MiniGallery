@@ -143,13 +143,7 @@ namespace R7.MiniGallery
 						*/
 						urlLink.Url = Image.Url;
 
-						pickerImage.FileFilter = Globals.glbImageFileTypes;
-
-						// make portal-relative path
-						// form url like /portals/0/common/121325/image.jpg
-						pickerImage.FilePath = FileManager.Instance.GetUrl (
-							FileManager.Instance.GetFile (Image.ImageFileID))
-							.Remove (0, PortalSettings.HomeDirectory.Length);
+                        pickerImage.FileID = Image.ImageFileID;
 							
 						// setup audit control
 						ctlAudit.CreatedDate = 
@@ -176,11 +170,6 @@ namespace R7.MiniGallery
 
 						// UpdatePreview ();
 					}				
-				}
-				else // in postback
-				{
-					// HACK: update FilePath every postback to don't lose picked image
-					Utils.DnnFilePickerUploaderHack (pickerImage, PortalSettings);
 				}
 			}
 			catch (Exception ex)

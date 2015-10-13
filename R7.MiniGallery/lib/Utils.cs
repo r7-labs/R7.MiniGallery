@@ -306,6 +306,7 @@ namespace R7.MiniGallery
 			return int.TryParse (_value, out tmp) ? tmp : defValue; 
 		}
 
+        [Obsolete]
 		public static void DnnFilePickerUploaderHack (DnnFilePickerUploader picker, PortalSettings portalSettings)
 		{
 			if (picker.FileID > 0)

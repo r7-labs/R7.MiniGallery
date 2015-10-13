@@ -12,10 +12,9 @@
 	 <license src="License.txt" />
      <releaseNotes src="ReleaseNotes.txt" />
      <dependencies>
-		<dependency type="CoreVersion">07.01.02</dependency>
-	</dependencies>
+		<dependency type="CoreVersion">07.04.00</dependency>
+	 </dependencies>
      <components>
- 
        <component type="Module">
          <desktopModule>
            <moduleName>R7.MiniGallery</moduleName>
