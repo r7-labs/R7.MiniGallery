@@ -34,6 +34,7 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.UserControls;
 using DotNetNuke.Common.Utilities;
+using R7.DotNetNuke.Extensions.ControlExtensions;
 
 namespace R7.MiniGallery
 {
@@ -77,11 +78,11 @@ namespace R7.MiniGallery
 			{
 				if (!IsPostBack)
 				{
-					// columns
-					comboColumns.Select (MiniGallerySettings.Columns.ToString(), false);
+                    // columns
+                    comboColumns.SelectByValue (MiniGallerySettings.Columns.ToString());
 					checkExpand.Checked = MiniGallerySettings.ExpandColumns;
 
-					comboLightboxType.Select (MiniGallerySettings.LightboxType.ToString(), false);
+					comboLightboxType.SelectByValue (MiniGallerySettings.LightboxType.ToString());
 
 					// thumb size
 					if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
@@ -106,10 +107,10 @@ namespace R7.MiniGallery
 					textMaxHeight.Text = MiniGallerySettings.MaxHeight.ToString();
 
 					// style set
-					var styleSetItem = comboStyleSet.FindItemByValue (MiniGallerySettings.StyleSet);
-					if (styleSetItem != null)
+					var styleSetIndex = comboStyleSet.FindIndexByValue (MiniGallerySettings.StyleSet);
+					if (styleSetIndex >= 0)
 					{
-						styleSetItem.Selected = true;
+						comboStyleSet.Items [styleSetIndex].Selected = true;
 					}
 					else
 					{
@@ -118,10 +119,10 @@ namespace R7.MiniGallery
 					}
 						
 					// link target
-					var targetItem = comboTarget.FindItemByValue (MiniGallerySettings.Target);
-					if (targetItem != null)
+					var targetIndex = comboTarget.FindIndexByValue (MiniGallerySettings.Target);
+					if (targetIndex >= 0)
 					{
-						targetItem.Selected = true;
+						comboTarget.Items [targetIndex].Selected = true;
 					}
 					else
 					{

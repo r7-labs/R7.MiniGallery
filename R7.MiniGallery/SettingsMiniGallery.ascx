@@ -2,7 +2,6 @@
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="URL" Src="~/controls/URLControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
-<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
 <dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/R7.MiniGallery/R7.MiniGallery/admin.css" Priority="200" />
@@ -11,7 +10,7 @@
 	<fieldset>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelStyleSet" runat="server" ControlName="textStyleSet" Suffix=":" />
-			<dnn:DnnComboBox id="comboStyleSet" runat="server" CssClass="comboStyleSet" /> 
+			<asp:DropDownList id="comboStyleSet" runat="server" CssClass="comboStyleSet" /> 
 			<asp:TextBox id="textStyleSet" runat="server" CssClass="textStyleSet" />
 		</div>
 		<div class="dnnFormItem">
@@ -27,12 +26,12 @@
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelTarget" runat="server" controlname="comboTarget" suffix=":" />
-			<dnn:DnnComboBox id="comboTarget" runat="server" CssClass="comboTarget" />
+			<asp:DropDownList id="comboTarget" runat="server" CssClass="comboTarget" />
 			<asp:TextBox id="textTarget" runat="server" CssClass="textTarget" />
 	   	</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelLightboxType" runat="server" controlname="checkLightboxType" suffix=":" />
-			<dnn:DnnComboBox id="comboLightboxType" runat="server" />
+			<asp:DropDownList id="comboLightboxType" runat="server" />
 		</div>
 		<!--
 		<div class="dnnFormItem">
@@ -46,7 +45,7 @@
 		-->
 		<div class="dnnFormItem">
 			<dnn:Label id="labelColumns" runat="server" controlname="comboColumns" suffix=":" />
-			<dnn:DnnComboBox id="comboColumns" runat="server" />
+			<asp:DropDownList id="comboColumns" runat="server" />
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelExpand" runat="server" controlname="checkExpand" suffix="?" />

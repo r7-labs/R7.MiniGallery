@@ -33,6 +33,7 @@ using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using DotNetNuke.UI.Modules;
 using DotNetNuke.UI.Skins;
+using DotNetNuke.UI.Skins.Controls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Portals;
@@ -59,10 +60,10 @@ namespace R7.MiniGallery
 	public enum MessageType
 	{
 		// duplicate ModuleMessage.ModuleMessageType values here
-		Success = DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.GreenSuccess,
-		Info = DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo,
-		Warning = DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.YellowWarning,
-		Error = DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.RedError
+		Success = ModuleMessage.ModuleMessageType.GreenSuccess,
+		Info = ModuleMessage.ModuleMessageType.BlueInfo,
+		Warning = ModuleMessage.ModuleMessageType.YellowWarning,
+		Error = ModuleMessage.ModuleMessageType.RedError
 	}
 
 	public class Utils
@@ -99,7 +100,7 @@ namespace R7.MiniGallery
 		/// <param name="trackClicks">If set to <c>true</c> then track clicks.</param>
 		public static string FormatURL (IModuleControl module, string link, bool trackClicks)
 		{
-			return DotNetNuke.Common.Globals.LinkClick 
+			return Globals.LinkClick 
 				(link, module.ModuleContext.TabId, module.ModuleContext.ModuleId, trackClicks);
 		}
 
@@ -167,7 +168,7 @@ namespace R7.MiniGallery
 			var locheading = localize ? Localization.GetString (heading, module.LocalResourceFile) : heading;
 			var locmessage = localize ? Localization.GetString (message, module.LocalResourceFile) : message;
 			Skin.AddModuleMessage (module, locheading, locmessage,
-				(DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType)messageType);
+				(ModuleMessage.ModuleMessageType)messageType);
 		}
 
 		/// <summary>
@@ -181,7 +182,7 @@ namespace R7.MiniGallery
 		{
 			var locmessage = localize ? Localization.GetString (message, module.LocalResourceFile) : message;
 			Skin.AddModuleMessage (module, locmessage,
-				(DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType)messageType);
+				(ModuleMessage.ModuleMessageType)messageType);
 		}
 
 		public static bool IsNull<T> (Nullable<T> n) where T: struct

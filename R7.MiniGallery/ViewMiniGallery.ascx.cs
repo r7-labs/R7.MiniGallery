@@ -38,6 +38,7 @@ using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Entities.Icons;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
+using DotNetNuke.Security;
 
 namespace R7.MiniGallery
 {
@@ -353,7 +354,7 @@ namespace R7.MiniGallery
 
 		#region IActionable implementation
 
-		public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions
+		public ModuleActionCollection ModuleActions
 		{
 			get
 			{
@@ -369,7 +370,7 @@ namespace R7.MiniGallery
 					"", "", 
 					Utils.EditUrl (this, "Edit"), 
 					false, 
-					DotNetNuke.Security.SecurityAccessLevel.Edit,
+					SecurityAccessLevel.Edit,
 					true, 
 					false
 				);
@@ -382,7 +383,7 @@ namespace R7.MiniGallery
 					"", "", 
 					Utils.EditUrl (this, "BulkAdd"), 
 					false, 
-					DotNetNuke.Security.SecurityAccessLevel.Edit,
+					SecurityAccessLevel.Edit,
 					true, 
 					false
 				);

@@ -13,15 +13,15 @@ namespace R7.MiniGallery
 		protected LabelControl labelViewerCssClass;
 		protected TextBox textViewerCssClass;
 		protected LabelControl labelStyleSet;
-		protected DnnComboBox comboStyleSet;
+        protected DropDownList comboStyleSet;
 		protected TextBox textStyleSet;
 		protected LabelControl labelMaxHeight;
 		protected TextBox textMaxHeight;
 		protected LabelControl labelTarget;
-		protected DnnComboBox comboTarget;
+		protected DropDownList comboTarget;
 		protected TextBox textTarget;
 		protected LabelControl labelLightboxType;
-		protected DnnComboBox comboLightboxType;
+		protected DropDownList comboLightboxType;
 		protected LabelControl labelUseScrollbar;
 		protected CheckBox checkUseScrollbar;
 		protected LabelControl labelShowTitles;
@@ -33,7 +33,7 @@ namespace R7.MiniGallery
 		protected LabelControl labelFooter;
 		protected TextEditor editorFooter;
 		protected LabelControl labelColumns;
-		protected DnnComboBox comboColumns;
+		protected DropDownList comboColumns;
 		protected LabelControl labelThumbWidth;
 		protected TextBox textThumbWidth;
 		protected LabelControl labelThumbHeight;
