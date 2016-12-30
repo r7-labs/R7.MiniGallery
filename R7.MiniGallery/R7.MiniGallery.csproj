@@ -116,6 +116,7 @@
     <None Include="Tasks.cs" />
     <None Include="App_LocalResources\BulkAdd.ascx.ru-RU.resx" />
     <None Include="R7.MiniGallery.dnn" />
+    <None Include="lib\ClientDependency.Core.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\MiniGallerySettings.cs" />
