@@ -70,7 +70,7 @@ namespace R7.MiniGallery
 	{
 		public static string GetUserDisplayName (int userId)
 		{
-			var portalId = PortalController.GetCurrentPortalSettings ().PortalId;
+            var portalId = PortalController.Instance.GetCurrentPortalSettings ().PortalId;
 			var user = UserController.GetUserById (portalId, userId);
 
 			// TODO: "System" user name needs localization

@@ -123,7 +123,7 @@ namespace R7.MiniGallery
 			{
 				if (createdByUserName == null)
 				{
-					var portalId = PortalController.GetCurrentPortalSettings ().PortalId;
+                    var portalId = PortalController.Instance.GetCurrentPortalSettings ().PortalId;
 					var user = UserController.GetUserById (portalId, CreatedByUserID);
 					if (user != null)
 						createdByUserName = user.DisplayName;
@@ -141,7 +141,7 @@ namespace R7.MiniGallery
 			{
 				if (lastModifiedByUserName == null)
 				{
-					var portalId = PortalController.GetCurrentPortalSettings ().PortalId;
+                    var portalId = PortalController.Instance.GetCurrentPortalSettings ().PortalId;
 					var user = UserController.GetUserById (portalId, LastModifiedByUserID);
 					if (user != null)
 						lastModifiedByUserName = user.DisplayName;

@@ -106,7 +106,6 @@ namespace R7.MiniGallery
 				
 				foreach (DataListItem item in listImages.Items)
 				{
-					var imageImage = item.FindControl ("imageImage") as Image;
 					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
 					var textTitle = item.FindControl ("textTitle") as TextBox;
 					var textSortIndex = item.FindControl ("textSortIndex") as TextBox;
