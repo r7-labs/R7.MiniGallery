@@ -78,7 +78,6 @@
     <Folder Include="js\" />
     <Folder Include="entities\" />
     <Folder Include="SqlDataProvider\" />
-    <Folder Include="doc\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
