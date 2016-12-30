@@ -25,7 +25,7 @@ namespace R7.MiniGallery
 		protected DnnFilePickerUploader pickerImage;
 
 		protected LabelControl labelLink;
-		protected UrlControl urlLink;
+		protected DnnUrlControl urlLink;
 
 		protected LabelControl labelSortIndex;
 		protected TextBox textSortIndex;
