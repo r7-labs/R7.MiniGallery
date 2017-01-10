@@ -105,7 +105,7 @@ namespace R7.MiniGallery
 
 					// style set
 					var styleSetIndex = comboStyleSet.FindIndexByValue (Settings.StyleSet);
-					if (styleSetIndex >= 0)
+					if (styleSetIndex > 0)
 					{
 						comboStyleSet.Items [styleSetIndex].Selected = true;
 					}
@@ -117,7 +117,7 @@ namespace R7.MiniGallery
 						
 					// link target
 					var targetIndex = comboTarget.FindIndexByValue (Settings.Target);
-					if (targetIndex >= 0)
+					if (targetIndex > 0)
 					{
 						comboTarget.Items [targetIndex].Selected = true;
 					}
