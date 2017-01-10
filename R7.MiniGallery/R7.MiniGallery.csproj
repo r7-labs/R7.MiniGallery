@@ -64,14 +64,14 @@
     <Reference Include="Telerik.Web.UI">
       <HintPath>..\packages\DotNetNuke.Web.Deprecated.8.0.4.226\lib\net40\Telerik.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="R7.DotNetNuke.Extensions">
-      <HintPath>..\packages\R7.DotNetNuke.Extensions.0.9.0\lib\net45\R7.DotNetNuke.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="DotNetNuke.Web.Client">
       <HintPath>..\packages\DotNetNuke.Web.Client.8.0.4.226\lib\net40\DotNetNuke.Web.Client.dll</HintPath>
     </Reference>
     <Reference Include="ClientDependency.Core">
       <HintPath>lib\ClientDependency.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="R7.DotNetNuke.Extensions">
+      <HintPath>..\packages\R7.DotNetNuke.Extensions.0.10.0-beta3\lib\net45\R7.DotNetNuke.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +79,7 @@
     <Folder Include="entities\" />
     <Folder Include="SqlDataProvider\" />
     <Folder Include="Properties\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
@@ -142,7 +143,6 @@
     <Compile Include="entities\EntityBase.cs" />
     <Compile Include="entities\IAuditable.cs" />
     <Compile Include="entities\ImageInfo.cs" />
-    <Compile Include="components\MiniGalleryModuleBase.cs" />
     <Compile Include="BulkAdd.cs">
       <DependentUpon>BulkAdd.ascx</DependentUpon>
     </Compile>
@@ -151,12 +151,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="components\Colorbox.cs" />
-    <Compile Include="components\ControllerBase.cs" />
     <Compile Include="components\Lightbox.cs" />
     <Compile Include="components\LightboxBase.cs" />
     <Compile Include="components\NoneBox.cs" />
-    <Compile Include="components\SettingsWrapper.cs" />
     <Compile Include="components\Utils.cs" />
+    <Compile Include="components\MiniGallerySettingsRepository.cs" />
+    <Compile Include="Data\MiniGalleryDataProvider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

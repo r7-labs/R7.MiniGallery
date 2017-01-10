@@ -4,7 +4,7 @@
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2014 
+// Copyright (c) 2014-2017
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,24 +25,22 @@
 // THE SOFTWARE.
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Linq;
+using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Icons;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
-using DotNetNuke.Entities.Icons;
+using DotNetNuke.Security;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
-using DotNetNuke.Security;
+using R7.DotNetNuke.Extensions.Modules;
+using R7.MiniGallery.Data;
 
 namespace R7.MiniGallery
 {
-	public partial class ViewMiniGallery : MiniGalleryPortalModuleBase, IActionable
+    public partial class ViewMiniGallery : PortalModuleBase<MiniGallerySettings>, IActionable
 	{
 		#region Fields
 		
@@ -66,7 +64,7 @@ namespace R7.MiniGallery
 			get
 			{
 				if (lightbox == null)
-					lightbox = LightboxBase.Create (MiniGallerySettings.LightboxType, TabModuleId.ToString());
+					lightbox = LightboxBase.Create (Settings.LightboxType, TabModuleId.ToString());
 				
 				return lightbox;
 			}	
@@ -97,27 +95,27 @@ namespace R7.MiniGallery
 				{
 					// number of columns
 					// NOTE: Setting columns to auto need also special styleset!
-					if (MiniGallerySettings.Columns > 0)
+					if (Settings.Columns > 0)
 					{	
-						listImages.RepeatColumns = MiniGallerySettings.Columns;
-						if (MiniGallerySettings.ExpandColumns)
+						listImages.RepeatColumns = Settings.Columns;
+						if (Settings.ExpandColumns)
 							listImages.ItemStyle.Width = Unit.Percentage (100.0 / listImages.RepeatColumns);
 					}
 
 					// add current style CSS class to the list
-					listImages.CssClass += " MG_" + MiniGallerySettings.StyleSet;
+					listImages.CssClass += " MG_" + Settings.StyleSet;
 
 					// if (ImageViewer == ImageViewer.YoxView)
 					// 	listImages.CssClass += " yoxview";
 							
 					// set maximum height of a list
-					var maxHeight = MiniGallerySettings.MaxHeight;
+					var maxHeight = Settings.MaxHeight;
 					if (!maxHeight.IsEmpty)
 						listImages.Style.Add ("max-height", maxHeight.ToString());
 
 					// get images
-					var images = MiniGalleryController.GetImagesTopN (ModuleId, IsEditable, 
-						MiniGallerySettings.SortOrder == "SortIndex", MiniGallerySettings.NumberOfRecords);
+                    var images = new MiniGalleryDataProvider ().GetImagesTopN (ModuleId, IsEditable, 
+						Settings.SortOrder == "SortIndex", Settings.NumberOfRecords);
 				
 					// check if we have some content to display, 
 					// otherwise display a sample default content from the resources
@@ -198,7 +196,7 @@ namespace R7.MiniGallery
 			else
 			{
 				// no lightbox, set target
-				var target = MiniGallerySettings.Target;
+				var target = Settings.Target;
 				if (target != "none")
 					linkImage.Target = target;
 			}
@@ -216,7 +214,7 @@ namespace R7.MiniGallery
 
 			#region Image
 
-			if (!MiniGallerySettings.UseImageHandler)
+			if (!Settings.UseImageHandler)
 			{
 				imageImage.ImageUrl = Utils.FormatURL (this, "FileID=" + image.ImageFileID, false);
 			}
@@ -224,16 +222,16 @@ namespace R7.MiniGallery
 			{	
 				var hanglerUrl = "/imagehandler.ashx?";
 
-				if (!string.IsNullOrWhiteSpace (MiniGallerySettings.ImageHandlerParams))
-					hanglerUrl += MiniGallerySettings.ImageHandlerParams;
+				if (!string.IsNullOrWhiteSpace (Settings.ImageHandlerParams))
+					hanglerUrl += Settings.ImageHandlerParams;
 				else
 				{
 					hanglerUrl += "fileticket={fileticket}";
 
-					if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
+					if (!Null.IsNull (Settings.ThumbWidth))
 						hanglerUrl += "&width={width}";
 
-					if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
+					if (!Null.IsNull (Settings.ThumbHeight))
 						hanglerUrl += "&height={height}";
 				}
 
@@ -248,7 +246,7 @@ namespace R7.MiniGallery
 							break;
 						
 						case "width":
-							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ThumbWidth.ToString());
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, Settings.ThumbWidth.ToString());
 							break;
 
 						case "fileid": 
@@ -256,7 +254,7 @@ namespace R7.MiniGallery
 							break;
 							
 						case "height":
-							hanglerUrl = hanglerUrl.Replace (enclosedTag, MiniGallerySettings.ThumbHeight.ToString());
+							hanglerUrl = hanglerUrl.Replace (enclosedTag, Settings.ThumbHeight.ToString());
 							break;
 					}
 				}
@@ -267,26 +265,26 @@ namespace R7.MiniGallery
 			
 			#region Image size
 
-			if (MiniGallerySettings.ImageWidth.IsEmpty && MiniGallerySettings.ImageHeight.IsEmpty)
+			if (Settings.ImageWidth.IsEmpty && Settings.ImageHeight.IsEmpty)
 			{
-				if (!Null.IsNull (MiniGallerySettings.ThumbWidth) && !Null.IsNull (MiniGallerySettings.ThumbHeight))
+				if (!Null.IsNull (Settings.ThumbWidth) && !Null.IsNull (Settings.ThumbHeight))
 				{
 					// If both ThumbWidth & ThumbHeight are not null, produced image dimensions are determined
 					// also by ResizeMode image handler param. Default is "Fit" - so, by example, if produced
 					// images have same width, height may vary, and vice versa.
 				}
-				else if (!Null.IsNull (MiniGallerySettings.ThumbWidth))
-					imageImage.Width = Unit.Pixel (MiniGallerySettings.ThumbWidth);
-				else if (!Null.IsNull (MiniGallerySettings.ThumbHeight))
-					imageImage.Height = Unit.Pixel (MiniGallerySettings.ThumbHeight);
+				else if (!Null.IsNull (Settings.ThumbWidth))
+					imageImage.Width = Unit.Pixel (Settings.ThumbWidth);
+				else if (!Null.IsNull (Settings.ThumbHeight))
+					imageImage.Height = Unit.Pixel (Settings.ThumbHeight);
 			}
 			else
 			{
-				if (!MiniGallerySettings.ImageWidth.IsEmpty)
-					imageImage.Width = MiniGallerySettings.ImageWidth;
+				if (!Settings.ImageWidth.IsEmpty)
+					imageImage.Width = Settings.ImageWidth;
 			
-				if (!MiniGallerySettings.ImageHeight.IsEmpty)
-					imageImage.Height = MiniGallerySettings.ImageHeight;
+				if (!Settings.ImageHeight.IsEmpty)
+					imageImage.Height = Settings.ImageHeight;
 			}
 
 			
@@ -338,7 +336,7 @@ namespace R7.MiniGallery
 				e.Item.CssClass += (e.Item.ItemIndex % listImages.RepeatColumns == 0) ? " MG_RowStart dnnClear" : "";
 
                 // remove right and left margins
-                if (MiniGallerySettings.ExpandColumns)
+                if (Settings.ExpandColumns)
                     e.Item.CssClass += " MG_ExpandColumns";
 			}
 

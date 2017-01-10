@@ -4,7 +4,7 @@
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2014 
+// Copyright (c) 2014-2017
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,23 +26,17 @@
 
 using System;
 using System.IO;
-using System.Text.RegularExpressions;
-using System.Collections.Generic;
-using System.Web.UI.WebControls;
 using System.Linq;
+using System.Web.UI.WebControls;
 using DotNetNuke.Common;
-using DotNetNuke.Common.Utilities;
-using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
-using DotNetNuke.Services.Localization;
 using DotNetNuke.Services.FileSystem;
-using DotNetNuke.UI.UserControls;
-using Telerik.Web.UI;
-using DotNetNuke.Entities.Content.Common;
+using R7.DotNetNuke.Extensions.Modules;
+using R7.MiniGallery.Data;
 
 namespace R7.MiniGallery
 {
-	public partial class BulkAdd : MiniGalleryPortalModuleBase
+    public partial class BulkAdd : PortalModuleBase<MiniGallerySettings>
 	{
 		#region Handlers
 
@@ -103,7 +97,8 @@ namespace R7.MiniGallery
 			try
 			{
 				var now = DateTime.Now;
-				
+
+                var dataProvider = new MiniGalleryDataProvider ();
 				foreach (DataListItem item in listImages.Items)
 				{
 					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
@@ -128,7 +123,7 @@ namespace R7.MiniGallery
 							LastModifiedByUserID = UserId
 						};
 
-						MiniGalleryController.Add<ImageInfo> (image);
+                        dataProvider.Add<ImageInfo> (image);
 					}
 				}
 				

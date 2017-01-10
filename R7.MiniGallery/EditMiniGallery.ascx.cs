@@ -4,7 +4,7 @@
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2014 
+// Copyright (c) 2014-2017
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,20 +25,15 @@
 // THE SOFTWARE.
 
 using System;
-using System.Web.UI.WebControls;
-using System.Linq;
-
 using DotNetNuke.Common;
-using DotNetNuke.Common.Utilities;
-using DotNetNuke.Entities.Modules;
-using DotNetNuke.Services.FileSystem;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
-using DotNetNuke.UI.UserControls;
+using R7.DotNetNuke.Extensions.Modules;
+using R7.MiniGallery.Data;
 
 namespace R7.MiniGallery
 {
-	public partial class EditMiniGallery : MiniGalleryPortalModuleBase
+    public partial class EditMiniGallery : PortalModuleBase<MiniGallerySettings>
 	{
 		#region Properties
 
@@ -58,7 +53,7 @@ namespace R7.MiniGallery
 						int imageId;
 						if (int.TryParse (Request.QueryString ["ImageID"], out imageId))
 						{	
-							_image = MiniGalleryController.Get<ImageInfo> (imageId, ModuleId);
+                            _image = new MiniGalleryDataProvider ().Get<ImageInfo> (imageId, ModuleId);
 							/*if (_image != null)
 								ViewState["Image"] = _image;*/
 						}
@@ -191,7 +186,7 @@ namespace R7.MiniGallery
 		{
 			try
 			{
-				// ImageInfo image;
+                var dataProvider = new MiniGalleryDataProvider ();
 
 				// determine if we are adding or updating
 				// ALT: if (Null.IsNull (itemId))
@@ -217,7 +212,7 @@ namespace R7.MiniGallery
 						IsPublished = checkIsPublished.Checked
 					};					
 
-					MiniGalleryController.Add<ImageInfo> (image);
+					dataProvider.Add<ImageInfo> (image);
 				}
 				else
 				{
@@ -236,7 +231,7 @@ namespace R7.MiniGallery
 					image.LastModifiedByUserID = UserId;
 					image.IsPublished = checkIsPublished.Checked;
 
-					MiniGalleryController.Update<ImageInfo> (image);
+					dataProvider.Update<ImageInfo> (image);
 				}
 
 				Utils.SynchronizeModule (this);
@@ -286,7 +281,7 @@ namespace R7.MiniGallery
 			{
 				if (Image != null)
 				{
-					MiniGalleryController.Delete<ImageInfo> (Image);
+                    new MiniGalleryDataProvider ().Delete<ImageInfo> (Image);
 
 					Response.Redirect (Globals.NavigateURL (), true);
 				}
