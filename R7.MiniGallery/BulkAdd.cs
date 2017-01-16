@@ -32,6 +32,7 @@ using DotNetNuke.Common;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.FileSystem;
 using R7.DotNetNuke.Extensions.Modules;
+using R7.DotNetNuke.Extensions.Utilities;
 using R7.MiniGallery.Data;
 
 namespace R7.MiniGallery
@@ -43,9 +44,9 @@ namespace R7.MiniGallery
 		protected override void OnInit (EventArgs e)
 		{
 			base.OnInit (e);
-			
-			// set url for Cancel link
-			linkCancel.NavigateUrl = Globals.NavigateURL ();
+
+            // set url for Cancel link
+            linkCancel.NavigateUrl = UrlHelper.GetCancelUrl (UrlHelper.IsInPopup (Request));
 
 			// wireup handlers
 			ddlFolders.SelectionChanged += dllFolders_SelectionChanged;

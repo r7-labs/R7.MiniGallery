@@ -29,6 +29,7 @@ using DotNetNuke.Common;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
 using R7.DotNetNuke.Extensions.Modules;
+using R7.DotNetNuke.Extensions.Utilities;
 using R7.MiniGallery.Data;
 
 namespace R7.MiniGallery
@@ -86,7 +87,7 @@ namespace R7.MiniGallery
 			base.OnInit (e);
 
 			// set url for Cancel link
-			linkCancel.NavigateUrl = Globals.NavigateURL ();
+			linkCancel.NavigateUrl = UrlHelper.GetCancelUrl (UrlHelper.IsInPopup (Request));
 
 			// setup image picker
 			pickerImage.FileFilter = Globals.glbImageFileTypes;
