@@ -53,7 +53,7 @@ namespace R7.MiniGallery
         /// </summary>
         /// <value>The style set.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public string StyleSet { get; set; } = "Fixed";
+        public string StyleSet { get; set; } = "Auto";
 
         /// <summary>
         /// Gets or sets the maximum height of a module
@@ -108,7 +108,7 @@ namespace R7.MiniGallery
         /// </summary>
         /// <value>The width of the thumb.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public int ThumbWidth { get; set; } = 240;
+        public int ThumbWidth { get; set; } = 262;
 
         /// <summary>
         /// Gets or sets the height of the thumb.
@@ -143,7 +143,7 @@ namespace R7.MiniGallery
         /// </summary>
         /// <value>The columns.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public int Columns { get; set; } = 1;
+        public int Columns { get; set; } = Null.NullInteger; // Auto
 
         /// <summary>
         /// Gets or sets the number of records.
