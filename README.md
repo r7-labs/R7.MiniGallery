@@ -1,5 +1,7 @@
 # R7.MiniGallery
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/roman-yagodin/R7.MiniGallery)](https://bettercodehub.com/)
+
 Simple image gallery module for DNN Plaftorm with automatic thumbnails, Lightbox2 and Colorbox support. 
 
 ## Installation
