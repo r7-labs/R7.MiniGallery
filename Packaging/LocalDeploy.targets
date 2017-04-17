@@ -9,6 +9,7 @@
 		<!-- Include binary files in local deploy by default -->
 		<LocalDeployIncludeBinaries Condition=" '$(LocalDeployIncludeBinaries)' == '' ">true</LocalDeployIncludeBinaries>
 	</PropertyGroup>
+	
 	<Target Name="LocalDeploy" Condition=" '$(EnableLocalDeploy)' == 'true' " DependsOnTargets="Tests">
 
 		<!-- Declare binaries -->
@@ -16,6 +17,7 @@
             <LocalDeployBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.dll" />
             <LocalDeployBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.pdb" Condition="'$(Configuration)' == 'Debug'" />
         </ItemGroup>
+		
         <!-- Declare resource files -->
         <ItemGroup>
             <LocalDeployResourceFiles Include="../**/*.ascx" />
@@ -37,6 +39,7 @@
             <LocalDeployResourceFiles Include="../**/*.png" />
             <LocalDeployResourceFiles Include="../**/*.gif" />
         </ItemGroup>
+		
         <!-- Declare excluded files -->
         <ItemGroup>
             <LocalDeployExcludeFiles Include="../packages/**/*" />
@@ -48,13 +51,27 @@
             <LocalDeployExcludeFiles Include="../*/obj/**/*" />
             <LocalDeployExcludeFiles Include="../*/_ReSharper*/**/*" />
         </ItemGroup>
+
 		<!-- Apply excluded files filters -->
         <ItemGroup>
             <LocalDeployResourceFilteredFiles Include="@(LocalDeployResourceFiles)" Exclude="@(LocalDeployExcludeFiles)" />
         </ItemGroup>
+		
+        <!-- Declare React files -->
+        <ItemGroup>
+            <LocalDeployReactFiles Include="../node_modules/react/dist/*.min.js" />
+            <LocalDeployReactFiles Include="../node_modules/react/*.json" />
+            <LocalDeployReactFiles Include="../node_modules/react/LICENSE" />
+            <LocalDeployReactFiles Include="../node_modules/react/*.md" />
+        </ItemGroup>
+		
 		<!-- Copy binaries -->
         <Copy Condition=" '$(LocalDeployIncludeBinaries)' == 'true' " SourceFiles="@(LocalDeployBinaryFiles)" DestinationFolder="$(DnnLocalDeployPath)/bin" SkipUnchangedFiles="true" />
-        <!-- Copy filtered Resource files to tmp/Resources dir -->
+
+		<!-- Copy filtered Resource files -->
         <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules/MVC/%(RecursiveDir)" SkipUnchangedFiles="true" />
+
+		<!-- Copy React files -->
+		<Copy SourceFiles="@(LocalDeployReactFiles)" DestinationFolder="$(DnnJsLibrariesPath)/React/15_05_00/%(RecursiveDir)" SkipUnchangedFiles="true" />
     </Target>
 </Project>

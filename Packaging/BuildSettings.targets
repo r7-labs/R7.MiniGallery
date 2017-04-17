@@ -10,6 +10,7 @@
         <TmpDir>bin/tmp</TmpDir>
         <DnnLocalDeployPath Condition=" '$(OS)' == 'Unix' ">$(HOME)/mnt/dnn8</DnnLocalDeployPath>
         <DnnLocalDeployPath Condition=" '$(OS)' != 'Unix' ">C:\Dotnetnuke804</DnnLocalDeployPath>
+		<DnnJsLibrariesPath>$(DnnLocalDeployPath)/Resources/Libraries</DnnJsLibrariesPath>
         <BuildSettingsImported>true</BuildSettingsImported>
     </PropertyGroup>
 
