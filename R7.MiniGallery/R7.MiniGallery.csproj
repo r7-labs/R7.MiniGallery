@@ -42,7 +42,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web.Extensions" />
@@ -73,13 +72,25 @@
     <Reference Include="R7.DotNetNuke.Extensions">
       <HintPath>..\packages\R7.DotNetNuke.Extensions.0.10.0\lib\net45\R7.DotNetNuke.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetNuke.Web.Mvc">
+      <HintPath>..\packages\DotNetNuke.Web.Mvc.8.0.4.226\lib\net45\DotNetNuke.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.1\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="js\" />
-    <Folder Include="entities\" />
+    <Folder Include="Models\" />
     <Folder Include="SqlDataProvider\" />
     <Folder Include="Properties\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Settings\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
@@ -98,6 +109,11 @@
     <Content Include="releaseNotes.htm" />
     <Content Include="license.htm" />
     <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Image\Edit.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_LocalResources\ViewMiniGallery.ascx.resx" />
@@ -113,14 +129,15 @@
     <None Include="SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
-    <None Include="entities\ImageToAdd.cs" />
+    <None Include="Models\ImageToAdd.cs" />
     <None Include="Tasks.cs" />
     <None Include="App_LocalResources\BulkAdd.ascx.ru-RU.resx" />
     <None Include="R7.MiniGallery.dnn" />
     <None Include="lib\ClientDependency.Core.dll" />
+    <None Include="App_LocalResources\Image.resx" />
+    <None Include="App_LocalResources\Image.ru-RU.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="components\MiniGallerySettings.cs" />
     <Compile Include="components\MiniGalleryController.cs" />
     <Compile Include="ViewMiniGallery.ascx.cs">
       <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
@@ -140,9 +157,9 @@
     <Compile Include="EditMiniGallery.ascx.controls.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
     </Compile>
-    <Compile Include="entities\EntityBase.cs" />
-    <Compile Include="entities\IAuditable.cs" />
-    <Compile Include="entities\ImageInfo.cs" />
+    <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Models\IAuditable.cs" />
+    <Compile Include="Models\ImageInfo.cs" />
     <Compile Include="BulkAdd.cs">
       <DependentUpon>BulkAdd.ascx</DependentUpon>
     </Compile>
@@ -157,6 +174,9 @@
     <Compile Include="components\Utils.cs" />
     <Compile Include="components\MiniGallerySettingsRepository.cs" />
     <Compile Include="Data\MiniGalleryDataProvider.cs" />
+    <Compile Include="Models\MiniGallerySettings.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -31,6 +31,7 @@ using DotNetNuke.Services.Localization;
 using R7.DotNetNuke.Extensions.Modules;
 using R7.DotNetNuke.Extensions.Utilities;
 using R7.MiniGallery.Data;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery
 {

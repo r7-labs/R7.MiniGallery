@@ -33,7 +33,7 @@ using DotNetNuke.Entities.Users;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.FileSystem;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Models
 {
 	// More attributes for class:
 	// Set caching for table: [Cacheable("Redhound.MiniGallery_Images", CacheItemPriority.Default, 20)]

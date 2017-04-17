@@ -29,7 +29,7 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.ComponentModel.DataAnnotations;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Models
 {
 	public abstract class EntityBase : IAuditable
 	{

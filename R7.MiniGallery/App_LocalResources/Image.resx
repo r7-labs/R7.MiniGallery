@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>&lt;p&gt;A R7.MiniGallery module&lt;/p&gt;</value>
+  </data>
+    <data name="BulkAddImages.Text" xml:space="preserve">
+    <value>Bulk Add Images</value>
+  </data>
+    <data name="AddImage.Text" xml:space="preserve">
+    <value>Add Image</value>
+  </data>
+    <data name="AddImages.Help" xml:space="preserve">
+    <value>Nothing to display - please add some images to the gallery.</value>
+  </data>
+    <data name="AltAuto.Format" xml:space="preserve">
+    <value>Image {0} {1}</value>
+  </data>
+</root>

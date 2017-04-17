@@ -24,6 +24,7 @@
             <LocalDeployResourceFiles Include="../**/*.ashx" />
             <LocalDeployResourceFiles Include="../**/*.resx" />
             <LocalDeployResourceFiles Include="../**/*.css" />
+			<LocalDeployResourceFiles Include="../**/*.cshtml" />
             <LocalDeployResourceFiles Include="../**/*.html" />
             <LocalDeployResourceFiles Include="../**/*.htm" />
             <LocalDeployResourceFiles Include="../**/*.xml" />
@@ -53,6 +54,6 @@
 		<!-- Copy binaries -->
         <Copy Condition=" '$(LocalDeployIncludeBinaries)' == 'true' " SourceFiles="@(LocalDeployBinaryFiles)" DestinationFolder="$(DnnLocalDeployPath)/bin" SkipUnchangedFiles="true" />
         <!-- Copy filtered Resource files to tmp/Resources dir -->
-        <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules/R7.MiniGallery/%(RecursiveDir)" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules/MVC/%(RecursiveDir)" SkipUnchangedFiles="true" />
     </Target>
 </Project>

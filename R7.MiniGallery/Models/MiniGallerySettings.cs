@@ -29,7 +29,7 @@ using System.Web.UI.WebControls;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules.Settings;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Models
 {
     [Serializable]
     public class MiniGallerySettings

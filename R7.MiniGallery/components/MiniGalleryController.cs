@@ -30,6 +30,7 @@ using System.Linq;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Search.Entities;
 using R7.MiniGallery.Data;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery
 {
