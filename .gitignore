@@ -1,0 +1,11 @@
+*.userprefs
+
+*/bin/*
+*/obj/*
+
+# NuGet packages
+packages/*
+
+# Bower components
+bower_components/*
+
