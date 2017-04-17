@@ -1,7 +1,0 @@
-{
-  "name": "r7.minigallery",
-  "private": true,
-  "dependencies": {
-    "react": "^15.5.4"
-  }
-}
