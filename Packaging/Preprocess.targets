@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="CompileJsx;MinifyJs">
+    <Import Project="BuildSettings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
+    <PropertyGroup>
+        <PreprocessImported>true</PreprocessImported>
+    </PropertyGroup>
+    <!-- Declare JSX files -->
+    <ItemGroup>
+        <JsxFiles Include="$(MainProjectPath)\js\*.jsx" />
+    </ItemGroup>
+    <!-- Declare JS files -->
+	<ItemGroup>
+        <JsFiles Include="$(MainProjectPath)\js\*.js" Exclude="$(MainProjectPath)\js\*.min.js" />
+    </ItemGroup>
+	<!-- Compile JSX files -->
+    <Target Name="CompileJsx">
+        <Exec Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).js --presets=es2015,react" />
+    </Target>
+    <!-- Minify JS files -->
+    <Target Name="MinifyJs">
+        <Exec Command="npm-run uglifyjs &quot;%(JsFiles.Identity)&quot; > %(RelativeDir)%(Filename).min.js" />
+    </Target>
+</Project>

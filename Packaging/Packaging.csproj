@@ -63,9 +63,10 @@
   <Import Project="BuildSettings.targets" />
   <Import Project="BuildDefaults.targets" />
   <Import Project="Tests.targets" />
+  <Import Project="Preprocess.targets" />
   <Import Project="LocalDeploy.targets" />
   <Import Project="InstallPackage.targets" />
-  <Target Name="AfterBuild" DependsOnTargets="Tests;LocalDeploy;InstallPackage" Condition=" '$(EnableAfterBuild)' != 'false' " />
+  <Target Name="AfterBuild" DependsOnTargets="CompileJsx;MinifyJs;Tests;LocalDeploy;InstallPackage" Condition=" '$(EnableAfterBuild)' != 'false' " />
   <ItemGroup>
     <None Include="Packaging.csproj" />
     <None Include="BuildSettings.targets" />
@@ -74,6 +75,7 @@
     <None Include="packages.config" />
     <None Include="BuildDefaults.targets" />
     <None Include="Tests.targets" />
+    <None Include="Preprocess.targets" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dummy.cs" />

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="InstallPackage">
 	<Import Project="BuildSettings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
-    <Import Project="Tests.targets" Condition=" '$(TestsImported)' == '' "/>
+ <Import Project="Tests.targets" Condition=" '$(TestsImported)' == '' "/>
 	
 	<PropertyGroup>
 		<!-- Enable install package creation by default (standalone) -->
@@ -57,6 +57,7 @@
         <!-- Declare excluded files -->
         <ItemGroup>
 			<InstallExcludeFiles Include="../packages/**/*" />
+			<InstallExcludeFiles Include="../node_modules/**/*" />
             <InstallExcludeFiles Include="../Packaging/**/*" />
             <InstallExcludeFiles Include="../.git/**/*" />
             <InstallExcludeFiles Include="../.svn/**/*" />

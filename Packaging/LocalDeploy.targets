@@ -40,6 +40,7 @@
         <!-- Declare excluded files -->
         <ItemGroup>
             <LocalDeployExcludeFiles Include="../packages/**/*" />
+			<LocalDeployExcludeFiles Include="../node_modules/**/*" />
             <LocalDeployExcludeFiles Include="../Packaging/**/*" />
             <LocalDeployExcludeFiles Include="../.git/**/*" />
             <LocalDeployExcludeFiles Include="../.svn/**/*" />

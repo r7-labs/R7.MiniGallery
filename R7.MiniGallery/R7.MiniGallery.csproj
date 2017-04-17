@@ -136,7 +136,7 @@
     <None Include="lib\ClientDependency.Core.dll" />
     <None Include="App_LocalResources\Image.resx" />
     <None Include="App_LocalResources\Image.ru-RU.resx" />
-    <None Include="jsx\hello.jsx" />
+    <None Include="js\hello.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\MiniGalleryController.cs" />
