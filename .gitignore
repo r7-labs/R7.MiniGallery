@@ -1,7 +1,9 @@
 *.userprefs
+*.min.js
 
-*/bin/*
-*/obj/*
+bin/
+obj/
 
-packages/*
-node_modules/*
+packages/
+node_modules/
+
