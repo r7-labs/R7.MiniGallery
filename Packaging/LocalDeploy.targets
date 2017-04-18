@@ -57,21 +57,10 @@
             <LocalDeployResourceFilteredFiles Include="@(LocalDeployResourceFiles)" Exclude="@(LocalDeployExcludeFiles)" />
         </ItemGroup>
 		
-        <!-- Declare React files -->
-        <ItemGroup>
-            <LocalDeployReactFiles Include="../node_modules/react/dist/*.min.js" />
-            <LocalDeployReactFiles Include="../node_modules/react/*.json" />
-            <LocalDeployReactFiles Include="../node_modules/react/LICENSE" />
-            <LocalDeployReactFiles Include="../node_modules/react/*.md" />
-        </ItemGroup>
-		
 		<!-- Copy binaries -->
         <Copy Condition=" '$(LocalDeployIncludeBinaries)' == 'true' " SourceFiles="@(LocalDeployBinaryFiles)" DestinationFolder="$(DnnLocalDeployPath)/bin" SkipUnchangedFiles="true" />
 
 		<!-- Copy filtered Resource files -->
         <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules/MVC/%(RecursiveDir)" SkipUnchangedFiles="true" />
-
-		<!-- Copy React files -->
-		<Copy SourceFiles="@(LocalDeployReactFiles)" DestinationFolder="$(DnnJsLibrariesPath)/React/15_05_00/%(RecursiveDir)" SkipUnchangedFiles="true" />
     </Target>
 </Project>

@@ -71,14 +71,6 @@
             <InstallResourceFilteredFiles Include="@(InstallResourceFiles)" Exclude="@(InstallExcludeFiles)" />
         </ItemGroup>
 
-		<!-- Declare React files -->
-        <ItemGroup>
-            <InstallReactFiles Include="../node_modules/react/dist/*.min.js" />
-            <InstallReactFiles Include="../node_modules/react/*.json" />
-            <InstallReactFiles Include="../node_modules/react/LICENSE" />
-            <InstallReactFiles Include="../node_modules/react/*.md" />
-        </ItemGroup>
-		
 		<!-- Copy binaries -->
         <Copy SourceFiles="@(InstallBinaryFiles)" DestinationFolder="$(TmpDir)/Package/bin" />
         <!-- Copy manifest files -->
@@ -87,9 +79,7 @@
         <Copy SourceFiles="@(InstallSqlDataProviderFiles)" DestinationFolder="$(TmpDir)/Package/SqlDataProvider" />
         <!-- Copy filtered Resource files to tmp/Resources dir -->
 		<Copy SourceFiles="@(InstallResourceFilteredFiles)" DestinationFolder="$(TmpDir)/Resources/%(RecursiveDir)" />
-        <!-- Copy filtered React files to tmp/React dir -->
-		<Copy SourceFiles="@(InstallReactFiles)" DestinationFolder="$(TmpDir)/React/%(RecursiveDir)" />
-		
+        
         <!-- Declare files to zip -->
         <ItemGroup>
             <InstallResourceZipFiles Include="$(TmpDir)/Resources/**/*.*" />
@@ -101,19 +91,7 @@
         <!-- Move Resources.zip to tmp/Package dir -->
         <Copy SourceFiles="$(TmpDir)/Resources/Resources.zip" DestinationFolder="$(TmpDir)/Package/" />
         <Delete Files="$(TmpDir)/Resources/Resources.zip" />
-
-		<!-- Declare React files to zip -->
-		<ItemGroup>
-            <InstallReactZipFiles Include="$(MSBuildProjectDirectory)/$(TmpDir)/React/**/*.*" />
-        </ItemGroup>
-		
-        <!-- Create Resources_React.zip -->
-        <Zip Condition=" '$(OS)' != 'Unix' " Files="@(InstallResourceZipFiles)" WorkingDirectory="$(MSBuildProjectDirectory)\tmp\React" ZipFileName="$(TmpDir)/React/Resources_React.zip" />
-        <Exec Condition=" '$(OS)' == 'Unix' " Command="zip -r -6 -UN=UTF8 &quot;Resources_React.zip&quot; ." WorkingDirectory="$(TmpDir)/React" />
-        <!-- Move Resources.zip to tmp/Package dir -->
-        <Copy SourceFiles="$(TmpDir)/React/Resources_React.zip" DestinationFolder="$(TmpDir)/Package/" />
-        <Delete Files="$(TmpDir)/React/Resources_React.zip" />
-		
+        	
         <!-- Declare install package files -->
         <ItemGroup>
             <InstallPackageFiles Include="$(TmpDir)/Package/**/*.*" />

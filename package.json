@@ -5,9 +5,5 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "uglifyjs": "^2.4.10"
-  },
-  "dependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
   }
 }

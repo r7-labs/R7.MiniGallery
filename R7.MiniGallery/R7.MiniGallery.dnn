@@ -12,8 +12,10 @@
 	 <license src="license.htm" />
      <releaseNotes src="releaseNotes.htm" />
      <dependencies>
-		<dependency type="CoreVersion">08.00.04</dependency>
+		<dependency type="coreVersion">08.00.04</dependency>
 		<dependency type="managedPackage" version="0.10.0">R7.DotNetNuke.Extensions</dependency>
+	    <dependency type="package">React</dependency>
+		<dependency type="package">ReactDOM</dependency>
 	 </dependencies>
      <components>
        <component type="Module">
@@ -116,36 +118,5 @@
        </component>
      </components>
    </package>
-	<package name="React" type="JavaScript_Library" version="15.05.00">
-        <friendlyName>React</friendlyName>
-        <description>A JavaScript library for building user interfaces</description>
-        <owner>
-            <name></name>
-            <organization>Facebook</organization>
-            <url>https://github.com/facebook/react</url>
-            <email />
-        </owner>
-        <license>https://github.com/facebook/react/blob/master/LICENSE</license>
-        <releaseNotes>https://github.com/facebook/react/releases/tag/v15.5.0</releaseNotes>
-        <components>
-            <component type="JavaScript_Library">
-                <javaScriptLibrary>
-                    <libraryName>React</libraryName>
-                    <fileName>react.min.js</fileName>
-                    <preferredScriptLocation>PageHead</preferredScriptLocation>
-                    <CDNPath />
-                    <objectName>React</objectName>
-                </javaScriptLibrary>
-            </component>
-            <component type="ResourceFile">
-                <resourceFiles>
-                    <basePath>Resources\Libraries\React\15_05_00</basePath>
-                    <resourceFile>
-                        <name>Resources_React.zip</name>
-                    </resourceFile>
-                </resourceFiles>
-            </component>
-        </components>
-    </package>
- </packages>
+  </packages>
 </dotnetnuke>
