@@ -1,8 +1,21 @@
 ﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<List<R7.MiniGallery.Models.ImageInfo>>
 
-@using DotNetNuke.Collections
 @using System.Collections.Generic
+@using DotNetNuke.Collections
 @using DotNetNuke.Web.Mvc.Helpers
+@using DotNetNuke.Web.Client.ClientResourceManagement
+@using DotNetNuke.Framework.JavaScriptLibraries
 
-<div class="minigallery-images">
-</div>
+@{
+    JavaScript.RequestRegistration ("React");
+    JavaScript.RequestRegistration ("ReactDOM");
+    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/hello.min.js");
+}
+
+<div id="root-@Dnn.ModuleContext.ModuleId" class="minigallery-images"></div>
+<script type="text/javascript">
+ReactDOM.render(
+    React.createElement (Hello, {toWhat: "World"}, null),
+    document.getElementById ("root-@Dnn.ModuleContext.ModuleId")
+);
+</script>

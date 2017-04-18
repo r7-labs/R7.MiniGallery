@@ -1,4 +1,5 @@
-﻿ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
+﻿class Hello extends React.Component {
+    render() {
+        return <div>Hello, {this.props.toWhat}!</div>;
+    }
+}
