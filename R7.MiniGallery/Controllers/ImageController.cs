@@ -28,6 +28,7 @@ using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
+using R7.MiniGallery.ViewModels;
 
 namespace R7.MiniGallery.Controllers
 {
@@ -76,7 +77,9 @@ namespace R7.MiniGallery.Controllers
         public ActionResult Index ()
         {
             var dataProvider = new MiniGalleryDataProvider ();
-            var images = dataProvider.GetObjects<ImageInfo> (ModuleContext.ModuleId).ToList ();
+            var images = dataProvider.GetObjects<ImageInfo> (ModuleContext.ModuleId)
+                                     .Select (i => new ImageViewModel (i))
+                                     .ToList ();
             return View (images);
         }
 
