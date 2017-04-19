@@ -78,7 +78,7 @@ namespace R7.MiniGallery.Controllers
         {
             var dataProvider = new MiniGalleryDataProvider ();
             var images = dataProvider.GetObjects<ImageInfo> (ModuleContext.ModuleId)
-                                     .Select (i => new ImageViewModel (i))
+                                     .Select (i => new ImageViewModel (i, ModuleContext))
                                      .ToList ();
             return View (images);
         }

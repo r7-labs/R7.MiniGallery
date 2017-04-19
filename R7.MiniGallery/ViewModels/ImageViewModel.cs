@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using DotNetNuke.Common;
+using DotNetNuke.UI.Modules;
 using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.ViewModels
@@ -28,9 +30,12 @@ namespace R7.MiniGallery.ViewModels
     {
         protected IImage Model;
 
-        public ImageViewModel (IImage model)
+        protected ModuleInstanceContext ModuleContext;
+
+        public ImageViewModel (IImage model, ModuleInstanceContext moduleContext)
         {
             Model = model;
+            ModuleContext = moduleContext;
         }
 
         #region IImage implementation
@@ -96,5 +101,11 @@ namespace R7.MiniGallery.ViewModels
         }
 
         #endregion
+
+        public string ImageSrc {
+            get {
+                return Globals.LinkClick ("FileID=" + Model.ImageFileID, ModuleContext.TabId, ModuleContext.ModuleId, false);
+            }
+        }
     }
 }

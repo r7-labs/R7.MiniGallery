@@ -5,20 +5,23 @@
 @using DotNetNuke.Web.Mvc.Helpers
 @using DotNetNuke.Web.Client.ClientResourceManagement
 @using DotNetNuke.Framework.JavaScriptLibraries
+@using DotNetNuke.Common.Utilities
 
 @{
     JavaScript.RequestRegistration ("React");
     JavaScript.RequestRegistration ("ReactDOM");
-    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/hello.min.js");
+    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/minigallery.min.js");
 }
 
 <div id="root-@Dnn.ModuleContext.ModuleId" class="minigallery-images"></div>
 @section scripts
 {
+    @if (Model.Count > 0) {
     <script type="text/javascript">
-        ReactDOM.render(
-            React.createElement (Hello, {toWhat: "World"}, null),
+	    ReactDOM.render(
+            React.createElement (MiniGallery, {Images: @Html.Raw(Model.ToJson())}, null),
             document.getElementById ("root-@Dnn.ModuleContext.ModuleId")
         );
     </script>
+    }
 }
