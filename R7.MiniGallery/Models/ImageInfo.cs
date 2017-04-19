@@ -4,7 +4,7 @@
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2014 
+// Copyright (c) 2014-2017
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,8 +25,6 @@
 // THE SOFTWARE.
 
 using System;
-
-using DotNetNuke.Data;
 using DotNetNuke.ComponentModel.DataAnnotations;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Users;
@@ -46,9 +44,8 @@ namespace R7.MiniGallery.Models
 	[TableName ("MiniGallery_Images")]
 	[PrimaryKey ("ImageID", AutoIncrement = true)]
 	[Scope ("ModuleID")]
-	public class ImageInfo : EntityBase
+	public class ImageInfo : IImage
 	{
-
 		#region Fields
 		
 		private ModuleInfo module;
@@ -61,14 +58,7 @@ namespace R7.MiniGallery.Models
 
 		#endregion
 
-		/// <summary>
-		/// Empty default cstor
-		/// </summary>
-		public ImageInfo ()
-		{
-		}
-
-		#region Properties
+		#region IImage implementation
 
 		public int ImageID { get; set; }
 
@@ -88,9 +78,21 @@ namespace R7.MiniGallery.Models
 
 		#endregion
 
-		#region Joins
+        #region IAuditable implementation
 
-		[IgnoreColumn]
+        public int LastModifiedByUserID { get; set; }
+
+        public DateTime LastModifiedOnDate { get; set; }
+
+        public int CreatedByUserID { get; set; }
+
+        public DateTime CreatedOnDate { get; set; }
+
+        #endregion
+
+        #region Joins
+
+        [IgnoreColumn]
 		public IFileInfo File
 		{
 			get

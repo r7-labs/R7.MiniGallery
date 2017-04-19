@@ -158,7 +158,6 @@
     <Compile Include="EditMiniGallery.ascx.controls.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\IAuditable.cs" />
     <Compile Include="Models\ImageInfo.cs" />
     <Compile Include="BulkAdd.cs">
@@ -178,6 +177,7 @@
     <Compile Include="Models\MiniGallerySettings.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Models\IImage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
