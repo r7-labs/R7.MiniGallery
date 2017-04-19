@@ -19,13 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using DotNetNuke.Entities.Icons;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
+using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Controllers
@@ -74,8 +75,8 @@ namespace R7.MiniGallery.Controllers
         [ModuleActionItems]
         public ActionResult Index ()
         {
-            // TODO: Get images
-            var images = new List<ImageInfo> ();
+            var dataProvider = new MiniGalleryDataProvider ();
+            var images = dataProvider.GetObjects<ImageInfo> (ModuleContext.ModuleId).ToList ();
             return View (images);
         }
 

@@ -1,4 +1,4 @@
-﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<List<R7.MiniGallery.Models.ImageInfo>>
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IList<R7.MiniGallery.Models.ImageInfo>>
 
 @using System.Collections.Generic
 @using DotNetNuke.Collections
@@ -13,9 +13,12 @@
 }
 
 <div id="root-@Dnn.ModuleContext.ModuleId" class="minigallery-images"></div>
-<script type="text/javascript">
-ReactDOM.render(
-    React.createElement (Hello, {toWhat: "World"}, null),
-    document.getElementById ("root-@Dnn.ModuleContext.ModuleId")
-);
-</script>
+@section scripts
+{
+    <script type="text/javascript">
+        ReactDOM.render(
+            React.createElement (Hello, {toWhat: "World"}, null),
+            document.getElementById ("root-@Dnn.ModuleContext.ModuleId")
+        );
+    </script>
+}
