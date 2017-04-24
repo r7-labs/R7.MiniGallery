@@ -1,15 +1,19 @@
 ﻿class MiniGalleryImage extends React.Component {
     render() {
-        return <li><img src={this.props.Src} alt={this.props.Alt} title={this.props.Title} /></li>;
+        return (
+            <a href={this.props.Src} target="_blank" title={this.props.Title}>
+                <img src={this.props.Src} alt={this.props.Alt} />
+            </a>
+        );
     }
 }
 
 class MiniGallery extends React.Component {
     render() {
         return (
-            <ul className="list-inline">
+            <div className="links">
                 {this.props.Images.map((img) => <MiniGalleryImage Src={img.ImageSrc} Alt={img.Alt} Title={img.Title} />)}
-            </ul>
+            </div>
         );
     }
 }
