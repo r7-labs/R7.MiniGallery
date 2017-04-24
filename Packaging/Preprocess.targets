@@ -18,6 +18,7 @@
     </Target>
     <!-- Minify JS files -->
     <Target Name="MinifyJs">
-        <Exec Command="npm-run uglifyjs &quot;%(JsFiles.Identity)&quot; > %(RelativeDir)%(Filename).min.js" />
+        <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm-run uglifyjs &quot;%(JsFiles.Identity)&quot; > %(RelativeDir)%(Filename).min.js" />
+        <Copy Condition=" '$(Configuration)' == 'Debug' " SourceFiles="%(JsFiles.Identity)" DestinationFiles="%(RelativeDir)%(Filename).min.js" />
     </Target>
 </Project>
