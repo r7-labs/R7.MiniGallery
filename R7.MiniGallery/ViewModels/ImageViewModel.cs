@@ -107,5 +107,11 @@ namespace R7.MiniGallery.ViewModels
                 return Globals.LinkClick ("FileID=" + Model.ImageFileID, ModuleContext.TabId, ModuleContext.ModuleId, false);
             }
         }
+
+        public string EditUrl {
+            get {
+                return ModuleContext.EditUrl ("imageid", Model.ImageID.ToString (), "Edit");
+            }
+        }
     }
 }
