@@ -3,6 +3,7 @@
 @using System.Collections.Generic
 @using DotNetNuke.Collections
 @using DotNetNuke.Web.Mvc.Helpers
+@using DotNetNuke.Entities.Icons
 @using DotNetNuke.Web.Client.ClientResourceManagement
 @using DotNetNuke.Framework.JavaScriptLibraries
 @using DotNetNuke.Common.Utilities
@@ -17,5 +18,7 @@
 <div class="minigallery-lightbox"></div>
 <div class="minigallery-inner"
     data-module-id="@Dnn.ModuleContext.ModuleId"
+    data-is-editable="@Dnn.ModuleContext.IsEditable.ToString().ToLowerInvariant()"
+    data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"
     data-images="@Model.ToJson()">
 </div>

@@ -1,8 +1,21 @@
 ﻿class MiniGalleryImage extends React.Component {
+    renderEditLink () {
+        if (this.props.IsEditable) {
+            return (
+                <a href={this.props.EditUrl}>
+                    <img src={this.props.EditIcon} className="MG_Edit" />
+                </a>
+            );
+        }
+        else {
+            return (null);
+        }
+    }
+
     render() {
         return (
             <span className="MG_Item">
-                <a href={this.props.EditUrl}>[edit]</a>
+                {this.renderEditLink()}
                 <a href={this.props.Src} target="_blank" title={this.props.Title} className="MG_Link">
                     <img src={this.props.Src} alt={this.props.Alt} className="MG_Image" />
                 </a>
@@ -30,8 +43,15 @@ class BlueimpGalleryLightbox extends React.Component {
 class BlueimpGallery extends React.Component {
     render() {
         return (
-            <div className="MG_List">
-                {this.props.Images.map((img) => <MiniGalleryImage Src={img.ImageSrc} Alt={img.Alt} Title={img.Title} EditUrl={img.EditUrl} />)}
+            <div className="MG_List MG_Auto">
+                {this.props.Images.map((img) => <MiniGalleryImage
+                    Src={img.ImageSrc}
+                    Alt={img.Alt}
+                    Title={img.Title}
+                    EditUrl={img.EditUrl}
+                    EditIcon={this.props.EditIcon}
+                    IsEditable={this.props.IsEditable}
+                    />)}
             </div>
         );
     }
@@ -46,7 +66,12 @@ class BlueimpGallery extends React.Component {
         $(".minigallery-inner").each ((i, m) => {
             var moduleId = $(m).data ("module-id");
             ReactDOM.render(
-                <BlueimpGallery ModuleId={moduleId} Images={$(m).data ("images")} />, m
+                <BlueimpGallery
+                    ModuleId={moduleId}
+                    IsEditable={$(m).data ("is-editable")}
+                    EditIcon={$(m).data ("edit-icon")}
+                    Images={$(m).data ("images")}
+                />, m
             );
             $("a.MG_Link").click ((event) => {
                 var target = event.target || event.srcElement,
