@@ -15,42 +15,7 @@
     ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/Resources/Libraries/BlueimpGallery/02_25_00/css/blueimp-gallery.min.css");
 }
 
-<div class="minigallery2"
+<div class="minigallery-inner"
     data-module-id="@Dnn.ModuleContext.ModuleId"
     data-images="@Model.ToJson()">
 </div>
-@section scripts
-{
-    @if (Model.Count > 0) {
-    <script type="text/javascript">
-   
-    (function ($, window, document) {
-    	$(() => {
-            $(".minigallery2").each ((i, el) => {
-                console.log ($(el).data ("images"));
-            	ReactDOM.render(
-                    React.createElement (BlueimpGallery, {
-                        ModuleId: $(el).data ("module-id"),
-	                    Images: $(el).data ("images")
-	                }, null), el
-                );
-    	    });
-
-	        // TODO: Move to jsx
-            $("#dnn_ctr" + "@Dnn.ModuleContext.ModuleId" + "_ModuleContent .links a.MG_Link").click (function (event) {
-                event = event || window.event;
-                var target = event.target || event.srcElement,
-                    link = target.src ? target.parentNode : target,
-                    options = {
-                        index: link,
-                        event: event,
-                        container: "#lightbox-@Dnn.ModuleContext.ModuleId"
-                    },
-                    links = $(this).closest(".links").find("a.MG_Link");
-                blueimp.Gallery(links, options);
-            });
-    	});
-	}) (jQuery, window, document);
-    </script>
-    }
-}
