@@ -52,6 +52,7 @@ class BlueimpGallery extends React.Component {
                 var target = event.target || event.srcElement,
                 link = target.src ? target.parentNode : target,
                 options = {
+                    hidePageScrollbars: false,
                     index: link,
                     event: event,
                     container: container
