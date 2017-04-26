@@ -204,18 +204,18 @@ namespace R7.MiniGallery.ViewModels
                         // images have same width, height may vary, and vice versa.
                     }
                     else if (!Null.IsNull (Settings.ThumbWidth)) {
-                        style.width = Unit.Pixel (Settings.ThumbWidth).ToString ();
+                        style.Width = Unit.Pixel (Settings.ThumbWidth).ToString ();
                     }
                     else if (!Null.IsNull (Settings.ThumbHeight)) {
-                        style.height = Unit.Pixel (Settings.ThumbHeight).ToString ();
+                        style.Height = Unit.Pixel (Settings.ThumbHeight).ToString ();
                     }
                 }
                 else {
                     if (!Settings.ImageWidth.IsEmpty)
-                        style.width = Settings.ImageWidth.ToString ();
+                        style.Width = Settings.ImageWidth.ToString ();
 
                     if (!Settings.ImageHeight.IsEmpty)
-                        style.height = Settings.ImageHeight.ToString ();
+                        style.Height = Settings.ImageHeight.ToString ();
                 }
 
                 return style;
@@ -223,11 +223,10 @@ namespace R7.MiniGallery.ViewModels
         }
     }
 
-    // TODO: Use Pascal case names for properties
     public class ImageStyle
     {
-        public string width { get; set; }
+        public string Width { get; set; }
 
-        public string height { get; set; }
+        public string Height { get; set; }
     }
 }

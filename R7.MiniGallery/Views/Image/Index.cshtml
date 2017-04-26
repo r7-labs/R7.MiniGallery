@@ -7,6 +7,8 @@
 @using DotNetNuke.Web.Client.ClientResourceManagement
 @using DotNetNuke.Framework.JavaScriptLibraries
 @using DotNetNuke.Common.Utilities
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Serialization
 
 @{
     JavaScript.RequestRegistration ("React");
@@ -20,6 +22,6 @@
 <div class="minigallery-inner"
     data-module-id="@Dnn.ModuleContext.ModuleId"
     data-is-editable="@Dnn.ModuleContext.IsEditable.ToString().ToLowerInvariant()"
-    data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"
-    data-images="@Model.ToJson()">
+    data-edit-icon="@(IconController.IconURL("Edit", "16X16", "Gray"))"
+    data-images="@(JsonConvert.SerializeObject(Model, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }))">
 </div>

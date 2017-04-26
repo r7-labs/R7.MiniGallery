@@ -1,9 +1,9 @@
 ﻿class MiniGalleryImage extends React.Component {
     renderEditLink () {
-        if (this.props.IsEditable) {
+        if (this.props.isEditable) {
             return (
-                <a href={this.props.EditUrl}>
-                    <img src={this.props.EditIcon} className="MG_Edit" />
+                <a href={this.props.editUrl}>
+                    <img src={this.props.editIcon} className="MG_Edit" />
                 </a>
             );
         }
@@ -16,8 +16,8 @@
         return (
             <span className="MG_Item">
                 {this.renderEditLink()}
-                <a href={this.props.NavigateUrl} target={this.props.Target} title={this.props.Title} className="MG_Link">
-                    <img src={this.props.ThumbnailUrl} alt={this.props.Alt} style={this.props.Style} style={this.props.Style} className={"MG_Image" + this.props.CssClass} />
+                <a href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="MG_Link">
+                    <img src={this.props.thumbnailUrl} alt={this.props.alt} style={this.props.style} className={"MG_Image" + this.props.cssClass} />
                 </a>
             </span>
         );
@@ -29,16 +29,16 @@ class MiniGallery extends React.Component {
         return (
             <div className="MG_List MG_Auto">
                 {this.props.Images.map((img) => <MiniGalleryImage
-                    NavigateUrl={img.NavigateUrl}
-                    ThumbnailUrl={img.ThumbnailUrl}
-                    Target={img.Target}
-                    Alt={img.Alt}
-                    Title={img.Title}
-                    CssClass={img.CssClass}
-                    Style={img.Style}
-                    EditUrl={img.EditUrl}
-                    EditIcon={this.props.EditIcon}
-                    IsEditable={this.props.IsEditable}
+                    navigateUrl={img.navigateUrl}
+                    thumbnailUrl={img.thumbnailUrl}
+                    target={img.target}
+                    alt={img.alt}
+                    title={img.title}
+                    cssClass={img.cssClass}
+                    style={img.style}
+                    editUrl={img.editUrl}
+                    editIcon={this.props.editIcon}
+                    isEditable={this.props.isEditable}
                     />)}
             </div>
         );
