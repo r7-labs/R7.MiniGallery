@@ -30,6 +30,7 @@ class BlueimpLightbox extends React.Component {
                     Images={$(m).data ("images")}
                 />, m
             );
+            // TODO: Extract function, bind onclick statically
             $("a.MG_Link").click ((event) => {
                 var target = event.target || event.srcElement,
                 link = target.src ? target.parentNode : target,
