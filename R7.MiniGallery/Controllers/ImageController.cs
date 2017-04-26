@@ -52,8 +52,8 @@ namespace R7.MiniGallery.Controllers
         public ActionResult Edit (int imageId = -1)
         {
             // TODO: Get image
-            var image = (imageId == -1) ? new ImageInfo () : new ImageInfo (); 
-            
+            var image = (imageId == -1) ? new ImageInfo () : new ImageInfo ();
+
             return View (image);
         }
 
@@ -63,8 +63,8 @@ namespace R7.MiniGallery.Controllers
         {
             if (ModelState.IsValid) {
                 if (image.ImageID == -1) {
-                   // TODO: Add image
-                   
+                    // TODO: Add image
+
                 } else {
                     // TODO: Update image
                 }
@@ -78,23 +78,22 @@ namespace R7.MiniGallery.Controllers
         [ModuleActionItems]
         public ActionResult Index ()
         {
-            var images = DataCache.GetCachedData<IList<ImageViewModel>> (
+            var images = DataCache.GetCachedData<IEnumerable<ImageViewModel>> (
                 new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={ModuleContext.TabModuleId}", 1200),
                 (c) => GetImages ()
             );
-                                     
-            return View (images);
+
+            return View (images.Where (i => i.IsPublished || ModuleContext.IsEditable).ToList ());
         }
 
-        protected IList<ImageViewModel> GetImages ()
+        protected IEnumerable<ImageViewModel> GetImages ()
         {
             var settings = new MiniGallerySettingsRepository ().GetSettings (ActiveModule);
             return new MiniGalleryDataProvider ().GetImagesTopN (ModuleContext.ModuleId,
-                                                                 ModuleContext.IsEditable,
+                                                                 true,
                                                                  settings.SortOrder == "SortIndex",
                                                                  settings.NumberOfRecords)
-                                                 .Select (i => new ImageViewModel (i, ModuleContext, settings))
-                                                 .ToList ();
+                                                 .Select (i => new ImageViewModel (i, ModuleContext, settings));
         }
 
         public ModuleActionCollection GetIndexActions ()
