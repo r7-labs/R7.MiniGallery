@@ -16,8 +16,8 @@
         return (
             <span className="MG_Item">
                 {this.renderEditLink()}
-                <a href={this.props.Src} target="_blank" title={this.props.Title} className="MG_Link">
-                    <img src={this.props.Src} alt={this.props.Alt} className="MG_Image" />
+                <a href={this.props.NavigateUrl} target={this.props.Target} title={this.props.Title} className="MG_Link">
+                    <img src={this.props.ThumbnailUrl} alt={this.props.Alt} style={this.props.Style} style={this.props.Style} className={"MG_Image" + this.props.CssClass} />
                 </a>
             </span>
         );
@@ -29,9 +29,13 @@ class MiniGallery extends React.Component {
         return (
             <div className="MG_List MG_Auto">
                 {this.props.Images.map((img) => <MiniGalleryImage
-                    Src={img.ImageSrc}
+                    NavigateUrl={img.NavigateUrl}
+                    ThumbnailUrl={img.ThumbnailUrl}
+                    Target={img.Target}
                     Alt={img.Alt}
                     Title={img.Title}
+                    CssClass={img.CssClass}
+                    Style={img.Style}
                     EditUrl={img.EditUrl}
                     EditIcon={this.props.EditIcon}
                     IsEditable={this.props.IsEditable}

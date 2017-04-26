@@ -76,10 +76,14 @@ namespace R7.MiniGallery.Controllers
         [ModuleActionItems]
         public ActionResult Index ()
         {
-            var dataProvider = new MiniGalleryDataProvider ();
-            var images = dataProvider.GetObjects<ImageInfo> (ModuleContext.ModuleId)
-                                     .Select (i => new ImageViewModel (i, ModuleContext))
-                                     .ToList ();
+            var settings = new MiniGallerySettingsRepository ().GetSettings (ActiveModule);
+            var images = new MiniGalleryDataProvider ().GetImagesTopN (ModuleContext.ModuleId,
+                                                                       ModuleContext.IsEditable,
+                                                                       settings.SortOrder == "SortIndex",
+                                                                       settings.NumberOfRecords)
+                                                       .Select (i => new ImageViewModel (i, ModuleContext, settings))
+                                                       .ToList ();
+                                     
             return View (images);
         }
 

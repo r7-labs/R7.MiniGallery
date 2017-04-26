@@ -20,9 +20,15 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Web.UI.WebControls;
 using DotNetNuke.Common;
+using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Portals;
+using DotNetNuke.Services.FileSystem;
 using DotNetNuke.UI.Modules;
 using R7.MiniGallery.Models;
+using Telerik.Web.UI;
+using Newtonsoft.Json;
 
 namespace R7.MiniGallery.ViewModels
 {
@@ -30,18 +36,21 @@ namespace R7.MiniGallery.ViewModels
     {
         protected IImage Model;
 
-        protected ModuleInstanceContext ModuleContext;
+        protected ModuleInstanceContext  ModuleContext;
 
-        public ImageViewModel (IImage model, ModuleInstanceContext moduleContext)
+        protected MiniGallerySettings Settings;
+
+        public ImageViewModel (IImage model, ModuleInstanceContext moduleContext, MiniGallerySettings settings)
         {
             Model = model;
             ModuleContext = moduleContext;
+            Settings = settings;
         }
 
         #region IImage implementation
 
         public string Alt {
-            get { return Model.Alt; }
+            get { return !string.IsNullOrEmpty (Model.Alt)? Model.Alt : Model.Title; }
             set { throw new NotImplementedException (); }
         }
 
@@ -108,10 +117,117 @@ namespace R7.MiniGallery.ViewModels
             }
         }
 
-        public string EditUrl {
+        private string [] imageHandlerTags = { "fileticket", "width", "fileid", "height" };
+
+        public string ThumbnailUrl {
             get {
-                return ModuleContext.EditUrl ("imageid", Model.ImageID.ToString (), "Edit");
+                if (!Settings.UseImageHandler) {
+                    return ImageSrc;
+                }
+                var hanglerUrl = "/imagehandler.ashx?";
+
+                if (!string.IsNullOrWhiteSpace (Settings.ImageHandlerParams))
+                    hanglerUrl += Settings.ImageHandlerParams;
+                else {
+                    hanglerUrl += "fileticket={fileticket}";
+
+                    if (!Null.IsNull (Settings.ThumbWidth))
+                        hanglerUrl += "&width={width}";
+
+                    if (!Null.IsNull (Settings.ThumbHeight))
+                        hanglerUrl += "&height={height}";
+                }
+
+                foreach (var tag in imageHandlerTags) {
+                    var enclosedTag = "{" + tag + "}";
+
+                    switch (tag) {
+                    case "fileticket":
+                        hanglerUrl = hanglerUrl.Replace (enclosedTag, UrlUtils.EncryptParameter (Model.ImageFileID.ToString ()));
+                        break;
+
+                    case "width":
+                        hanglerUrl = hanglerUrl.Replace (enclosedTag, Settings.ThumbWidth.ToString ());
+                        break;
+
+                    case "fileid":
+                        hanglerUrl = hanglerUrl.Replace (enclosedTag, Model.ImageFileID.ToString ());
+                        break;
+
+                    case "height":
+                        hanglerUrl = hanglerUrl.Replace (enclosedTag, Settings.ThumbHeight.ToString ());
+                        break;
+                    }
+                }
+
+                var file = FileManager.Instance.GetFile (Model.ImageFileID);
+                return Globals.AddHTTP (PortalSettings.Current.PortalAlias.HTTPAlias +
+                                        hanglerUrl + "&ext=." + file.Extension.ToLowerInvariant ());
             }
         }
+
+        public string NavigateUrl {
+            get {
+                if (!string.IsNullOrWhiteSpace (Model.Url)) {
+                    return Globals.LinkClick (Model.Url, ModuleContext.TabId, ModuleContext.ModuleId, false);
+                }
+                return ImageSrc;
+            }
+        }
+
+        public string Target {
+            get {
+                if (Settings.LightboxType == LightboxType.None) {
+                    return Settings.Target;
+                }
+                return string.Empty;
+            }
+        }
+
+        public string EditUrl {
+            get { return ModuleContext.EditUrl ("imageid", Model.ImageID.ToString (), "Edit"); }
+        }
+
+        public string CssClass {
+            get {
+                return (!Model.IsPublished) ? " MG_NotPublished" : string.Empty;
+            }
+        }
+
+        public ImageStyle Style {
+            get {
+                var style = new ImageStyle ();
+                if (Settings.ImageWidth.IsEmpty && Settings.ImageHeight.IsEmpty) {
+                    if (!Null.IsNull (Settings.ThumbWidth) && !Null.IsNull (Settings.ThumbHeight)) {
+                        // If both ThumbWidth & ThumbHeight are not null, produced image dimensions are determined
+                        // also by ResizeMode image handler param. Default is "Fit" - so, by example, if produced
+                        // images have same width, height may vary, and vice versa.
+                    }
+                    else if (!Null.IsNull (Settings.ThumbWidth)) {
+                        style.width = Unit.Pixel (Settings.ThumbWidth).ToString ();
+                    }
+                    else if (!Null.IsNull (Settings.ThumbHeight)) {
+                        style.height = Unit.Pixel (Settings.ThumbHeight).ToString ();
+                    }
+                }
+                else {
+                    if (!Settings.ImageWidth.IsEmpty)
+                        style.width = Settings.ImageWidth.ToString ();
+
+                    if (!Settings.ImageHeight.IsEmpty)
+                        style.height = Settings.ImageHeight.ToString ();
+                }
+
+                return style;
+            }
+        }
+    }
+
+    // TODO: Use Pascal case names for properties
+    public class ImageStyle
+    {
+        public string width { get; set; }
+
+        public string height { get; set; }
     }
 }
