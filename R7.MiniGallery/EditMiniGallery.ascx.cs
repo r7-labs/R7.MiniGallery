@@ -236,6 +236,7 @@ namespace R7.MiniGallery
 					dataProvider.Update<ImageInfo> (image);
 				}
 
+                CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
 				Utils.SynchronizeModule (this);
 
 				Response.Redirect (Globals.NavigateURL (), true);
@@ -284,6 +285,9 @@ namespace R7.MiniGallery
 				if (Image != null)
 				{
                     new MiniGalleryDataProvider ().Delete<ImageInfo> (Image);
+
+                    CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
+                    Utils.SynchronizeModule (this);
 
 					Response.Redirect (Globals.NavigateURL (), true);
 				}

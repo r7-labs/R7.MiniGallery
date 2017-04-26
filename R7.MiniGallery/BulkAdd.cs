@@ -129,6 +129,7 @@ namespace R7.MiniGallery
 					}
 				}
 				
+                CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
 				Utils.SynchronizeModule (this);
 				
 				Response.Redirect (Globals.NavigateURL (), true);

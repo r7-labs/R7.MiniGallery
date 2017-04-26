@@ -19,8 +19,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Icons;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Security;
@@ -76,15 +78,23 @@ namespace R7.MiniGallery.Controllers
         [ModuleActionItems]
         public ActionResult Index ()
         {
-            var settings = new MiniGallerySettingsRepository ().GetSettings (ActiveModule);
-            var images = new MiniGalleryDataProvider ().GetImagesTopN (ModuleContext.ModuleId,
-                                                                       ModuleContext.IsEditable,
-                                                                       settings.SortOrder == "SortIndex",
-                                                                       settings.NumberOfRecords)
-                                                       .Select (i => new ImageViewModel (i, ModuleContext, settings))
-                                                       .ToList ();
+            var images = DataCache.GetCachedData<IList<ImageViewModel>> (
+                new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={ModuleContext.TabModuleId}", 1200),
+                (c) => GetImages ()
+            );
                                      
             return View (images);
+        }
+
+        protected IList<ImageViewModel> GetImages ()
+        {
+            var settings = new MiniGallerySettingsRepository ().GetSettings (ActiveModule);
+            return new MiniGalleryDataProvider ().GetImagesTopN (ModuleContext.ModuleId,
+                                                                 ModuleContext.IsEditable,
+                                                                 settings.SortOrder == "SortIndex",
+                                                                 settings.NumberOfRecords)
+                                                 .Select (i => new ImageViewModel (i, ModuleContext, settings))
+                                                 .ToList ();
         }
 
         public ModuleActionCollection GetIndexActions ()
