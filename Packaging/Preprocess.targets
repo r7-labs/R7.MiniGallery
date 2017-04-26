@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="CompileJsx;MinifyJs">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Preprocess">
     <Import Project="BuildSettings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
     <PropertyGroup>
         <PreprocessImported>true</PreprocessImported>
@@ -12,13 +12,11 @@
 	<ItemGroup>
         <JsFiles Include="$(MainProjectPath)\js\*.js" Exclude="$(MainProjectPath)\js\*.min.js" />
     </ItemGroup>
-	<!-- Compile JSX files -->
-    <Target Name="CompileJsx">
+    <Target Name="Preprocess">
+		<!-- Compile JSX files -->
         <Exec Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).js --presets=es2015,react" />
-    </Target>
-    <!-- Minify JS files -->
-    <Target Name="MinifyJs">
-        <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm-run uglifyjs &quot;%(JsFiles.Identity)&quot; > %(RelativeDir)%(Filename).min.js" />
+		<!-- Minify JS files -->
+		<Exec Condition=" '$(Configuration)' == 'Release' " Command="npm-run uglifyjs &quot;%(JsFiles.Identity)&quot; > %(RelativeDir)%(Filename).min.js" />
         <Copy Condition=" '$(Configuration)' == 'Debug' " SourceFiles="%(JsFiles.Identity)" DestinationFiles="%(RelativeDir)%(Filename).min.js" />
     </Target>
 </Project>
