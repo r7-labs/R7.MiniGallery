@@ -8,15 +8,9 @@
     <ItemGroup>
         <JsxFiles Include="$(MainProjectPath)\js\*.jsx" />
     </ItemGroup>
-    <!-- Declare JS files -->
-	<ItemGroup>
-        <JsFiles Include="$(MainProjectPath)\js\*.js" Exclude="$(MainProjectPath)\js\*.min.js" />
-    </ItemGroup>
     <Target Name="Preprocess">
-		<!-- Compile JSX files -->
-        <Exec Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).js --presets=es2015,react" />
-		<!-- Minify JS files -->
-		<Exec Condition=" '$(Configuration)' == 'Release' " Command="npm-run uglifyjs &quot;%(JsFiles.Identity)&quot; > %(RelativeDir)%(Filename).min.js" />
-        <Copy Condition=" '$(Configuration)' == 'Debug' " SourceFiles="%(JsFiles.Identity)" DestinationFiles="%(RelativeDir)%(Filename).min.js" />
+		<!-- Compile JSX -->
+        <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).min.js --presets=es2015,react,babili" />
+		<Exec Condition=" '$(Configuration)' == 'Debug' " Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).min.js --presets=es2015,react" />
     </Target>
 </Project>
