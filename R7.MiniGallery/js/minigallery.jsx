@@ -28,7 +28,7 @@ class MiniGallery extends React.Component {
     render() {
         return (
             <div className="MG_List MG_Auto">
-                {this.props.Images.map((img) => <MiniGalleryImage
+                {this.props.images.map((img) => <MiniGalleryImage
                     navigateUrl={img.navigateUrl}
                     thumbnailUrl={img.thumbnailUrl}
                     target={img.target}

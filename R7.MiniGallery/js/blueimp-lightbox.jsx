@@ -24,10 +24,10 @@ class BlueimpLightbox extends React.Component {
             var moduleId = $(m).data ("module-id");
             ReactDOM.render(
                 <MiniGallery
-                    ModuleId={moduleId}
-                    IsEditable={$(m).data ("is-editable")}
-                    EditIcon={$(m).data ("edit-icon")}
-                    Images={$(m).data ("images")}
+                    moduleId={moduleId}
+                    isEditable={$(m).data ("is-editable")}
+                    editIcon={$(m).data ("edit-icon")}
+                    images={$(m).data ("images")}
                 />, m
             );
             // TODO: Extract function, bind onclick statically
