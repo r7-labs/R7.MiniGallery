@@ -6,6 +6,7 @@
 @using DotNetNuke.Entities.Icons
 @using DotNetNuke.Web.Client.ClientResourceManagement
 @using DotNetNuke.Framework.JavaScriptLibraries
+@using DotNetNuke.Common
 @using DotNetNuke.Common.Utilities
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Serialization
@@ -17,11 +18,22 @@
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/minigallery.min.js");
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/blueimp-lightbox.min.js");
     ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/Resources/Libraries/BlueimpGallery/02_25_00/css/blueimp-gallery.min.css");
+
+    if (Model.Count == 0) {
+        if (!Dnn.ModuleContext.IsEditable) {
+            var containerControl = Globals.FindControlRecursiveDown (Dnn.DnnPage, "ctr" + Dnn.ModuleContext.ModuleId);
+            containerControl.Visible = false;
+        }
+        else {
+            <p class="dnnFormMessage dnnFormInfo">@(Dnn.LocalizeString ("NothingToDisplay.Text"))</p>
+        }
+    }
 }
+
 <div class="minigallery-lightbox"></div>
 <div class="minigallery-inner"
     data-module-id="@Dnn.ModuleContext.ModuleId"
-    data-is-editable="@Dnn.ModuleContext.IsEditable.ToString().ToLowerInvariant()"
-    data-edit-icon="@(IconController.IconURL("Edit", "16X16", "Gray"))"
-    data-images="@(JsonConvert.SerializeObject(Model, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }))">
+    data-is-editable="@(Dnn.ModuleContext.IsEditable.ToString ().ToLowerInvariant ())"
+    data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"
+    data-images="@(JsonConvert.SerializeObject (Model, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))">
 </div>

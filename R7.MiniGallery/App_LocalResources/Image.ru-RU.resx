@@ -9,7 +9,7 @@
     <data name="AddImage.Text" xml:space="preserve">
     <value>Новое изображение</value>
   </data>
-    <data name="AddImages.Help" xml:space="preserve">
+    <data name="NothingToDisplay.Text" xml:space="preserve">
     <value>Нечего отображать - пожалуйста, добавьте изображения в галерею.</value>
   </data>
     <data name="AltAuto.Format" xml:space="preserve">
