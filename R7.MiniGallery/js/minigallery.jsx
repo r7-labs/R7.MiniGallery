@@ -16,7 +16,7 @@
         return (
             <span className="MG_Item">
                 {this.renderEditLink()}
-                <a href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="MG_Link">
+                <a data-gallery={"#" + this.props.gallery} href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="MG_Link">
                     <img src={this.props.thumbnailUrl} alt={this.props.alt} style={this.props.style} className={"MG_Image" + this.props.cssClass} />
                 </a>
             </span>
@@ -39,6 +39,7 @@ class MiniGallery extends React.Component {
                     editUrl={img.editUrl}
                     editIcon={this.props.editIcon}
                     isEditable={this.props.isEditable}
+                    gallery={this.props.gallery}
                     />)}
             </div>
         );
