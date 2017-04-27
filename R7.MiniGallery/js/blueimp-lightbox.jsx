@@ -24,7 +24,7 @@ class BlueimpLightbox extends React.Component {
 
 (function ($, window, document) {
     $(() => {
-        $(".minigallery-inner").each ((i, m) => {
+        $(".minigallery-root").each ((i, m) => {
             var moduleId = $(m).data ("module-id");
             ReactDOM.render (
                 <BlueimpLightbox
@@ -39,7 +39,7 @@ class BlueimpLightbox extends React.Component {
             // TODO: Extract function, bind onclick statically
             $("a.MG_Link").click ((event) => {
                 var target = event.target || event.srcElement;
-                var root = $(target).closest(".minigallery-inner");
+                var root = $(target).closest(".minigallery-root");
                 var link = target.src ? target.parentNode : target;
                 var options = {
                     hidePageScrollbars: false,

@@ -25,7 +25,7 @@ class BlueimpQueryLightbox extends React.Component {
 
 (function ($, window, document) {
     $(() => {
-        $(".minigallery-inner").each ((i, m) => {
+        $(".minigallery-root").each ((i, m) => {
             var moduleId = $(m).data ("module-id");
             ReactDOM.render (
                 <BlueimpQueryLightbox
