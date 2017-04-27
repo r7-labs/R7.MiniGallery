@@ -24,26 +24,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 
 namespace R7.MiniGallery.Lightboxes
 {
-	public enum LightboxType
-	{
-		None = -1, // Null.NullInteger
-		Default,
-		LightBox,
-		ColorBox
-		/*
-		YoxView,
-		FancyBox
-        */
-	}
-
-	public abstract class LightboxBase
+    public abstract class LightboxBase
 	{
 		protected string Key;
 		
