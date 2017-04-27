@@ -9,7 +9,9 @@
         "**/node_modules": true,
         // build output
         "**/bin": true,
-        "**/obj": true
+        "**/obj": true,
+        "**/*.min.js": true,
+        "**/*.min.css": true
     },
 
     "files.associations": {
