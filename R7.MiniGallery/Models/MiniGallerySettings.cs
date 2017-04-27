@@ -28,6 +28,7 @@ using System;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules.Settings;
+using R7.MiniGallery.Lightboxes;
 
 namespace R7.MiniGallery.Models
 {

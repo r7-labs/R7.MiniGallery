@@ -1,5 +1,5 @@
 ﻿//
-// LightboxBase.cs
+// Lightbox.cs
 //
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -29,60 +29,26 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Lightboxes
 {
-	public enum LightboxType
+	public class Nonebox : LightboxBase
 	{
-		None = -1, // Null.NullInteger
-		Default,
-		LightBox,
-		ColorBox
-		/*
-		YoxView,
-		FancyBox
-        */
-	}
-
-	public abstract class LightboxBase
-	{
-		protected string Key;
-		
-		public LightboxType LightboxType { get; set; }
-	
-		protected LightboxBase ()
+		public Nonebox (): base (LightboxType.None, string.Empty)
 		{
 		}
-
-		protected LightboxBase (LightboxType lightboxType, string key)
+		
+		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
 		{
-			LightboxType = lightboxType;
-			Key = key;
+			// HACK: point to already defined stylesheet and dummy script
+			includeJs.FilePath = "~/DesktopModules/R7.MiniGallery/R7.MiniGallery/js/dummy.js"; 
+			includeCss.FilePath = "~/DesktopModules/R7.MiniGallery/R7.MiniGallery/module.css";
+
+			// hide startup script block
+			literalScript.Visible = false;
 		}
 
-		// NOTE: using ClientResourceManager.RegisterStyleSheet(), ClientResourceManager.RegisterScript() and
-		// Page.ClientScript.RegisterStartupScript() methods won't produce cached content, 
-		// so we use DnnJsInclude, DnnCssInclude controls to make links on the lighbox scripts and stylesheets, 
-		// and literal to store startup script block. Produced content will be cached this way. 	
-
-		public abstract void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript);
-		
-		public abstract void ApplyTo (Image image, HyperLink link);
-
-		public static LightboxBase Create (LightboxType lightboxType, string key)
+		public override void ApplyTo (Image image, HyperLink link)
 		{
-			switch (lightboxType)
-			{
-				case LightboxType.LightBox:
-				case LightboxType.Default:
-					return new Lightbox (key);
-
-				case LightboxType.ColorBox:
-					return new Colorbox (key);
-
-				default: 
-					return new Nonebox();
-			}
 		}
 	}
 }
-

@@ -29,26 +29,30 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Lightboxes
 {
-	public class Nonebox : LightboxBase
+	public class Lightbox : LightboxBase
 	{
-		public Nonebox (): base (LightboxType.None, string.Empty)
+		public Lightbox (string key): base (LightboxType.LightBox, key)
 		{
 		}
 		
 		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
 		{
-			// HACK: point to already defined stylesheet and dummy script
-			includeJs.FilePath = "~/DesktopModules/R7.MiniGallery/R7.MiniGallery/js/dummy.js"; 
-			includeCss.FilePath = "~/DesktopModules/R7.MiniGallery/R7.MiniGallery/module.css";
+			includeJs.FilePath = "~/Resources/Shared/components/lightbox/js/lightbox.min.js";
+			includeCss.FilePath = "~/Resources/Shared/components/lightbox/css/lightbox.css";
 
-			// hide startup script block
+			// no startup script required for the Lightbox
 			literalScript.Visible = false;
 		}
 
 		public override void ApplyTo (Image image, HyperLink link)
 		{
+			// add attribute to use with selector
+			link.Attributes.Add ("data-lightbox", "module_" + Key);
+			
+			if (!string.IsNullOrWhiteSpace (image.ToolTip))
+				link.Attributes.Add ("data-title", image.ToolTip);
 		}
 	}
 }

@@ -29,30 +29,38 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Lightboxes
 {
-	public class Lightbox : LightboxBase
+	public class Colorbox : LightboxBase
 	{
-		public Lightbox (string key): base (LightboxType.LightBox, key)
+		public Colorbox (string key): base (LightboxType.ColorBox, key)
 		{
 		}
-		
+
 		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
 		{
-			includeJs.FilePath = "~/Resources/Shared/components/lightbox/js/lightbox.min.js";
-			includeCss.FilePath = "~/Resources/Shared/components/lightbox/css/lightbox.css";
+			includeJs.FilePath = "~/Resources/Shared/components/colorbox/jquery.colorbox-min.js";
+			includeCss.FilePath = "~/Resources/Shared/components/colorbox/example1/colorbox.css";
 
-			// no startup script required for the Lightbox
-			literalScript.Visible = false;
+			var scriptTemplate = "<script type=\"text/javascript\">" +
+				"$(document).ready(function(){" +
+				"$(\"a[data-colorbox=module_[KEY]]\")" +
+				".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
+			    "});</script>";
+
+			literalScript.Text = scriptTemplate.Replace ("[KEY]", Key);
 		}
 
 		public override void ApplyTo (Image image, HyperLink link)
 		{
 			// add attribute to use with selector
-			link.Attributes.Add ("data-lightbox", "module_" + Key);
+			link.Attributes.Add ("data-colorbox", "module_" + Key);
 			
-			if (!string.IsNullOrWhiteSpace (image.ToolTip))
-				link.Attributes.Add ("data-title", image.ToolTip);
+			// Colorbox displays link title, not image title
+			link.ToolTip = image.ToolTip;
+			
+			// HACK: Colorbox require link URL have file extension or photo=true to load image properly
+			// link.NavigateUrl += "&ext=." + image.File.Extension;
 		}
 	}
 }

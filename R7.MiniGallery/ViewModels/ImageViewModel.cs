@@ -29,6 +29,7 @@ using DotNetNuke.UI.Modules;
 using R7.MiniGallery.Models;
 using Telerik.Web.UI;
 using Newtonsoft.Json;
+using R7.MiniGallery.Lightboxes;
 
 namespace R7.MiniGallery.ViewModels
 {

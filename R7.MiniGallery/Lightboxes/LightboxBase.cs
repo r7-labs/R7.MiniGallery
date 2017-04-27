@@ -1,5 +1,5 @@
 ﻿//
-// Lightbox.cs
+// LightboxBase.cs
 //
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -29,38 +29,60 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Lightboxes
 {
-	public class Colorbox : LightboxBase
+	public enum LightboxType
 	{
-		public Colorbox (string key): base (LightboxType.ColorBox, key)
+		None = -1, // Null.NullInteger
+		Default,
+		LightBox,
+		ColorBox
+		/*
+		YoxView,
+		FancyBox
+        */
+	}
+
+	public abstract class LightboxBase
+	{
+		protected string Key;
+		
+		public LightboxType LightboxType { get; set; }
+	
+		protected LightboxBase ()
 		{
 		}
 
-		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
+		protected LightboxBase (LightboxType lightboxType, string key)
 		{
-			includeJs.FilePath = "~/Resources/Shared/components/colorbox/jquery.colorbox-min.js";
-			includeCss.FilePath = "~/Resources/Shared/components/colorbox/example1/colorbox.css";
-
-			var scriptTemplate = "<script type=\"text/javascript\">" +
-				"$(document).ready(function(){" +
-				"$(\"a[data-colorbox=module_[KEY]]\")" +
-				".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
-			    "});</script>";
-
-			literalScript.Text = scriptTemplate.Replace ("[KEY]", Key);
+			LightboxType = lightboxType;
+			Key = key;
 		}
 
-		public override void ApplyTo (Image image, HyperLink link)
+		// NOTE: using ClientResourceManager.RegisterStyleSheet(), ClientResourceManager.RegisterScript() and
+		// Page.ClientScript.RegisterStartupScript() methods won't produce cached content, 
+		// so we use DnnJsInclude, DnnCssInclude controls to make links on the lighbox scripts and stylesheets, 
+		// and literal to store startup script block. Produced content will be cached this way. 	
+
+		public abstract void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript);
+		
+		public abstract void ApplyTo (Image image, HyperLink link);
+
+		public static LightboxBase Create (LightboxType lightboxType, string key)
 		{
-			// add attribute to use with selector
-			link.Attributes.Add ("data-colorbox", "module_" + Key);
-			
-			// Colorbox displays link title, not image title
-			link.ToolTip = image.ToolTip;
-			
-			// HACK: Colorbox require link URL have file extension or photo=true to load image properly
-			// link.NavigateUrl += "&ext=." + image.File.Extension;
+			switch (lightboxType)
+			{
+				case LightboxType.LightBox:
+				case LightboxType.Default:
+					return new Lightbox (key);
+
+				case LightboxType.ColorBox:
+					return new Colorbox (key);
+
+				default: 
+					return new Nonebox();
+			}
 		}
 	}
 }
+

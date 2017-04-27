@@ -32,6 +32,7 @@ using DotNetNuke.Services.Exceptions;
 using R7.DotNetNuke.Extensions.ControlExtensions;
 using R7.DotNetNuke.Extensions.Modules;
 using R7.DotNetNuke.Extensions.Utilities;
+using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery
