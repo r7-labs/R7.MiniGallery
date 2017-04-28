@@ -1,4 +1,4 @@
-﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IList<R7.MiniGallery.ViewModels.ImageViewModel>>
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<MiniGalleryViewModel>
 
 @using System.Collections.Generic
 @using DotNetNuke.Collections
@@ -11,6 +11,7 @@
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Serialization
 @using R7.MiniGallery
+@using R7.MiniGallery.ViewModels
 @using R7.MiniGallery.Lightboxes
 
 @{
@@ -18,13 +19,12 @@
     JavaScript.RequestRegistration ("ReactDOM");
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/minigallery.min.js");
 
-    var settings = new MiniGallerySettingsRepository ().GetSettings (Dnn.ActiveModule);
-    var lightbox = LightboxFactory.Create (settings.LightboxType);
+    var lightbox = LightboxFactory.Create (Model.Settings.LightboxType);
     lightbox.Register (Dnn.DnnPage);
 
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/module-loader.min.js");
 
-    if (Model.Count == 0) {
+    if (Model.Images.Count == 0) {
         if (!Dnn.ModuleContext.IsEditable) {
             var containerControl = Globals.FindControlRecursiveDown (Dnn.DnnPage, "ctr" + Dnn.ModuleContext.ModuleId);
             containerControl.Visible = false;
@@ -40,6 +40,6 @@
     data-module-id="@Dnn.ModuleContext.ModuleId"
     data-is-editable="@(Dnn.ModuleContext.IsEditable.ToString ().ToLowerInvariant ())"
     data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"
-    data-images="@(JsonConvert.SerializeObject (Model, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))"
+    data-images="@(JsonConvert.SerializeObject (Model.Images, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))"
 	data-link-attrs="@(lightbox.GetLinkAttributes (Dnn.ModuleContext.ModuleId))">
 </div>

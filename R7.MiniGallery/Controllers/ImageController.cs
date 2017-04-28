@@ -40,6 +40,13 @@ namespace R7.MiniGallery.Controllers
     [DnnHandleError]
     public class ImageController : DnnController
     {
+        protected MiniGallerySettingsRepository SettingsRepository;
+
+        public ImageController ()
+        {
+            SettingsRepository = new MiniGallerySettingsRepository ();
+        }
+
         [HttpGet]
         public ActionResult Delete (int imageId)
         {
@@ -78,21 +85,27 @@ namespace R7.MiniGallery.Controllers
         [ModuleActionItems]
         public ActionResult Index ()
         {
+            var settings = SettingsRepository.GetSettings (ActiveModule);
             var images = DataCache.GetCachedData<IEnumerable<ImageViewModel>> (
                 new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={ModuleContext.TabModuleId}", 1200),
-                (c) => GetImages ()
+                (c) => GetImages (settings.SortOrder == "SortIndex", settings.NumberOfRecords)
             );
 
-            return View (images.Where (i => i.IsPublished || ModuleContext.IsEditable).ToList ());
+            var viewModel = new MiniGalleryViewModel {
+                Images = images.Where (i => i.IsPublished || ModuleContext.IsEditable).ToList (),
+                Settings = settings
+            };
+
+            return View (viewModel);
         }
 
-        protected IEnumerable<ImageViewModel> GetImages ()
+        protected IEnumerable<ImageViewModel> GetImages (bool sortOrder, int numberOfRecords)
         {
-            var settings = new MiniGallerySettingsRepository ().GetSettings (ActiveModule);
+            var settings = SettingsRepository.GetSettings (ActiveModule);
             return new MiniGalleryDataProvider ().GetImagesTopN (ModuleContext.ModuleId,
                                                                  true,
-                                                                 settings.SortOrder == "SortIndex",
-                                                                 settings.NumberOfRecords)
+                                                                 sortOrder,
+                                                                 numberOfRecords)
                                                  .Select (i => new ImageViewModel (i, ModuleContext, settings));
         }
 
