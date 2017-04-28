@@ -2,6 +2,7 @@
     function getLightboxes () {
         const lightboxes = [];
         lightboxes ["Nonebox"] = MiniGallery;
+        lightboxes ["Lightbox"] = MiniGallery;
         if (typeof (BlueimpLightbox) !== "undefined") {
             lightboxes ["BlueimpLightbox"] = BlueimpLightbox;
         }

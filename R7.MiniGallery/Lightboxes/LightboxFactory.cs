@@ -30,7 +30,10 @@ namespace R7.MiniGallery.Lightboxes
                 case LightboxType.Default:
                     return new BlueimpLightbox ();
 
-               default:
+                case LightboxType.LightBox:
+                    return new Lightbox ();
+
+                default:
                     return new Nonebox ();
             }
         }

@@ -27,12 +27,17 @@
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DotNetNuke.Framework.JavaScriptLibraries;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 
 namespace R7.MiniGallery.Lightboxes
 {
-	public class Lightbox : LightboxBase
+    public class Lightbox : LightboxBase, ILightbox
 	{
+        public Lightbox ()
+        {
+        }
+
 		public Lightbox (string key): base (LightboxType.LightBox, key)
 		{
 		}
@@ -54,5 +59,16 @@ namespace R7.MiniGallery.Lightboxes
 			if (!string.IsNullOrWhiteSpace (image.ToolTip))
 				link.Attributes.Add ("data-title", image.ToolTip);
 		}
-	}
+
+        public void Register (Page page)
+        {
+            JavaScript.RequestRegistration ("Lightbox2");
+            ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/Lightbox2/02_09_00/css/lightbox.min.css");
+        }
+
+        public string GetLinkAttributes (int moduleId)
+        {
+            return $"{{\"data-lightbox\":\"gallery-{moduleId}\"}}";
+        }
+    }
 }
