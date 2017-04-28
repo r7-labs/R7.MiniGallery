@@ -10,14 +10,15 @@
 @using DotNetNuke.Common.Utilities
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Serialization
+@using R7.MiniGallery.Lightboxes
 
 @{
     JavaScript.RequestRegistration ("React");
     JavaScript.RequestRegistration ("ReactDOM");
-    JavaScript.RequestRegistration ("jQuery-BlueimpGallery");
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/minigallery.min.js");
-    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/blueimp-lightbox.min.js");
-    ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/Resources/Libraries/jQuery-BlueimpGallery/02_25_00/css/blueimp-gallery.min.css");
+
+    var lightbox = LightboxFactory.Create (LightboxType.BlueimpGallery);
+    lightbox.Register (Dnn.DnnPage);
 
     if (Model.Count == 0) {
         if (!Dnn.ModuleContext.IsEditable) {
@@ -34,5 +35,6 @@
     data-module-id="@Dnn.ModuleContext.ModuleId"
     data-is-editable="@(Dnn.ModuleContext.IsEditable.ToString ().ToLowerInvariant ())"
     data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"
-    data-images="@(JsonConvert.SerializeObject (Model, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))">
+    data-images="@(JsonConvert.SerializeObject (Model, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))"
+	data-link-attrs="@(lightbox.GetLinkAttributes (Dnn.ModuleContext.ModuleId))">
 </div>

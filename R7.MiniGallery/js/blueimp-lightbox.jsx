@@ -2,7 +2,7 @@ class BlueimpLightbox extends React.Component {
     render() {
         return (
             <div>
-                <div id={this.props.gallery} className={"blueimp-gallery" + ((this.props.showControls === true)? " blueimp-gallery-controls" : "")}>
+                <div id={"gallery-" + this.props.moduleId} className={"blueimp-gallery" + ((this.props.showControls === true)? " blueimp-gallery-controls" : "")}>
                     <div className="slides"></div>
                     <h3 className="title"></h3>
                     <a className="prev">&#8249;</a>
@@ -16,7 +16,7 @@ class BlueimpLightbox extends React.Component {
                     isEditable={this.props.isEditable}
                     editIcon={this.props.editIcon}
                     images={this.props.images}
-                    gallery={this.props.gallery}
+                    linkAttrs={this.props.linkAttrs}
                 />
             </div>
         );
@@ -34,7 +34,7 @@ class BlueimpLightbox extends React.Component {
                     editIcon={$(m).data ("edit-icon")}
                     images={$(m).data ("images")}
                     showControls={true}
-                    gallery={"gallery-" + moduleId}
+                    linkAttrs={$(m).data ("link-attrs")}
                 />, m
             );
         });

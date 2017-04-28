@@ -1,5 +1,5 @@
 ﻿//
-//  LightboxType.cs
+//  LightboxFactory.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -21,12 +21,11 @@
 
 namespace R7.MiniGallery.Lightboxes
 {
-    public enum LightboxType
+    public static class LightboxFactory
     {
-        None = -1,
-        Default,
-        LightBox,
-        ColorBox,
-        BlueimpGallery
+        public static ILightbox Create (LightboxType lightboxType)
+        {
+            return new BlueimpLightbox ();
+        }
     }
 }

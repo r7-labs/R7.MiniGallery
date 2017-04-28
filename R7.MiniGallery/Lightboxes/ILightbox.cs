@@ -1,5 +1,5 @@
 ﻿//
-//  LightboxType.cs
+//  ILightbox.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,14 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System.Web.UI;
+
 namespace R7.MiniGallery.Lightboxes
 {
-    public enum LightboxType
+    public interface ILightbox
     {
-        None = -1,
-        Default,
-        LightBox,
-        ColorBox,
-        BlueimpGallery
+        void Register (Page page);
+
+        string GetLinkAttributes (int moduleId);
     }
 }

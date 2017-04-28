@@ -1,5 +1,5 @@
 ﻿//
-//  LightboxType.cs
+//  BlueimpLightbox.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,14 +19,24 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using DotNetNuke.Web.Client.ClientResourceManagement;
+using DotNetNuke.Framework.JavaScriptLibraries;
+using System.Web.UI;
+
 namespace R7.MiniGallery.Lightboxes
 {
-    public enum LightboxType
+    public class BlueimpLightbox: ILightbox
     {
-        None = -1,
-        Default,
-        LightBox,
-        ColorBox,
-        BlueimpGallery
+        public void Register (Page page)
+        {
+            JavaScript.RequestRegistration ("jQuery-BlueimpGallery");
+            ClientResourceManager.RegisterScript (page, "~/DesktopModules/MVC/R7.MiniGallery/js/blueimp-lightbox.min.js");
+            ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/jQuery-BlueimpGallery/02_25_00/css/blueimp-gallery.min.css");
+        }
+
+        public string GetLinkAttributes (int moduleId)
+        {
+            return $"{{\"data-gallery\":\"#gallery-{moduleId}\"}}";
+        }
     }
 }

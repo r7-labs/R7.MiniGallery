@@ -146,17 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\MiniGalleryController.cs" />
-    <Compile Include="ViewMiniGallery.ascx.cs">
-      <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
-    </Compile>
     <Compile Include="SettingsMiniGallery.ascx.cs">
       <DependentUpon>SettingsMiniGallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="EditMiniGallery.ascx.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewMiniGallery.ascx.controls.cs">
-      <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="SettingsMiniGallery.ascx.controls.cs">
       <DependentUpon>SettingsMiniGallery.ascx</DependentUpon>
@@ -186,6 +180,15 @@
     <Compile Include="Lightboxes\LightboxBase.cs" />
     <Compile Include="Lightboxes\NoneBox.cs" />
     <Compile Include="Lightboxes\LightboxType.cs" />
+    <Compile Include="Lightboxes\ILightbox.cs" />
+    <Compile Include="Lightboxes\BlueimpLightbox.cs" />
+    <Compile Include="Lightboxes\LightboxFactory.cs" />
+    <Compile Include="ViewMiniGallery.ascx.cs">
+      <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMiniGallery.ascx.controls.cs">
+      <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
