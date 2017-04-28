@@ -10,6 +10,7 @@
 @using DotNetNuke.Common.Utilities
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Serialization
+@using R7.MiniGallery
 @using R7.MiniGallery.Lightboxes
 
 @{
@@ -17,8 +18,11 @@
     JavaScript.RequestRegistration ("ReactDOM");
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/minigallery.min.js");
 
-    var lightbox = LightboxFactory.Create (LightboxType.BlueimpGallery);
+    var settings = new MiniGallerySettingsRepository ().GetSettings (Dnn.ActiveModule);
+    var lightbox = LightboxFactory.Create (settings.LightboxType);
     lightbox.Register (Dnn.DnnPage);
+
+    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/module-loader.min.js");
 
     if (Model.Count == 0) {
         if (!Dnn.ModuleContext.IsEditable) {
@@ -32,6 +36,7 @@
 }
 
 <div class="minigallery-root"
+	data-lightbox-type="@(lightbox.GetType().Name)"
     data-module-id="@Dnn.ModuleContext.ModuleId"
     data-is-editable="@(Dnn.ModuleContext.IsEditable.ToString ().ToLowerInvariant ())"
     data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"

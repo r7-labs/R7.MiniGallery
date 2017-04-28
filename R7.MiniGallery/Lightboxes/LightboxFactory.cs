@@ -25,7 +25,14 @@ namespace R7.MiniGallery.Lightboxes
     {
         public static ILightbox Create (LightboxType lightboxType)
         {
-            return new BlueimpLightbox ();
+            switch (lightboxType) {
+                case LightboxType.BlueimpGallery:
+                case LightboxType.Default:
+                    return new BlueimpLightbox ();
+
+               default:
+                    return new Nonebox ();
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿//
-// Lightbox.cs
+// Nonebox.cs
 //
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2014 
+// Copyright (c) 2014-2017
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@ using DotNetNuke.Web.Client.ClientResourceManagement;
 
 namespace R7.MiniGallery.Lightboxes
 {
-	public class Nonebox : LightboxBase
+    public class Nonebox : LightboxBase, ILightbox
 	{
 		public Nonebox (): base (LightboxType.None, string.Empty)
 		{
@@ -50,5 +50,18 @@ namespace R7.MiniGallery.Lightboxes
 		public override void ApplyTo (Image image, HyperLink link)
 		{
 		}
-	}
+
+        #region ILightbox implementation
+
+        public void Register (Page page)
+        {
+        }
+
+        public string GetLinkAttributes (int moduleId)
+        {
+            return string.Empty;
+        }
+
+        #endregion
+    }
 }

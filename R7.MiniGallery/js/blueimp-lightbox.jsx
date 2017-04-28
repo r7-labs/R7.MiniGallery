@@ -22,21 +22,3 @@ class BlueimpLightbox extends React.Component {
         );
     }
 }
-
-(function ($, window, document) {
-    $(() => {
-        $(".minigallery-root").each ((i, m) => {
-            var moduleId = $(m).data ("module-id");
-            ReactDOM.render (
-                <BlueimpLightbox
-                    moduleId={moduleId}
-                    isEditable={$(m).data ("is-editable")}
-                    editIcon={$(m).data ("edit-icon")}
-                    images={$(m).data ("images")}
-                    showControls={true}
-                    linkAttrs={$(m).data ("link-attrs")}
-                />, m
-            );
-        });
-    });
-}) (jQuery, window, document);

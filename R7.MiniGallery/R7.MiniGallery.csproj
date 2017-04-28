@@ -143,6 +143,7 @@
     <None Include="App_LocalResources\Image.ru-RU.resx" />
     <None Include="js\minigallery.jsx" />
     <None Include="js\blueimp-lightbox.jsx" />
+    <None Include="js\module-loader.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\MiniGalleryController.cs" />
@@ -178,7 +179,7 @@
     <Compile Include="Lightboxes\Colorbox.cs" />
     <Compile Include="Lightboxes\Lightbox.cs" />
     <Compile Include="Lightboxes\LightboxBase.cs" />
-    <Compile Include="Lightboxes\NoneBox.cs" />
+    <Compile Include="Lightboxes\Nonebox.cs" />
     <Compile Include="Lightboxes\LightboxType.cs" />
     <Compile Include="Lightboxes\ILightbox.cs" />
     <Compile Include="Lightboxes\BlueimpLightbox.cs" />
