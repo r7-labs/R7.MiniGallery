@@ -3,6 +3,7 @@
         const lightboxes = [];
         lightboxes ["Nonebox"] = MiniGallery;
         lightboxes ["Lightbox"] = MiniGallery;
+        lightboxes ["Colorbox"] = MiniGallery;
         if (typeof (BlueimpLightbox) !== "undefined") {
             lightboxes ["BlueimpLightbox"] = BlueimpLightbox;
         }

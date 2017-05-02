@@ -33,6 +33,9 @@ namespace R7.MiniGallery.Lightboxes
                 case LightboxType.LightBox:
                     return new Lightbox ();
 
+                case LightboxType.ColorBox:
+                    return new Colorbox ();
+
                 default:
                     return new Nonebox ();
             }

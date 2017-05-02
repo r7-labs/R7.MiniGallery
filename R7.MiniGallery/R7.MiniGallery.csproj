@@ -145,6 +145,7 @@
     <None Include="js\blueimp-lightbox.jsx" />
     <None Include="js\module-loader.jsx" />
     <None Include="js\lightbox2.jsx" />
+    <None Include="js\colorbox.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\MiniGalleryController.cs" />
