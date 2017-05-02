@@ -37,7 +37,7 @@ namespace R7.MiniGallery.Lightboxes
 
         public string GetLinkAttributes (IImage image, int moduleId)
         {
-            return string.Empty;
+            return "{}";
         }
     }
 }
