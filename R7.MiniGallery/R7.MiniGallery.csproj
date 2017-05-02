@@ -99,9 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
-    <Content Include="ViewMiniGallery.ascx">
-      <DeployService-Deploy>True</DeployService-Deploy>
-    </Content>
     <Content Include="SettingsMiniGallery.ascx" />
     <Content Include="EditMiniGallery.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
@@ -186,12 +183,6 @@
     <Compile Include="Lightboxes\ILightbox.cs" />
     <Compile Include="Lightboxes\BlueimpLightbox.cs" />
     <Compile Include="Lightboxes\LightboxFactory.cs" />
-    <Compile Include="ViewMiniGallery.ascx.cs">
-      <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewMiniGallery.ascx.controls.cs">
-      <DependentUpon>ViewMiniGallery.ascx</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\MiniGalleryViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
