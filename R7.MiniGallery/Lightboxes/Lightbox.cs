@@ -25,41 +25,14 @@
 // THE SOFTWARE.
 
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using DotNetNuke.Framework.JavaScriptLibraries;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Lightboxes
 {
-    public class Lightbox : LightboxBase, ILightbox
+    public class Lightbox: ILightbox
 	{
-        public Lightbox ()
-        {
-        }
-
-		public Lightbox (string key): base (LightboxType.LightBox, key)
-		{
-		}
-		
-		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
-		{
-			includeJs.FilePath = "~/Resources/Shared/components/lightbox/js/lightbox.min.js";
-			includeCss.FilePath = "~/Resources/Shared/components/lightbox/css/lightbox.css";
-
-			// no startup script required for the Lightbox
-			literalScript.Visible = false;
-		}
-
-		public override void ApplyTo (Image image, HyperLink link)
-		{
-			// add attribute to use with selector
-			link.Attributes.Add ("data-lightbox", "module_" + Key);
-			
-			if (!string.IsNullOrWhiteSpace (image.ToolTip))
-				link.Attributes.Add ("data-title", image.ToolTip);
-		}
-
         public void Register (Page page)
         {
             JavaScript.RequestRegistration ("Lightbox2");

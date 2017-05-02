@@ -26,7 +26,6 @@
 
 using System.Globalization;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using DotNetNuke.Framework.JavaScriptLibraries;
 using DotNetNuke.Web.Client;
 using DotNetNuke.Web.Client.ClientResourceManagement;
@@ -34,42 +33,8 @@ using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Lightboxes
 {
-    public class Colorbox : LightboxBase, ILightbox
+    public class Colorbox: ILightbox
     {
-        public Colorbox ()
-        {
-        }
-
-        public Colorbox (string key) : base (LightboxType.ColorBox, key)
-        {
-        }
-
-        public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
-        {
-            includeJs.FilePath = "~/Resources/Shared/components/colorbox/jquery.colorbox-min.js";
-            includeCss.FilePath = "~/Resources/Shared/components/colorbox/example1/colorbox.css";
-
-            var scriptTemplate = "<script type=\"text/javascript\">" +
-                "$(document).ready(function(){" +
-                "$(\"a[data-colorbox=module_[KEY]]\")" +
-                ".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
-                "});</script>";
-
-            literalScript.Text = scriptTemplate.Replace ("[KEY]", Key);
-        }
-
-        public override void ApplyTo (Image image, HyperLink link)
-        {
-            // add attribute to use with selector
-            link.Attributes.Add ("data-colorbox", "module_" + Key);
-
-            // Colorbox displays link title, not image title
-            link.ToolTip = image.ToolTip;
-
-            // HACK: Colorbox require link URL have file extension or photo=true to load image properly
-            // link.NavigateUrl += "&ext=." + image.File.Extension;
-        }
-
         public void Register (Page page)
         {
             JavaScript.RequestRegistration ("Colorbox");

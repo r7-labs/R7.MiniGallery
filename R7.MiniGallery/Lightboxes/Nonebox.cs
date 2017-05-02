@@ -25,35 +25,13 @@
 // THE SOFTWARE.
 
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using DotNetNuke.Web.Client.ClientResourceManagement;
 using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Lightboxes
 {
-    public class Nonebox : LightboxBase, ILightbox
+    public class Nonebox: ILightbox
 	{
-		public Nonebox (): base (LightboxType.None, string.Empty)
-		{
-		}
-		
-		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
-		{
-			// HACK: point to already defined stylesheet and dummy script
-			includeJs.FilePath = "~/DesktopModules/R7.MiniGallery/R7.MiniGallery/js/dummy.js"; 
-			includeCss.FilePath = "~/DesktopModules/R7.MiniGallery/R7.MiniGallery/module.css";
-
-			// hide startup script block
-			literalScript.Visible = false;
-		}
-
-		public override void ApplyTo (Image image, HyperLink link)
-		{
-		}
-
-        #region ILightbox implementation
-
-        public void Register (Page page)
+		public void Register (Page page)
         {
         }
 
@@ -61,7 +39,5 @@ namespace R7.MiniGallery.Lightboxes
         {
             return string.Empty;
         }
-
-        #endregion
     }
 }

@@ -177,7 +177,6 @@
     <Compile Include="ViewModels\ImageViewModel.cs" />
     <Compile Include="Lightboxes\Colorbox.cs" />
     <Compile Include="Lightboxes\Lightbox.cs" />
-    <Compile Include="Lightboxes\LightboxBase.cs" />
     <Compile Include="Lightboxes\Nonebox.cs" />
     <Compile Include="Lightboxes\LightboxType.cs" />
     <Compile Include="Lightboxes\ILightbox.cs" />
