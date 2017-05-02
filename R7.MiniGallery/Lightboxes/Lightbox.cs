@@ -4,7 +4,7 @@
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2014 
+// Copyright (c) 2014-2017
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Framework.JavaScriptLibraries;
 using DotNetNuke.Web.Client.ClientResourceManagement;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Lightboxes
 {
@@ -66,9 +66,9 @@ namespace R7.MiniGallery.Lightboxes
             ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/Lightbox2/02_09_00/css/lightbox.min.css");
         }
 
-        public string GetLinkAttributes (int moduleId)
+        public string GetLinkAttributes (IImage image, int moduleId)
         {
-            return $"{{\"data-lightbox\":\"gallery-{moduleId}\"}}";
+            return $"{{\"data-lightbox\":\"gallery-{moduleId}\",\"data-title\":\"{image.Title}\"}}";
         }
     }
 }

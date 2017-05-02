@@ -26,10 +26,9 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Services.FileSystem;
 using DotNetNuke.UI.Modules;
-using R7.MiniGallery.Models;
-using Telerik.Web.UI;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using R7.MiniGallery.Lightboxes;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.ViewModels
 {
@@ -41,11 +40,14 @@ namespace R7.MiniGallery.ViewModels
 
         protected MiniGallerySettings Settings;
 
-        public ImageViewModel (IImage model, ModuleInstanceContext moduleContext, MiniGallerySettings settings)
+        protected ILightbox Lightbox;
+
+        public ImageViewModel (IImage model, ModuleInstanceContext moduleContext, MiniGallerySettings settings, ILightbox lightbox)
         {
             Model = model;
             ModuleContext = moduleContext;
             Settings = settings;
+            Lightbox = lightbox;
         }
 
         #region IImage implementation
@@ -220,6 +222,13 @@ namespace R7.MiniGallery.ViewModels
                 }
 
                 return style;
+            }
+        }
+
+        public JRaw LinkAttributes
+        {
+            get {
+                return new JRaw (Lightbox.GetLinkAttributes (Model, ModuleContext.ModuleId));
             }
         }
     }

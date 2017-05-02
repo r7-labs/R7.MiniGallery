@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Web.UI;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Lightboxes
 {
@@ -27,6 +28,6 @@ namespace R7.MiniGallery.Lightboxes
     {
         void Register (Page page);
 
-        string GetLinkAttributes (int moduleId);
+        string GetLinkAttributes (IImage image, int moduleId);
     }
 }

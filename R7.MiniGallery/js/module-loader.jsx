@@ -14,8 +14,6 @@
         $(".minigallery-root").each ((i, m) => {
             const moduleId = $(m).data ("module-id");
             const Lightbox = lightboxes [$(m).data ("lightbox-type")];
-            console.log (lightboxes);
-            console.log (Lightbox);
             ReactDOM.render (
                 <Lightbox
                     moduleId={moduleId}
@@ -23,7 +21,6 @@
                     editIcon={$(m).data ("edit-icon")}
                     images={$(m).data ("images")}
                     showControls={true}
-                    linkAttrs={$(m).data ("link-attrs")}
                 />, m
             );
         });

@@ -24,10 +24,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Web.Client.ClientResourceManagement;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Lightboxes
 {
@@ -57,7 +57,7 @@ namespace R7.MiniGallery.Lightboxes
         {
         }
 
-        public string GetLinkAttributes (int moduleId)
+        public string GetLinkAttributes (IImage image, int moduleId)
         {
             return string.Empty;
         }

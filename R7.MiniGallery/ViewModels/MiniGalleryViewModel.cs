@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Collections.Generic;
+using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.ViewModels
@@ -29,5 +30,7 @@ namespace R7.MiniGallery.ViewModels
         public IList<ImageViewModel> Images { get; set;}
 
         public MiniGallerySettings Settings { get; set; }
+
+        public ILightbox Lightbox { get; set; }
     }
 }

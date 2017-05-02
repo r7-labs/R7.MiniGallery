@@ -19,9 +19,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using DotNetNuke.Web.Client.ClientResourceManagement;
-using DotNetNuke.Framework.JavaScriptLibraries;
 using System.Web.UI;
+using DotNetNuke.Framework.JavaScriptLibraries;
+using DotNetNuke.Web.Client.ClientResourceManagement;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Lightboxes
 {
@@ -34,7 +35,7 @@ namespace R7.MiniGallery.Lightboxes
             ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/jQuery-BlueimpGallery/02_25_00/css/blueimp-gallery.min.css");
         }
 
-        public string GetLinkAttributes (int moduleId)
+        public string GetLinkAttributes (IImage image, int moduleId)
         {
             return $"{{\"data-gallery\":\"#gallery-{moduleId}\"}}";
         }

@@ -37,9 +37,9 @@ class MiniGallery extends React.Component {
                     cssClass={img.cssClass}
                     style={img.style}
                     editUrl={img.editUrl}
+                    linkAttrs={img.linkAttributes}
                     editIcon={this.props.editIcon}
                     isEditable={this.props.isEditable}
-                    linkAttrs={this.props.linkAttrs}
                     />)}
             </div>
         );
