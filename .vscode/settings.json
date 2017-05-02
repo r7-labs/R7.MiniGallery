@@ -1,0 +1,20 @@
+{
+     "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        // NuGet packages
+        "**/packages": true,
+        "**/node_modules": true,
+        // build output
+        "**/bin": true,
+        "**/obj": true,
+        "**/*.min.js": true,
+        "**/*.min.css": true
+    },
+
+    "files.associations": {
+        "*.SqlDataProvider": "sql"
+    }
+}

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Preprocess">
+    <Import Project="BuildSettings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
+    <PropertyGroup>
+        <PreprocessImported>true</PreprocessImported>
+    </PropertyGroup>
+    <!-- Declare JSX files -->
+    <ItemGroup>
+        <JsxFiles Include="$(MainProjectPath)\js\*.jsx" />
+    </ItemGroup>
+    <Target Name="Preprocess">
+		<!-- Compile JSX -->
+        <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).min.js --presets=es2015,react,babili" />
+		<Exec Condition=" '$(Configuration)' == 'Debug' " Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).min.js --presets=es2015,react" />
+    </Target>
+</Project>

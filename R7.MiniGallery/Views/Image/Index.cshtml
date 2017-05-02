@@ -1,0 +1,41 @@
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<MiniGalleryViewModel>
+
+@using System.Collections.Generic
+@using DotNetNuke.Collections
+@using DotNetNuke.Web.Mvc.Helpers
+@using DotNetNuke.Entities.Icons
+@using DotNetNuke.Web.Client.ClientResourceManagement
+@using DotNetNuke.Framework.JavaScriptLibraries
+@using DotNetNuke.Common
+@using DotNetNuke.Common.Utilities
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Serialization
+@using R7.MiniGallery
+@using R7.MiniGallery.ViewModels
+@using R7.MiniGallery.Lightboxes
+
+@{
+    JavaScript.RequestRegistration ("React");
+    JavaScript.RequestRegistration ("ReactDOM");
+    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/minigallery.min.js");
+    Model.Lightbox.Register (Dnn.DnnPage);
+    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/module-loader.min.js");
+
+    if (Model.Images.Count == 0) {
+        if (!Dnn.ModuleContext.IsEditable) {
+            var containerControl = Globals.FindControlRecursiveDown (Dnn.DnnPage, "ctr" + Dnn.ModuleContext.ModuleId);
+            containerControl.Visible = false;
+        }
+        else {
+            <p class="dnnFormMessage dnnFormInfo">@(Dnn.LocalizeString ("NothingToDisplay.Text"))</p>
+        }
+    }
+}
+
+<div class="minigallery-root"
+	data-lightbox-type="@(Model.Lightbox.GetType ().Name)"
+    data-module-id="@Dnn.ModuleContext.ModuleId"
+    data-is-editable="@(Dnn.ModuleContext.IsEditable.ToString ().ToLowerInvariant ())"
+    data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"
+    data-images="@(JsonConvert.SerializeObject (Model.Images, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))">
+</div>

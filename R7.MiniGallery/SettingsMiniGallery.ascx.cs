@@ -31,7 +31,9 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using R7.DotNetNuke.Extensions.ControlExtensions;
 using R7.DotNetNuke.Extensions.Modules;
-using R7.DotNetNuke.Extensions.ModuleExtensions;
+using R7.DotNetNuke.Extensions.Utilities;
+using R7.MiniGallery.Lightboxes;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery
 {
@@ -59,6 +61,7 @@ namespace R7.MiniGallery
 			comboLightboxType.AddItem (LocalizeString ("Default.Text"), LightboxType.Default.ToString ());
 			comboLightboxType.AddItem (LightboxType.LightBox.ToString (), LightboxType.LightBox.ToString ());
 			comboLightboxType.AddItem (LightboxType.ColorBox.ToString (), LightboxType.ColorBox.ToString ());
+            comboLightboxType.AddItem (LightboxType.BlueimpGallery.ToString (), LightboxType.BlueimpGallery.ToString ());
 
 			// fill style set combo
 			comboStyleSet.AddItem (LocalizeString ("Custom.Text"), "@custom");
@@ -210,6 +213,7 @@ namespace R7.MiniGallery
 
                 SettingsRepository.SaveSettings (ModuleConfiguration, Settings);
 
+                CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
 				Utils.SynchronizeModule (this);
 			}
 			catch (Exception ex)

@@ -1,10 +1,10 @@
-﻿//
-// EntityBase.cs
+//
+// IImage.cs
 //
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2014 
+// Copyright (c) 2017
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,33 +24,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
-using DotNetNuke.Entities.Portals;
-using DotNetNuke.Entities.Users;
-using DotNetNuke.ComponentModel.DataAnnotations;
-
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Models
 {
-	public abstract class EntityBase : IAuditable
+    public interface IImage : IAuditable
 	{
-		public EntityBase ()
-		{
-		}
+        int ImageID { get; set; }
 
-		#region IAuditable implementation
+		int ModuleID { get; set; }
 
-		public int LastModifiedByUserID { get; set; }
+		int ImageFileID { get; set; }
 
-		public DateTime LastModifiedOnDate { get; set; }
+		string Alt { get; set; }
 
-		public int CreatedByUserID { get; set; }
+		string Title { get; set; }
 
-		public DateTime CreatedOnDate { get; set; }
+		string Url { get; set; }
 
-		// REVIEW: Make CreatedOnDate a [ReadOnlyColumn]?
+		int SortIndex { get; set; }
 
-		#endregion
-
-
-	}
+		bool IsPublished { get; set; }
+    }
 }
+

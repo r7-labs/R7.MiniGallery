@@ -34,6 +34,7 @@ using DotNetNuke.Services.FileSystem;
 using R7.DotNetNuke.Extensions.Modules;
 using R7.DotNetNuke.Extensions.Utilities;
 using R7.MiniGallery.Data;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery
 {
@@ -128,6 +129,7 @@ namespace R7.MiniGallery
 					}
 				}
 				
+                CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
 				Utils.SynchronizeModule (this);
 				
 				Response.Redirect (Globals.NavigateURL (), true);

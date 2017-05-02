@@ -1,5 +1,5 @@
 ﻿//
-//  MiniGallerySettingsRepository.cs
+//  BlueimpLightbox.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,12 +19,25 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using DotNetNuke.Entities.Modules.Settings;
+using System.Web.UI;
+using DotNetNuke.Framework.JavaScriptLibraries;
+using DotNetNuke.Web.Client.ClientResourceManagement;
 using R7.MiniGallery.Models;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Lightboxes
 {
-    public class MiniGallerySettingsRepository: SettingsRepository<MiniGallerySettings>
+    public class BlueimpLightbox: ILightbox
     {
+        public void Register (Page page)
+        {
+            JavaScript.RequestRegistration ("jQuery-BlueimpGallery");
+            ClientResourceManager.RegisterScript (page, "~/DesktopModules/MVC/R7.MiniGallery/js/blueimp-lightbox.min.js");
+            ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/jQuery-BlueimpGallery/02_25_00/css/blueimp-gallery.min.css");
+        }
+
+        public string GetLinkAttributes (IImage image, int moduleId)
+        {
+            return $"{{\"data-gallery\":\"#gallery-{moduleId}\"}}";
+        }
     }
 }

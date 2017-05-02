@@ -27,7 +27,7 @@
 using System;
 using DotNetNuke.Services.FileSystem;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Models
 {
 	public class ImageToAdd
 	{

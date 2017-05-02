@@ -1,5 +1,5 @@
 ﻿//
-//  MiniGallerySettingsRepository.cs
+//  LightboxFactory.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,12 +19,26 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using DotNetNuke.Entities.Modules.Settings;
-using R7.MiniGallery.Models;
-
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Lightboxes
 {
-    public class MiniGallerySettingsRepository: SettingsRepository<MiniGallerySettings>
+    public static class LightboxFactory
     {
+        public static ILightbox Create (LightboxType lightboxType)
+        {
+            switch (lightboxType) {
+                case LightboxType.BlueimpGallery:
+                case LightboxType.Default:
+                    return new BlueimpLightbox ();
+
+                case LightboxType.LightBox:
+                    return new Lightbox ();
+
+                case LightboxType.ColorBox:
+                    return new Colorbox ();
+
+                default:
+                    return new Nonebox ();
+            }
+        }
     }
 }

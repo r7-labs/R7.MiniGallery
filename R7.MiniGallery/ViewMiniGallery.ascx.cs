@@ -37,6 +37,8 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
 using R7.DotNetNuke.Extensions.Modules;
 using R7.MiniGallery.Data;
+using R7.MiniGallery.Lightboxes;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery
 {

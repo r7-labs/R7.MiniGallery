@@ -1,5 +1,5 @@
 ﻿//
-//  MiniGallerySettingsRepository.cs
+//  MiniGalleryViewModel.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,12 +19,18 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using DotNetNuke.Entities.Modules.Settings;
+using System.Collections.Generic;
+using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.ViewModels
 {
-    public class MiniGallerySettingsRepository: SettingsRepository<MiniGallerySettings>
+    public class MiniGalleryViewModel
     {
+        public IList<ImageViewModel> Images { get; set;}
+
+        public MiniGallerySettings Settings { get; set; }
+
+        public ILightbox Lightbox { get; set; }
     }
 }

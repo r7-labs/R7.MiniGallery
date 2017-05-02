@@ -12,8 +12,10 @@
 	 <license src="license.htm" />
      <releaseNotes src="releaseNotes.htm" />
      <dependencies>
-		<dependency type="CoreVersion">08.00.04</dependency>
+		<dependency type="coreVersion">08.00.04</dependency>
 		<dependency type="managedPackage" version="0.10.0">R7.DotNetNuke.Extensions</dependency>
+	    <dependency type="package">React</dependency>
+		<dependency type="package">ReactDOM</dependency>
 	 </dependencies>
      <components>
        <component type="Module">
@@ -29,11 +31,11 @@
              <moduleDefinition>
                <friendlyName>R7.MiniGallery</friendlyName>
                <definitionName>R7.MiniGallery</definitionName>
-               <defaultCacheTime>1200</defaultCacheTime>
+               <defaultCacheTime>0</defaultCacheTime>
                <moduleControls>
                  <moduleControl>
                    <controlKey />
-                   <controlSrc>DesktopModules/R7.MiniGallery/R7.MiniGallery/ViewMiniGallery.ascx</controlSrc>
+                   <controlSrc>R7.MiniGallery.Controllers/Image/Index.mvc</controlSrc>
                    <controlTitle />
                    <controlType>View</controlType>
                    <iconFile />
@@ -44,7 +46,7 @@
                  </moduleControl>
                  <moduleControl>
                    <controlKey>Edit</controlKey>
-                   <controlSrc>DesktopModules/R7.MiniGallery/R7.MiniGallery/EditMiniGallery.ascx</controlSrc>
+                   <controlSrc>DesktopModules/MVC/R7.MiniGallery/EditMiniGallery.ascx</controlSrc>
                    <supportsPartialRendering>False</supportsPartialRendering>
                    <supportsPopUps>True</supportsPopUps>
                    <controlTitle>Edit</controlTitle>
@@ -57,7 +59,7 @@
                  </moduleControl>
                  <moduleControl>
                    <controlKey>Settings</controlKey>
-                   <controlSrc>DesktopModules/R7.MiniGallery/R7.MiniGallery/SettingsMiniGallery.ascx</controlSrc>
+                   <controlSrc>DesktopModules/MVC/R7.MiniGallery/SettingsMiniGallery.ascx</controlSrc>
                    <supportsPartialRendering>False</supportsPartialRendering>
                    <controlTitle>Settings</controlTitle>
                    <controlType>Edit</controlType>
@@ -69,7 +71,7 @@
                  </moduleControl>
 			     <moduleControl>
                    <controlKey>BulkAdd</controlKey>
-                   <controlSrc>DesktopModules/R7.MiniGallery/R7.MiniGallery/BulkAdd.ascx</controlSrc>
+                   <controlSrc>DesktopModules/MVC/R7.MiniGallery/BulkAdd.ascx</controlSrc>
                    <supportsPartialRendering>False</supportsPartialRendering>
                    <controlTitle>Bulk Add</controlTitle>
                    <controlType>Edit</controlType>
@@ -87,7 +89,7 @@
 
        <component type="Script">
          <scripts>
-           <basePath>DesktopModules\R7.MiniGallery\R7.MiniGallery</basePath>
+           <basePath>DesktopModules\MVC\R7.MiniGallery</basePath>
            <script type="Install">
              <name>SqlDataProvider\01.00.00.SqlDataProvider</name>
              <version>01.00.00</version>
@@ -97,16 +99,14 @@
            </script>
          </scripts>
        </component>
-
        <component type="ResourceFile">
          <resourceFiles>
-           <basePath>DesktopModules\R7.MiniGallery</basePath>
+           <basePath>DesktopModules\MVC</basePath>
            <resourceFile>
              <name>Resources.zip</name>
            </resourceFile>
          </resourceFiles>
        </component>
-
        <component type="Assembly">
          <assemblies>
            <basePath>bin</basePath>
@@ -116,8 +116,7 @@
            </assembly>
          </assemblies>
        </component>
-    
      </components>
    </package>
- </packages>
+  </packages>
 </dotnetnuke>

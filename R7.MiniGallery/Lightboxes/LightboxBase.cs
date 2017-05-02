@@ -1,5 +1,5 @@
 ﻿//
-// Lightbox.cs
+// LightboxBase.cs
 //
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -24,35 +24,51 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using DotNetNuke.Web.Client.ClientResourceManagement;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Lightboxes
 {
-	public class Lightbox : LightboxBase
+    public abstract class LightboxBase
 	{
-		public Lightbox (string key): base (LightboxType.LightBox, key)
-		{
-		}
+		protected string Key;
 		
-		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
+		public LightboxType LightboxType { get; set; }
+	
+		protected LightboxBase ()
 		{
-			includeJs.FilePath = "~/Resources/Shared/components/lightbox/js/lightbox.min.js";
-			includeCss.FilePath = "~/Resources/Shared/components/lightbox/css/lightbox.css";
-
-			// no startup script required for the Lightbox
-			literalScript.Visible = false;
 		}
 
-		public override void ApplyTo (Image image, HyperLink link)
+		protected LightboxBase (LightboxType lightboxType, string key)
 		{
-			// add attribute to use with selector
-			link.Attributes.Add ("data-lightbox", "module_" + Key);
-			
-			if (!string.IsNullOrWhiteSpace (image.ToolTip))
-				link.Attributes.Add ("data-title", image.ToolTip);
+			LightboxType = lightboxType;
+			Key = key;
+		}
+
+		// NOTE: using ClientResourceManager.RegisterStyleSheet(), ClientResourceManager.RegisterScript() and
+		// Page.ClientScript.RegisterStartupScript() methods won't produce cached content, 
+		// so we use DnnJsInclude, DnnCssInclude controls to make links on the lighbox scripts and stylesheets, 
+		// and literal to store startup script block. Produced content will be cached this way. 	
+
+		public abstract void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript);
+		
+		public abstract void ApplyTo (Image image, HyperLink link);
+
+		public static LightboxBase Create (LightboxType lightboxType, string key)
+		{
+			switch (lightboxType)
+			{
+				case LightboxType.LightBox:
+				case LightboxType.Default:
+					return new Lightbox (key);
+
+				case LightboxType.ColorBox:
+					return new Colorbox (key);
+
+				default: 
+					return new Nonebox();
+			}
 		}
 	}
 }
+

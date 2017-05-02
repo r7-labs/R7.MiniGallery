@@ -6,6 +6,7 @@
         <TestsImported>true</TestsImported>
     </PropertyGroup>
     <Target Name="Tests" Condition=" '$(EnableTests)' == 'true' ">
+		<Message Text="Run tests here" />
 		<!--
             <Exec Condition=" '$(OS)' == 'Unix' " Command="mono ../packages/xunit.runner.console.2.1.0/tools/xunit.console.exe ..\R7.MiniGallery.Tests\bin\$(Configuration)\R7.MiniGallery.Tests.dll" />
 		    <Exec Condition=" '$(OS)' != 'Unix' " Command="..\packages\xunit.runner.console.2.1.0\tools\xunit.console ..\R7.MiniGallery.Tests\bin\$(Configuration)\R7.MiniGallery.Tests.dll" />

@@ -26,7 +26,7 @@
 
 using System;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Models
 {
 	public interface IAuditable
 	{

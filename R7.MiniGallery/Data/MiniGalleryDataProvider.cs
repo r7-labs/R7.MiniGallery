@@ -22,6 +22,7 @@
 using System.Collections.Generic;
 using DotNetNuke.Common.Utilities;
 using R7.DotNetNuke.Extensions.Data;
+using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.Data
 {

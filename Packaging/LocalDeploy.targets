@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="LocalDeploy">
 	<Import Project="BuildSettings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
+	<Import Project="Preprocess.targets" Condition=" '$(PreprocessImported)' == '' "/>
 	<Import Project="Tests.targets" Condition=" '$(TestsImported)' == '' "/>
 	
 	<PropertyGroup>
@@ -9,13 +10,15 @@
 		<!-- Include binary files in local deploy by default -->
 		<LocalDeployIncludeBinaries Condition=" '$(LocalDeployIncludeBinaries)' == '' ">true</LocalDeployIncludeBinaries>
 	</PropertyGroup>
-	<Target Name="LocalDeploy" Condition=" '$(EnableLocalDeploy)' == 'true' " DependsOnTargets="Tests">
+	
+	<Target Name="LocalDeploy" Condition=" '$(EnableLocalDeploy)' == 'true' " DependsOnTargets="Preprocess;Tests">
 
 		<!-- Declare binaries -->
         <ItemGroup>
             <LocalDeployBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.dll" />
             <LocalDeployBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.pdb" Condition="'$(Configuration)' == 'Debug'" />
         </ItemGroup>
+		
         <!-- Declare resource files -->
         <ItemGroup>
             <LocalDeployResourceFiles Include="../**/*.ascx" />
@@ -24,6 +27,7 @@
             <LocalDeployResourceFiles Include="../**/*.ashx" />
             <LocalDeployResourceFiles Include="../**/*.resx" />
             <LocalDeployResourceFiles Include="../**/*.css" />
+			<LocalDeployResourceFiles Include="../**/*.cshtml" />
             <LocalDeployResourceFiles Include="../**/*.html" />
             <LocalDeployResourceFiles Include="../**/*.htm" />
             <LocalDeployResourceFiles Include="../**/*.xml" />
@@ -36,9 +40,11 @@
             <LocalDeployResourceFiles Include="../**/*.png" />
             <LocalDeployResourceFiles Include="../**/*.gif" />
         </ItemGroup>
+		
         <!-- Declare excluded files -->
         <ItemGroup>
             <LocalDeployExcludeFiles Include="../packages/**/*" />
+			<LocalDeployExcludeFiles Include="../node_modules/**/*" />
             <LocalDeployExcludeFiles Include="../Packaging/**/*" />
             <LocalDeployExcludeFiles Include="../.git/**/*" />
             <LocalDeployExcludeFiles Include="../.svn/**/*" />
@@ -46,13 +52,16 @@
             <LocalDeployExcludeFiles Include="../*/obj/**/*" />
             <LocalDeployExcludeFiles Include="../*/_ReSharper*/**/*" />
         </ItemGroup>
+
 		<!-- Apply excluded files filters -->
         <ItemGroup>
             <LocalDeployResourceFilteredFiles Include="@(LocalDeployResourceFiles)" Exclude="@(LocalDeployExcludeFiles)" />
         </ItemGroup>
+		
 		<!-- Copy binaries -->
         <Copy Condition=" '$(LocalDeployIncludeBinaries)' == 'true' " SourceFiles="@(LocalDeployBinaryFiles)" DestinationFolder="$(DnnLocalDeployPath)/bin" SkipUnchangedFiles="true" />
-        <!-- Copy filtered Resource files to tmp/Resources dir -->
-        <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules/R7.MiniGallery/%(RecursiveDir)" SkipUnchangedFiles="true" />
+
+		<!-- Copy filtered Resource files -->
+        <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules/MVC/%(RecursiveDir)" SkipUnchangedFiles="true" />
     </Target>
 </Project>

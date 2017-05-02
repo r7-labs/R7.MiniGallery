@@ -1,0 +1,9 @@
+*.userprefs
+*.min.js
+
+bin/
+obj/
+
+packages/
+node_modules/
+

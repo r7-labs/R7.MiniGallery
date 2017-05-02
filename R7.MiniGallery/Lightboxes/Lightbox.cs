@@ -4,7 +4,7 @@
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2014 
+// Copyright (c) 2014-2017
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,43 +24,52 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DotNetNuke.Framework.JavaScriptLibraries;
 using DotNetNuke.Web.Client.ClientResourceManagement;
+using R7.MiniGallery.Models;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Lightboxes
 {
-	public class Colorbox : LightboxBase
+    public class Lightbox : LightboxBase, ILightbox
 	{
-		public Colorbox (string key): base (LightboxType.ColorBox, key)
+        public Lightbox ()
+        {
+        }
+
+		public Lightbox (string key): base (LightboxType.LightBox, key)
 		{
 		}
-
+		
 		public override void Register (DnnJsInclude includeJs, DnnCssInclude includeCss, Literal literalScript)
 		{
-			includeJs.FilePath = "~/Resources/Shared/components/colorbox/jquery.colorbox-min.js";
-			includeCss.FilePath = "~/Resources/Shared/components/colorbox/example1/colorbox.css";
+			includeJs.FilePath = "~/Resources/Shared/components/lightbox/js/lightbox.min.js";
+			includeCss.FilePath = "~/Resources/Shared/components/lightbox/css/lightbox.css";
 
-			var scriptTemplate = "<script type=\"text/javascript\">" +
-				"$(document).ready(function(){" +
-				"$(\"a[data-colorbox=module_[KEY]]\")" +
-				".colorbox({rel:\"module_[KEY]\",photo:true,maxWidth:\"95%\",maxHeight:\"95%\"});" +
-			    "});</script>";
-
-			literalScript.Text = scriptTemplate.Replace ("[KEY]", Key);
+			// no startup script required for the Lightbox
+			literalScript.Visible = false;
 		}
 
 		public override void ApplyTo (Image image, HyperLink link)
 		{
 			// add attribute to use with selector
-			link.Attributes.Add ("data-colorbox", "module_" + Key);
+			link.Attributes.Add ("data-lightbox", "module_" + Key);
 			
-			// Colorbox displays link title, not image title
-			link.ToolTip = image.ToolTip;
-			
-			// HACK: Colorbox require link URL have file extension or photo=true to load image properly
-			// link.NavigateUrl += "&ext=." + image.File.Extension;
+			if (!string.IsNullOrWhiteSpace (image.ToolTip))
+				link.Attributes.Add ("data-title", image.ToolTip);
 		}
-	}
+
+        public void Register (Page page)
+        {
+            JavaScript.RequestRegistration ("Lightbox2");
+            ClientResourceManager.RegisterScript (page, "~/DesktopModules/MVC/R7.MiniGallery/js/lightbox2.min.js");
+            ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/Lightbox2/02_09_00/css/lightbox.min.css");
+        }
+
+        public string GetLinkAttributes (IImage image, int moduleId)
+        {
+            return $"{{\"data-lightbox\":\"gallery-{moduleId}\",\"data-title\":\"{image.Title}\"}}";
+        }
+    }
 }
