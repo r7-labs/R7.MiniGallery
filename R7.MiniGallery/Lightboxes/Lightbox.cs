@@ -63,6 +63,7 @@ namespace R7.MiniGallery.Lightboxes
         public void Register (Page page)
         {
             JavaScript.RequestRegistration ("Lightbox2");
+            ClientResourceManager.RegisterScript (page, "~/DesktopModules/MVC/R7.MiniGallery/js/lightbox2.min.js");
             ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/Lightbox2/02_09_00/css/lightbox.min.css");
         }
 
