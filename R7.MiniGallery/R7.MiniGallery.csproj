@@ -121,8 +121,6 @@
     <Content Include="css\style-fixed.css" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_LocalResources\ViewMiniGallery.ascx.resx" />
-    <None Include="App_LocalResources\ViewMiniGallery.ascx.ru-RU.resx" />
     <None Include="App_LocalResources\EditMiniGallery.ascx.resx">
       <DeployService-Deploy>True</DeployService-Deploy>
       <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
