@@ -165,11 +165,11 @@ namespace R7.MiniGallery
 				Settings.MaxHeight = Unit.Parse (textMaxHeight.Text);
 
 				// thumb size
-				Settings.ThumbWidth = Utils.TryParseInt32 (textThumbWidth.Text, Null.NullInteger);
-				Settings.ThumbHeight = Utils.TryParseInt32 (textThumbHeight.Text, Null.NullInteger);
+                Settings.ThumbWidth = TypeUtils.ParseToNullable<int> (textThumbWidth.Text) ?? Null.NullInteger;
+                Settings.ThumbHeight = TypeUtils.ParseToNullable<int> (textThumbHeight.Text) ?? Null.NullInteger;
 
 				// number of records
-				Settings.NumberOfRecords = Utils.TryParseInt32 (textNumberOfRecords.Text, Null.NullInteger);
+                Settings.NumberOfRecords = TypeUtils.ParseToNullable<int> (textNumberOfRecords.Text) ?? Null.NullInteger;
 
 				// image handler
 				Settings.UseImageHandler = checkUseImageHandler.Checked;

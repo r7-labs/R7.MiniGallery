@@ -202,7 +202,7 @@ namespace R7.MiniGallery
 					var image = new ImageInfo () {
 						Alt = textAlt.Text,
 						Title = textTitle.Text,
-						SortIndex = Utils.TryParseInt32 (textSortIndex.Text, 1),
+                        SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? 0,
 						ModuleID = ModuleId,
 						Url = urlLink.Url,
 						//ThumbFileID = int.Parse(urlImage.Url.Replace ("FileID=", "")),
@@ -224,7 +224,7 @@ namespace R7.MiniGallery
 					var image = Image;
 					image.Alt = textAlt.Text;
 					image.Title = textTitle.Text;
-					image.SortIndex = Utils.TryParseInt32 (textSortIndex.Text, 10);
+                    image.SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
 					// image.ModuleID = ModuleId;
 					image.Url = urlLink.Url;
 					//image.ThumbFileID = int.Parse (urlImage.Url.Replace ("FileID=", ""));

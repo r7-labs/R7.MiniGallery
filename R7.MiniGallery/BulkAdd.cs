@@ -116,7 +116,7 @@ namespace R7.MiniGallery
                             Alt = string.Empty, // title value should be used for Alt dynamically in the View
 							Title = textTitle.Text,
 							Url = string.Empty,
-							SortIndex = Utils.TryParseInt32 (textSortIndex.Text, 0),
+                            SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? 0,
 							IsPublished = true,
 							ModuleID = ModuleId,
 							CreatedOnDate = now,

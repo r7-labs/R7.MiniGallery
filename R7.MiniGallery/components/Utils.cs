@@ -301,12 +301,6 @@ namespace R7.MiniGallery
 			}
 		}
 
-		public static int TryParseInt32 (string _value, int defValue)
-		{
-			int tmp;
-			return int.TryParse (_value, out tmp) ? tmp : defValue; 
-		}
-
         [Obsolete]
 		public static void DnnFilePickerUploaderHack (DnnFilePickerUploader picker, PortalSettings portalSettings)
 		{
