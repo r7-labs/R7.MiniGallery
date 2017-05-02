@@ -52,7 +52,7 @@
 		},
 		{
 			"taskName": "Re-deploy Assets",
-			"args": ["/p:LocalDeployIncludeBinaries=false", "/p:EnableTests=false", "Packaging/LocalDeploy.targets"]
+			"args": ["/p:LocalDeployIncludeBinaries=false", "/p:EnableTests=false", "Deploy/LocalDeploy.targets"]
 		}
 	]
 }

@@ -6,7 +6,7 @@
     <!-- Main properties -->
     <PropertyGroup>
         <PackageName>R7.MiniGallery</PackageName>
-        <PackageOutputPath>bin/Package</PackageOutputPath>
+        <PackageOutputPath>bin/Deploy</PackageOutputPath>
         <TmpDir>bin/tmp</TmpDir>
         <DnnLocalDeployPath Condition=" '$(OS)' == 'Unix' ">$(HOME)/mnt/dnn8</DnnLocalDeployPath>
         <DnnLocalDeployPath Condition=" '$(OS)' != 'Unix' ">C:\Dotnetnuke804</DnnLocalDeployPath>

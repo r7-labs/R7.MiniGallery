@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE.md = LICENSE.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packaging", "Packaging\Packaging.csproj", "{0497C4E5-75E1-4835-9C35-2B35F84AF212}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deploy", "Deploy\Deploy.csproj", "{0497C4E5-75E1-4835-9C35-2B35F84AF212}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

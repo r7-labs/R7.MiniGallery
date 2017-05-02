@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0497C4E5-75E1-4835-9C35-2B35F84AF212}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Packaging</RootNamespace>
-    <AssemblyName>Packaging</AssemblyName>
+    <RootNamespace>Deploy</RootNamespace>
+    <AssemblyName>Deploy</AssemblyName>
     <ReleaseVersion>1.2.0</ReleaseVersion>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -67,7 +67,7 @@
   <Import Project="InstallPackage.targets" />
   <Target Name="AfterBuild" DependsOnTargets="Tests;LocalDeploy;InstallPackage" Condition=" '$(EnableAfterBuild)' != 'false' " />
   <ItemGroup>
-    <None Include="Packaging.csproj" />
+    <None Include="Deploy.csproj" />
     <None Include="BuildSettings.targets" />
     <None Include="InstallPackage.targets" />
     <None Include="LocalDeploy.targets" />

@@ -59,7 +59,7 @@
         <ItemGroup>
 			<InstallExcludeFiles Include="../packages/**/*" />
 			<InstallExcludeFiles Include="../node_modules/**/*" />
-            <InstallExcludeFiles Include="../Packaging/**/*" />
+            <InstallExcludeFiles Include="../Deploy/**/*" />
             <InstallExcludeFiles Include="../.git/**/*" />
             <InstallExcludeFiles Include="../.svn/**/*" />
             <InstallExcludeFiles Include="../*/bin/**/*" />

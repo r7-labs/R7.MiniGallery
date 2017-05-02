@@ -45,7 +45,7 @@
         <ItemGroup>
             <LocalDeployExcludeFiles Include="../packages/**/*" />
 			<LocalDeployExcludeFiles Include="../node_modules/**/*" />
-            <LocalDeployExcludeFiles Include="../Packaging/**/*" />
+            <LocalDeployExcludeFiles Include="../Deploy/**/*" />
             <LocalDeployExcludeFiles Include="../.git/**/*" />
             <LocalDeployExcludeFiles Include="../.svn/**/*" />
             <LocalDeployExcludeFiles Include="../*/bin/**/*" />
