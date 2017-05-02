@@ -96,6 +96,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Lightboxes\" />
+    <Folder Include="css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
@@ -116,6 +117,8 @@
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="css\style-auto.css" />
+    <Content Include="css\style-fixed.css" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_LocalResources\ViewMiniGallery.ascx.resx" />

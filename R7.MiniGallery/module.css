@@ -1,76 +1,14 @@
-/* important to right footer positioning */
-/* .ModMiniGallery2C { display:block } */
-
-/* Default Style Sets */
-
-.MG_Auto.MG_List,
-.MG_Fixed.MG_List
-{
-	display:block;
-	width:100%;
-	overflow:auto;
-	overflow-x:hidden;
-	overflow-y:auto;
-}
-
-.MG_Auto .MG_Item, 
-.MG_Auto .MG_AltItem
-{	
-	float:left;
-	display:inline-block;
-	margin:2px;
-	text-align:center;
-	position:relative; /* for edit label positioning */
-}
-
-.MG_Fixed .MG_Item, 
-.MG_Fixed .MG_AltItem
-{	
-	float:left;
-	display:inline-block;
-	margin-top:4px;
-	margin-left:4px;
-	text-align:center;
-	position:relative; /* for edit label positioning */
-}
-
-.MG_Fixed .MG_ColumnStart { margin-top:0 }
-.MG_Fixed .MG_RowStart { margin-left:0 }
-
-.MG_Auto .MG_Image,
-.MG_Fixed .MG_Image {}
-
-.MG_Auto .MG_Title,
-.MG_Fixed .MG_Title
-{
-	/* TITLE HACK */
-	/* height:40px; */
-	white-space:pre-wrap;
-	/* END HACK */
-	display:block;
-	font-size:10px;
-	font-style:italic;
-	background-color:#ccc;
-	text-align:center;
-}
-
-.MG_Auto .MG_Edit,
-.MG_Fixed .MG_Edit
-{
+.MG_List .MG_Edit {
 	position:absolute;
 	z-index:10;
-	padding:4px;
+	padding:4px
 }
 
-.MG_Auto .MG_NotPublished,
-.MG_Fixed .MG_NotPublished { opacity:0.3 }
-
-.MG_Auto .MG_NotPublished:hover,
-.MG_Fixed .MG_NotPublished:hover { opacity:1 }
-
-/* remove right and left margins */
-.MG_Fixed .MG_ExpandColumns
-{ 
-    margin-right:0;
-    margin-left:0
+.MG_List .MG_Item,
+.MG_List .MG_AltItem {
+    position:relative
 }
+
+.MG_List .MG_NotPublished { opacity:0.3 }
+
+.MG_List .MG_NotPublished:hover { opacity:1 }

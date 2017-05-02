@@ -20,6 +20,7 @@
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/minigallery.min.js");
     Model.Lightbox.Register (Dnn.DnnPage);
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/module-loader.min.js");
+    ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/css/style-" + Model.Settings.StyleSet.ToLowerInvariant () + ".css");
 
     if (Model.Images.Count == 0) {
         if (!Dnn.ModuleContext.IsEditable) {

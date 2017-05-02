@@ -1,0 +1,25 @@
+﻿.MG_List.MG_Fixed {
+    display:block;
+    width:100%;
+    overflow:auto;
+    overflow-x:hidden;
+    overflow-y:auto
+}
+
+.MG_Fixed .MG_Item, 
+.MG_Fixed .MG_AltItem {
+    float:left;
+    display:inline-block;
+    margin-top:4px;
+    margin-left:4px;
+    text-align:center
+}
+
+.MG_Fixed .MG_ColumnStart { margin-top:0 }
+.MG_Fixed .MG_RowStart { margin-left:0 }
+
+/* remove right and left margins */
+.MG_Fixed .MG_ExpandColumns {
+    margin-right:0;
+    margin-left:0
+}
