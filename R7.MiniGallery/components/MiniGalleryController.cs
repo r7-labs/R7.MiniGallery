@@ -29,6 +29,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Search.Entities;
+using R7.DotNetNuke.Extensions.Utilities;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
 
@@ -61,7 +62,7 @@ namespace R7.MiniGallery
                             AuthorUserId = image.LastModifiedByUserID,
                             Title = imageTitle,
                             // Description = HtmlUtils.Shorten (image.Description, 255, "..."),
-                            Body = Utils.FormatList (" ", image.Alt, image.Title),
+                            Body = TextUtils.FormatList (" ", image.Alt, image.Title),
                             ModifiedTimeUtc = image.LastModifiedOnDate.ToUniversalTime (),
                             UniqueKey = string.Format ("MiniGallery_Image_{0}", image.ImageID),
                             Url = string.Format ("/Default.aspx?tabid={0}#{1}", modInfo.TabID, modInfo.ModuleID),

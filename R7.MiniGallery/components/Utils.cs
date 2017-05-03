@@ -24,10 +24,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System.Text;
 using System.Text.RegularExpressions;
 using DotNetNuke.Common;
-using DotNetNuke.Entities.Modules;
 using DotNetNuke.UI.Modules;
 
 namespace R7.MiniGallery
@@ -39,31 +37,6 @@ namespace R7.MiniGallery
             return Globals.LinkClick
                 (link, module.ModuleContext.TabId, module.ModuleContext.ModuleId, trackClicks);
         }
-
-		/// <summary>
-		/// Formats the list of arguments, excluding empty
-		/// </summary>
-		/// <returns>Formatted list.</returns>
-		/// <param name="separator">Separator.</param>
-		/// <param name="args">Arguments.</param>
-		public static string FormatList (string separator, params object[] args)
-		{
-			var sb = new StringBuilder (args.Length);
-
-			var i = 0;
-			foreach (var a in args)
-			{
-				if (!string.IsNullOrWhiteSpace (a.ToString ()))
-				{
-					if (i++ > 0)
-						sb.Append (separator);
-
-					sb.Append (a);
-				}
-			}
-
-			return sb.ToString ();
-		}
 
         public static int ExtractInt32 (string text, int defaultValue = default (int))
         {
