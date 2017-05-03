@@ -163,7 +163,6 @@
       <DependentUpon>BulkAdd.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="components\Utils.cs" />
     <Compile Include="components\MiniGallerySettingsRepository.cs" />
     <Compile Include="Data\MiniGalleryDataProvider.cs" />
     <Compile Include="Models\MiniGallerySettings.cs" />

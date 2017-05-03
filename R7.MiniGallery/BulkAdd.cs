@@ -27,6 +27,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Entities.Modules;
@@ -184,7 +185,7 @@ namespace R7.MiniGallery
 			hiddenImageFileID.Value = file.FileId.ToString ();
 
             // set default sort index as first number in a filename, multiplied by 10
-            textSortIndex.Text = (Utils.ExtractInt32 (Path.GetFileNameWithoutExtension (file.FileName)) * 10).ToString ();
+            textSortIndex.Text = (ExtractInt32 (Path.GetFileNameWithoutExtension (file.FileName)) * 10).ToString ();
 		}
 
 		protected void buttonChecks_Click (object sender, EventArgs e)
@@ -213,6 +214,17 @@ namespace R7.MiniGallery
 
 		#endregion
 	
+        private int ExtractInt32 (string text, int defaultValue = default (int))
+        {
+            var matches = Regex.Matches (text, @"\d+");
+            if (matches != null && matches.Count > 0) {
+                int result;
+                if (int.TryParse (matches [0].Value, out result))
+                    return result;
+            }
+
+            return defaultValue;
+        }
 	}
 }
 
