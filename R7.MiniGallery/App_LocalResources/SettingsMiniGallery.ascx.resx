@@ -97,13 +97,13 @@
     <value>Image Width</value>
   </data>
     <data name="labelImageWidth.Help" xml:space="preserve">
-    <value>Specify width of the displayed image in any CSS units, except percents (%). If not set, thumbnail width or original image width will be used.</value>
+    <value>Specify width of the displayed image in any CSS units. If not set, thumbnail width or original image width will be used.</value>
   </data>
     <data name="labelImageHeight.Text" xml:space="preserve">
     <value>Image Height</value>
   </data>
     <data name="labelImageHeight.Help" xml:space="preserve">
-    <value>Specify height of the displayed image in any CSS units, except percents (%). If not set, thumbnail height or original image height will be used.</value>
+    <value>Specify height of the displayed image in any CSS units. If not set, thumbnail height or original image height will be used.</value>
   </data>
     <data name="labelThumbWidth.Text" xml:space="preserve">
     <value>Thumb Width (px)</value>
