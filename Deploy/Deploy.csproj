@@ -71,10 +71,10 @@
     <None Include="BuildSettings.targets" />
     <None Include="InstallPackage.targets" />
     <None Include="LocalDeploy.targets" />
-    <None Include="packages.config" />
     <None Include="BuildDefaults.targets" />
     <None Include="Tests.targets" />
     <None Include="Preprocess.targets" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dummy.cs" />
