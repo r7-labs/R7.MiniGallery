@@ -32,11 +32,11 @@ using R7.MiniGallery.Models;
 
 namespace R7.MiniGallery.ViewModels
 {
-    public class ImageViewModel: IImage
+    public class ImageViewModel : IImage
     {
         protected IImage Model;
 
-        protected ModuleInstanceContext  ModuleContext;
+        protected ModuleInstanceContext ModuleContext;
 
         protected MiniGallerySettings Settings;
 
@@ -53,7 +53,7 @@ namespace R7.MiniGallery.ViewModels
         #region IImage implementation
 
         public string Alt {
-            get { return !string.IsNullOrEmpty (Model.Alt)? Model.Alt : Model.Title; }
+            get { return GetAlt (); }
             set { throw new NotImplementedException (); }
         }
 
@@ -205,15 +205,12 @@ namespace R7.MiniGallery.ViewModels
                         // If both ThumbWidth & ThumbHeight are not null, produced image dimensions are determined
                         // also by ResizeMode image handler param. Default is "Fit" - so, by example, if produced
                         // images have same width, height may vary, and vice versa.
-                    }
-                    else if (!Null.IsNull (Settings.ThumbWidth)) {
+                    } else if (!Null.IsNull (Settings.ThumbWidth)) {
                         style.Width = Unit.Pixel (Settings.ThumbWidth).ToString ();
-                    }
-                    else if (!Null.IsNull (Settings.ThumbHeight)) {
+                    } else if (!Null.IsNull (Settings.ThumbHeight)) {
                         style.Height = Unit.Pixel (Settings.ThumbHeight).ToString ();
                     }
-                }
-                else {
+                } else {
                     if (!Settings.ImageWidth.IsEmpty)
                         style.Width = Settings.ImageWidth.ToString ();
 
@@ -225,11 +222,33 @@ namespace R7.MiniGallery.ViewModels
             }
         }
 
-        public JRaw LinkAttributes
-        {
+        public JRaw LinkAttributes {
             get {
                 return new JRaw (Lightbox.GetLinkAttributes (Model, ModuleContext.ModuleId));
             }
+        }
+
+        protected string GetAlt ()
+        {
+            if (!string.IsNullOrEmpty (Model.Alt)) {
+                return Model.Alt;
+            }
+
+            if (!string.IsNullOrEmpty (Model.Title)) {
+                return Model.Title;
+            }
+
+            var moduleTitle = ModuleContext.Configuration.ModuleTitle;
+            if (!string.IsNullOrEmpty (moduleTitle) && moduleTitle != "R7.MiniGallery") {
+                return ModuleContext.Configuration.ModuleTitle;
+            }
+
+            var activeTab = PortalSettings.Current.ActiveTab;
+            if (!string.IsNullOrEmpty (activeTab.Title)) {
+                return activeTab.Title;
+            }
+
+            return string.Empty;
         }
     }
 
