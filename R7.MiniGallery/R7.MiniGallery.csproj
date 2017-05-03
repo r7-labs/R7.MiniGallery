@@ -129,7 +129,6 @@
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
     <None Include="Models\ImageToAdd.cs" />
-    <None Include="Tasks.cs" />
     <None Include="App_LocalResources\BulkAdd.ascx.ru-RU.resx" />
     <None Include="R7.MiniGallery.dnn" />
     <None Include="App_LocalResources\Image.resx" />
