@@ -61,7 +61,6 @@ namespace R7.MiniGallery
                             PortalId = modInfo.PortalID,
                             AuthorUserId = image.LastModifiedByUserID,
                             Title = imageTitle,
-                            // Description = HtmlUtils.Shorten (image.Description, 255, "..."),
                             Body = TextUtils.FormatList (" ", image.Alt, image.Title),
                             ModifiedTimeUtc = image.LastModifiedOnDate.ToUniversalTime (),
                             UniqueKey = string.Format ("MiniGallery_Image_{0}", image.ImageID),

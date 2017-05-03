@@ -50,31 +50,19 @@ namespace R7.MiniGallery
 			{
 				if (_image == null)
 				{
-					//if (!IsPostBack)
-					{
-						// parse querystring parameters on first
-						int imageId;
-						if (int.TryParse (Request.QueryString ["ImageID"], out imageId))
-						{	
-                            _image = new MiniGalleryDataProvider ().Get<ImageInfo> (imageId, ModuleId);
-							/*if (_image != null)
-								ViewState["Image"] = _image;*/
-						}
+					// parse querystring parameters on first
+					int imageId;
+					if (int.TryParse (Request.QueryString ["ImageID"], out imageId))
+					{	
+                        _image = new MiniGalleryDataProvider ().Get<ImageInfo> (imageId, ModuleId);
 					}
-					/*else
-					{
-						// it's a postback, so image must be in a viewstate
-						if (ViewState["Image"] != null)
-							_image = (ImageInfo)ViewState["Image"];
-					}*/
-
+					
 				}
 				return _image;
 			}
 			set
 			{
 				_image = value;
-				//ViewState["Image"] = _image;
 			}
 
 		}
@@ -125,20 +113,6 @@ namespace R7.MiniGallery
 						textSortIndex.Text = Image.SortIndex.ToString ();
 						checkIsPublished.Checked = Image.IsPublished;
 
-						/*
-						 * //labelTest.Text = PortalSettings.HomeDirectoryMapPath + FileManager.Instance.GetFile(Image.ThumbFileID).Folder;
-						pickerImage.FolderPath = 
-							PortalSettings.HomeDirectoryMapPath + 
-							FileManager.Instance.GetFile(Image.ThumbFileID).Folder;
-
-
-						labelTest.Text = pickerImage.FilePath = 
-							PortalSettings.HomeDirectoryMapPath + 
-								FileManager.Instance.GetFile(Image.ThumbFileID).Folder +
-								FileManager.Instance.GetFile(Image.ThumbFileID).FileName;
-
-						pickerImage.FileID = Image.ThumbFileID;
-						*/
 						urlLink.Url = Image.Url;
 
                         pickerImage.FileID = Image.ImageFileID;
@@ -152,8 +126,6 @@ namespace R7.MiniGallery
 						Image.LastModifiedOnDate.ToLongTimeString ();
 						ctlAudit.CreatedByUser = Image.CreatedByUserName;
 						ctlAudit.LastModifiedByUser = Image.LastModifiedByUserName;
-
-						// UpdatePreview ();
 					}
 					else if (Request.QueryString ["ImageID"] != null)
 					{
@@ -165,8 +137,6 @@ namespace R7.MiniGallery
 						// new image
 						buttonDelete.Visible = false;
 						ctlAudit.Visible = false;
-
-						// UpdatePreview ();
 					}				
 				}
 			}
@@ -195,8 +165,7 @@ namespace R7.MiniGallery
 				// ALT: if (Null.IsNull (itemId))
 				if (Image == null)
 				{
-					// populate new object properties with data from controls 
-					// to add new record
+					// populate new object properties with data from controls to add new record
 
 					var now = DateTime.Now;
 
@@ -206,7 +175,6 @@ namespace R7.MiniGallery
                         SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? 0,
 						ModuleID = ModuleId,
 						Url = urlLink.Url,
-						//ThumbFileID = int.Parse(urlImage.Url.Replace ("FileID=", "")),
 						ImageFileID = pickerImage.FileID,
 						CreatedOnDate = now,
 						LastModifiedOnDate = now,
@@ -226,9 +194,7 @@ namespace R7.MiniGallery
 					image.Alt = textAlt.Text;
 					image.Title = textTitle.Text;
                     image.SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
-					// image.ModuleID = ModuleId;
 					image.Url = urlLink.Url;
-					//image.ThumbFileID = int.Parse (urlImage.Url.Replace ("FileID=", ""));
 					image.ImageFileID = pickerImage.FileID;
 					image.LastModifiedOnDate = DateTime.Now;
 					image.LastModifiedByUserID = UserId;
@@ -247,28 +213,6 @@ namespace R7.MiniGallery
 				Exceptions.ProcessModuleLoadException (this, ex);
 			}
 		}
-
-		/*
-		/// <summary>
-		/// Handles Click event for cmdCancel button
-		/// </summary>
-		/// <param name='sender'>
-		/// Sender.
-		/// </param>
-		/// <param name='e'>
-		/// Event args.
-		/// </param>
-		protected void cmdCancel_Click (object sender, EventArgs e)
-		{
-			try 
-			{
-				Response.Redirect (Globals.NavigateURL (), true);
-			} 
-			catch (Exception ex) 
-			{
-				Exceptions.ProcessModuleLoadException (this, ex);
-			}
-		}*/
 
 		/// <summary>
 		/// Handles Click event for cmdDelete button
@@ -299,20 +243,6 @@ namespace R7.MiniGallery
 			}
 		}
 
-		/*
-		protected void buttonUpdatePreview_Click(object sender, EventArgs e)
-		{
-			UpdatePreview ();
-		}
-
-		private void UpdatePreview()
-		{
-			bool showImage =  !string.IsNullOrWhiteSpace(urlImage.Url);
-			imagePreview.ImageUrl = (showImage)? Utils.FormatURL (this, urlImage.Url, false) : string.Empty;
-		}*/
-
 		#endregion
-	
 	}
 }
-
