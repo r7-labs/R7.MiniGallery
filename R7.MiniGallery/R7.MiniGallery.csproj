@@ -104,7 +104,6 @@
     <Content Include="BulkAdd.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
-    <Content Include="admin.css" />
     <Content Include="releaseNotes.htm" />
     <Content Include="license.htm" />
     <Content Include="packages.config" />
@@ -115,6 +114,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="css\style-auto.css" />
     <Content Include="css\style-fixed.css" />
+    <Content Include="css\admin.css" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_LocalResources\EditMiniGallery.ascx.resx">
