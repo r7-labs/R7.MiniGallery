@@ -65,17 +65,6 @@ namespace R7.MiniGallery
 			return sb.ToString ();
 		}
 
-		public static void SynchronizeModule (IModuleControl module)
-		{
-			ModuleController.SynchronizeModule (module.ModuleContext.ModuleId);
-
-			// NOTE: update module cache (temporary fix before 7.2.0)?
-			// more info: https://github.com/dnnsoftware/Dnn.Platform/pull/21
-			var moduleController = new ModuleController ();
-			moduleController.ClearCache (module.ModuleContext.TabId);
-
-		}
-
         public static int ExtractInt32 (string text, int defaultValue = default (int))
         {
             var matches = Regex.Matches (text, @"\d+");
