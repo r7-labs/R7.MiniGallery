@@ -14,12 +14,12 @@
 
     render() {
         return (
-            <span className={(this.props.index % 2 === 0)? "MG_Item" : "MG_AltItem"}>
+            <li className={(this.props.index % 2 === 0)? "MG_Item" : "MG_AltItem"} style={this.props.itemStyle}>
                 {this.renderEditLink()}
                 <a href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="MG_Link" {...this.props.linkAttrs}>
                     <img src={this.props.thumbnailUrl} alt={this.props.alt} style={this.props.style} className={"MG_Image" + this.props.cssClass} />
                 </a>
-            </span>
+            </li>
         );
     }
 }
@@ -27,7 +27,7 @@
 class MiniGallery extends React.Component {
     render() {
         return (
-            <div className={"MG_List MG_" + this.props.styleSet}>
+            <ul className={"MG_List MG_" + this.props.styleSet}>
                 {this.props.images.map((img, index) => <MiniGalleryImage
                     navigateUrl={img.navigateUrl}
                     thumbnailUrl={img.thumbnailUrl}
@@ -40,9 +40,10 @@ class MiniGallery extends React.Component {
                     linkAttrs={img.linkAttributes}
                     editIcon={this.props.editIcon}
                     isEditable={this.props.isEditable}
+                    itemStyle={img.itemStyle}
                     index={index}
                     />)}
-            </div>
+            </ul>
         );
     }
 }

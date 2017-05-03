@@ -29,6 +29,7 @@ using DotNetNuke.UI.Modules;
 using Newtonsoft.Json.Linq;
 using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
+using System.Net.Configuration;
 
 namespace R7.MiniGallery.ViewModels
 {
@@ -225,6 +226,16 @@ namespace R7.MiniGallery.ViewModels
         public JRaw LinkAttributes {
             get {
                 return new JRaw (Lightbox.GetLinkAttributes (Model, ModuleContext.ModuleId));
+            }
+        }
+
+        public JRaw ItemStyle {
+            get {
+                if (Settings.Columns > 0) {
+                    var colWidth = Math.Round (100m / Settings.Columns, 2);
+                    return new JRaw ($"{{\"width\":\"{colWidth}%\"}}");
+                }
+                return new JRaw ("{}");
             }
         }
 

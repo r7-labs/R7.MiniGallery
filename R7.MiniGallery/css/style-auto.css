@@ -1,6 +1,4 @@
 ﻿.MG_List.MG_Auto {
-    display:block;
-    width:100%;
     overflow:auto;
     overflow-x:hidden;
     overflow-y:auto
@@ -8,8 +6,10 @@
 
 .MG_Auto .MG_Item, 
 .MG_Auto .MG_AltItem {
-    float:left;
     display:inline-block;
-    margin:2px;
     text-align:center
+}
+
+.MG_Auto .MG_Image {
+    margin:2px
 }

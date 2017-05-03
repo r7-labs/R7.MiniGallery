@@ -1,6 +1,4 @@
 ﻿.MG_List.MG_Fixed {
-    display:block;
-    width:100%;
     overflow:auto;
     overflow-x:hidden;
     overflow-y:auto
@@ -8,11 +6,13 @@
 
 .MG_Fixed .MG_Item, 
 .MG_Fixed .MG_AltItem {
-    float:left;
     display:inline-block;
-    margin-top:4px;
-    margin-left:4px;
     text-align:center
+}
+
+.MG_Fixed .MG_Image {
+    margin-top:4px;
+    margin-left:4px
 }
 
 .MG_Fixed .MG_ColumnStart { margin-top:0 }

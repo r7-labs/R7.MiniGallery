@@ -1,3 +1,17 @@
+ul.MG_List {
+    list-style:none
+}
+
+ul.MG_List > li {
+    list-item-style:none
+}
+
+.MG_List {
+    display:block;
+    width:100%;
+    margin:0
+}
+
 .MG_List .MG_Edit {
 	position:absolute;
 	z-index:10;
