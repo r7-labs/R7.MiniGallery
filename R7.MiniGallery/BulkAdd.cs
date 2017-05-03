@@ -179,7 +179,7 @@ namespace R7.MiniGallery
             textTitle.ToolTip = LocalizeString ("textTitle.ToolTip");
             textSortIndex.ToolTip = LocalizeString ("textSortIndex.ToolTip");
 
-			imageImage.ImageUrl = Utils.FormatURL(this, "FileID=" + file.FileId, false);
+            imageImage.ImageUrl = Globals.LinkClick ("FileID=" + file.FileId, TabId, ModuleId, false);
 			checkIsIncluded.Text = file.FileName;
 			hiddenImageFileID.Value = file.FileId.ToString ();
 

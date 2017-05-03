@@ -25,19 +25,11 @@
 // THE SOFTWARE.
 
 using System.Text.RegularExpressions;
-using DotNetNuke.Common;
-using DotNetNuke.UI.Modules;
 
 namespace R7.MiniGallery
 {
     public class Utils
 	{
-        public static string FormatURL (IModuleControl module, string link, bool trackClicks)
-        {
-            return Globals.LinkClick
-                (link, module.ModuleContext.TabId, module.ModuleContext.ModuleId, trackClicks);
-        }
-
         public static int ExtractInt32 (string text, int defaultValue = default (int))
         {
             var matches = Regex.Matches (text, @"\d+");
