@@ -66,9 +66,6 @@
     <Reference Include="DotNetNuke.Web.Client">
       <HintPath>..\packages\DotNetNuke.Web.Client.8.0.4.226\lib\net40\DotNetNuke.Web.Client.dll</HintPath>
     </Reference>
-    <Reference Include="ClientDependency.Core">
-      <HintPath>lib\ClientDependency.Core.dll</HintPath>
-    </Reference>
     <Reference Include="R7.DotNetNuke.Extensions">
       <HintPath>..\packages\R7.DotNetNuke.Extensions.0.10.0\lib\net45\R7.DotNetNuke.Extensions.dll</HintPath>
     </Reference>
@@ -136,7 +133,6 @@
     <None Include="Tasks.cs" />
     <None Include="App_LocalResources\BulkAdd.ascx.ru-RU.resx" />
     <None Include="R7.MiniGallery.dnn" />
-    <None Include="lib\ClientDependency.Core.dll" />
     <None Include="App_LocalResources\Image.resx" />
     <None Include="App_LocalResources\Image.ru-RU.resx" />
     <None Include="js\minigallery.jsx" />
