@@ -104,7 +104,6 @@
     <Content Include="BulkAdd.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
-    <Content Include="js\dummy.js" />
     <Content Include="admin.css" />
     <Content Include="releaseNotes.htm" />
     <Content Include="license.htm" />
