@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-<dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/R7.MiniGallery/R7.MiniGallery/css/admin.css" Priority="200" />
+<dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/MVC/R7.MiniGallery/css/admin.css" Priority="200" />
 <div class="dnnForm dnnClear MG_BulkAdd">
 	<fieldset>
 		<div class="dnnFormItem">
