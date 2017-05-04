@@ -24,6 +24,8 @@ using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using R7.MiniGallery.Models;
+using DotNetNuke.Entities.Modules;
+using R7.DotNetNuke.Extensions.Utilities;
 
 namespace R7.MiniGallery.Controllers
 {
@@ -34,11 +36,17 @@ namespace R7.MiniGallery.Controllers
     [DnnHandleError]
     public class SettingsController : DnnController
     {
+        protected MiniGallerySettingsRepository SettingsRepository;
+        
+        public SettingsController ()
+        {
+            SettingsRepository = new MiniGallerySettingsRepository ();
+        }
+
         [HttpGet]
         public ActionResult Index ()
         {
-            var settings = new MiniGallerySettings ();
-            // TODO: Load settings
+            var settings = SettingsRepository.GetSettings (ActiveModule);
             return View (settings);
         }
 
@@ -47,7 +55,10 @@ namespace R7.MiniGallery.Controllers
         [global::DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryToken]
         public ActionResult Index (MiniGallerySettings settings)
         {
-            // TODO: Update settings
+            SettingsRepository.SaveSettings (ActiveModule, settings);
+            CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
+            ModuleController.SynchronizeModule (ModuleContext.ModuleId);
+
             return RedirectToDefaultRoute ();
         }
     }

@@ -1,10 +1,71 @@
-﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<R7.MiniGallery.Models.MiniGallerySettings>
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<MiniGallerySettings>
 
 @using DotNetNuke.Web.Mvc.Helpers
+@using DotNetNuke.Web.Client.ClientResourceManagement
+@using R7.MiniGallery.Models
 
-<div class="minigallery-settings">
+@{
+    ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/css/admin.css", 200);
+}
+
+<div class="dnnForm dnnClear MG_Settings">
+	<h2 class="dnnFormSectionHead"><a href="#">@(Dnn.LocalizeString ("sectionBaseSettings.Text"))</a></h2>
     <fieldset>
         <div class="dnnFormItem">
+			@Dnn.LabelFor(m => m.StyleSet, Dnn.LocalizeString("StyleSet.Text"), Dnn.LocalizeString("StyleSet.Help"))
+			@Html.TextBoxFor(m => m.StyleSet)
         </div>
-    </fieldset>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.ImageWidth, Dnn.LocalizeString("ImageWidth.Text"), Dnn.LocalizeString("ImageWidth.Help"))
+            @Html.TextBoxFor(m => m.ImageWidth)
+        </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.ImageHeight, Dnn.LocalizeString("ImageHeight.Text"), Dnn.LocalizeString("ImageHeight.Help"))
+            @Html.TextBoxFor(m => m.ImageHeight)
+        </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.Target, Dnn.LocalizeString("Target.Text"), Dnn.LocalizeString("Target.Help"))
+            @Html.TextBoxFor(m => m.Target)
+        </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.LightboxType, Dnn.LocalizeString("LightboxType.Text"), Dnn.LocalizeString("LightboxType.Help"))
+            @Html.TextBoxFor(m => m.LightboxType)
+        </div>
+		<div class="dnnFormItem">
+			@Dnn.LabelFor(m => m.Columns, Dnn.LocalizeString("Columns.Text"), Dnn.LocalizeString("Columns.Help"))
+            @Html.TextBoxFor(m => m.Columns)
+        </div>
+		<div class="dnnFormItem">
+			@Dnn.LabelFor(m => m.NumberOfRecords, Dnn.LocalizeString("NumberOfRecords.Text"), Dnn.LocalizeString("NumberOfRecords.Help"))
+            @Html.TextBoxFor(m => m.NumberOfRecords)
+        </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.SortAscending, Dnn.LocalizeString("SortOrder.Text"), Dnn.LocalizeString("SortOrder.Help"))
+            @Html.CheckBoxFor(m => m.SortAscending)
+        </div>
+	</fieldset>
+	<h2 class="dnnFormSectionHead"><a href="#">@Dnn.LocalizeString("ImageHandler.Section")</a></h2>
+    <fieldset>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.UseImageHandler, Dnn.LocalizeString("UseImageHandler.Text"), Dnn.LocalizeString("UseImageHandler.Help"))
+            @Html.CheckBoxFor(m => m.UseImageHandler)
+        </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.ImageHandlerParams, Dnn.LocalizeString("ImageHandlerParams.Text"), Dnn.LocalizeString("ImageHandlerParams.Help"))
+            @Html.TextBoxFor(m => m.ImageHandlerParams)
+        </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.ThumbWidth, Dnn.LocalizeString("ThumbWidth.Text"), Dnn.LocalizeString("ThumbWidth.Help"))
+            @Html.TextBoxFor(m => m.ThumbWidth)
+        </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.ThumbHeight, Dnn.LocalizeString("ThumbHeight.Text"), Dnn.LocalizeString("ThumbHeight.Help"))
+            @Html.TextBoxFor(m => m.ThumbHeight)
+        </div>
+	</fieldset>
+	<h2 class="dnnFormSectionHead"><a href="#">@Dnn.LocalizeString("HeaderAndFooter.Section")</a></h2>
+	<fieldset>
+        <div class="dnnFormItem">
+		</div>	
+	</fieldset>
 </div>

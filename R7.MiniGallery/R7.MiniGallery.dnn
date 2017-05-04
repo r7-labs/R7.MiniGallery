@@ -59,7 +59,7 @@
                  </moduleControl>
                  <moduleControl>
                    <controlKey>Settings</controlKey>
-                   <controlSrc>DesktopModules/MVC/R7.MiniGallery/SettingsMiniGallery.ascx</controlSrc>
+                   <controlSrc>R7.MiniGallery.Controllers/Settings/Index.mvc</controlSrc>
                    <supportsPartialRendering>False</supportsPartialRendering>
                    <controlTitle>Settings</controlTitle>
                    <controlType>Edit</controlType>

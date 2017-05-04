@@ -159,6 +159,11 @@ namespace R7.MiniGallery.Models
         /// <value>The sort order.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
         public string SortOrder { get; set; } = "SortIndex";
-	}
+
+        public bool SortAscending {
+            get { return SortOrder == "SortIndex"; }
+            set { SortOrder = value ? "SortIndex" : "-SortIndex"; }
+        }
+    }
 }
 

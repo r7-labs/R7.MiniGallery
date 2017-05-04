@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <data name="ControlTitle_settings.Text" xml:space="preserve">
+    <value>Настройки R7.MiniGallery</value>
+  </data>
+    <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>О настройках R7.MiniGallery</value>
+  </data>
+    <data name="StyleSet.Text" xml:space="preserve">
+    <value>Набор стилей</value>
+  </data>
+    <data name="StyleSet.Help" xml:space="preserve">
+    <value>Имя набора стилей элементов галереи</value>
+  </data>
+    <data name="MaxHeight.Text" xml:space="preserve">
+    <value>Высота списка</value>
+  </data>
+    <data name="MaxHeight.Help" xml:space="preserve">
+    <value>Максимальная высота списка изображений в единицах CSS. Используется для включения вертикальной полосы (оставьте пустым, чтобы отключить).</value>
+  </data>
+    <data name="Target.Text" xml:space="preserve">
+    <value>Цель ссылки</value>
+  </data>
+    <data name="Target.Help" xml:space="preserve">
+    <value>Устанавливает цель для ссылки (имя фрейма). Значение не имеет смысла в случае, если используется модуль Lightbox, но может быть полезно без него.</value>
+  </data>
+    <data name="UseLightbox.Text" xml:space="preserve">
+    <value>Использовать Lightbox</value>
+  </data>
+    <data name="UseLightbox.Help" xml:space="preserve">
+    <value>Отметьте, чтобы использовать модуль просмотрщика изображений или галереи jQuery по типу Lightbox.</value>
+  </data>
+    <data name="UseScrollbar.Text" xml:space="preserve">
+    <value>Полоса прокрутки jQuery</value>
+  </data>
+    <data name="UseScrollbar.Help" xml:space="preserve">
+    <value>Отметьте, чтобы использовать модуль полосы прокрутки jQuery.</value>
+  </data>
+    <data name="UseImageHandler.Text" xml:space="preserve">
+    <value>Использовать генератор миниатюр</value>
+  </data>
+    <data name="UseImageHandler.Help" xml:space="preserve">
+    <value>Отметьте, чтобы использовать внешний генератор миниатюр (в настоящее время поддерживается только R7.ImageHandler).</value>
+  </data>
+    <data name="ImageHandlerParams.Text" xml:space="preserve">
+    <value>Параметры генератора миниатюр</value>
+  </data>
+    <data name="ImageHandlerParams.Help" xml:space="preserve">
+    <value>Добавьте строку параметров URL для дополнения URL генератора миниатюр в формате имя=значение, или оставьте пустым для использования параметров по умолчанию. Поддерживаются метки: {fileticket}, {fileid}, {width}, {height}.</value>
+  </data>
+    <data name="ShowTitles.Text" xml:space="preserve">
+    <value>Показывать заголовки</value>
+  </data>
+    <data name="ShowTitles.Help" xml:space="preserve">
+    <value>Отметьте, чтобы отобразить заголовки изображений.</value>
+  </data>
+    <data name="Expand.Text" xml:space="preserve">
+    <value>Расширить колонки</value>
+  </data>
+    <data name="Expand.Help" xml:space="preserve">
+    <value>Если отмечено, ширина каждой колонки будет расчитана примерно как 100% / количество колонок. Эта настройка работает только в том случае, если количество колонок указано явно (не авто).</value>
+  </data>
+    <data name="Header.Text" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+    <data name="Header.Help" xml:space="preserve">
+    <value>Введите код HTML для размещения перед (выше) списка изображений. Эта настройка может заменять значение Заголовка модуля на вкладке Настройки модуля / Расширенные.</value>
+  </data>
+    <data name="Footer.Text" xml:space="preserve">
+    <value>Подвал</value>
+  </data>
+    <data name="Footer.Help" xml:space="preserve">
+    <value>Введите код HTML для размещения после (ниже) списка изображений. Эта настройка может заменять значение Подвала модуля на вкладке Настройки модуля / Расширенные.</value>
+  </data>
+    <data name="labelReplaceHeaderAndFooter.Text" xml:space="preserve">
+    <value>Заменить заголовок и подвал</value>
+  </data>
+    <data name="labelReplaceHeaderAndFooter.Help" xml:space="preserve">
+    <value>Отметьте, чтобы заменить значения Заголовка и Подвала модуля, заданные на вкладке Настройки модуля / Расширенные, значениями из расположенных выше редакторов текста.</value>
+  </data>
+    <data name="sectionBaseSettings.Text" xml:space="preserve">
+    <value>Настройки R7.MiniGallery</value>
+  </data>
+    <data name="HeaderAndFooter.Section" xml:space="preserve">
+    <value>Заголовок и подвал</value>
+  </data>
+    <data name="ImageHandler.Section" xml:space="preserve">
+    <value>Настройки генератора миниатюр</value>
+  </data>
+    <data name="Columns.Text" xml:space="preserve">
+    <value>Число колонок</value>
+  </data>
+    <data name="Columns.Help" xml:space="preserve">
+    <value>Устанавливает количество колонок в списке изображений. Если установлено значение 0, изображения будут пытаться занять все доступное пространство.</value>
+  </data>
+    <data name="ImageWidth.Text" xml:space="preserve">
+    <value>Ширина изображения</value>
+  </data>
+    <data name="ImageWidth.Help" xml:space="preserve">
+    <value>Укажите ширину изображения в любых единицах CSS. Если это значение не задано, будет использоваться ширина миниатюры или исходного изображения.</value>
+  </data>
+    <data name="ImageHeight.Text" xml:space="preserve">
+    <value>Высота изображения</value>
+  </data>
+    <data name="ImageHeight.Help" xml:space="preserve">
+    <value>Укажите высоту изображения в любых единицах CSS. Если это значение не задано, будет использоваться высота миниатюры или исходного изображения.</value>
+  </data>
+    <data name="ThumbWidth.Text" xml:space="preserve">
+    <value>Ширина миниатюры (px)</value>
+  </data>
+    <data name="ThumbWidth.Help" xml:space="preserve">
+    <value>Укажите ширину миниатюры в пикселах или оставьте поле пустым.</value>
+  </data>
+    <data name="ThumbHeight.Text" xml:space="preserve">
+    <value>Высота миниатюры (px)</value>
+  </data>
+    <data name="ThumbHeight.Help" xml:space="preserve">
+    <value>Укажите высоту миниатюры в пикселах или оставьте поле пустым.</value>
+  </data>
+    <data name="NumberOfRecords.Text" xml:space="preserve">
+    <value>Отображать записей</value>
+  </data>
+    <data name="NumberOfRecords.Help" xml:space="preserve">
+    <value>Укажите количество отображаемых элементов списка или оставьте поле пустым, чтобы показать все изображения.</value>
+  </data>
+    <data name="SortOrder.Text" xml:space="preserve">
+    <value>По возрастанию</value>
+  </data>
+    <data name="SortOrder.Help" xml:space="preserve">
+    <value>Отметьте, если элементы списка изображение должны быть отсортированы по возрастанию значения поля Индекс сортировки.</value>
+  </data>
+    <data name="Auto.Text" xml:space="preserve">
+    <value>0 (авто)</value>
+  </data>
+    <data name="None.Text" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+    <data name="Default.Text" xml:space="preserve">
+    <value>По умолчанию</value>
+  </data>
+    <data name="Custom.Text" xml:space="preserve">
+    <value>Другое:</value>
+  </data>
+    <data name="LightboxType.Text" xml:space="preserve">
+    <value>Использовать Lightbox</value>
+  </data>
+    <data name="LightboxType.Help" xml:space="preserve">
+    <value>Выберите тип используемого модуля Lightbox.</value>
+  </data>
+</root>
