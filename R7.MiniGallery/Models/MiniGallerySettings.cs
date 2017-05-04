@@ -144,7 +144,7 @@ namespace R7.MiniGallery.Models
         /// </summary>
         /// <value>The columns.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public int Columns { get; set; } = Null.NullInteger; // Auto
+        public int Columns { get; set; } = 0; // Auto
 
         /// <summary>
         /// Gets or sets the number of records.

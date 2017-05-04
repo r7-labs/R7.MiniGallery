@@ -130,7 +130,7 @@
     <value>Check if image list should be sorted by SortIndex ascending.</value>
   </data>
     <data name="Auto.Text" xml:space="preserve">
-    <value>Auto</value>
+    <value>0 (auto)</value>
   </data>
     <data name="None.Text" xml:space="preserve">
     <value>None</value>

@@ -130,7 +130,7 @@
     <value>Отметьте, если элементы списка изображение должны быть отсортированы по возрастанию значения поля Индекс сортировки.</value>
   </data>
     <data name="Auto.Text" xml:space="preserve">
-    <value>Авто</value>
+    <value>0 (авто)</value>
   </data>
     <data name="None.Text" xml:space="preserve">
     <value>Нет</value>

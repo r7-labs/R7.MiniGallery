@@ -44,9 +44,10 @@ namespace R7.MiniGallery
 			base.OnInit (e);
 			
 			// fill columns combo
-			comboColumns.AddItem (LocalizeString ("Auto.Text"), Null.NullInteger.ToString ());
-			for (var i = 1; i <= 50; i++)
-				comboColumns.AddItem (i.ToString (), i.ToString());
+            comboColumns.AddItem (LocalizeString ("Auto.Text"), 0.ToString ());
+            for (var i = 1; i <= 50; i++) {
+                comboColumns.AddItem (i.ToString (), i.ToString ());
+            }
 
 			// fill target combo
 			comboTarget.AddItem (LocalizeString ("Custom.Text"), "@custom");
@@ -79,7 +80,7 @@ namespace R7.MiniGallery
 				if (!IsPostBack)
 				{
                     // columns
-                    comboColumns.SelectByValue (Settings.Columns.ToString());
+                    comboColumns.SelectByValue (Settings.Columns);
 					checkExpand.Checked = Settings.ExpandColumns;
 
 					comboLightboxType.SelectByValue (Settings.LightboxType.ToString());
