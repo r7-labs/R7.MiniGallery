@@ -123,8 +123,6 @@
       <DeployService-TargetDirectoryId>ProgramFilesRoot</DeployService-TargetDirectoryId>
     </None>
     <None Include="App_LocalResources\EditMiniGallery.ascx.ru-RU.resx" />
-    <None Include="App_LocalResources\SettingsMiniGallery.ascx.resx" />
-    <None Include="App_LocalResources\SettingsMiniGallery.ascx.ru-RU.resx" />
     <None Include="SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
