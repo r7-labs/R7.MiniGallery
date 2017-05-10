@@ -1,0 +1,15 @@
+-- NOTE: To manually execute this script you must 
+-- replace {databaseOwner} and {objectQualifier} with real values. 
+-- Defaults is "dbo." for database owner and "" for object qualifier 
+
+IF EXISTS (select * from {databaseOwner}[{objectQualifier}ModuleDefinitions] where DefinitionName = N'R7.MiniGallery')
+BEGIN
+    -- Remove definition added by new install
+    DELETE FROM {databaseOwner}[{objectQualifier}ModuleDefinitions]
+        WHERE DefinitionName = N'R7_MiniGallery'
+
+    -- Rename old definition
+    UPDATE {databaseOwner}[{objectQualifier}ModuleDefinitions]
+        SET DefinitionName = N'R7_MiniGallery' WHERE DefinitionName = N'R7.MiniGallery'
+END
+GO

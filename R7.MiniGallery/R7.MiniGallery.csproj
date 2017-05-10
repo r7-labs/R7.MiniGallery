@@ -140,6 +140,7 @@
     <None Include="js\colorbox.jsx" />
     <None Include="App_LocalResources\Settings.ru-RU.resx" />
     <None Include="App_LocalResources\Settings.resx" />
+    <None Include="SqlDataProvider\01.02.00.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\MiniGalleryController.cs" />

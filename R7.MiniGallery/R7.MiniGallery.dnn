@@ -30,7 +30,7 @@
            <moduleDefinitions>
              <moduleDefinition>
                <friendlyName>R7.MiniGallery</friendlyName>
-               <definitionName>R7.MiniGallery</definitionName>
+               <definitionName>R7_MiniGallery</definitionName>
                <defaultCacheTime>0</defaultCacheTime>
                <moduleControls>
                  <moduleControl>
@@ -86,13 +86,16 @@
            </moduleDefinitions>
          </desktopModule>
        </component>
-
        <component type="Script">
          <scripts>
            <basePath>DesktopModules\MVC\R7.MiniGallery</basePath>
            <script type="Install">
              <name>SqlDataProvider\01.00.00.SqlDataProvider</name>
              <version>01.00.00</version>
+           </script>
+           <script type="Install">
+             <name>SqlDataProvider\01.02.00.SqlDataProvider</name>
+             <version>01.02.00</version>
            </script>
            <script type="UnInstall">
              <name>SqlDataProvider\Uninstall.SqlDataProvider</name>
