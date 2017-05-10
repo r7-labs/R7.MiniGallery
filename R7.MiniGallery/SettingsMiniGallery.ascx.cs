@@ -86,10 +86,10 @@ namespace R7.MiniGallery
 					comboLightboxType.SelectByValue (Settings.LightboxType.ToString());
 
 					// thumb size
-					if (!Null.IsNull (Settings.ThumbWidth))
+					if (Settings.ThumbWidth > 0)
 						textThumbWidth.Text = Settings.ThumbWidth.ToString ();
 
-					if (!Null.IsNull (Settings.ThumbHeight))
+					if (Settings.ThumbHeight > 0)
 						textThumbHeight.Text = Settings.ThumbHeight.ToString ();
 
 					// image size
@@ -97,7 +97,7 @@ namespace R7.MiniGallery
 					textImageHeight.Text = Settings.ImageHeight.ToString ();
 
 					// number of records
-					if (!Null.IsNull (Settings.NumberOfRecords))
+					if (Settings.NumberOfRecords > 0)
 						textNumberOfRecords.Text = Settings.NumberOfRecords.ToString ();
 
 					// image handler
@@ -166,11 +166,11 @@ namespace R7.MiniGallery
 				Settings.MaxHeight = Unit.Parse (textMaxHeight.Text);
 
 				// thumb size
-                Settings.ThumbWidth = TypeUtils.ParseToNullable<int> (textThumbWidth.Text) ?? Null.NullInteger;
-                Settings.ThumbHeight = TypeUtils.ParseToNullable<int> (textThumbHeight.Text) ?? Null.NullInteger;
+                Settings.ThumbWidth = TypeUtils.ParseToNullable<int> (textThumbWidth.Text) ?? 0;
+                Settings.ThumbHeight = TypeUtils.ParseToNullable<int> (textThumbHeight.Text) ?? 0;
 
 				// number of records
-                Settings.NumberOfRecords = TypeUtils.ParseToNullable<int> (textNumberOfRecords.Text) ?? Null.NullInteger;
+                Settings.NumberOfRecords = TypeUtils.ParseToNullable<int> (textNumberOfRecords.Text) ?? 0;
 
 				// image handler
 				Settings.UseImageHandler = checkUseImageHandler.Checked;

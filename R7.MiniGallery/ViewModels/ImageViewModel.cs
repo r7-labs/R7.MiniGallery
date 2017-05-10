@@ -135,10 +135,10 @@ namespace R7.MiniGallery.ViewModels
                 else {
                     hanglerUrl += "fileticket={fileticket}";
 
-                    if (!Null.IsNull (Settings.ThumbWidth))
+                    if (Settings.ThumbWidth > 0)
                         hanglerUrl += "&width={width}";
 
-                    if (!Null.IsNull (Settings.ThumbHeight))
+                    if (Settings.ThumbHeight > 0)
                         hanglerUrl += "&height={height}";
                 }
 
@@ -202,13 +202,13 @@ namespace R7.MiniGallery.ViewModels
             get {
                 var style = new ImageStyle ();
                 if (Settings.ImageWidth.IsEmpty && Settings.ImageHeight.IsEmpty) {
-                    if (!Null.IsNull (Settings.ThumbWidth) && !Null.IsNull (Settings.ThumbHeight)) {
+                    if (Settings.ThumbWidth > 0 && Settings.ThumbHeight > 0) {
                         // If both ThumbWidth & ThumbHeight are not null, produced image dimensions are determined
                         // also by ResizeMode image handler param. Default is "Fit" - so, by example, if produced
                         // images have same width, height may vary, and vice versa.
-                    } else if (!Null.IsNull (Settings.ThumbWidth)) {
+                    } else if (Settings.ThumbWidth > 0) {
                         style.Width = Unit.Pixel (Settings.ThumbWidth).ToString ();
-                    } else if (!Null.IsNull (Settings.ThumbHeight)) {
+                    } else if (Settings.ThumbHeight > 0) {
                         style.Height = Unit.Pixel (Settings.ThumbHeight).ToString ();
                     }
                 } else {

@@ -28,11 +28,11 @@ namespace R7.MiniGallery.Data
 {
     public class MiniGalleryDataProvider: Dal2DataProvider
     {
-        public IEnumerable<ImageInfo> GetImagesTopN (int moduleId, bool showAll, bool sortAscending, int topn = -1)
+        public IEnumerable<ImageInfo> GetImagesTopN (int moduleId, bool showAll, bool sortAscending, int topn = 0)
         {
             var sql = string.Format (
                           "SELECT {0} * FROM dbo.MiniGallery_Images WHERE ModuleId={1} {2} ORDER BY SortIndex {3};",
-                          !Null.IsNull (topn) ? string.Format ("TOP({0})", topn) : string.Empty,
+                          topn > 0 ? string.Format ("TOP({0})", topn) : string.Empty,
                           moduleId,
                           !showAll ? "AND IsPublished=1" : string.Empty,
                           sortAscending ? "ASC" : "DESC"

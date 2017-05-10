@@ -116,7 +116,7 @@ namespace R7.MiniGallery.Models
         /// </summary>
         /// <value>The height of the thumb.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public int ThumbHeight { get; set; } = Null.NullInteger;
+        public int ThumbHeight { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets a value indicating whether module show image info.
@@ -151,7 +151,7 @@ namespace R7.MiniGallery.Models
         /// </summary>
         /// <value>The number of records.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public int NumberOfRecords { get; set; } = Null.NullInteger;
+        public int NumberOfRecords { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the sort order.
