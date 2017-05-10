@@ -35,9 +35,6 @@ using R7.MiniGallery.Lightboxes;
 
 namespace R7.MiniGallery.Controllers
 {
-    /// <summary>
-    /// ContactController is the MVC Controller class for managing Contacts in the UI
-    /// </summary>
     [DnnHandleError]
     public class ImageController : DnnController
     {
@@ -46,41 +43,6 @@ namespace R7.MiniGallery.Controllers
         public ImageController ()
         {
             SettingsRepository = new MiniGallerySettingsRepository ();
-        }
-
-        [HttpGet]
-        public ActionResult Delete (int imageId)
-        {
-            // TODO: Delete image
-
-            return RedirectToDefaultRoute ();
-        }
-
-        [HttpGet]
-        public ActionResult Edit (int imageId = -1)
-        {
-            // TODO: Get image
-            var image = (imageId == -1) ? new ImageInfo () : new ImageInfo ();
-
-            return View (image);
-        }
-
-        [HttpPost]
-        [global::DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryToken]
-        public ActionResult Edit (ImageInfo image)
-        {
-            if (ModelState.IsValid) {
-                if (image.ImageID == -1) {
-                    // TODO: Add image
-
-                } else {
-                    // TODO: Update image
-                }
-
-                return RedirectToDefaultRoute ();
-            } else {
-                return View (image);
-            }
         }
 
         [ModuleActionItems]
