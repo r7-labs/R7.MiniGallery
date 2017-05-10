@@ -147,4 +147,19 @@
     <data name="LightboxType.Help" xml:space="preserve">
     <value>Select the lightbox module to use.</value>
   </data>
+	<data name="LightboxType.None" xml:space="preserve">
+    <value>&lt;None&gt;</value>
+  </data>
+	<data name="LightboxType.Default" xml:space="preserve">
+    <value>&lt;Default&gt;</value>
+  </data>
+	<data name="LightboxType.BlueimpGallery" xml:space="preserve">
+    <value>blueimp Gallery</value>
+  </data>
+	<data name="LightboxType.LightBox" xml:space="preserve">
+    <value>Lightbox2</value>
+  </data>
+	<data name="LightboxType.ColorBox" xml:space="preserve">
+    <value>Colorbox</value>
+  </data>
 </root>

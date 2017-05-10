@@ -139,8 +139,8 @@
     <None Include="js\module-loader.jsx" />
     <None Include="js\lightbox2.jsx" />
     <None Include="js\colorbox.jsx" />
-    <None Include="App_LocalResources\Settings.resx" />
     <None Include="App_LocalResources\Settings.ru-RU.resx" />
+    <None Include="App_LocalResources\Settings.resx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\MiniGalleryController.cs" />
@@ -181,6 +181,7 @@
     <Compile Include="Lightboxes\LightboxFactory.cs" />
     <Compile Include="ViewModels\MiniGalleryViewModel.cs" />
     <Compile Include="ViewModels\Targets.cs" />
+    <Compile Include="ViewModels\Lightboxes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

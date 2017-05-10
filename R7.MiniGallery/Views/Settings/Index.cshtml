@@ -34,7 +34,7 @@
 	    </div>
 		<div class="dnnFormItem">
             @Dnn.LabelFor(m => m.LightboxType, Dnn.LocalizeString("LightboxType.Text"), Dnn.LocalizeString("LightboxType.Help"))
-            @Html.TextBoxFor(m => m.LightboxType)
+            @Html.DropDownListFor(m => m.LightboxType, Lightboxes.Get (Model.LightboxType, Dnn.LocalResourceFile))
         </div>
 		<div class="dnnFormItem">
 			@Dnn.LabelFor(m => m.Columns, Dnn.LocalizeString("Columns.Text"), Dnn.LocalizeString("Columns.Help"))

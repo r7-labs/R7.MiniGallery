@@ -147,4 +147,10 @@
     <data name="LightboxType.Help" xml:space="preserve">
     <value>Выберите тип используемого модуля Lightbox.</value>
   </data>
+	<data name="LightboxType.None" xml:space="preserve">
+    <value>&lt;Нет&gt;</value>
+  </data>
+    <data name="LightboxType.Default" xml:space="preserve">
+    <value>&lt;По-умолчанию&gt;</value>
+  </data>
 </root>
