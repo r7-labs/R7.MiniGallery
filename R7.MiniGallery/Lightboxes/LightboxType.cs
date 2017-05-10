@@ -23,10 +23,10 @@ namespace R7.MiniGallery.Lightboxes
 {
     public enum LightboxType
     {
-        None = -1,
+        None,
         Default,
-        LightBox,
-        ColorBox,
+        Lightbox,
+        Colorbox,
         BlueimpGallery
     }
 }

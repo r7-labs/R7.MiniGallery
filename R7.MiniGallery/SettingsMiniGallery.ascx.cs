@@ -60,8 +60,8 @@ namespace R7.MiniGallery
 			// fill lightbox type combo
 			comboLightboxType.AddItem (LocalizeString ("None.Text"), LightboxType.None.ToString ());
 			comboLightboxType.AddItem (LocalizeString ("Default.Text"), LightboxType.Default.ToString ());
-			comboLightboxType.AddItem (LightboxType.LightBox.ToString (), LightboxType.LightBox.ToString ());
-			comboLightboxType.AddItem (LightboxType.ColorBox.ToString (), LightboxType.ColorBox.ToString ());
+			comboLightboxType.AddItem (LightboxType.Lightbox.ToString (), LightboxType.Lightbox.ToString ());
+			comboLightboxType.AddItem (LightboxType.Colorbox.ToString (), LightboxType.Colorbox.ToString ());
             comboLightboxType.AddItem (LightboxType.BlueimpGallery.ToString (), LightboxType.BlueimpGallery.ToString ());
 
 			// fill style set combo
