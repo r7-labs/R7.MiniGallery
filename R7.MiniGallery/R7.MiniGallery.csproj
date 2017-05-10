@@ -180,6 +180,7 @@
     <Compile Include="Lightboxes\BlueimpLightbox.cs" />
     <Compile Include="Lightboxes\LightboxFactory.cs" />
     <Compile Include="ViewModels\MiniGalleryViewModel.cs" />
+    <Compile Include="ViewModels\Targets.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

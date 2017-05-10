@@ -3,6 +3,7 @@
 @using DotNetNuke.Web.Mvc.Helpers
 @using DotNetNuke.Web.Client.ClientResourceManagement
 @using R7.MiniGallery.Models
+@using R7.MiniGallery.ViewModels
 
 @{
     ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/css/admin.css", 200);
@@ -25,8 +26,12 @@
         </div>
 		<div class="dnnFormItem">
             @Dnn.LabelFor(m => m.Target, Dnn.LocalizeString("Target.Text"), Dnn.LocalizeString("Target.Help"))
-            @Html.TextBoxFor(m => m.Target)
-        </div>
+            @Html.DropDownList("Targets", Targets.GetTargets (Model.Target, Dnn.LocalResourceFile), new {@onchange = "mgTargetChange(this)"})
+		</div>
+        <div class="dnnFormItem">
+			<div class="dnnLabel"></div>
+	        @Html.TextBoxFor(m => m.Target)
+	    </div>
 		<div class="dnnFormItem">
             @Dnn.LabelFor(m => m.LightboxType, Dnn.LocalizeString("LightboxType.Text"), Dnn.LocalizeString("LightboxType.Help"))
             @Html.TextBoxFor(m => m.LightboxType)
@@ -66,6 +71,31 @@
 	<h2 class="dnnFormSectionHead"><a href="#">@Dnn.LocalizeString("HeaderAndFooter.Section")</a></h2>
 	<fieldset>
         <div class="dnnFormItem">
-		</div>	
+		</div>
 	</fieldset>
 </div>
+@section Scripts {
+<script type="text/javascript">
+function mgToogleCustomTarget (select, textBox) {
+    if (select.selectedIndex > 0) {
+        textBox.style.display = "none";
+    } else {
+        textBox.style.removeProperty ("display");
+    }
+}
+function mgTargetChange (select) {
+	var textBox = document.getElementById ("Target");
+	mgToogleCustomTarget(select, textBox);
+    if (select.selectedIndex > 0) {
+	    textBox.value = select.options[select.selectedIndex].value;
+    } else {
+	    textBox.value = "";
+        textBox.focus();
+	}
+}
+
+$(() => {
+	mgToogleCustomTarget(document.getElementById ("Targets"), document.getElementById ("Target"));
+});
+</script>	
+}

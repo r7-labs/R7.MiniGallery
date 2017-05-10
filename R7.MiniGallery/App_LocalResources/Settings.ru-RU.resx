@@ -22,7 +22,7 @@
     <value>Цель ссылки</value>
   </data>
     <data name="Target.Help" xml:space="preserve">
-    <value>Устанавливает цель для ссылки (имя фрейма). Значение не имеет смысла в случае, если используется модуль Lightbox, но может быть полезно без него.</value>
+    <value>Устанавливает цель для ссылки. Введите имя окна или фрейма, либо оставьте поле пустым для отключения ссылки. Значение не имеет смысла в случае, если используется модуль Lightbox, но может быть полезно без него.</value>
   </data>
     <data name="UseLightbox.Text" xml:space="preserve">
     <value>Использовать Lightbox</value>
@@ -132,14 +132,14 @@
     <data name="Auto.Text" xml:space="preserve">
     <value>0 (авто)</value>
   </data>
-    <data name="None.Text" xml:space="preserve">
-    <value>Нет</value>
-  </data>
     <data name="Default.Text" xml:space="preserve">
     <value>По умолчанию</value>
   </data>
-    <data name="Custom.Text" xml:space="preserve">
-    <value>Другое:</value>
+    <data name="TargetCustom.Text" xml:space="preserve">
+    <value>&lt;Другая&gt;</value>
+  </data>
+    <data name="TargetNone.Text" xml:space="preserve">
+    <value>&lt;Нет&gt;</value>
   </data>
     <data name="LightboxType.Text" xml:space="preserve">
     <value>Использовать Lightbox</value>

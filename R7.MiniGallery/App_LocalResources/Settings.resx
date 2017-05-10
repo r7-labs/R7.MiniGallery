@@ -22,7 +22,7 @@
     <value>Target</value>
   </data>
     <data name="Target.Help" xml:space="preserve">
-    <value>Set link target. Has no meaning if jQuery lightbox is used, but may be useful without it.</value>
+    <value>Set link target. Enter window or frame name for custom target or leave empty for no target. Has no meaning if jQuery lightbox is used, but may be useful without it.</value>
   </data>
     <data name="UseLightbox.Text" xml:space="preserve">
     <value>Use Lightbox</value>
@@ -132,14 +132,14 @@
     <data name="Auto.Text" xml:space="preserve">
     <value>0 (auto)</value>
   </data>
-    <data name="None.Text" xml:space="preserve">
-    <value>None</value>
-  </data>
     <data name="Default.Text" xml:space="preserve">
     <value>Default</value>
   </data>
-    <data name="Custom.Text" xml:space="preserve">
-    <value>Custom:</value>
+    <data name="TargetCustom.Text" xml:space="preserve">
+    <value>&lt;Custom&gt;</value>
+  </data>
+	<data name="TargetNone.Text" xml:space="preserve">
+    <value>&lt;None&gt;</value>
   </data>
     <data name="LightboxType.Text" xml:space="preserve">
     <value>Lightbox Type</value>
