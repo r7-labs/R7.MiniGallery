@@ -98,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
-    <Content Include="SettingsMiniGallery.ascx" />
     <Content Include="EditMiniGallery.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
@@ -144,14 +143,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\MiniGalleryController.cs" />
-    <Compile Include="SettingsMiniGallery.ascx.cs">
-      <DependentUpon>SettingsMiniGallery.ascx</DependentUpon>
-    </Compile>
     <Compile Include="EditMiniGallery.ascx.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="SettingsMiniGallery.ascx.controls.cs">
-      <DependentUpon>SettingsMiniGallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="EditMiniGallery.ascx.controls.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
