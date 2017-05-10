@@ -14,7 +14,7 @@
     <fieldset>
         <div class="dnnFormItem">
 			@Dnn.LabelFor(m => m.StyleSet, Dnn.LocalizeString("StyleSet.Text"), Dnn.LocalizeString("StyleSet.Help"))
-			@Html.TextBoxFor(m => m.StyleSet)
+			@Html.DropDownListFor(m => m.StyleSet, StyleSets.Get(Model.StyleSet))
         </div>
 		<div class="dnnFormItem">
             @Dnn.LabelFor(m => m.ImageWidth, Dnn.LocalizeString("ImageWidth.Text"), Dnn.LocalizeString("ImageWidth.Help"))
