@@ -1,165 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-    <data name="ControlTitle_settings.Text" xml:space="preserve">
-    <value>R7.MiniGallery Settings</value>
-  </data>
-    <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>About R7.MiniGallery Settings</value>
-  </data>
-  <data name="StyleSet.Text" xml:space="preserve">
-    <value>Style Set</value>
-  </data>
-    <data name="StyleSet.Help" xml:space="preserve">
-    <value>Style set name for the gallery elements</value>
-  </data>
-    <data name="MaxHeight.Text" xml:space="preserve">
-    <value>List Height</value>
-  </data>
-    <data name="MaxHeight.Help" xml:space="preserve">
-    <value>Maximum height of a image list in CSS units, used to make scrollbars visible (leave empty to disable).</value>
-  </data>
-    <data name="Target.Text" xml:space="preserve">
-    <value>Target</value>
-  </data>
-    <data name="Target.Help" xml:space="preserve">
-    <value>Set link target. Enter window or frame name for custom target or leave empty for no target. Has no meaning if jQuery lightbox is used, but may be useful without it.</value>
-  </data>
-    <data name="UseLightbox.Text" xml:space="preserve">
-    <value>Use Lightbox</value>
-  </data>
-    <data name="UseLightbox.Help" xml:space="preserve">
-    <value>Check to use Lightbox-like viewer or image gallery jQuery module.</value>
-  </data>
-    <data name="UseScrollbar.Text" xml:space="preserve">
-    <value>Use jQuery Scrollbar</value>
-  </data>
-    <data name="UseScrollbar.Help" xml:space="preserve">
-    <value>Check to use jQuery scrollbar module.</value>
-  </data>
-    <data name="UseImageHandler.Text" xml:space="preserve">
-    <value>Use Image Handler</value>
-  </data>
-    <data name="UseImageHandler.Help" xml:space="preserve">
-    <value>Check to use external image handler to create thumbnails (only R7.ImageHandler is supported at this time).</value>
-  </data>
-    <data name="ImageHandlerParams.Text" xml:space="preserve">
-    <value>Image Handler Params</value>
-  </data>
-    <data name="ImageHandlerParams.Help" xml:space="preserve">
-    <value>Add URL parameter string which will be added to image handler URL if name=value pairs format, or leave empty to use default URL. Currently supported tags: {fileticket}, {fileid}, {width}, {height}.</value>
-  </data>
-    <data name="ShowTitles.Text" xml:space="preserve">
-    <value>Show Titles</value>
-  </data>
-    <data name="ShowTitles.Help" xml:space="preserve">
-    <value>If checked, images title is displayed</value>
-  </data>
-    <data name="Expand.Text" xml:space="preserve">
-    <value>Expand Columns</value>
-  </data>
-    <data name="Expand.Help" xml:space="preserve">
-    <value>If checked, each column width are calculated as 100% / number of columns approximately. This setting only effective if a columns number is specified explicitly (not auto).</value>
-  </data>
-    <data name="Header.Text" xml:space="preserve">
-    <value>Header</value>
-  </data>
-    <data name="Header.Help" xml:space="preserve">
-    <value>Enter HTML to be placed before (above) image list. This setting could replace Header value from Module Settings / Advanced tab.</value>
-  </data>
-    <data name="Footer.Text" xml:space="preserve">
-    <value>Footer</value>
-  </data>
-    <data name="Footer.Help" xml:space="preserve">
-    <value>Enter HTML to be placed after (below) image list. This setting could replace Footer value from Module Settings / Advanced tab.</value>
-  </data>
-    <data name="ReplaceHeaderAndFooter.Text" xml:space="preserve">
-    <value>Replace Module Header &amp; Footer</value>
-  </data>
-    <data name="ReplaceHeaderAndFooter.Help" xml:space="preserve">
-    <value>Check to replace module Header and Footer settings from Module Settings / Advanced tab with the text editors content above.</value>
-  </data>
-    <data name="sectionBaseSettings.Text" xml:space="preserve">
-    <value>R7.MiniGallery Settings</value>
-  </data>
-    <data name="HeaderAndFooter.Section" xml:space="preserve">
-    <value>Header &amp; Footer</value>
-  </data>
-    <data name="ImageHandler.Section" xml:space="preserve">
-    <value>Image Handler Settings</value>
-  </data>
-    <data name="Columns.Text" xml:space="preserve">
-    <value>Columns</value>
-  </data>
-    <data name="Columns.Help" xml:space="preserve">
-    <value>Set number of columns in the image list. If value set to 0, all available width will be taken by images.</value>
-  </data>
-    <data name="ImageWidth.Text" xml:space="preserve">
-    <value>Image Width</value>
-  </data>
-    <data name="ImageWidth.Help" xml:space="preserve">
-    <value>Specify width of the displayed image in any CSS units. If not set, thumbnail width or original image width will be used.</value>
-  </data>
-    <data name="ImageHeight.Text" xml:space="preserve">
-    <value>Image Height</value>
-  </data>
-    <data name="ImageHeight.Help" xml:space="preserve">
-    <value>Specify height of the displayed image in any CSS units. If not set, thumbnail height or original image height will be used.</value>
-  </data>
-    <data name="ThumbWidth.Text" xml:space="preserve">
-    <value>Thumb Width (px)</value>
-  </data>
-    <data name="ThumbWidth.Help" xml:space="preserve">
-    <value>Specify thumbnail image width in px or leave empty.</value>
-  </data>
-    <data name="ThumbHeight.Text" xml:space="preserve">
-    <value>Thumb Height (px)</value>
-  </data>
-    <data name="ThumbHeight.Help" xml:space="preserve">
-    <value>Specify thumbnail image width in pixels or leave empty.</value>
-  </data>
-    <data name="NumberOfRecords.Text" xml:space="preserve">
-    <value>Show Records</value>
-  </data>
-    <data name="NumberOfRecords.Help" xml:space="preserve">
-    <value>Enter the number of records to show or leave empty to show it all.</value>
-  </data>
-    <data name="SortOrder.Text" xml:space="preserve">
-    <value>Sort Ascending</value>
-  </data>
-    <data name="SortOrder.Help" xml:space="preserve">
-    <value>Check if image list should be sorted by SortIndex ascending.</value>
-  </data>
-    <data name="Auto.Text" xml:space="preserve">
-    <value>0 (auto)</value>
-  </data>
-    <data name="Default.Text" xml:space="preserve">
-    <value>Default</value>
-  </data>
-    <data name="TargetCustom.Text" xml:space="preserve">
-    <value>&lt;Custom&gt;</value>
-  </data>
+	<data name="ControlTitle_settings.Text" xml:space="preserve">
+        <value>R7.MiniGallery Settings</value>
+    </data>
+	<data name="ModuleHelp.Text" xml:space="preserve">
+        <value>About R7.MiniGallery Settings</value>
+    </data>
+	<data name="StyleSet.Text" xml:space="preserve">
+        <value>Style Set:</value>
+    </data>
+	<data name="StyleSet.Help" xml:space="preserve">
+        <value>Style set name for the gallery elements</value>
+    </data>
+	<data name="Target.Text" xml:space="preserve">
+        <value>Link Target:</value>
+    </data>
+	<data name="Target.Help" xml:space="preserve">
+        <value>Set link target. Enter window or frame name for custom target or leave empty for no target. Has no meaning if jQuery lightbox is used, but may be useful without it.</value>
+    </data>
+	<data name="UseImageHandler.Text" xml:space="preserve">
+        <value>Use Image Handler?</value>
+    </data>
+	<data name="UseImageHandler.Help" xml:space="preserve">
+        <value>Check to use external image handler to create thumbnails (only R7.ImageHandler is supported at this time).</value>
+    </data>
+	<data name="ImageHandlerParams.Text" xml:space="preserve">
+        <value>Image Handler Params:</value>
+    </data>
+	<data name="ImageHandlerParams.Help" xml:space="preserve">
+        <value>Add URL parameter string which will be added to image handler URL if name=value pairs format, or leave empty to use default URL. Currently supported tags: {fileticket}, {fileid}, {width}, {height}.</value>
+    </data>
+	<data name="BasicSettings.Section" xml:space="preserve">
+        <value>Basic Settings</value>
+    </data>
+	<data name="ImageHandler.Section" xml:space="preserve">
+        <value>Image Handler Settings</value>
+    </data>
+	<data name="Columns.Text" xml:space="preserve">
+        <value>Columns:</value>
+    </data>
+	<data name="Columns.Help" xml:space="preserve">
+        <value>Set number of columns in the image list. If value set to 0, all available width will be taken by images.</value>
+    </data>
+	<data name="ImageWidth.Text" xml:space="preserve">
+        <value>Image Width:</value>
+    </data>
+	<data name="ImageWidth.Help" xml:space="preserve">
+        <value>Specify width of the displayed image in any CSS units. If not set, thumbnail width or original image width will be used.</value>
+    </data>
+	<data name="ImageHeight.Text" xml:space="preserve">
+        <value>Image Height:</value>
+    </data>
+	<data name="ImageHeight.Help" xml:space="preserve">
+        <value>Specify height of the displayed image in any CSS units. If not set, thumbnail height or original image height will be used.</value>
+    </data>
+	<data name="ThumbWidth.Text" xml:space="preserve">
+        <value>Thumb Width (px):</value>
+    </data>
+	<data name="ThumbWidth.Help" xml:space="preserve">
+        <value>Specify thumbnail image width in px or leave empty.</value>
+    </data>
+	<data name="ThumbHeight.Text" xml:space="preserve">
+        <value>Thumb Height (px):</value>
+    </data>
+	<data name="ThumbHeight.Help" xml:space="preserve">
+        <value>Specify thumbnail image width in pixels or leave empty.</value>
+    </data>
+	<data name="NumberOfRecords.Text" xml:space="preserve">
+        <value>Show Records:</value>
+    </data>
+	<data name="NumberOfRecords.Help" xml:space="preserve">
+        <value>Enter the number of records to show or leave empty to show it all.</value>
+    </data>
+	<data name="SortOrder.Text" xml:space="preserve">
+        <value>Sort Ascending?</value>
+    </data>
+	<data name="SortOrder.Help" xml:space="preserve">
+        <value>Check if image list should be sorted by SortIndex ascending.</value>
+    </data>
+	<data name="TargetCustom.Text" xml:space="preserve">
+        <value>&lt;Custom&gt;</value>
+    </data>
 	<data name="TargetNone.Text" xml:space="preserve">
-    <value>&lt;None&gt;</value>
-  </data>
-    <data name="LightboxType.Text" xml:space="preserve">
-    <value>Lightbox Type</value>
-  </data>
-    <data name="LightboxType.Help" xml:space="preserve">
-    <value>Select the lightbox module to use.</value>
-  </data>
+        <value>&lt;None&gt;</value>
+    </data>
+	<data name="LightboxType.Text" xml:space="preserve">
+        <value>Lightbox Type:</value>
+    </data>
+	<data name="LightboxType.Help" xml:space="preserve">
+        <value>Select the lightbox module to use.</value>
+    </data>
 	<data name="LightboxType.None" xml:space="preserve">
-    <value>&lt;None&gt;</value>
-  </data>
+        <value>&lt;None&gt;</value>
+    </data>
 	<data name="LightboxType.Default" xml:space="preserve">
-    <value>&lt;Default&gt;</value>
-  </data>
+        <value>&lt;Default&gt;</value>
+    </data>
 	<data name="LightboxType.BlueimpGallery" xml:space="preserve">
-    <value>blueimp Gallery</value>
-  </data>
+        <value>blueimp Gallery</value>
+    </data>
 	<data name="LightboxType.Lightbox" xml:space="preserve">
-    <value>Lightbox2</value>
-  </data>
+        <value>Lightbox2</value>
+    </data>
 	<data name="LightboxType.Colorbox" xml:space="preserve">
-    <value>Colorbox</value>
-  </data>
+        <value>Colorbox</value>
+    </data>
 </root>
