@@ -14,8 +14,8 @@ ul.MG_List > li {
 
 .MG_List .MG_Edit {
 	position:absolute;
-	z-index:10;
-	padding:4px
+    z-index:10;
+	padding:8px
 }
 
 .MG_List .MG_Item,
