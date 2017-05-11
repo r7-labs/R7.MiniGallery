@@ -7,6 +7,7 @@
 .MG_Auto .MG_Item, 
 .MG_Auto .MG_AltItem {
     display:inline-block;
+    vertical-align:top;
     text-align:center
 }
 
