@@ -1,0 +1,17 @@
+﻿.MG_List.MG_Columns {
+}
+
+.MG_Columns .MG_Item, 
+.MG_Columns .MG_AltItem {
+    display:inline-block;
+    vertical-align:top;
+    text-align:center
+}
+
+.MG_Columns .MG_Image {
+    margin:2px 0
+}
+
+.MG_Columns .MG_Title {
+    font-size:85%
+}

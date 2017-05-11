@@ -48,7 +48,7 @@ namespace R7.MiniGallery.Models
         /// </summary>
         /// <value>The style set.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public string StyleSet { get; set; } = "Auto";
+        public string StyleSet { get; set; } = "Default";
 
         /// <summary>
         /// Gets or sets the maximum height of a module
@@ -124,7 +124,7 @@ namespace R7.MiniGallery.Models
         /// </summary>
         /// <value><c>true</c> if show titles; otherwise, <c>false</c>.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public bool ShowTitles { get; set; } = false;
+        public bool ShowTitles { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether the module expand columns.

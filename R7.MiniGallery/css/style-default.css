@@ -1,0 +1,24 @@
+﻿.MG_List.MG_Default {
+}
+
+.MG_Default .MG_Item, 
+.MG_Default .MG_AltItem {
+    display:inline-block;
+    vertical-align:top;
+    text-align:center
+}
+
+.MG_Default .MG_Image {
+    margin:2px
+}
+
+.MG_Default .MG_Title {
+    position:absolute;
+    bottom:0;
+    left:1em;
+    z-index:10;
+    color:#fff;
+    text-shadow:1px 1px 2px #000;
+    font-size:85%;
+    text-align:left
+}

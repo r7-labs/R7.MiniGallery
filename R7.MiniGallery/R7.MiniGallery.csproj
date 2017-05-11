@@ -111,8 +111,8 @@
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="css\style-auto.css" />
-    <Content Include="css\style-fixed.css" />
+    <Content Include="css\style-default.css" />
+    <Content Include="css\style-columns.css" />
     <Content Include="css\admin.css" />
   </ItemGroup>
   <ItemGroup>
