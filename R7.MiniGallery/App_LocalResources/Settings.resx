@@ -12,6 +12,12 @@
 	<data name="StyleSet.Help" xml:space="preserve">
         <value>Style set name for the gallery elements</value>
     </data>
+	<data name="ImageCssClass.Text" xml:space="preserve">
+        <value>Image CSS Classes:</value>
+    </data>
+    <data name="ImageCssClass.Help" xml:space="preserve">
+        <value>Enter space-separated list of CSS classes to apply to module images.</value>
+    </data>
 	<data name="Target.Text" xml:space="preserve">
         <value>Link Target:</value>
     </data>

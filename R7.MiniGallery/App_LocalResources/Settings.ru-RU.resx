@@ -12,6 +12,12 @@
 	<data name="StyleSet.Help" xml:space="preserve">
         <value>Имя набора стилей элементов галереи</value>
     </data>
+	<data name="ImageCssClass.Text" xml:space="preserve">
+        <value>CSS классы изображений:</value>
+    </data>
+    <data name="ImageCssClass.Help" xml:space="preserve">
+        <value>Введите список CSS классов, которые будут применены к изображениям модуля. Элементы списка разделяйте пробелом.</value>
+    </data>
 	<data name="Target.Text" xml:space="preserve">
         <value>Цель ссылки:</value>
     </data>

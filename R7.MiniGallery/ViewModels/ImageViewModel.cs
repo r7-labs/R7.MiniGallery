@@ -28,6 +28,7 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Services.FileSystem;
 using DotNetNuke.UI.Modules;
 using Newtonsoft.Json.Linq;
+using R7.DotNetNuke.Extensions.Utilities;
 using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 
@@ -199,7 +200,10 @@ namespace R7.MiniGallery.ViewModels
 
         public string CssClass {
             get {
-                return (!Model.IsPublished (HttpContext.Current.Timestamp)) ? " MG_NotPublished" : string.Empty;
+                return TextUtils.FormatList (
+                    " ", Settings.ImageCssClass,
+                    (!Model.IsPublished (HttpContext.Current.Timestamp)) ? "MG_NotPublished" : string.Empty
+                );
             }
         }
 

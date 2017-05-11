@@ -17,6 +17,10 @@
 			@Html.DropDownListFor(m => m.StyleSet, StyleSets.Get(Model.StyleSet))
         </div>
 		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.ImageCssClass, Dnn.LocalizeString("ImageCssClass.Text"), Dnn.LocalizeString("ImageCssClass.Help"))
+            @Html.TextBoxFor(m => m.ImageCssClass)
+        </div>
+		<div class="dnnFormItem">
             @Dnn.LabelFor(m => m.ImageWidth, Dnn.LocalizeString("ImageWidth.Text"), Dnn.LocalizeString("ImageWidth.Help"))
             @Html.TextBoxFor(m => m.ImageWidth)
         </div>

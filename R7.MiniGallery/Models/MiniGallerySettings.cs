@@ -158,6 +158,9 @@ namespace R7.MiniGallery.Models
             get { return SortOrder == "SortIndex"; }
             set { SortOrder = value ? "SortIndex" : "-SortIndex"; }
         }
+
+        [TabModuleSetting (Prefix = "MiniGallery_")]
+        public string ImageCssClass { get; set; }
     }
 }
 
