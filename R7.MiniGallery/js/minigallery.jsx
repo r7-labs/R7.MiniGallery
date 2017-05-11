@@ -28,9 +28,16 @@ class MiniGalleryImage extends React.Component {
                 </a>
             );
         }
-        else {
-            return (null);
+        return (null);
+    }
+
+    renderTitle() {
+        if (this.props.showTitles && !!this.props.title) {
+            return (
+                <p className="MG_Title">{this.props.title}</p>
+            );
         }
+        return (null);
     }
 
     render() {
@@ -40,6 +47,7 @@ class MiniGalleryImage extends React.Component {
                 <a href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="MG_Link" {...this.props.linkAttrs}>
                     <img src={this.props.thumbnailUrl} alt={this.props.alt} style={this.props.style} className={(this.props.cssClass + " MG_Image").trimLeft()} />
                 </a>
+                {this.renderTitle()}
             </li>
         );
     }
@@ -50,6 +58,7 @@ class MiniGallery extends React.Component {
         return (
             <ul className={"MG_List MG_" + this.props.styleSet}>
                 {this.props.images.map((img, index) => <MiniGalleryImage
+                    index={index}
                     navigateUrl={img.navigateUrl}
                     thumbnailUrl={img.thumbnailUrl}
                     target={img.target}
@@ -59,10 +68,10 @@ class MiniGallery extends React.Component {
                     style={img.style}
                     editUrl={img.editUrl}
                     linkAttrs={img.linkAttributes}
+                    itemStyle={img.itemStyle}
                     editIcon={this.props.editIcon}
                     isEditable={this.props.isEditable}
-                    itemStyle={img.itemStyle}
-                    index={index}
+                    showTitles={this.props.showTitles}
                     />)}
             </ul>
         );

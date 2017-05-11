@@ -72,6 +72,12 @@
 	<data name="ThumbHeight.Help" xml:space="preserve">
         <value>Specify thumbnail image width in pixels or leave empty.</value>
     </data>
+	<data name="ShowTitles.Text" xml:space="preserve">
+        <value>Show Titles:</value>
+    </data>
+    <data name="ShowTitles.Help" xml:space="preserve">
+        <value>Check to display image title beside the image.</value>
+    </data>
 	<data name="NumberOfRecords.Text" xml:space="preserve">
         <value>Show Records:</value>
     </data>

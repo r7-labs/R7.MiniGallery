@@ -39,5 +39,6 @@
     data-is-editable="@(Dnn.ModuleContext.IsEditable.ToString ().ToLowerInvariant ())"
     data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"
 	data-style-set="@(Model.Settings.StyleSet)"
+    data-show-titles="@(Model.Settings.ShowTitles.ToString ().ToLowerInvariant ())"
     data-images="@(JsonConvert.SerializeObject (Model.Images, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))">
 </div>

@@ -52,13 +52,13 @@
             @Dnn.LabelFor(m => m.SortAscending, Dnn.LocalizeString("SortOrder.Text"), Dnn.LocalizeString("SortOrder.Help"))
             @Html.CheckBoxFor(m => m.SortAscending)
         </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.ShowTitles, Dnn.LocalizeString("ShowTitles.Text"), Dnn.LocalizeString("ShowTitles.Help"))
+            @Html.CheckBoxFor(m => m.ShowTitles)
+        </div>
 	</fieldset>
 	<h2 class="dnnFormSectionHead"><a href="#">@Dnn.LocalizeString("ImageHandler.Section")</a></h2>
     <fieldset>
-		<div class="dnnFormItem">
-            @Dnn.LabelFor(m => m.UseImageHandler, Dnn.LocalizeString("UseImageHandler.Text"), Dnn.LocalizeString("UseImageHandler.Help"))
-            @Html.CheckBoxFor(m => m.UseImageHandler)
-        </div>
 		<div class="dnnFormItem">
             @Dnn.LabelFor(m => m.ImageHandlerParams, Dnn.LocalizeString("ImageHandlerParams.Text"), Dnn.LocalizeString("ImageHandlerParams.Help"))
             @Html.TextBoxFor(m => m.ImageHandlerParams)
@@ -70,6 +70,10 @@
 		<div class="dnnFormItem">
             @Dnn.LabelFor(m => m.ThumbHeight, Dnn.LocalizeString("ThumbHeight.Text"), Dnn.LocalizeString("ThumbHeight.Help"))
             @Html.TextBoxFor(m => m.ThumbHeight)
+        </div>
+		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.UseImageHandler, Dnn.LocalizeString("UseImageHandler.Text"), Dnn.LocalizeString("UseImageHandler.Help"))
+            @Html.CheckBoxFor(m => m.UseImageHandler)
         </div>
 	</fieldset>
 </div>

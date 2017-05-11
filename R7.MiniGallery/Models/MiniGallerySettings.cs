@@ -124,7 +124,7 @@ namespace R7.MiniGallery.Models
         /// </summary>
         /// <value><c>true</c> if show titles; otherwise, <c>false</c>.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public bool ShowTitles { get; set; } = true;
+        public bool ShowTitles { get; set; } = false;
 
         /// <summary>
         /// Gets or sets a value indicating whether the module expand columns.

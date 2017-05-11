@@ -42,6 +42,7 @@
                     isEditable={$(m).data ("is-editable")}
                     editIcon={$(m).data ("edit-icon")}
                     styleSet={$(m).data ("style-set")}
+                    showTitles={$(m).data ("show-titles")}
                     images={$(m).data ("images")}
                     showControls={true}
                 />, m
