@@ -16,15 +16,6 @@
     margin-left:4px
 }
 
-.MG_Fixed .MG_ColumnStart { margin-top:0 }
-.MG_Fixed .MG_RowStart { margin-left:0 }
-
-/* remove right and left margins */
-.MG_Fixed .MG_ExpandColumns {
-    margin-right:0;
-    margin-left:0
-}
-
 .MG_Fixed .MG_Title {
     font-size:85%
 }

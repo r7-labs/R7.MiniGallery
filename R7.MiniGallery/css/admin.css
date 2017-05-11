@@ -1,9 +1,4 @@
-﻿/* Edit */
-
-.MG_TinyDropDown { width:96px!important; }
-
-/* Bulk Add */
-.MG_BulkAdd .listImages .imageImage 
+﻿.MG_BulkAdd .listImages .imageImage 
 {
 	float:right;
 	max-width:120px;
@@ -31,22 +26,4 @@
 
 .MG_BulkAdd .listImages .textTitle { min-width:290px }
 
-/* Settings */
-.MG_Settings .comboTarget,
-.MG_Settings .comboStyleSet
-{ 
-	float:left;
-	width:100px 
-}
-
-.MG_Settings .textTarget,
-.MG_Settings .textStyleSet
-{ 
-	float:left;
-	width:310px!important;
-	margin-left:10px 
-}
-
-.MG_Settings .textImageHandlerParams { font-family:Monospace }
-
-.MG_Settings .divUseImageHandler { margin-bottom:15px }
+.MG_Settings #ImageHandlerParams { font-family:Monospace }
