@@ -34,18 +34,18 @@ namespace R7.MiniGallery
 	{
 		#region ModuleSearchBase implementaion
 
-        public override IList<SearchDocument> GetModifiedSearchDocuments (ModuleInfo modInfo, DateTime beginDate)
+        public override IList<SearchDocument> GetModifiedSearchDocuments (ModuleInfo moduleInfo, DateTime beginDateUtc)
         {
             var searchDocs = new List<SearchDocument> ();
-            var settings = new MiniGallerySettingsRepository ().GetSettings (modInfo);
+            var settings = new MiniGallerySettingsRepository ().GetSettings (moduleInfo);
             var now = DateTime.Now;
 
-            var images = new MiniGalleryDataProvider ().GetImagesTopN (modInfo.ModuleID, false, 
-                settings.SortOrder == "SortIndex", settings.NumberOfRecords);
+            var images = new MiniGalleryDataProvider ().GetImagesTopN (moduleInfo.ModuleID, false, 
+                                                                       settings.SortAscending, settings.NumberOfRecords);
 
             foreach (var image in images ?? Enumerable.Empty<ImageInfo>())
             {
-                if (image.LastModifiedOnDate.ToUniversalTime () > beginDate.ToUniversalTime ())
+                if (image.LastModifiedOnDate.ToUniversalTime () > beginDateUtc.ToUniversalTime ())
                 {
                     var imageTitle = !string.IsNullOrWhiteSpace (image.Title) ? image.Title : image.Alt;
 
@@ -54,13 +54,13 @@ namespace R7.MiniGallery
                     {
                         var sd = new SearchDocument ()
                         {
-                            PortalId = modInfo.PortalID,
+                            PortalId = moduleInfo.PortalID,
                             AuthorUserId = image.LastModifiedByUserID,
                             Title = imageTitle,
                             Body = TextUtils.FormatList (" ", image.Alt, image.Title),
                             ModifiedTimeUtc = image.LastModifiedOnDate.ToUniversalTime (),
                             UniqueKey = string.Format ("MiniGallery_Image_{0}", image.ImageID),
-                            Url = string.Format ("/Default.aspx?tabid={0}#{1}", modInfo.TabID, modInfo.ModuleID),
+                            Url = string.Format ("/Default.aspx?tabid={0}#{1}", moduleInfo.TabID, moduleInfo.ModuleID),
                             IsActive = image.IsPublished (now)
                         };
 
