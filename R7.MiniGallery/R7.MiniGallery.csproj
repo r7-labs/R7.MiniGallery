@@ -108,7 +108,6 @@
     <Content Include="license.htm" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Image\Edit.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
