@@ -1,7 +1,5 @@
-﻿.MG_List.MG_Fixed {
-    overflow:auto;
-    overflow-x:hidden;
-    overflow-y:auto
+﻿/* Deprecated, same as Auto */
+.MG_List.MG_Fixed {
 }
 
 .MG_Fixed .MG_Item, 
@@ -12,8 +10,7 @@
 }
 
 .MG_Fixed .MG_Image {
-    margin-top:4px;
-    margin-left:4px
+    margin:2px
 }
 
 .MG_Fixed .MG_Title {
