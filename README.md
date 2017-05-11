@@ -2,7 +2,15 @@
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/roman-yagodin/R7.MiniGallery)](https://bettercodehub.com/)
 
-Simple image gallery module for DNN Plaftorm with automatic thumbnails, Lightbox2 and Colorbox support. 
+Simple image gallery module for DNN Plaftorm with automatic thumbnails, blueimp Gallery, Lightbox2 and Colorbox support. 
+
+# License
+
+[![GPLv3](http://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl.txt)
+
+The *R7.MiniGallery* is free software: you can redistribute it and/or modify it under the terms of 
+the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, 
+or (at your option) any later version.
 
 ## Installation
 
