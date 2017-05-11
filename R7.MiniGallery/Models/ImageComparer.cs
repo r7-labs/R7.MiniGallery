@@ -1,5 +1,5 @@
 ﻿//
-//  MiniGalleryDataProvider.cs
+//  ImageComparer.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,11 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using R7.DotNetNuke.Extensions.Data;
+using System.Collections.Generic;
 
-namespace R7.MiniGallery.Data
+namespace R7.MiniGallery.Models
 {
-    public class MiniGalleryDataProvider: Dal2DataProvider
+    public class ImageComparer: IComparer<IImage>
     {
+        protected readonly bool SortAscending;
+
+        public ImageComparer (bool sortAscending)
+        {
+            SortAscending = sortAscending; 
+        }
+
+        public int Compare (IImage x, IImage y)
+        {
+            return SortAscending? x.SortIndex - y.SortIndex : y.SortIndex - x.SortIndex;
+        }
     }
 }

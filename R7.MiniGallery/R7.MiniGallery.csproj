@@ -176,6 +176,7 @@
     <Compile Include="ViewModels\StyleSets.cs" />
     <Compile Include="Models\ModelHelper.cs" />
     <Compile Include="Models\ImageExtensions.cs" />
+    <Compile Include="Models\ImageComparer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

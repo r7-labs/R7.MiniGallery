@@ -23,8 +23,6 @@ using System;
 using DotNetNuke.ComponentModel.DataAnnotations;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Users;
-using DotNetNuke.Entities.Modules;
-using DotNetNuke.Services.FileSystem;
 
 namespace R7.MiniGallery.Models
 {

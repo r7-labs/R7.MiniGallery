@@ -24,7 +24,6 @@ using System.Collections.Generic;
 using System.Linq;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Search.Entities;
-using R7.DotNetNuke.Extensions.Utilities;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
 
@@ -40,34 +39,28 @@ namespace R7.MiniGallery
             var settings = new MiniGallerySettingsRepository ().GetSettings (moduleInfo);
             var now = DateTime.Now;
 
-            var images = new MiniGalleryDataProvider ().GetImagesTopN (moduleInfo.ModuleID, false, 
-                                                                       settings.SortAscending, settings.NumberOfRecords);
+            var comparer = new ImageComparer (settings.SortAscending);
+            var images = new MiniGalleryDataProvider ().GetObjects<ImageInfo> (moduleInfo.ModuleID)
+                                                       .OrderBy (img => img, comparer)
+                                                       .Take (settings.NumberOfRecords > 0 ? settings.NumberOfRecords : int.MaxValue);
 
-            foreach (var image in images ?? Enumerable.Empty<ImageInfo>())
-            {
-                if (image.LastModifiedOnDate.ToUniversalTime () > beginDateUtc.ToUniversalTime ())
-                {
+            foreach (var image in images ?? Enumerable.Empty<ImageInfo>()) {
+                if (image.LastModifiedOnDate.ToUniversalTime () > beginDateUtc.ToUniversalTime ()) {
                     var imageTitle = !string.IsNullOrWhiteSpace (image.Title) ? image.Title : image.Alt;
 
                     // add only images with text
-                    if (!string.IsNullOrWhiteSpace (imageTitle))
-                    {
-                        var sd = new SearchDocument ()
-                        {
+                    if (!string.IsNullOrWhiteSpace (imageTitle)) {
+                        searchDocs.Add (new SearchDocument {
                             PortalId = moduleInfo.PortalID,
                             AuthorUserId = image.LastModifiedByUserID,
                             Title = imageTitle,
-                            Body = TextUtils.FormatList (" ", image.Alt, image.Title),
                             ModifiedTimeUtc = image.LastModifiedOnDate.ToUniversalTime (),
-                            UniqueKey = string.Format ("MiniGallery_Image_{0}", image.ImageID),
+                            UniqueKey = string.Format ("//r7_MiniGallery?ImageId={0}", image.ImageID),
                             Url = string.Format ("/Default.aspx?tabid={0}#{1}", moduleInfo.TabID, moduleInfo.ModuleID),
                             IsActive = image.IsPublished (now)
-                        };
-
-                        searchDocs.Add (sd);
+                        });
                     }
                 }
-
             }
 
             return searchDocs;

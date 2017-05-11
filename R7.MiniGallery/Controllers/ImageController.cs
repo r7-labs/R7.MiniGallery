@@ -52,12 +52,17 @@ namespace R7.MiniGallery.Controllers
             var lightbox = LightboxFactory.Create (settings.LightboxType);
             var images = DataCache.GetCachedData<IEnumerable<ImageViewModel>> (
                 new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={ModuleContext.TabModuleId}", 1200),
-                (c) => GetImages (settings.SortOrder == "SortIndex", settings.NumberOfRecords, settings, lightbox)
+                (c) => GetImages (settings, lightbox)
             );
 
             var now = HttpContext.Timestamp;
+            var comparer = new ImageComparer (settings.SortAscending);
             var viewModel = new MiniGalleryViewModel {
-                Images = images.Where (i => i.IsPublished (now) || ModuleContext.IsEditable).ToList (),
+                Images = images
+                    .Where (img => img.IsPublished (now) || ModuleContext.IsEditable)
+                    .OrderBy (img => img, comparer)
+                    .Take (settings.NumberOfRecords > 0? settings.NumberOfRecords : int.MaxValue)
+                    .ToList (),
                 Settings = settings,
                 Lightbox = lightbox
             };
@@ -65,13 +70,10 @@ namespace R7.MiniGallery.Controllers
             return View (viewModel);
         }
 
-        protected IEnumerable<ImageViewModel> GetImages (bool sortOrder, int numberOfRecords, MiniGallerySettings settings, ILightbox lightbox)
+        protected IEnumerable<ImageViewModel> GetImages (MiniGallerySettings settings, ILightbox lightbox)
         {
-            return new MiniGalleryDataProvider ().GetImagesTopN (ModuleContext.ModuleId,
-                                                                 true,
-                                                                 sortOrder,
-                                                                 numberOfRecords)
-                                                 .Select (i => new ImageViewModel (i, ModuleContext, settings, lightbox));
+            return new MiniGalleryDataProvider ().GetObjects<ImageInfo> (ModuleContext.ModuleId)
+                                                 .Select (img => new ImageViewModel (img, ModuleContext, settings, lightbox));
         }
 
         public ModuleActionCollection GetIndexActions ()
