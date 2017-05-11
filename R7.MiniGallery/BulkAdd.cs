@@ -114,7 +114,6 @@ namespace R7.MiniGallery
 							Title = textTitle.Text,
 							Url = string.Empty,
                             SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? 0,
-							IsPublished = true,
 							ModuleID = ModuleId,
 							CreatedOnDate = now,
 							LastModifiedOnDate = now,

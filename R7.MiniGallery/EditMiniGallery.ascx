@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="dnn" TagName="Audit" Src="~/controls/ModuleAuditControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Url" Src="~/controls/DnnUrlControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Picker" Src="~/controls/filepickeruploader.ascx" %> 
-<%@ Register TagPrefix="dnn" Assembly="DotNetNuke" Namespace="DotNetNuke.UI.WebControls" %>
+<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web.Deprecated" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
 <dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/MVC/R7.MiniGallery/css/admin.css" Priority="200" />
@@ -37,10 +37,14 @@
 		    <dnn:Label id="labelSortIndex" runat="server" ControlName="textSortIndex" Suffix=":" />
 			<asp:TextBox id="textSortIndex" runat="server" Text="0" />
 		</div>
-		<div class="dnnFormItem">
-		    <dnn:Label id="labelIsPublished" runat="server" ControlName="checkIsPublished" Suffix="?" />
-			<asp:CheckBox id="checkIsPublished" runat="server" Checked="true" />
-		</div>
+        <div class="dnnFormItem">
+            <dnn:Label ID="labelStartDate" runat="server" ControlName="datetimeStartDate" />
+            <dnn:DnnDateTimePicker id="datetimeStartDate" runat="server" />
+        </div>
+        <div class="dnnFormItem">
+            <dnn:Label ID="labelEndDate" runat="server" ControlName="datetimeEndDate" />
+            <dnn:DnnDateTimePicker id="datetimeEndDate" runat="server" />
+        </div>
 	</fieldset>
 	<ul class="dnnActions dnnClear">
 		<li><asp:LinkButton id="buttonUpdate" runat="server" CssClass="dnnPrimaryAction" ResourceKey="cmdUpdate" CausesValidation="true" /></li>

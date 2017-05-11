@@ -38,6 +38,7 @@ namespace R7.MiniGallery
         {
             var searchDocs = new List<SearchDocument> ();
             var settings = new MiniGallerySettingsRepository ().GetSettings (modInfo);
+            var now = DateTime.Now;
 
             var images = new MiniGalleryDataProvider ().GetImagesTopN (modInfo.ModuleID, false, 
                 settings.SortOrder == "SortIndex", settings.NumberOfRecords);
@@ -60,7 +61,7 @@ namespace R7.MiniGallery
                             ModifiedTimeUtc = image.LastModifiedOnDate.ToUniversalTime (),
                             UniqueKey = string.Format ("MiniGallery_Image_{0}", image.ImageID),
                             Url = string.Format ("/Default.aspx?tabid={0}#{1}", modInfo.TabID, modInfo.ModuleID),
-                            IsActive = image.IsPublished
+                            IsActive = image.IsPublished (now)
                         };
 
                         searchDocs.Add (sd);

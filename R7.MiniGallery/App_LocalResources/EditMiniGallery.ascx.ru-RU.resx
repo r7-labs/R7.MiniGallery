@@ -1,63 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;p&gt;Модуль R7.MiniGallery&lt;/p&gt;</value>
-  </data>
+        <value>&lt;p&gt;Модуль R7.MiniGallery&lt;/p&gt;</value>
+    </data>
     <data name="ControlTitle_edit.Text" xml:space="preserve">
-    <value>Редактировать изображение</value>
-  </data>
+        <value>Редактировать изображение</value>
+    </data>
     <data name="ConfirmDelete.Text" xml:space="preserve">
-    <value>Уверены, что хотите удалить это изображение?</value>
-  </data>
+        <value>Уверены, что хотите удалить это изображение?</value>
+    </data>
     <data name="sectionEditImage.Text" xml:space="preserve">
-    <value>Редактировать изображение</value>
-  </data>
+        <value>Редактировать изображение</value>
+    </data>
     <data name="labelAlt.Text" xml:space="preserve">
-    <value>Альт. описание</value>
-  </data>
+        <value>Альт. описание</value>
+    </data>
     <data name="labelAlt.Help" xml:space="preserve">
-    <value>Введите альтернативное описание для изображения, которое может быть показано браузером вместо изображения.</value>
-  </data>
+        <value>Введите альтернативное описание для изображения, которое может быть показано браузером вместо изображения.</value>
+    </data>
     <data name="labelTitle.Text" xml:space="preserve">
-    <value>Заголовок</value>
-  </data>
+        <value>Заголовок</value>
+    </data>
     <data name="labelTitle.Help" xml:space="preserve">
-    <value>Введите заголовок изображения.</value>
-  </data>
+        <value>Введите заголовок изображения.</value>
+    </data>
     <data name="labelImage.Text" xml:space="preserve">
-    <value>Изображение</value>
-  </data>
+        <value>Изображение</value>
+    </data>
     <data name="labelImage.Help" xml:space="preserve">
-    <value>Изображение для добавления в галерею.</value>
-  </data>
+        <value>Изображение для добавления в галерею.</value>
+    </data>
     <data name="labelLink.Text" xml:space="preserve">
-    <value>Ссылка</value>
-  </data>
+        <value>Ссылка</value>
+    </data>
     <data name="labelLink.Help" xml:space="preserve">
-    <value>Ссылка на ресурс, открываемый при нажатии на изображение.</value>
-  </data>
+        <value>Ссылка на ресурс, открываемый при нажатии на изображение.</value>
+    </data>
     <data name="labelPreview.Text" xml:space="preserve">
-    <value>Предпросмотр</value>
-  </data>
+        <value>Предпросмотр</value>
+    </data>
     <data name="labelPreview.Help" xml:space="preserve">
-    <value>Предварительный просмотр выбранного изображения.</value>
-  </data>
+        <value>Предварительный просмотр выбранного изображения.</value>
+    </data>
     <data name="labelSortIndex.Text" xml:space="preserve">
-    <value>Индекс сортировки</value>
-  </data>
+        <value>Индекс сортировки</value>
+    </data>
     <data name="labelSortIndex.Help" xml:space="preserve">
-    <value>Значение индекса сортировки.</value>
-  </data>
-    <data name="labelIsPublished.Text" xml:space="preserve">
-    <value>Опубликовано</value>
-  </data>
-    <data name="labelIsPublished.Help" xml:space="preserve">
-    <value>Снимите этот флаг чтобы снять изображение с публикации. Такие изображения видны только редакторам модуля.</value>
-  </data>
+        <value>Значение индекса сортировки.</value>
+    </data>
+    <data name="labelStartDate.Text">
+        <value>Начало публикации:</value>
+    </data>
+    <data name="labelStartDate.Help">
+        <value>Введите дату, начиная с которой изображение должно быть опубликовано на сайте.</value>
+    </data>
+    <data name="labelEndDate.Text">
+        <value>Окончание публикации:</value>
+    </data>
+    <data name="labelEndDate.Help">
+        <value>Введите дату, при наступлении которой изображение должно быть снято с публикации на сайте.</value>
+    </data>
     <data name="buttonApplyFilter.Text" xml:space="preserve">
-    <value>Применить фильтр</value>
-  </data>
+        <value>Применить фильтр</value>
+    </data>
     <data name="Alt.Required" xml:space="preserve">
-    <value>Укажите альтернативное описание изображения.</value>
-  </data>
+        <value>Укажите альтернативное описание изображения.</value>
+    </data>
 </root>

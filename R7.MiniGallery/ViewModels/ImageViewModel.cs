@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Web;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
@@ -29,7 +30,6 @@ using DotNetNuke.UI.Modules;
 using Newtonsoft.Json.Linq;
 using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
-using System.Net.Configuration;
 
 namespace R7.MiniGallery.ViewModels
 {
@@ -88,8 +88,13 @@ namespace R7.MiniGallery.ViewModels
             set { throw new NotImplementedException (); }
         }
 
-        public bool IsPublished {
-            get { return Model.IsPublished; }
+        public DateTime? StartDate {
+            get { return Model.StartDate; }
+            set { throw new NotImplementedException (); }
+        }
+
+        public DateTime? EndDate {
+            get { return Model.EndDate; }
             set { throw new NotImplementedException (); }
         }
 
@@ -194,7 +199,7 @@ namespace R7.MiniGallery.ViewModels
 
         public string CssClass {
             get {
-                return (!Model.IsPublished) ? " MG_NotPublished" : string.Empty;
+                return (!Model.IsPublished (HttpContext.Current.Timestamp)) ? " MG_NotPublished" : string.Empty;
             }
         }
 

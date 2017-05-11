@@ -13,3 +13,22 @@ BEGIN
         SET DefinitionName = N'R7_MiniGallery' WHERE DefinitionName = N'R7.MiniGallery'
 END
 GO
+
+IF NOT EXISTS (select * from sys.columns where object_id = object_id(N'{databaseOwner}[{objectQualifier}MiniGallery_Images]') and name = N'StartDate')
+    ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
+        ADD StartDate datetime NULL,
+            EndDate datetime NULL
+GO
+
+IF EXISTS (select * from sys.columns where object_id = object_id(N'{databaseOwner}[{objectQualifier}MiniGallery_Images]') and name = N'IsPublished')
+BEGIN
+    UPDATE {databaseOwner}[{objectQualifier}MiniGallery_Images]
+        SET EndDate = GETDATE()
+        WHERE IsPublished = 0
+
+    ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
+        DROP COLUMN IsPublished
+END
+GO
+
+   

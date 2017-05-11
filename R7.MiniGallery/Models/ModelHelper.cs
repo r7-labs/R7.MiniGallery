@@ -1,5 +1,5 @@
-//
-//  IImage.cs
+﻿//
+//  ModelHelper.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -18,29 +18,16 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 
 namespace R7.MiniGallery.Models
 {
-    public interface IImage : IAuditable
-	{
-        int ImageID { get; set; }
-
-		int ModuleID { get; set; }
-
-		int ImageFileID { get; set; }
-
-		string Alt { get; set; }
-
-		string Title { get; set; }
-
-		string Url { get; set; }
-
-		int SortIndex { get; set; }
-
-        DateTime? StartDate { get; set; }
-
-        DateTime? EndDate { get; set; }
+    public static class ModelHelper
+    {
+        public static bool IsPublished (DateTime now, DateTime? startDate, DateTime? endDate)
+        {
+            return (startDate == null || now >= startDate) && (endDate == null || now < endDate);
+        }
     }
 }
-

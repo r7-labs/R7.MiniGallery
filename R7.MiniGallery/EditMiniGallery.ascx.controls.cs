@@ -9,27 +9,13 @@ namespace R7.MiniGallery
 		protected LinkButton buttonUpdate;
 		protected LinkButton buttonDelete;
 		protected HyperLink linkCancel;
-	
-		protected LabelControl labelAlt;
 		protected TextBox textAlt;
-
-		protected LabelControl labelTitle;
 		protected TextBox textTitle;
-
-		protected LabelControl labelImage;
 		protected DnnFilePickerUploader pickerImage;
-
-		protected LabelControl labelLink;
 		protected DnnUrlControl urlLink;
-
-		protected LabelControl labelSortIndex;
 		protected TextBox textSortIndex;
-
-		protected LabelControl labelIsPublished;
-		protected CheckBox checkIsPublished;
-
+        protected DnnDateTimePicker datetimeStartDate;
+        protected DnnDateTimePicker datetimeEndDate;
 		protected ModuleAuditControl ctlAudit;
-
-		protected Label labelTest;
 	}
 }

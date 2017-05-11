@@ -175,6 +175,8 @@
     <Compile Include="ViewModels\Targets.cs" />
     <Compile Include="ViewModels\Lightboxes.cs" />
     <Compile Include="ViewModels\StyleSets.cs" />
+    <Compile Include="Models\ModelHelper.cs" />
+    <Compile Include="Models\ImageExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

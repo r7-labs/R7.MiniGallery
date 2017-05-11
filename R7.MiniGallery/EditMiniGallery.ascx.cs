@@ -106,7 +106,8 @@ namespace R7.MiniGallery
 						textAlt.Text = Image.Alt;
 						textTitle.Text = Image.Title;
 						textSortIndex.Text = Image.SortIndex.ToString ();
-						checkIsPublished.Checked = Image.IsPublished;
+                        datetimeStartDate.SelectedDate = Image.StartDate;
+                        datetimeEndDate.SelectedDate = Image.EndDate;
 
 						urlLink.Url = Image.Url;
 
@@ -164,18 +165,19 @@ namespace R7.MiniGallery
 
 					var now = DateTime.Now;
 
-					var image = new ImageInfo () {
-						Alt = textAlt.Text,
-						Title = textTitle.Text,
+                    var image = new ImageInfo () {
+                        Alt = textAlt.Text,
+                        Title = textTitle.Text,
                         SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? 0,
-						ModuleID = ModuleId,
-						Url = urlLink.Url,
-						ImageFileID = pickerImage.FileID,
-						CreatedOnDate = now,
-						LastModifiedOnDate = now,
-						CreatedByUserID = UserId,
-						LastModifiedByUserID = UserId,
-						IsPublished = checkIsPublished.Checked
+                        ModuleID = ModuleId,
+                        Url = urlLink.Url,
+                        ImageFileID = pickerImage.FileID,
+                        CreatedOnDate = now,
+                        LastModifiedOnDate = now,
+                        CreatedByUserID = UserId,
+                        LastModifiedByUserID = UserId,
+                        StartDate = datetimeStartDate.SelectedDate,
+                        EndDate = datetimeEndDate.SelectedDate
 					};					
 
 					dataProvider.Add<ImageInfo> (image);
@@ -193,7 +195,8 @@ namespace R7.MiniGallery
 					image.ImageFileID = pickerImage.FileID;
 					image.LastModifiedOnDate = DateTime.Now;
 					image.LastModifiedByUserID = UserId;
-					image.IsPublished = checkIsPublished.Checked;
+                    image.StartDate = datetimeStartDate.SelectedDate;
+                    image.EndDate = datetimeEndDate.SelectedDate;
 
 					dataProvider.Update<ImageInfo> (image);
 				}

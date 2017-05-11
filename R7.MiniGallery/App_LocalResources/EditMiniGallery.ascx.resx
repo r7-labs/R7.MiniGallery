@@ -1,63 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     <data name="ModuleHelp.Text" xml:space="preserve">
-    <value>&lt;p&gt;A R7.MiniGallery module&lt;/p&gt;</value>
-  </data>
+        <value>&lt;p&gt;A R7.MiniGallery module&lt;/p&gt;</value>
+    </data>
     <data name="ControlTitle_edit.Text" xml:space="preserve">
-    <value>Edit Image</value>
-  </data>
+        <value>Edit Image</value>
+    </data>
     <data name="ConfirmDelete.Text" xml:space="preserve">
-    <value>Do you really want to delete this image?</value>
-  </data>
+        <value>Do you really want to delete this image?</value>
+    </data>
     <data name="sectionEditImage.Text" xml:space="preserve">
-    <value>Edit Image</value>
-  </data>
+        <value>Edit Image</value>
+    </data>
     <data name="labelAlt.Text" xml:space="preserve">
-    <value>Alt</value>
-  </data>
+        <value>Alt</value>
+    </data>
     <data name="labelAlt.Help" xml:space="preserve">
-    <value>Provide an alternate description for the image, which could be used by a browser instead of it.</value>
-  </data>
+        <value>Provide an alternate description for the image, which could be used by a browser instead of it.</value>
+    </data>
     <data name="labelTitle.Text" xml:space="preserve">
-    <value>Title</value>
-  </data>
+        <value>Title</value>
+    </data>
     <data name="labelTitle.Help" xml:space="preserve">
-    <value>Provide title for the image.</value>
-  </data>
+        <value>Provide title for the image.</value>
+    </data>
     <data name="labelImage.Text" xml:space="preserve">
-    <value>Image</value>
-  </data>
+        <value>Image</value>
+    </data>
     <data name="labelImage.Help" xml:space="preserve">
-    <value>An image to add to the gallery.</value>
-  </data>
+        <value>An image to add to the gallery.</value>
+    </data>
     <data name="labelLink.Text" xml:space="preserve">
-    <value>Link</value>
-  </data>
+        <value>Link</value>
+    </data>
     <data name="labelLink.Help" xml:space="preserve">
-    <value>Link to a resource to open then image is clicked.</value>
-  </data>
+        <value>Link to a resource to open then image is clicked.</value>
+    </data>
     <data name="labelPreview.Text" xml:space="preserve">
-    <value>Preview</value>
-  </data>
+        <value>Preview</value>
+    </data>
     <data name="labelPreview.Help" xml:space="preserve">
-    <value>A preview of the selected image.</value>
-  </data>
+        <value>A preview of the selected image.</value>
+    </data>
     <data name="labelSortIndex.Text" xml:space="preserve">
-    <value>Sort Index</value>
-  </data>
+        <value>Sort Index</value>
+    </data>
     <data name="labelSortIndex.Help" xml:space="preserve">
-    <value>Sort index value. </value>
-  </data>
-    <data name="labelIsPublished.Text" xml:space="preserve">
-    <value>Is published</value>
-  </data>
-    <data name="labelIsPublished.Help" xml:space="preserve">
-    <value>Uncheck this flag to disable image publication. Unpublished images are visible only to module editors.</value>
-  </data>
+        <value>Sort index value. </value>
+    </data>
+    <data name="labelStartDate.Text">
+        <value>Start Publication:</value>
+    </data>
+    <data name="labelStartDate.Help">
+        <value>Enter the date from current image should be published on the site.</value>
+    </data>
+    <data name="labelEndDate.Text">
+        <value>End Publication:</value>
+    </data>
+    <data name="labelEndDate.Help">
+        <value>Enter the date from current image should be removed from publication on the site.</value>
+    </data>
     <data name="buttonApplyFilter.Text" xml:space="preserve">
-    <value>Apply Filter</value>
-  </data>
+        <value>Apply Filter</value>
+    </data>
     <data name="Alt.Required" xml:space="preserve">
-    <value>Alternative description for the image is required.</value>
-  </data>
+        <value>Alternative description for the image is required.</value>
+    </data>
 </root>

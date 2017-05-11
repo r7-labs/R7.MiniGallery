@@ -29,9 +29,9 @@ using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using R7.MiniGallery.Data;
+using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 using R7.MiniGallery.ViewModels;
-using R7.MiniGallery.Lightboxes;
 
 namespace R7.MiniGallery.Controllers
 {
@@ -55,8 +55,9 @@ namespace R7.MiniGallery.Controllers
                 (c) => GetImages (settings.SortOrder == "SortIndex", settings.NumberOfRecords, settings, lightbox)
             );
 
+            var now = HttpContext.Timestamp;
             var viewModel = new MiniGalleryViewModel {
-                Images = images.Where (i => i.IsPublished || ModuleContext.IsEditable).ToList (),
+                Images = images.Where (i => i.IsPublished (now) || ModuleContext.IsEditable).ToList (),
                 Settings = settings,
                 Lightbox = lightbox
             };

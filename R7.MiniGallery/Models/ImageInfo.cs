@@ -43,10 +43,6 @@ namespace R7.MiniGallery.Models
 	{
 		#region Fields
 		
-		private ModuleInfo module;
-
-		private IFileInfo file;
-
 		private string createdByUserName;
 
 		private string lastModifiedByUserName;
@@ -69,7 +65,9 @@ namespace R7.MiniGallery.Models
 
 		public int SortIndex { get; set; }
 
-		public bool IsPublished { get; set; }
+		public DateTime? StartDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
 
 		#endregion
 
@@ -86,32 +84,6 @@ namespace R7.MiniGallery.Models
         #endregion
 
         #region Joins
-
-        [IgnoreColumn]
-		public IFileInfo File
-		{
-			get
-			{
-				if (file == null)
-					file = FileManager.Instance.GetFile (ImageFileID);
-				
-				return file;
-			}
-		}
-
-		[IgnoreColumn]
-		public ModuleInfo Module
-		{
-			get
-			{
-				if (module == null)
-				{
-					var mc = new ModuleController ();
-					module = mc.GetModule (ModuleID);
-				}
-				return module;
-			}
-		}
 
 		[IgnoreColumn]
 		public string CreatedByUserName
@@ -147,14 +119,6 @@ namespace R7.MiniGallery.Models
 				}
 				return lastModifiedByUserName;
 			}
-		}
-
-		public void ResetJoins ()
-		{
-			file = null;
-			module = null;
-			createdByUserName = null;
-			lastModifiedByUserName = null;
 		}
 
 		#endregion
