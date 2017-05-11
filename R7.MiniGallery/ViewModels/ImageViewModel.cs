@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Globalization;
 using System.Web;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
@@ -36,6 +37,8 @@ namespace R7.MiniGallery.ViewModels
 {
     public class ImageViewModel : IImage
     {
+        protected static NumberFormatInfo dotDecimalSeparator = new NumberFormatInfo { NumberDecimalSeparator = "." };
+
         protected IImage Model;
 
         protected ModuleInstanceContext ModuleContext;
@@ -241,8 +244,9 @@ namespace R7.MiniGallery.ViewModels
         public JRaw ItemStyle {
             get {
                 if (Settings.Columns > 0) {
-                    var colWidth = Math.Round (100m / Settings.Columns, 2);
-                    return new JRaw ($"{{\"width\":\"{colWidth}%\"}}");
+                    // WTF: Unit.ToString() uses culture-dependent decimal separator?!
+                    var colWidth = Unit.Percentage (Math.Round (100.0 / Settings.Columns, 2)).ToString (dotDecimalSeparator);
+                    return new JRaw ($"{{\"width\":\"{colWidth}\"}}");
                 }
                 return new JRaw ("{}");
             }
