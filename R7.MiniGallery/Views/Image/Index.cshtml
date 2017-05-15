@@ -43,6 +43,6 @@
 	data-style-set="@(Model.Settings.StyleSet)"
     data-show-titles="@(Model.Settings.ShowTitles.ToString ().ToLowerInvariant ())"
 	data-total-images="@Model.TotalImages"
-    data-more-images-format="@(Dnn.LocalizeString ("MoreImages.Format"))"
+    data-resources="@Model.ClientResources"
     data-images="@(JsonConvert.SerializeObject (Model.Images, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))">
 </div>

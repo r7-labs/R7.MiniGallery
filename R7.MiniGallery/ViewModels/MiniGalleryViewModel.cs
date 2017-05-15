@@ -20,6 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Collections.Generic;
+using System.Threading;
+using DotNetNuke.Entities.Portals;
+using DotNetNuke.Services.Localization;
+using Newtonsoft.Json;
 using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 
@@ -34,5 +38,16 @@ namespace R7.MiniGallery.ViewModels
         public ILightbox Lightbox { get; set; }
 
         public int TotalImages { get; set; }
+
+        public string ClientResources {
+            get {
+                return JsonConvert.SerializeObject (
+                    LocalizationProvider.Instance.GetCompiledResourceFile (
+                        PortalSettings.Current, "/DesktopModules/MVC/R7.MiniGallery/App_LocalResources/ClientResources.resx",
+                        Thread.CurrentThread.CurrentCulture.Name
+                    )
+                );
+            }
+        }
     }
 }

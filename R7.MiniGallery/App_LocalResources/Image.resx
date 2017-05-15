@@ -15,7 +15,4 @@
     <data name="AltAuto.Format" xml:space="preserve">
     <value>Image {0} {1}</value>
   </data>
-	<data name="MoreImages.Format" xml:space="preserve">
-    <value>{0} more images...</value>
-  </data>
 </root>

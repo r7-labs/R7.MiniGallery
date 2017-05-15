@@ -70,7 +70,7 @@ class MiniGallery extends React.Component {
         if (this.props.totalImages > this.state.images.length) {
             return (
                 <button className="btn btn-block btn-sm btn-default" onClick={this.getAllImages.bind(this)}>
-                    {this.props.moreImagesFormat.replace ("{0}", this.props.totalImages - this.state.images.length)}
+                    {this.props.resources.moreImagesFormat.replace ("{0}", this.props.totalImages - this.state.images.length)}
                 </button>
             );
         }
