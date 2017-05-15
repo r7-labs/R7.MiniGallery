@@ -44,6 +44,8 @@
                     styleSet={$(m).data ("style-set")}
                     showTitles={$(m).data ("show-titles")}
                     images={$(m).data ("images")}
+                    totalImages={$(m).data ("total-images")}
+                    moreImagesFormat={$(m).data ("more-images-format")}
                     showControls={true}
                     service={new window.MiniGalleryService ($, moduleId)}
                 />, m

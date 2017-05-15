@@ -47,14 +47,18 @@ namespace R7.MiniGallery.Controllers
         {
             var settings = SettingsRepository.GetSettings (ActiveModule);
             var lightbox = LightboxFactory.Create (settings.LightboxType);
+
+            int totalImages;
             var images = ImageViewModelRepository.Instance.GetImages (ModuleContext,
                                                                       settings,
                                                                       lightbox,
                                                                       false,
-                                                                      HttpContext.Timestamp);
+                                                                      HttpContext.Timestamp,
+                                                                      out totalImages);
 
             var viewModel = new MiniGalleryViewModel {
                 Images = images.ToList (),
+                TotalImages = totalImages,
                 Settings = settings,
                 Lightbox = lightbox
             };

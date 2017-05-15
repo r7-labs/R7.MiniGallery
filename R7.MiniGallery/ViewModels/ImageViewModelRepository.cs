@@ -38,16 +38,18 @@ namespace R7.MiniGallery.Data
             get { return _instance.Value; }
         }
 
-        public IEnumerable<ImageViewModel> GetImages (ModuleInstanceContext moduleContext, MiniGallerySettings settings, ILightbox lightbox, bool getAll, DateTime now)
+        public IEnumerable<ImageViewModel> GetImages (ModuleInstanceContext moduleContext, MiniGallerySettings settings, ILightbox lightbox, bool getAll, DateTime now, out int totalImages)
         {
             var images = DataCache.GetCachedData<IEnumerable<ImageViewModel>> (
                 new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={moduleContext.TabModuleId}", 1200),
                 (c) => GetImages (moduleContext, settings, lightbox)
             );
 
+            var filteredImages = images.Where (img => img.IsPublished (now) || moduleContext.IsEditable);
+            totalImages = filteredImages.Count ();
+
             var comparer = new ImageComparer (settings.SortAscending);
-            return images
-                .Where (img => img.IsPublished (now) || moduleContext.IsEditable)
+            return filteredImages
                 .OrderBy (img => img, comparer)
                 .Take ((!getAll && settings.NumberOfRecords > 0) ? settings.NumberOfRecords : int.MaxValue)
                 .ToList ();
@@ -58,7 +60,8 @@ namespace R7.MiniGallery.Data
                                                          ILightbox lightbox)
         {
             return new MiniGalleryDataProvider ().GetObjects<ImageInfo> (moduleContext.ModuleId)
-                                                 .Select (img => new ImageViewModel (img, moduleContext, settings, lightbox));
+                                                 .Select (img => new ImageViewModel (img, moduleContext, settings, lightbox))
+                                                 .ToList ();
         }
     }
 }

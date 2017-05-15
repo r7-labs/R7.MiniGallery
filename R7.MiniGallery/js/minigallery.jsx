@@ -66,10 +66,22 @@ class MiniGallery extends React.Component {
         });
     }
 
+    renderMoreButton () {
+        if (this.props.totalImages > this.state.images.length) {
+            return (
+                <button className="btn btn-block btn-sm btn-default" onClick={this.getAllImages.bind(this)}>
+                    {this.props.moreImagesFormat.replace ("{0}", this.props.totalImages - this.state.images.length)}
+                </button>
+            );
+        }
+        else {
+            return (null);
+        }
+    }
+
     render() {
         return (
             <div>
-            <button onClick={this.getAllImages.bind(this)}>More images</button>
             <ul className={"MG_List MG_" + this.props.styleSet}>
                 {this.state.images.map((img, index) => <MiniGalleryImage
                     index={index}
@@ -88,6 +100,7 @@ class MiniGallery extends React.Component {
                     showTitles={this.props.showTitles}
                     />)}
             </ul>
+            {this.renderMoreButton()}
             </div>
         );
     }

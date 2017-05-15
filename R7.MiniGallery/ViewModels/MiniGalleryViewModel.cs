@@ -32,5 +32,7 @@ namespace R7.MiniGallery.ViewModels
         public MiniGallerySettings Settings { get; set; }
 
         public ILightbox Lightbox { get; set; }
+
+        public int TotalImages { get; set; }
     }
 }

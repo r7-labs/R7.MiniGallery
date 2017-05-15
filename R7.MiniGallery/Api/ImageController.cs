@@ -54,7 +54,9 @@ namespace R7.MiniGallery.Api
             var moduleContext = new ModuleInstanceContext { Configuration = ActiveModule };
             var settings = SettingsRepository.GetSettings (ActiveModule);
             var lightbox = LightboxFactory.Create (settings.LightboxType);
-            var images = ImageViewModelRepository.Instance.GetImages (moduleContext, settings, lightbox, true, Request.GetHttpContext ().Timestamp);
+
+            int totalImages;
+            var images = ImageViewModelRepository.Instance.GetImages (moduleContext, settings, lightbox, true, Request.GetHttpContext ().Timestamp, out totalImages);
 
             return Json (images.ToList (), SerializerSettings);
         }
