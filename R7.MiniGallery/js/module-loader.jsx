@@ -45,8 +45,36 @@
                     showTitles={$(m).data ("show-titles")}
                     images={$(m).data ("images")}
                     showControls={true}
+                    service={new window.MiniGalleryService ($, moduleId)}
                 />, m
             );
         });
     });
 }) (jQuery, window, document);
+
+window.MiniGalleryService = function ($, moduleId) {
+    var baseServicepath = $.dnnSF (moduleId).getServiceRoot ("R7.MiniGallery");
+    this.ajaxCall = function (type, controller, action, id, data, success, fail) {
+        // TODO: showLoading ();
+        $.ajax ({
+            type: type,
+            url: baseServicepath + controller + "/" + action + (id != null ? "/" + id : ""),
+            beforeSend: $.dnnSF (moduleId).setModuleHeaders,
+            data: data
+        }).done (function (retData) {
+            // TODO: hideLoading ();
+            if (success != undefined) {
+                success (retData);
+            }
+        }).fail (function (xhr, status) {
+            // TODO: showError (xhr.responseText);
+            if (fail != undefined) {
+                fail (xhr.responseText);
+            }
+        });
+    }
+
+    this.getAllImages = function (success, fail) {
+        this.ajaxCall ("GET", "Image", "GetAll", null, null, success, fail);
+    }
+}

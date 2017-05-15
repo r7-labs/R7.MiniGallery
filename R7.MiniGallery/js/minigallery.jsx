@@ -54,10 +54,24 @@ class MiniGalleryImage extends React.Component {
 }
 
 class MiniGallery extends React.Component {
+    constructor (props) {
+      super (props);
+      this.state = { images: this.props.images };
+    }
+
+    getAllImages (e) {
+        e.preventDefault ();
+        this.props.service.getAllImages ((data) => {
+            this.setState ({images: data});
+        });
+    }
+
     render() {
         return (
+            <div>
+            <button onClick={this.getAllImages.bind(this)}>More images</button>
             <ul className={"MG_List MG_" + this.props.styleSet}>
-                {this.props.images.map((img, index) => <MiniGalleryImage
+                {this.state.images.map((img, index) => <MiniGalleryImage
                     index={index}
                     navigateUrl={img.navigateUrl}
                     thumbnailUrl={img.thumbnailUrl}
@@ -74,6 +88,7 @@ class MiniGallery extends React.Component {
                     showTitles={this.props.showTitles}
                     />)}
             </ul>
+            </div>
         );
     }
 }

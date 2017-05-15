@@ -19,10 +19,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Icons;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Security;
@@ -30,7 +28,6 @@ using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Lightboxes;
-using R7.MiniGallery.Models;
 using R7.MiniGallery.ViewModels;
 
 namespace R7.MiniGallery.Controllers
@@ -50,30 +47,19 @@ namespace R7.MiniGallery.Controllers
         {
             var settings = SettingsRepository.GetSettings (ActiveModule);
             var lightbox = LightboxFactory.Create (settings.LightboxType);
-            var images = DataCache.GetCachedData<IEnumerable<ImageViewModel>> (
-                new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={ModuleContext.TabModuleId}", 1200),
-                (c) => GetImages (settings, lightbox)
-            );
+            var images = ImageViewModelRepository.Instance.GetImages (ModuleContext,
+                                                                      settings,
+                                                                      lightbox,
+                                                                      false,
+                                                                      HttpContext.Timestamp);
 
-            var now = HttpContext.Timestamp;
-            var comparer = new ImageComparer (settings.SortAscending);
             var viewModel = new MiniGalleryViewModel {
-                Images = images
-                    .Where (img => img.IsPublished (now) || ModuleContext.IsEditable)
-                    .OrderBy (img => img, comparer)
-                    .Take (settings.NumberOfRecords > 0? settings.NumberOfRecords : int.MaxValue)
-                    .ToList (),
+                Images = images.ToList (),
                 Settings = settings,
                 Lightbox = lightbox
             };
 
             return View (viewModel);
-        }
-
-        protected IEnumerable<ImageViewModel> GetImages (MiniGallerySettings settings, ILightbox lightbox)
-        {
-            return new MiniGalleryDataProvider ().GetObjects<ImageInfo> (ModuleContext.ModuleId)
-                                                 .Select (img => new ImageViewModel (img, ModuleContext, settings, lightbox));
         }
 
         public ModuleActionCollection GetIndexActions ()

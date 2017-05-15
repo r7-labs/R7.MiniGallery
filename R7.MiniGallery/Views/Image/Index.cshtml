@@ -5,6 +5,7 @@
 @using DotNetNuke.Web.Mvc.Helpers
 @using DotNetNuke.Entities.Icons
 @using DotNetNuke.Web.Client.ClientResourceManagement
+@using DotNetNuke.Framework
 @using DotNetNuke.Framework.JavaScriptLibraries
 @using DotNetNuke.Common
 @using DotNetNuke.Common.Utilities
@@ -17,6 +18,7 @@
 @{
     JavaScript.RequestRegistration ("React");
     JavaScript.RequestRegistration ("ReactDOM");
+    ServicesFramework.Instance.RequestAjaxScriptSupport ();
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/minigallery.min.js");
     Model.Lightbox.Register (Dnn.DnnPage);
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/module-loader.min.js");

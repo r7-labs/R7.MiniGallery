@@ -18,6 +18,7 @@ class BlueimpLightbox extends React.Component {
                     images={this.props.images}
                     styleSet={this.props.styleSet}
                     showTitles={this.props.showTitles}
+                    service={this.props.service}
                 />
             </div>
         );
