@@ -51,6 +51,10 @@ namespace R7.MiniGallery.Api
         [SupportedModules ("R7.MiniGallery")]
         public JsonResult<List<ImageViewModel>> GetAll ()
         {
+            #if DEBUG
+            System.Threading.Thread.Sleep (1000);
+            #endif
+
             var moduleContext = new ModuleInstanceContext { Configuration = ActiveModule };
             var settings = SettingsRepository.GetSettings (ActiveModule);
             var lightbox = LightboxFactory.Create (settings.LightboxType);
