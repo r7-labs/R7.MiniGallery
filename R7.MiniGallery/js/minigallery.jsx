@@ -73,20 +73,29 @@ class MiniGallery extends React.Component {
 
         this.props.service.getAllImages (
             (data) => {
-                this.setState ({
-                    loading: false,
-                    error: false,
-                    images: data
-                });
+                if (data.length > 0) {
+                    this.setState ({
+                        loading: false,
+                        error: false,
+                        images: data
+                    });
+                }
+                else {
+                    this.setErrorState ();
+                }
             },
             (responseText) => {
-                this.setState ({
-                    loading: false,
-                    error: true,
-                    images: this.state.images
-                });
+                this.setErrorState ();
             }
         );
+    }
+
+    setErrorState () {
+        this.setState ({
+            loading: false,
+            error: true,
+            images: this.state.images
+        });
     }
 
     renderMoreButton () {
