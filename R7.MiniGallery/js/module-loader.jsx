@@ -32,7 +32,7 @@
     }
 
     $(() => {
-        var lightboxes = getLightboxes ();
+        const lightboxes = getLightboxes ();
         $(".minigallery-root").each ((i, m) => {
             const moduleId = $(m).data ("module-id");
             const Lightbox = lightboxes [$(m).data ("lightbox-type")];
@@ -55,7 +55,7 @@
 }) (jQuery, window, document);
 
 window.MiniGalleryService = function ($, moduleId) {
-    var baseServicepath = $.dnnSF (moduleId).getServiceRoot ("R7.MiniGallery");
+    const baseServicepath = $.dnnSF (moduleId).getServiceRoot ("R7.MiniGallery");
     this.ajaxCall = function (type, controller, action, id, data, success, fail) {
         // TODO: showLoading ();
         $.ajax ({
