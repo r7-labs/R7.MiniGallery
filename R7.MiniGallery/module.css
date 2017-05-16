@@ -1,5 +1,6 @@
 ul.MG_List {
-    list-style:none
+    list-style:none;
+    margin-bottom:20px
 }
 
 ul.MG_List > li {
@@ -26,8 +27,5 @@ ul.MG_List > li {
 .MG_List .MG_NotPublished { opacity:0.3 }
 
 .MG_List .MG_NotPublished:hover { opacity:1 }
-
-.MG_MoreButton,
-.MG_MoreLoading { margin-top:.5em }
 
 .MG_MoreLoading { text-align:center }

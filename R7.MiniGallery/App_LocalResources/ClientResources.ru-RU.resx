@@ -15,4 +15,10 @@
 	<data name="moreImagesFormat" xml:space="preserve">
         <value>Еще изображения ({0})...</value>
     </data>
+	<data name="moreImagesErrorTitle" xml:space="preserve">
+        <value>Ой, что-то пошло не так!</value>
+    </data>
+	<data name="moreImagesErrorMessage" xml:space="preserve">
+        <value>Пожалуйста, перезагрузите страницу и попробуйте снова.</value>
+    </data>
 </root>

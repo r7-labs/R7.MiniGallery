@@ -57,19 +57,16 @@
 window.MiniGalleryService = function ($, moduleId) {
     const baseServicepath = $.dnnSF (moduleId).getServiceRoot ("R7.MiniGallery");
     this.ajaxCall = function (type, controller, action, id, data, success, fail) {
-        // TODO: showLoading ();
         $.ajax ({
             type: type,
             url: baseServicepath + controller + "/" + action + (id != null ? "/" + id : ""),
             beforeSend: $.dnnSF (moduleId).setModuleHeaders,
             data: data
         }).done (function (retData) {
-            // TODO: hideLoading ();
             if (success != undefined) {
                 success (retData);
             }
         }).fail (function (xhr, status) {
-            // TODO: showError (xhr.responseText);
             if (fail != undefined) {
                 fail (xhr.responseText);
             }

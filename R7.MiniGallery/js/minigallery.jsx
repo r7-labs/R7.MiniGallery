@@ -67,22 +67,33 @@ class MiniGallery extends React.Component {
 
         this.setState ({
             loading: true,
+            error: false,
             images: this.state.images
         });
 
-        this.props.service.getAllImages ((data) => {
-            this.setState ({
-                loading: false,
-                images: data
-            });
-        });
+        this.props.service.getAllImages (
+            (data) => {
+                this.setState ({
+                    loading: false,
+                    error: false,
+                    images: data
+                });
+            },
+            (responseText) => {
+                this.setState ({
+                    loading: false,
+                    error: true,
+                    images: this.state.images
+                });
+            }
+        );
     }
 
     renderMoreButton () {
         if (this.props.totalImages > this.state.images.length) {
             if (!this.state.loading) {
                 return (
-                    <button className="btn btn-sm btn-block btn-default MG_MoreButton" onClick={this.getAllImages.bind(this)}>
+                    <button className="btn btn-sm btn-block btn-default" onClick={this.getAllImages.bind(this)}>
                     {this.props.resources.moreImagesFormat.replace ("{0}", this.props.totalImages - this.state.images.length)}
                     </button>
                 );
@@ -100,28 +111,40 @@ class MiniGallery extends React.Component {
         }
     }
 
+    renderError () {
+        if (this.state.error) {
+            return (
+                <div className="alert alert-danger" role="alert">
+                    <strong>{this.props.resources.moreImagesErrorTitle}</strong> {this.props.resources.moreImagesErrorMessage}
+                </div>
+            );
+        }
+        return null;
+    }
+
     render() {
         return (
             <div>
-            <ul className={"MG_List MG_" + this.props.styleSet}>
-                {this.state.images.map((img, index) => <MiniGalleryImage
-                    index={index}
-                    navigateUrl={img.navigateUrl}
-                    thumbnailUrl={img.thumbnailUrl}
-                    target={img.target}
-                    alt={img.alt}
-                    title={img.title}
-                    cssClass={img.cssClass}
-                    style={img.style}
-                    editUrl={img.editUrl}
-                    linkAttrs={img.linkAttributes}
-                    itemStyle={img.itemStyle}
-                    editIcon={this.props.editIcon}
-                    isEditable={this.props.isEditable}
-                    showTitles={this.props.showTitles}
-                    />)}
-            </ul>
-            {this.renderMoreButton()}
+                <ul className={"MG_List MG_" + this.props.styleSet}>
+                    {this.state.images.map((img, index) => <MiniGalleryImage
+                        index={index}
+                        navigateUrl={img.navigateUrl}
+                        thumbnailUrl={img.thumbnailUrl}
+                        target={img.target}
+                        alt={img.alt}
+                        title={img.title}
+                        cssClass={img.cssClass}
+                        style={img.style}
+                        editUrl={img.editUrl}
+                        linkAttrs={img.linkAttributes}
+                        itemStyle={img.itemStyle}
+                        editIcon={this.props.editIcon}
+                        isEditable={this.props.isEditable}
+                        showTitles={this.props.showTitles}
+                        />)}
+                </ul>
+                {this.renderError()}
+                {this.renderMoreButton()}
             </div>
         );
     }
