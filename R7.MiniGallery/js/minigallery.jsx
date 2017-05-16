@@ -55,24 +55,45 @@ class MiniGalleryImage extends React.Component {
 
 class MiniGallery extends React.Component {
     constructor (props) {
-      super (props);
-      this.state = { images: this.props.images };
+        super (props);
+        this.state = {
+            loading: false,
+            images: this.props.images
+        };
     }
 
     getAllImages (e) {
         e.preventDefault ();
+
+        this.setState ({
+            loading: true,
+            images: this.state.images
+        });
+
         this.props.service.getAllImages ((data) => {
-            this.setState ({images: data});
+            this.setState ({
+                loading: false,
+                images: data
+            });
         });
     }
 
     renderMoreButton () {
         if (this.props.totalImages > this.state.images.length) {
-            return (
-                <button className="btn btn-block btn-sm btn-default" onClick={this.getAllImages.bind(this)}>
+            if (!this.state.loading) {
+                return (
+                    <button className="btn btn-sm btn-block btn-default MG_MoreButton" onClick={this.getAllImages.bind(this)}>
                     {this.props.resources.moreImagesFormat.replace ("{0}", this.props.totalImages - this.state.images.length)}
-                </button>
-            );
+                    </button>
+                );
+            }
+            else {
+                return (
+                    <div className="MG_MoreLoading">
+                        <img src="/images/loading.gif" />
+                    </div>
+                );
+            }
         }
         else {
             return (null);
