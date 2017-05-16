@@ -28,7 +28,7 @@ class MiniGalleryImage extends React.Component {
                 </a>
             );
         }
-        return (null);
+        return null;
     }
 
     renderTitle() {
@@ -37,7 +37,7 @@ class MiniGalleryImage extends React.Component {
                 <p className="MG_Title">{this.props.title}</p>
             );
         }
-        return (null);
+        return null;
     }
 
     render() {
@@ -91,14 +91,14 @@ class MiniGallery extends React.Component {
 
     renderMoreButton () {
         if (this.props.totalImages > this.state.images.length) {
-            if (!this.state.loading) {
+            if (!this.state.loading && !this.state.error) {
                 return (
                     <button className="btn btn-sm btn-block btn-default" onClick={this.getAllImages.bind(this)}>
                     {this.props.resources.moreImagesFormat.replace ("{0}", this.props.totalImages - this.state.images.length)}
                     </button>
                 );
             }
-            else {
+            else if (this.state.loading) {
                 return (
                     <div className="MG_MoreLoading">
                         <img src="/images/loading.gif" />
@@ -106,9 +106,7 @@ class MiniGallery extends React.Component {
                 );
             }
         }
-        else {
-            return (null);
-        }
+        return null;
     }
 
     renderError () {
