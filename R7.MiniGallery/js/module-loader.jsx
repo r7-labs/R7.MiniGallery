@@ -68,7 +68,7 @@ window.MiniGalleryService = function ($, moduleId) {
             }
         }).fail (function (xhr, status) {
             if (fail != undefined) {
-                fail (xhr.responseText);
+                fail (xhr, status);
             }
         });
     }

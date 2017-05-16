@@ -84,7 +84,9 @@ class MiniGallery extends React.Component {
                     this.setErrorState ();
                 }
             },
-            (responseText) => {
+            (xhr, status) => {
+                console.log (xhr);
+                console.log (status);
                 this.setErrorState ();
             }
         );
