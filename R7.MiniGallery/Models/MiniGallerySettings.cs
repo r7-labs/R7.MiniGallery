@@ -37,25 +37,11 @@ namespace R7.MiniGallery.Models
         public LightboxType LightboxType { get; set; } = LightboxType.Default;
 
         /// <summary>
-        /// Gets or sets a value indicating whether the module use scrollbar.
-        /// </summary>
-        /// <value><c>true</c> if use scrollbar; otherwise, <c>false</c>.</value>
-        [TabModuleSetting (Prefix = "MiniGallery_")]
-        public bool UseScrollbar { get; set; } = true;
-
-        /// <summary>
         /// Gets or sets the style set.
         /// </summary>
         /// <value>The style set.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
         public string StyleSet { get; set; } = "Default";
-
-        /// <summary>
-        /// Gets or sets the maximum height of a module
-        /// </summary>
-        /// <value>Gets or sets the maximum height of a module</value>
-        [TabModuleSetting (Prefix = "MiniGallery_")]
-        public Unit MaxHeight { get; set; } = Unit.Empty;
 
         /// <summary>
         /// Gets or sets the target.
@@ -113,25 +99,11 @@ namespace R7.MiniGallery.Models
         public int ThumbHeight { get; set; } = 0;
 
         /// <summary>
-        /// Gets or sets a value indicating whether module show image info.
-        /// </summary>
-        /// <value><c>true</c> if show info; otherwise, <c>false</c>.</value>
-        [TabModuleSetting (Prefix = "MiniGallery_")]
-        public bool ShowInfo { get; set; } = false;
-
-        /// <summary>
         /// Gets or sets a value indicating whether module shows image titles.
         /// </summary>
         /// <value><c>true</c> if show titles; otherwise, <c>false</c>.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
         public bool ShowTitles { get; set; } = true;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the module expand columns.
-        /// </summary>
-        /// <value><c>true</c> if expand columns; otherwise, <c>false</c>.</value>
-        [TabModuleSetting (Prefix = "MiniGallery_")]
-        public bool ExpandColumns { get; set; } = false;
 
         /// <summary>
         /// Gets or sets the columns.

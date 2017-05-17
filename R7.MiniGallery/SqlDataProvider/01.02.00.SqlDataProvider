@@ -42,3 +42,23 @@ BEGIN
         WHERE SettingName = N'MiniGallery_StyleSet' AND SettingValue = N'Fixed'
 END
 GO
+
+IF EXISTS (select * from {databaseOwner}[{objectQualifier}TabModuleSettings] where settingName = N'MiniGallery_UseScrollbar')
+    DELETE FROM {databaseOwner}[{objectQualifier}TabModuleSettings]
+        WHERE SettingName = N'MiniGallery_UseScrollbar'
+GO
+
+IF EXISTS (select * from {databaseOwner}[{objectQualifier}TabModuleSettings] where settingName = N'MiniGallery_MaxHeight')
+    DELETE FROM {databaseOwner}[{objectQualifier}TabModuleSettings]
+        WHERE SettingName = N'MiniGallery_MaxHeight'
+GO
+
+IF EXISTS (select * from {databaseOwner}[{objectQualifier}TabModuleSettings] where settingName = N'MiniGallery_ShowInfo')
+    DELETE FROM {databaseOwner}[{objectQualifier}TabModuleSettings]
+        WHERE SettingName = N'MiniGallery_ShowInfo'
+GO
+
+IF EXISTS (select * from {databaseOwner}[{objectQualifier}TabModuleSettings] where settingName = N'MiniGallery_ExpandColumns')
+    DELETE FROM {databaseOwner}[{objectQualifier}TabModuleSettings]
+        WHERE SettingName = N'MiniGallery_ExpandColumns'
+GO
