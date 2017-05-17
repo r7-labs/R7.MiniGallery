@@ -118,6 +118,9 @@ namespace R7.MiniGallery.Models
         /// <value>The number of records.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
         public int NumberOfRecords { get; set; } = 0;
+           
+        [TabModuleSetting (Prefix = "MiniGallery_")]
+        public bool DisableMoreImages { get; set; }
 
         /// <summary>
         /// Gets or sets the sort order.

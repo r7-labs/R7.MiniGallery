@@ -73,16 +73,22 @@
         <value>Укажите высоту миниатюры в пикселах или оставьте поле пустым.</value>
     </data>
 	<data name="ShowTitles.Text" xml:space="preserve">
-        <value>Показывать заголовки:</value>
+        <value>Показывать заголовки?</value>
     </data>
     <data name="ShowTitles.Help" xml:space="preserve">
         <value>Отметьте, чтобы отобразить заголовки рядом с изображениями.</value>
     </data>
 	<data name="NumberOfRecords.Text" xml:space="preserve">
-        <value>Отображать записей:</value>
+        <value>Показывать изображений:</value>
     </data>
 	<data name="NumberOfRecords.Help" xml:space="preserve">
-        <value>Укажите количество отображаемых элементов списка или оставьте поле пустым, чтобы показать все изображения.</value>
+        <value>Укажите количество отображаемых изображений или оставьте поле пустым, чтобы показать все изображения.</value>
+    </data>
+	<data name="DisableMoreImages.Text" xml:space="preserve">
+        <value>Отключить кнопку &quot;Еще изображения&quot;:</value>
+    </data>
+    <data name="DisableMoreImages.Help" xml:space="preserve">
+        <value>Если отмечено, модуль не будет отображать кнопку &quot;Еще изображения&quot;, в результате чего пользователю будут доступны изображения только в количестве, заданном настройкой &quot;Показывать изображений&quot;.</value>
     </data>
 	<data name="SortOrder.Text" xml:space="preserve">
         <value>По возрастанию?</value>

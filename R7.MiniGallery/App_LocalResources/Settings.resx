@@ -73,16 +73,22 @@
         <value>Specify thumbnail image width in pixels or leave empty.</value>
     </data>
 	<data name="ShowTitles.Text" xml:space="preserve">
-        <value>Show Titles:</value>
+        <value>Show Titles?</value>
     </data>
     <data name="ShowTitles.Help" xml:space="preserve">
         <value>Check to display image title beside the image.</value>
     </data>
 	<data name="NumberOfRecords.Text" xml:space="preserve">
-        <value>Show Records:</value>
+        <value>Show Number of Images:</value>
     </data>
 	<data name="NumberOfRecords.Help" xml:space="preserve">
-        <value>Enter the number of records to show or leave empty to show it all.</value>
+        <value>Enter the number of images to show or leave empty to show all images.</value>
+    </data>
+	<data name="DisableMoreImages.Text" xml:space="preserve">
+        <value>Disable &quot;More Images&quot; Button:</value>
+    </data>
+    <data name="DisableMoreImages.Help" xml:space="preserve">
+        <value>If checked, module will not show &quot;More Images&quot; button, so only &quot;Show Images&quot; number of images will be available for a user.</value>
     </data>
 	<data name="SortOrder.Text" xml:space="preserve">
         <value>Sort Ascending?</value>

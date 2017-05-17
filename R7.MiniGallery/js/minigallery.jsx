@@ -101,7 +101,7 @@ class MiniGallery extends React.Component {
     }
 
     renderMoreButton () {
-        if (this.props.totalImages > this.state.images.length) {
+        if (!this.props.disableMoreImages && (this.props.totalImages > this.state.images.length)) {
             if (!this.state.loading && !this.state.error) {
                 return (
                     <button className="btn btn-sm btn-block btn-default" onClick={this.getAllImages.bind(this)}>

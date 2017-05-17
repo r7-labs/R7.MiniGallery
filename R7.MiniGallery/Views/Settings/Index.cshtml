@@ -49,6 +49,10 @@
             @Html.TextBoxFor(m => m.NumberOfRecords)
         </div>
 		<div class="dnnFormItem">
+            @Dnn.LabelFor(m => m.DisableMoreImages, Dnn.LocalizeString("DisableMoreImages.Text"), Dnn.LocalizeString("DisableMoreImages.Help"))
+            @Html.CheckBoxFor(m => m.DisableMoreImages)
+        </div>
+		<div class="dnnFormItem">
             @Dnn.LabelFor(m => m.SortAscending, Dnn.LocalizeString("SortOrder.Text"), Dnn.LocalizeString("SortOrder.Help"))
             @Html.CheckBoxFor(m => m.SortAscending)
         </div>

@@ -45,6 +45,7 @@
                     showTitles={$(m).data ("show-titles")}
                     images={$(m).data ("images")}
                     totalImages={$(m).data ("total-images")}
+                    disableMoreImages={$(m).data ("disable-more-images")}
                     resources={$(m).data ("resources")}
                     showControls={true}
                     service={new window.MiniGalleryService ($, moduleId)}
