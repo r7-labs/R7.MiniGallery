@@ -58,6 +58,22 @@ namespace R7.MiniGallery.Controllers
         {
             // FIXME: https://dnntracker.atlassian.net/browse/DNN-9818
 
+            if (settings.Columns < 0) {
+                settings.Columns = 0;
+            }
+
+            if (settings.NumberOfRecords < 0) {
+                settings.NumberOfRecords = 0;
+            }
+
+            if (settings.ThumbWidth < 0) {
+                settings.ThumbWidth = 0;
+            }
+
+            if (settings.ThumbHeight < 0) {
+                settings.ThumbHeight = 0;
+            }
+
             SettingsRepository.SaveSettings (ActiveModule, settings);
             CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
             ModuleController.SynchronizeModule (ModuleContext.ModuleId);
