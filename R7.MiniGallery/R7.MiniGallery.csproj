@@ -160,7 +160,6 @@
     <Compile Include="EditMiniGallery.ascx.controls.cs">
       <DependentUpon>EditMiniGallery.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Models\IAuditable.cs" />
     <Compile Include="Models\ImageInfo.cs" />
     <Compile Include="BulkAdd.cs">
       <DependentUpon>BulkAdd.ascx</DependentUpon>

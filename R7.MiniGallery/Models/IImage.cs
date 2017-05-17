@@ -18,11 +18,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 
 namespace R7.MiniGallery.Models
 {
-    public interface IImage : IAuditable
+    public interface IImage
 	{
         int ImageID { get; set; }
 
@@ -41,6 +42,14 @@ namespace R7.MiniGallery.Models
         DateTime? StartDate { get; set; }
 
         DateTime? EndDate { get; set; }
+
+        int LastModifiedByUserID { get; set; }
+
+        DateTime LastModifiedOnDate { get; set; }
+
+        int CreatedByUserID { get; set; }
+
+        DateTime CreatedOnDate { get; set; }
     }
 }
 
