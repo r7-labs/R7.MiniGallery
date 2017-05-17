@@ -10,7 +10,7 @@
         <value>Style Set:</value>
     </data>
 	<data name="StyleSet.Help" xml:space="preserve">
-        <value>Style set name for the gallery elements</value>
+        <value>Style set name for the gallery. You can add more style sets by placing style-*.css files into the css folder inside module install folder.</value>
     </data>
 	<data name="ImageCssClass.Text" xml:space="preserve">
         <value>Image CSS Classes:</value>
@@ -64,13 +64,13 @@
         <value>Thumb Width (px):</value>
     </data>
 	<data name="ThumbWidth.Help" xml:space="preserve">
-        <value>Specify thumbnail image width in px or leave empty.</value>
+        <value>Specify thumbnail image width in px or set to 0.</value>
     </data>
 	<data name="ThumbHeight.Text" xml:space="preserve">
         <value>Thumb Height (px):</value>
     </data>
 	<data name="ThumbHeight.Help" xml:space="preserve">
-        <value>Specify thumbnail image width in pixels or leave empty.</value>
+        <value>Specify thumbnail image width in pixels or set to 0.</value>
     </data>
 	<data name="ShowTitles.Text" xml:space="preserve">
         <value>Show Titles?</value>
@@ -82,13 +82,13 @@
         <value>Show Number of Images:</value>
     </data>
 	<data name="NumberOfRecords.Help" xml:space="preserve">
-        <value>Enter the number of images to show or leave empty to show all images.</value>
+        <value>Enter the number of images to show or set to 0 to show all images.</value>
     </data>
-	<data name="DisableMoreImages.Text" xml:space="preserve">
-        <value>Disable &quot;More Images&quot; Button:</value>
+	<data name="EnableMoreImages.Text" xml:space="preserve">
+        <value>Show &quot;More Images&quot;?</value>
     </data>
-    <data name="DisableMoreImages.Help" xml:space="preserve">
-        <value>If checked, module will not show &quot;More Images&quot; button, so only &quot;Show Images&quot; number of images will be available for a user.</value>
+    <data name="EnableMoreImages.Help" xml:space="preserve">
+        <value>If checked, module will show &quot;More Images&quot; button. Otherwise only &quot;Show Images&quot; number of images will be available for a user.</value>
     </data>
 	<data name="SortOrder.Text" xml:space="preserve">
         <value>Sort Ascending?</value>

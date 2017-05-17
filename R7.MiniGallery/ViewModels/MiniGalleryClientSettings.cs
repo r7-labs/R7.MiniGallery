@@ -31,14 +31,14 @@ namespace R7.MiniGallery.ViewModels
 
         public bool ShowTitles { get; protected set; }
 
-        public bool DisableMoreImages { get; protected set; }
+        public bool EnableMoreImages { get; protected set; }
 
         public MiniGalleryClientSettings (MiniGallerySettings settings)
         {
             Target = settings.Target;
             StyleSet = settings.StyleSet;
             ShowTitles = settings.ShowTitles;
-            DisableMoreImages = settings.DisableMoreImages;
+            EnableMoreImages = settings.EnableMoreImages;
         }
     }
 }

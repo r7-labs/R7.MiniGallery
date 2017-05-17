@@ -10,7 +10,7 @@
         <value>Набор стилей:</value>
     </data>
 	<data name="StyleSet.Help" xml:space="preserve">
-        <value>Имя набора стилей элементов галереи</value>
+        <value>Имя набора стилей галереи. Вы можете добавить свои наборы стилей, поместив файлы style-*.css в папку css внутри папки установки модуля.</value>
     </data>
 	<data name="ImageCssClass.Text" xml:space="preserve">
         <value>CSS классы изображений:</value>
@@ -46,7 +46,7 @@
         <value>Число колонок:</value>
     </data>
 	<data name="Columns.Help" xml:space="preserve">
-        <value>Устанавливает количество колонок в списке изображений. Если установлено значение 0, изображения будут пытаться занять все доступное пространство.</value>
+        <value>Устанавливает количество колонок в списке изображений. Если задано значение 0, изображения будут пытаться занять все доступную ширину.</value>
     </data>
 	<data name="ImageWidth.Text" xml:space="preserve">
         <value>Ширина изображения:</value>
@@ -64,13 +64,13 @@
         <value>Ширина миниатюры (px):</value>
     </data>
 	<data name="ThumbWidth.Help" xml:space="preserve">
-        <value>Укажите ширину миниатюры в пикселах или оставьте поле пустым.</value>
+        <value>Укажите ширину миниатюры в пикселах или введите 0.</value>
     </data>
 	<data name="ThumbHeight.Text" xml:space="preserve">
         <value>Высота миниатюры (px):</value>
     </data>
 	<data name="ThumbHeight.Help" xml:space="preserve">
-        <value>Укажите высоту миниатюры в пикселах или оставьте поле пустым.</value>
+        <value>Укажите высоту миниатюры в пикселах или введите 0.</value>
     </data>
 	<data name="ShowTitles.Text" xml:space="preserve">
         <value>Показывать заголовки?</value>
@@ -82,13 +82,13 @@
         <value>Показывать изображений:</value>
     </data>
 	<data name="NumberOfRecords.Help" xml:space="preserve">
-        <value>Укажите количество отображаемых изображений или оставьте поле пустым, чтобы показать все изображения.</value>
+        <value>Укажите количество отображаемых изображений или введите 0, чтобы показать все изображения.</value>
     </data>
-	<data name="DisableMoreImages.Text" xml:space="preserve">
-        <value>Отключить кнопку &quot;Еще изображения&quot;:</value>
+	<data name="EnableMoreImages.Text" xml:space="preserve">
+        <value>Показывать &quot;Еще изображения&quot;?</value>
     </data>
-    <data name="DisableMoreImages.Help" xml:space="preserve">
-        <value>Если отмечено, модуль не будет отображать кнопку &quot;Еще изображения&quot;, в результате чего пользователю будут доступны изображения только в количестве, заданном настройкой &quot;Показывать изображений&quot;.</value>
+    <data name="EnableMoreImages.Help" xml:space="preserve">
+        <value>Если отмечено, модуль будет отображать кнопку &quot;Еще изображения&quot;. В противном случае, пользователю будут доступны изображения только в количестве, заданном настройкой &quot;Показывать изображений&quot;.</value>
     </data>
 	<data name="SortOrder.Text" xml:space="preserve">
         <value>По возрастанию?</value>
