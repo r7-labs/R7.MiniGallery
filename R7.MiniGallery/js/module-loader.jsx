@@ -40,6 +40,7 @@
                     totalImages={$(m).data ("total-images")}
                     settings={$(m).data ("settings")}
                     resources={$(m).data ("resources")}
+                    lightboxType={$(m).data ("lightboxType")}
                     showControls={true}
                     service={new window.MiniGalleryService ($, moduleId)}
                 />, m

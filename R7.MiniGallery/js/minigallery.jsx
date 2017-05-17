@@ -79,6 +79,11 @@ class MiniGallery extends React.Component {
                         error: false,
                         images: data
                     });
+
+                    // TODO: Refactor this
+                    if (this.props.lightboxType === "Colorbox") {
+                        mgColorboxInit (jQuery);
+                    }
                 }
                 else {
                     this.setErrorState ();
