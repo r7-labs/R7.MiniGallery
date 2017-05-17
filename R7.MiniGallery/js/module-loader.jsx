@@ -41,11 +41,9 @@
                     moduleId={moduleId}
                     isEditable={$(m).data ("is-editable")}
                     editIcon={$(m).data ("edit-icon")}
-                    styleSet={$(m).data ("style-set")}
-                    showTitles={$(m).data ("show-titles")}
                     images={$(m).data ("images")}
                     totalImages={$(m).data ("total-images")}
-                    disableMoreImages={$(m).data ("disable-more-images")}
+                    settings={$(m).data ("settings")}
                     resources={$(m).data ("resources")}
                     showControls={true}
                     service={new window.MiniGalleryService ($, moduleId)}

@@ -49,5 +49,9 @@ namespace R7.MiniGallery.ViewModels
                 );
             }
         }
+
+        public MiniGalleryClientSettings ClientSettings {
+            get { return new MiniGalleryClientSettings (Settings); }
+        }
     }
 }

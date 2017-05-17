@@ -188,15 +188,6 @@ namespace R7.MiniGallery.ViewModels
             }
         }
 
-        public string Target {
-            get {
-                if (Settings.LightboxType == LightboxType.None) {
-                    return Settings.Target;
-                }
-                return string.Empty;
-            }
-        }
-
         public string EditUrl {
             get { return ModuleContext.EditUrl ("imageid", Model.ImageID.ToString (), "Edit"); }
         }

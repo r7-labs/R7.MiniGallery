@@ -32,7 +32,7 @@ class MiniGalleryImage extends React.Component {
     }
 
     renderTitle() {
-        if (this.props.showTitles && !!this.props.title) {
+        if (this.props.showTitle && !!this.props.title) {
             return (
                 <p className="MG_Title">{this.props.title}</p>
             );
@@ -101,7 +101,7 @@ class MiniGallery extends React.Component {
     }
 
     renderMoreButton () {
-        if (!this.props.disableMoreImages && (this.props.totalImages > this.state.images.length)) {
+        if (!this.props.settings.disableMoreImages && (this.props.totalImages > this.state.images.length)) {
             if (!this.state.loading && !this.state.error) {
                 return (
                     <button className="btn btn-sm btn-block btn-default" onClick={this.getAllImages.bind(this)}>
@@ -134,12 +134,11 @@ class MiniGallery extends React.Component {
     render() {
         return (
             <div>
-                <ul className={"MG_List MG_" + this.props.styleSet}>
+                <ul className={"MG_List MG_" + this.props.settings.styleSet}>
                     {this.state.images.map((img, index) => <MiniGalleryImage
                         index={index}
                         navigateUrl={img.navigateUrl}
                         thumbnailUrl={img.thumbnailUrl}
-                        target={img.target}
                         alt={img.alt}
                         title={img.title}
                         cssClass={img.cssClass}
@@ -149,7 +148,8 @@ class MiniGallery extends React.Component {
                         itemStyle={img.itemStyle}
                         editIcon={this.props.editIcon}
                         isEditable={this.props.isEditable}
-                        showTitles={this.props.showTitles}
+                        showTitle={this.props.settings.showTitles}
+                        target={this.props.settings.target}
                         />)}
                 </ul>
                 {this.renderError()}

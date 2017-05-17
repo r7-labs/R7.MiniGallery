@@ -16,10 +16,8 @@ class BlueimpLightbox extends React.Component {
                     isEditable={this.props.isEditable}
                     editIcon={this.props.editIcon}
                     images={this.props.images}
-                    styleSet={this.props.styleSet}
-                    showTitles={this.props.showTitles}
                     totalImages={this.props.totalImages}
-                    disableMoreImages={this.props.disableMoreImages}
+                    settings={this.props.settings}
                     resources={this.props.resources}
                     service={this.props.service}
                 />

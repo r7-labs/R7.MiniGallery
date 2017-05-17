@@ -193,6 +193,7 @@
     <Compile Include="Api\ImageController.cs" />
     <Compile Include="Api\RouteMapper.cs" />
     <Compile Include="ViewModels\ImageViewModelRepository.cs" />
+    <Compile Include="ViewModels\MiniGalleryClientSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
