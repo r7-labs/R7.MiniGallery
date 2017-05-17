@@ -27,7 +27,7 @@ using DotNetNuke.Services.Search.Entities;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Components
 {
     public class MiniGalleryController : ModuleSearchBase
 	{

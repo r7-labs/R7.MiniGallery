@@ -22,7 +22,7 @@
          <desktopModule>
            <moduleName>R7.MiniGallery</moduleName>
            <foldername>R7.MiniGallery</foldername>
-           <businessControllerClass>R7.MiniGallery.MiniGalleryController</businessControllerClass>
+           <businessControllerClass>R7.MiniGallery.Components.MiniGalleryController</businessControllerClass>
            <supportedFeatures>
              <!-- <supportedFeature type="Portable" /> -->
              <supportedFeature type="Searchable" />
