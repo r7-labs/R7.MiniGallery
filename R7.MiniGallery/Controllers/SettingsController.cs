@@ -20,12 +20,13 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Web.Mvc;
+using DotNetNuke.Entities.Modules;
 using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
-using R7.MiniGallery.Models;
-using DotNetNuke.Entities.Modules;
 using R7.DotNetNuke.Extensions.Utilities;
+using R7.MiniGallery.Models;
+using DnnValidateAntiForgeryTokenAttribute = DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryTokenAttribute;
 
 namespace R7.MiniGallery.Controllers
 {
@@ -52,9 +53,11 @@ namespace R7.MiniGallery.Controllers
 
         [HttpPost]
         [ValidateInput (false)]
-        [global::DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryToken]
+        [DnnValidateAntiForgeryToken]
         public ActionResult Index (MiniGallerySettings settings)
         {
+            // FIXME: https://dnntracker.atlassian.net/browse/DNN-9818
+
             SettingsRepository.SaveSettings (ActiveModule, settings);
             CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
             ModuleController.SynchronizeModule (ModuleContext.ModuleId);
