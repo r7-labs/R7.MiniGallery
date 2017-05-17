@@ -20,9 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using DotNetNuke.Entities.Modules.Settings;
-using R7.MiniGallery.Models;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.Models
 {
     public class MiniGallerySettingsRepository: SettingsRepository<MiniGallerySettings>
     {

@@ -28,6 +28,7 @@ using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Lightboxes;
+using R7.MiniGallery.Models;
 using R7.MiniGallery.ViewModels;
 
 namespace R7.MiniGallery.Controllers

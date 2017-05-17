@@ -29,6 +29,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Lightboxes;
+using R7.MiniGallery.Models;
 using R7.MiniGallery.ViewModels;
 
 namespace R7.MiniGallery.Api
