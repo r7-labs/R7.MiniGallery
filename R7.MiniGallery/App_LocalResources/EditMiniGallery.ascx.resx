@@ -16,13 +16,13 @@
         <value>Alt</value>
     </data>
     <data name="labelAlt.Help" xml:space="preserve">
-        <value>Provide an alternate description for the image, which could be used by a browser instead of it.</value>
+        <value>Enter a short alternate description for the image, which could be used by a browser instead of the image. If not specified, module will try to use image title instead.</value>
     </data>
     <data name="labelTitle.Text" xml:space="preserve">
         <value>Title</value>
     </data>
     <data name="labelTitle.Help" xml:space="preserve">
-        <value>Provide title for the image.</value>
+        <value>Enter title for the image, which will be displayed beside the image, and could be used as alternate description, if last one not specified.</value>
     </data>
     <data name="labelImage.Text" xml:space="preserve">
         <value>Image</value>
