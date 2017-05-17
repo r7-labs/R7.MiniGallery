@@ -16,7 +16,7 @@
 		<dependency type="managedPackage" version="0.10.0">R7.DotNetNuke.Extensions</dependency>
 	    <dependency type="package">React</dependency>
 		<dependency type="package">ReactDOM</dependency>
-		<dependency type="package">jQueryBlueimpGallery</dependency>
+		<dependency type="package">jQuery-BlueimpGallery</dependency>
 	 </dependencies>
      <components>
        <component type="Module">
