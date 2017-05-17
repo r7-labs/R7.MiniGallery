@@ -31,7 +31,7 @@ namespace R7.MiniGallery.Lightboxes
         public void Register (Page page)
         {
             JavaScript.RequestRegistration ("jQuery-BlueimpGallery");
-            ClientResourceManager.RegisterScript (page, "~/DesktopModules/MVC/R7.MiniGallery/js/blueimp-lightbox.min.js");
+            ClientResourceManager.RegisterScript (page, "~/DesktopModules/MVC/R7.MiniGallery/js/lib/blueimp-lightbox.js");
             ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/jQuery-BlueimpGallery/02_25_00/css/blueimp-gallery.min.css");
         }
 

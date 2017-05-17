@@ -3,7 +3,7 @@
 
 bin/
 obj/
+**/js/lib/
 
-packages/
-node_modules/
-
+/packages/
+/node_modules/

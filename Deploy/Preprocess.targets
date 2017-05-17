@@ -4,13 +4,12 @@
     <PropertyGroup>
         <PreprocessImported>true</PreprocessImported>
     </PropertyGroup>
-    <!-- Declare JSX files -->
-    <ItemGroup>
-        <JsxFiles Include="$(MainProjectPath)\js\*.jsx" />
-    </ItemGroup>
-    <Target Name="Preprocess">
+	<Target Name="Preprocess">
+		<PropertyGroup>
+            <BabelPresets Condition=" '$(Configuration)' == 'Release' ">es2015,react,babili</BabelPresets>
+            <BabelPresets Condition=" '$(Configuration)' == 'Debug' ">es2015,react</BabelPresets>
+        </PropertyGroup>
 		<!-- Compile JSX -->
-        <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).min.js --presets=es2015,react,babili" />
-		<Exec Condition=" '$(Configuration)' == 'Debug' " Command="npm-run babel &quot;%(JsxFiles.Identity)&quot; --out-file %(RelativeDir)%(Filename).min.js --presets=es2015,react" />
-    </Target>
+        <Exec Command="npm-run babel &quot;$(MainProjectPath)/js/src&quot; --out-dir &quot;$(MainProjectPath)/js/lib&quot; --presets=$(BabelPresets)" />
+	</Target>
 </Project>
