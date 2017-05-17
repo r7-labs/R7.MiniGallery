@@ -17,12 +17,9 @@
             <dnn:Label id="labelTitle" runat="server" ControlName="textTitle" Suffix=":" />
             <asp:TextBox id="textTitle" runat="server" TextMode="Multiline" Rows="2" />
         </div>
-		<%-- <div class="dnnFormItem dnnFormRequired"> --%>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelAlt" runat="server" ControlName="textAlt" Suffix=":" />
 			<asp:TextBox id="textAlt" runat="server" />
-			<%-- <asp:RequiredFieldValidator runat="server" ControlToValidate="textAlt" 
-				CssClass="dnnFormMessage dnnFormError" resourcekey="Alt.Required" /> --%>
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelLink" runat="server" ControlName="urlLink" Suffix=":" />

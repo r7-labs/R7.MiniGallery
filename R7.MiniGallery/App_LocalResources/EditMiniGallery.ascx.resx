@@ -9,9 +9,6 @@
     <data name="ConfirmDelete.Text" xml:space="preserve">
         <value>Do you really want to delete this image?</value>
     </data>
-    <data name="sectionEditImage.Text" xml:space="preserve">
-        <value>Edit Image</value>
-    </data>
     <data name="labelAlt.Text" xml:space="preserve">
         <value>Alt</value>
     </data>
@@ -36,12 +33,6 @@
     <data name="labelLink.Help" xml:space="preserve">
         <value>Link to a resource to open then image is clicked.</value>
     </data>
-    <data name="labelPreview.Text" xml:space="preserve">
-        <value>Preview</value>
-    </data>
-    <data name="labelPreview.Help" xml:space="preserve">
-        <value>A preview of the selected image.</value>
-    </data>
     <data name="labelSortIndex.Text" xml:space="preserve">
         <value>Sort Index</value>
     </data>
@@ -59,11 +50,5 @@
     </data>
     <data name="labelEndDate.Help">
         <value>Enter the date from current image should be removed from publication on the site.</value>
-    </data>
-    <data name="buttonApplyFilter.Text" xml:space="preserve">
-        <value>Apply Filter</value>
-    </data>
-    <data name="Alt.Required" xml:space="preserve">
-        <value>Alternative description for the image is required.</value>
     </data>
 </root>
