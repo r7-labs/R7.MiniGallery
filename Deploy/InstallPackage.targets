@@ -41,6 +41,7 @@
             <InstallResourceFiles Include="../**/*.aspx" />
             <InstallResourceFiles Include="../**/*.asmx" />
             <InstallResourceFiles Include="../**/*.ashx" />
+			<InstallResourceFiles Include="../**/*.cshtml" />
             <InstallResourceFiles Include="../**/*.resx" />
             <InstallResourceFiles Include="../**/*.css" />
             <InstallResourceFiles Include="../**/*.html" />
