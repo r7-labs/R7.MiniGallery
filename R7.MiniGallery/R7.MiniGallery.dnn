@@ -1,126 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <dotnetnuke type="Package" version="5.0">
- <packages>
-   <package name="R7.MiniGallery" type="Module" version="01.03.00">
-     <friendlyName>R7.MiniGallery</friendlyName>
-     <description>Simple image gallery with lightbox and automatic thumbnails support.</description>
-     <owner>
-       <name>Roman M. Yagodin</name>
-       <organization>R7.Solutions</organization>
-       <url>https://github.com/roman-yagodin/R7.MiniGallery</url>
-       <email>roman.yagodin@gmail.com</email>
-     </owner>
-	 <license src="license.htm" />
-     <releaseNotes src="releaseNotes.htm" />
-     <dependencies>
-		<dependency type="coreVersion">08.00.04</dependency>
-		<dependency type="managedPackage" version="0.10.0">R7.DotNetNuke.Extensions</dependency>
-	    <dependency type="package">React</dependency>
-		<dependency type="package">ReactDOM</dependency>
-		<dependency type="package">jQuery-BlueimpGallery</dependency>
-	 </dependencies>
-     <components>
-       <component type="Module">
-         <desktopModule>
-           <moduleName>R7.MiniGallery</moduleName>
-           <foldername>R7.MiniGallery</foldername>
-           <businessControllerClass>R7.MiniGallery.Components.MiniGalleryController</businessControllerClass>
-           <supportedFeatures>
-             <!-- <supportedFeature type="Portable" /> -->
-             <supportedFeature type="Searchable" />
-           </supportedFeatures>
-           <moduleDefinitions>
-             <moduleDefinition>
-               <friendlyName>R7.MiniGallery</friendlyName>
-               <definitionName>R7_MiniGallery</definitionName>
-               <defaultCacheTime>0</defaultCacheTime>
-               <moduleControls>
-                 <moduleControl>
-                   <controlKey />
-                   <controlSrc>R7.MiniGallery.Controllers/Image/Index.mvc</controlSrc>
-                   <controlTitle />
-                   <controlType>View</controlType>
-                   <iconFile />
-                   <helpUrl />
-                   <supportsPartialRendering>False</supportsPartialRendering>
-                   <supportsPopUps>False</supportsPopUps>
-                   <viewOrder>0</viewOrder>
-                 </moduleControl>
-                 <moduleControl>
-                   <controlKey>Edit</controlKey>
-                   <controlSrc>DesktopModules/MVC/R7.MiniGallery/EditMiniGallery.ascx</controlSrc>
-                   <supportsPartialRendering>False</supportsPartialRendering>
-                   <supportsPopUps>True</supportsPopUps>
-                   <controlTitle>Edit</controlTitle>
-                   <controlType>Edit</controlType>
-                   <iconFile />
-                   <helpUrl />
-                   <supportsPartialRendering>False</supportsPartialRendering>
-                   <supportsPopUps>True</supportsPopUps>
-                   <viewOrder>0</viewOrder>
-                 </moduleControl>
-                 <moduleControl>
-                   <controlKey>Settings</controlKey>
-                   <controlSrc>R7.MiniGallery.Controllers/Settings/Index.mvc</controlSrc>
-                   <supportsPartialRendering>False</supportsPartialRendering>
-                   <controlTitle>Settings</controlTitle>
-                   <controlType>Edit</controlType>
-                   <iconFile />
-                   <helpUrl />
-                   <supportsPartialRendering>False</supportsPartialRendering>
-                   <supportsPopUps>False</supportsPopUps>
-                   <viewOrder>0</viewOrder>
-                 </moduleControl>
-			     <moduleControl>
-                   <controlKey>BulkAdd</controlKey>
-                   <controlSrc>DesktopModules/MVC/R7.MiniGallery/BulkAdd.ascx</controlSrc>
-                   <supportsPartialRendering>False</supportsPartialRendering>
-                   <controlTitle>Bulk Add</controlTitle>
-                   <controlType>Edit</controlType>
-                   <iconFile />
-                   <helpUrl />
-                   <supportsPartialRendering>False</supportsPartialRendering>
-                   <supportsPopUps>True</supportsPopUps>
-                   <viewOrder>0</viewOrder>
-                 </moduleControl>
-               </moduleControls>
-             </moduleDefinition>
-           </moduleDefinitions>
-         </desktopModule>
-       </component>
-       <component type="Script">
-         <scripts>
-           <basePath>DesktopModules\MVC\R7.MiniGallery</basePath>
-           <script type="Install">
-             <name>SqlDataProvider\01.00.00.SqlDataProvider</name>
-             <version>01.00.00</version>
-           </script>
-           <script type="Install">
-             <name>SqlDataProvider\01.02.00.SqlDataProvider</name>
-             <version>01.02.00</version>
-           </script>
-           <script type="UnInstall">
-             <name>SqlDataProvider\Uninstall.SqlDataProvider</name>
-           </script>
-         </scripts>
-       </component>
-       <component type="ResourceFile">
-         <resourceFiles>
-           <basePath>DesktopModules\MVC</basePath>
-           <resourceFile>
-             <name>Resources.zip</name>
-           </resourceFile>
-         </resourceFiles>
-       </component>
-       <component type="Assembly">
-         <assemblies>
-           <basePath>bin</basePath>
-           <assembly>
-             <path>bin</path>
-             <name>R7.MiniGallery.dll</name>
-           </assembly>
-         </assemblies>
-       </component>
-     </components>
-   </package>
-  </packages>
+    <packages>
+        <package name="R7.MiniGallery" type="Module" version="01.03.00">
+            <friendlyName>R7.MiniGallery</friendlyName>
+            <description>Simple image gallery with lightbox and automatic thumbnails support.</description>
+            <owner>
+                <name>Roman M. Yagodin</name>
+                <organization>R7.Solutions</organization>
+                <url>https://github.com/roman-yagodin/R7.MiniGallery</url>
+                <email>roman.yagodin@gmail.com</email>
+            </owner>
+            <license src="license.htm" />
+            <releaseNotes src="releaseNotes.htm" />
+            <dependencies>
+                <dependency type="coreVersion">08.00.04</dependency>
+                <dependency type="managedPackage" version="0.10.0">R7.DotNetNuke.Extensions</dependency>
+                <dependency type="package">React</dependency>
+                <dependency type="package">ReactDOM</dependency>
+                <dependency type="package">jQuery-BlueimpGallery</dependency>
+            </dependencies>
+            <components>
+                <component type="Module">
+                    <desktopModule>
+                        <moduleName>R7.MiniGallery</moduleName>
+                        <foldername>R7.MiniGallery</foldername>
+                        <businessControllerClass>R7.MiniGallery.Components.MiniGalleryController</businessControllerClass>
+                        <supportedFeatures>
+                            <!-- <supportedFeature type="Portable" /> -->
+                            <supportedFeature type="Searchable" />
+                        </supportedFeatures>
+                        <moduleDefinitions>
+                            <moduleDefinition>
+                                <friendlyName>R7.MiniGallery</friendlyName>
+                                <definitionName>R7_MiniGallery</definitionName>
+                                <defaultCacheTime>0</defaultCacheTime>
+                                <moduleControls>
+                                    <moduleControl>
+                                        <controlKey />
+                                        <controlSrc>R7.MiniGallery.Controllers/Image/Index.mvc</controlSrc>
+                                        <controlTitle />
+                                        <controlType>View</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <supportsPopUps>False</supportsPopUps>
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                    <moduleControl>
+                                        <controlKey>Edit</controlKey>
+                                        <controlSrc>DesktopModules/MVC/R7.MiniGallery/EditMiniGallery.ascx</controlSrc>
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <supportsPopUps>True</supportsPopUps>
+                                        <controlTitle>Edit</controlTitle>
+                                        <controlType>Edit</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <supportsPopUps>True</supportsPopUps>
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                    <moduleControl>
+                                        <controlKey>Settings</controlKey>
+                                        <controlSrc>R7.MiniGallery.Controllers/Settings/Index.mvc</controlSrc>
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <controlTitle>Settings</controlTitle>
+                                        <controlType>Edit</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <supportsPopUps>False</supportsPopUps>
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                    <moduleControl>
+                                        <controlKey>BulkAdd</controlKey>
+                                        <controlSrc>DesktopModules/MVC/R7.MiniGallery/BulkAdd.ascx</controlSrc>
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <controlTitle>Bulk Add</controlTitle>
+                                        <controlType>Edit</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <supportsPopUps>True</supportsPopUps>
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                </moduleControls>
+                            </moduleDefinition>
+                        </moduleDefinitions>
+                    </desktopModule>
+                </component>
+                <component type="Script">
+                    <scripts>
+                        <basePath>DesktopModules\MVC\R7.MiniGallery</basePath>
+                        <script type="Install">
+                            <name>SqlDataProvider\01.00.00.SqlDataProvider</name>
+                            <version>01.00.00</version>
+                        </script>
+                        <script type="Install">
+                            <name>SqlDataProvider\01.02.00.SqlDataProvider</name>
+                            <version>01.02.00</version>
+                        </script>
+                        <script type="UnInstall">
+                            <name>SqlDataProvider\Uninstall.SqlDataProvider</name>
+                        </script>
+                    </scripts>
+                </component>
+                <component type="ResourceFile">
+                    <resourceFiles>
+                        <basePath>DesktopModules\MVC</basePath>
+                        <resourceFile>
+                            <name>Resources.zip</name>
+                        </resourceFile>
+                    </resourceFiles>
+                </component>
+                <component type="Assembly">
+                    <assemblies>
+                        <basePath>bin</basePath>
+                        <assembly>
+                            <path>bin</path>
+                            <name>R7.MiniGallery.dll</name>
+                        </assembly>
+                    </assemblies>
+                </component>
+            </components>
+        </package>
+    </packages>
 </dotnetnuke>

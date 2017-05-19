@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<resheader name="resmimetype">
+    <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
     <resheader name="version">
@@ -12,40 +12,40 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-	<data name="ControlTitle_settings.Text" xml:space="preserve">
+    <data name="ControlTitle_settings.Text" xml:space="preserve">
         <value>Настройки R7.MiniGallery</value>
     </data>
-	<data name="ModuleHelp.Text" xml:space="preserve">
+    <data name="ModuleHelp.Text" xml:space="preserve">
         <value>О настройках R7.MiniGallery</value>
     </data>
-	<data name="StyleSet.Text" xml:space="preserve">
+    <data name="StyleSet.Text" xml:space="preserve">
         <value>Набор стилей:</value>
     </data>
-	<data name="StyleSet.Help" xml:space="preserve">
+    <data name="StyleSet.Help" xml:space="preserve">
         <value>Имя набора стилей галереи. Вы можете добавить свои наборы стилей, поместив файлы style-*.css в папку css внутри папки установки модуля.</value>
     </data>
-	<data name="ImageCssClass.Text" xml:space="preserve">
+    <data name="ImageCssClass.Text" xml:space="preserve">
         <value>CSS классы изображений:</value>
     </data>
     <data name="ImageCssClass.Help" xml:space="preserve">
         <value>Введите список CSS классов, которые будут применены к изображениям модуля. Элементы списка разделяйте пробелом.</value>
     </data>
-	<data name="Target.Text" xml:space="preserve">
+    <data name="Target.Text" xml:space="preserve">
         <value>Цель ссылки:</value>
     </data>
-	<data name="Target.Help" xml:space="preserve">
+    <data name="Target.Help" xml:space="preserve">
         <value>Устанавливает цель для ссылки. Введите имя окна или фрейма, либо оставьте поле пустым для отключения ссылки. Значение не имеет смысла в случае, если используется модуль Lightbox, но может быть полезно без него.</value>
     </data>
-	<data name="UseImageHandler.Text" xml:space="preserve">
+    <data name="UseImageHandler.Text" xml:space="preserve">
         <value>Использовать генератор миниатюр?</value>
     </data>
-	<data name="UseImageHandler.Help" xml:space="preserve">
+    <data name="UseImageHandler.Help" xml:space="preserve">
         <value>Отметьте, чтобы использовать внешний генератор миниатюр (в настоящее время поддерживается только R7.ImageHandler).</value>
     </data>
-	<data name="ImageHandlerParams.Text" xml:space="preserve">
+    <data name="ImageHandlerParams.Text" xml:space="preserve">
         <value>Параметры генератора миниатюр:</value>
     </data>
-	<data name="ImageHandlerParams.Help" xml:space="preserve">
+    <data name="ImageHandlerParams.Help" xml:space="preserve">
         <value>Добавьте строку параметров URL для дополнения URL генератора миниатюр в формате имя=значение, или оставьте пустым для использования параметров по умолчанию. Поддерживаются метки: {fileticket}, {fileid}, {width}, {height}.</value>
     </data>
     <data name="BasicSettings.Section" xml:space="preserve">
@@ -54,76 +54,76 @@
     <data name="ImageHandler.Section" xml:space="preserve">
         <value>Настройки генератора миниатюр</value>
     </data>
-	<data name="Columns.Text" xml:space="preserve">
+    <data name="Columns.Text" xml:space="preserve">
         <value>Число колонок:</value>
     </data>
-	<data name="Columns.Help" xml:space="preserve">
+    <data name="Columns.Help" xml:space="preserve">
         <value>Устанавливает количество колонок в списке изображений. Если задано значение 0, изображения будут пытаться занять все доступную ширину.</value>
     </data>
-	<data name="ImageWidth.Text" xml:space="preserve">
+    <data name="ImageWidth.Text" xml:space="preserve">
         <value>Ширина изображения:</value>
     </data>
-	<data name="ImageWidth.Help" xml:space="preserve">
+    <data name="ImageWidth.Help" xml:space="preserve">
         <value>Укажите ширину изображения в любых единицах CSS. Если это значение не задано, будет использоваться ширина миниатюры или исходного изображения.</value>
     </data>
-	<data name="ImageHeight.Text" xml:space="preserve">
+    <data name="ImageHeight.Text" xml:space="preserve">
         <value>Высота изображения:</value>
     </data>
-	<data name="ImageHeight.Help" xml:space="preserve">
+    <data name="ImageHeight.Help" xml:space="preserve">
         <value>Укажите высоту изображения в любых единицах CSS. Если это значение не задано, будет использоваться высота миниатюры или исходного изображения.</value>
     </data>
-	<data name="ThumbWidth.Text" xml:space="preserve">
+    <data name="ThumbWidth.Text" xml:space="preserve">
         <value>Ширина миниатюры (px):</value>
     </data>
-	<data name="ThumbWidth.Help" xml:space="preserve">
+    <data name="ThumbWidth.Help" xml:space="preserve">
         <value>Укажите ширину миниатюры в пикселах или введите 0.</value>
     </data>
-	<data name="ThumbHeight.Text" xml:space="preserve">
+    <data name="ThumbHeight.Text" xml:space="preserve">
         <value>Высота миниатюры (px):</value>
     </data>
-	<data name="ThumbHeight.Help" xml:space="preserve">
+    <data name="ThumbHeight.Help" xml:space="preserve">
         <value>Укажите высоту миниатюры в пикселах или введите 0.</value>
     </data>
-	<data name="ShowTitles.Text" xml:space="preserve">
+    <data name="ShowTitles.Text" xml:space="preserve">
         <value>Показывать заголовки?</value>
     </data>
     <data name="ShowTitles.Help" xml:space="preserve">
         <value>Отметьте, чтобы отобразить заголовки рядом с изображениями.</value>
     </data>
-	<data name="NumberOfRecords.Text" xml:space="preserve">
+    <data name="NumberOfRecords.Text" xml:space="preserve">
         <value>Показывать изображений:</value>
     </data>
-	<data name="NumberOfRecords.Help" xml:space="preserve">
+    <data name="NumberOfRecords.Help" xml:space="preserve">
         <value>Укажите количество отображаемых изображений или введите 0, чтобы показать все изображения.</value>
     </data>
-	<data name="EnableMoreImages.Text" xml:space="preserve">
-        <value>Показывать &quot;Еще изображения&quot;?</value>
+    <data name="EnableMoreImages.Text" xml:space="preserve">
+        <value>Показывать "Еще изображения"?</value>
     </data>
     <data name="EnableMoreImages.Help" xml:space="preserve">
-        <value>Если отмечено, модуль будет отображать кнопку &quot;Еще изображения&quot;. В противном случае, пользователю будут доступны изображения только в количестве, заданном настройкой &quot;Показывать изображений&quot;.</value>
+        <value>Если отмечено, модуль будет отображать кнопку "Еще изображения". В противном случае, пользователю будут доступны изображения только в количестве, заданном настройкой "Показывать изображений".</value>
     </data>
-	<data name="SortOrder.Text" xml:space="preserve">
+    <data name="SortOrder.Text" xml:space="preserve">
         <value>По возрастанию?</value>
     </data>
-	<data name="SortOrder.Help" xml:space="preserve">
+    <data name="SortOrder.Help" xml:space="preserve">
         <value>Отметьте, если элементы списка изображение должны быть отсортированы по возрастанию значения поля Индекс сортировки.</value>
     </data>
-	<data name="TargetCustom.Text" xml:space="preserve">
+    <data name="TargetCustom.Text" xml:space="preserve">
         <value>&lt;Другая&gt;</value>
     </data>
-	<data name="TargetNone.Text" xml:space="preserve">
+    <data name="TargetNone.Text" xml:space="preserve">
         <value>&lt;Нет&gt;</value>
     </data>
-	<data name="LightboxType.Text" xml:space="preserve">
+    <data name="LightboxType.Text" xml:space="preserve">
         <value>Использовать Lightbox:</value>
     </data>
-	<data name="LightboxType.Help" xml:space="preserve">
+    <data name="LightboxType.Help" xml:space="preserve">
         <value>Выберите тип используемого модуля Lightbox.</value>
     </data>
-	<data name="LightboxType.None" xml:space="preserve">
+    <data name="LightboxType.None" xml:space="preserve">
         <value>&lt;Нет&gt;</value>
     </data>
-	<data name="LightboxType.Default" xml:space="preserve">
+    <data name="LightboxType.Default" xml:space="preserve">
         <value>&lt;По-умолчанию&gt;</value>
     </data>
 </root>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<resheader name="resmimetype">
+    <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
     <resheader name="version">
@@ -12,127 +12,127 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-	<data name="ControlTitle_settings.Text" xml:space="preserve">
+    <data name="ControlTitle_settings.Text" xml:space="preserve">
         <value>R7.MiniGallery Settings</value>
     </data>
-	<data name="ModuleHelp.Text" xml:space="preserve">
+    <data name="ModuleHelp.Text" xml:space="preserve">
         <value>About R7.MiniGallery Settings</value>
     </data>
-	<data name="StyleSet.Text" xml:space="preserve">
+    <data name="StyleSet.Text" xml:space="preserve">
         <value>Style Set:</value>
     </data>
-	<data name="StyleSet.Help" xml:space="preserve">
+    <data name="StyleSet.Help" xml:space="preserve">
         <value>Style set name for the gallery. You can add more style sets by placing style-*.css files into the css folder inside module install folder.</value>
     </data>
-	<data name="ImageCssClass.Text" xml:space="preserve">
+    <data name="ImageCssClass.Text" xml:space="preserve">
         <value>Image CSS Classes:</value>
     </data>
     <data name="ImageCssClass.Help" xml:space="preserve">
         <value>Enter space-separated list of CSS classes to apply to module images.</value>
     </data>
-	<data name="Target.Text" xml:space="preserve">
+    <data name="Target.Text" xml:space="preserve">
         <value>Link Target:</value>
     </data>
-	<data name="Target.Help" xml:space="preserve">
+    <data name="Target.Help" xml:space="preserve">
         <value>Set link target. Enter window or frame name for custom target or leave empty for no target. Has no meaning if jQuery lightbox is used, but may be useful without it.</value>
     </data>
-	<data name="UseImageHandler.Text" xml:space="preserve">
+    <data name="UseImageHandler.Text" xml:space="preserve">
         <value>Use Image Handler?</value>
     </data>
-	<data name="UseImageHandler.Help" xml:space="preserve">
+    <data name="UseImageHandler.Help" xml:space="preserve">
         <value>Check to use external image handler to create thumbnails (only R7.ImageHandler is supported at this time).</value>
     </data>
-	<data name="ImageHandlerParams.Text" xml:space="preserve">
+    <data name="ImageHandlerParams.Text" xml:space="preserve">
         <value>Image Handler Params:</value>
     </data>
-	<data name="ImageHandlerParams.Help" xml:space="preserve">
+    <data name="ImageHandlerParams.Help" xml:space="preserve">
         <value>Add URL parameter string which will be added to image handler URL if name=value pairs format, or leave empty to use default URL. Currently supported tags: {fileticket}, {fileid}, {width}, {height}.</value>
     </data>
-	<data name="BasicSettings.Section" xml:space="preserve">
+    <data name="BasicSettings.Section" xml:space="preserve">
         <value>Basic Settings</value>
     </data>
-	<data name="ImageHandler.Section" xml:space="preserve">
+    <data name="ImageHandler.Section" xml:space="preserve">
         <value>Image Handler Settings</value>
     </data>
-	<data name="Columns.Text" xml:space="preserve">
+    <data name="Columns.Text" xml:space="preserve">
         <value>Columns:</value>
     </data>
-	<data name="Columns.Help" xml:space="preserve">
+    <data name="Columns.Help" xml:space="preserve">
         <value>Set number of columns in the image list. If value set to 0, all available width will be taken by images.</value>
     </data>
-	<data name="ImageWidth.Text" xml:space="preserve">
+    <data name="ImageWidth.Text" xml:space="preserve">
         <value>Image Width:</value>
     </data>
-	<data name="ImageWidth.Help" xml:space="preserve">
+    <data name="ImageWidth.Help" xml:space="preserve">
         <value>Specify width of the displayed image in any CSS units. If not set, thumbnail width or original image width will be used.</value>
     </data>
-	<data name="ImageHeight.Text" xml:space="preserve">
+    <data name="ImageHeight.Text" xml:space="preserve">
         <value>Image Height:</value>
     </data>
-	<data name="ImageHeight.Help" xml:space="preserve">
+    <data name="ImageHeight.Help" xml:space="preserve">
         <value>Specify height of the displayed image in any CSS units. If not set, thumbnail height or original image height will be used.</value>
     </data>
-	<data name="ThumbWidth.Text" xml:space="preserve">
+    <data name="ThumbWidth.Text" xml:space="preserve">
         <value>Thumb Width (px):</value>
     </data>
-	<data name="ThumbWidth.Help" xml:space="preserve">
+    <data name="ThumbWidth.Help" xml:space="preserve">
         <value>Specify thumbnail image width in px or set to 0.</value>
     </data>
-	<data name="ThumbHeight.Text" xml:space="preserve">
+    <data name="ThumbHeight.Text" xml:space="preserve">
         <value>Thumb Height (px):</value>
     </data>
-	<data name="ThumbHeight.Help" xml:space="preserve">
+    <data name="ThumbHeight.Help" xml:space="preserve">
         <value>Specify thumbnail image width in pixels or set to 0.</value>
     </data>
-	<data name="ShowTitles.Text" xml:space="preserve">
+    <data name="ShowTitles.Text" xml:space="preserve">
         <value>Show Titles?</value>
     </data>
     <data name="ShowTitles.Help" xml:space="preserve">
         <value>Check to display image title beside the image.</value>
     </data>
-	<data name="NumberOfRecords.Text" xml:space="preserve">
+    <data name="NumberOfRecords.Text" xml:space="preserve">
         <value>Show Number of Images:</value>
     </data>
-	<data name="NumberOfRecords.Help" xml:space="preserve">
+    <data name="NumberOfRecords.Help" xml:space="preserve">
         <value>Enter the number of images to show or set to 0 to show all images.</value>
     </data>
-	<data name="EnableMoreImages.Text" xml:space="preserve">
-        <value>Show &quot;More Images&quot;?</value>
+    <data name="EnableMoreImages.Text" xml:space="preserve">
+        <value>Show "More Images"?</value>
     </data>
     <data name="EnableMoreImages.Help" xml:space="preserve">
-        <value>If checked, module will show &quot;More Images&quot; button. Otherwise only &quot;Show Images&quot; number of images will be available for a user.</value>
+        <value>If checked, module will show "More Images" button. Otherwise only "Show Images" number of images will be available for a user.</value>
     </data>
-	<data name="SortOrder.Text" xml:space="preserve">
+    <data name="SortOrder.Text" xml:space="preserve">
         <value>Sort Ascending?</value>
     </data>
-	<data name="SortOrder.Help" xml:space="preserve">
+    <data name="SortOrder.Help" xml:space="preserve">
         <value>Check if image list should be sorted by SortIndex ascending.</value>
     </data>
-	<data name="TargetCustom.Text" xml:space="preserve">
+    <data name="TargetCustom.Text" xml:space="preserve">
         <value>&lt;Custom&gt;</value>
     </data>
-	<data name="TargetNone.Text" xml:space="preserve">
+    <data name="TargetNone.Text" xml:space="preserve">
         <value>&lt;None&gt;</value>
     </data>
-	<data name="LightboxType.Text" xml:space="preserve">
+    <data name="LightboxType.Text" xml:space="preserve">
         <value>Lightbox Type:</value>
     </data>
-	<data name="LightboxType.Help" xml:space="preserve">
+    <data name="LightboxType.Help" xml:space="preserve">
         <value>Select the lightbox module to use.</value>
     </data>
-	<data name="LightboxType.None" xml:space="preserve">
+    <data name="LightboxType.None" xml:space="preserve">
         <value>&lt;None&gt;</value>
     </data>
-	<data name="LightboxType.Default" xml:space="preserve">
+    <data name="LightboxType.Default" xml:space="preserve">
         <value>&lt;Default&gt;</value>
     </data>
-	<data name="LightboxType.BlueimpGallery" xml:space="preserve">
+    <data name="LightboxType.BlueimpGallery" xml:space="preserve">
         <value>blueimp Gallery</value>
     </data>
-	<data name="LightboxType.Lightbox" xml:space="preserve">
+    <data name="LightboxType.Lightbox" xml:space="preserve">
         <value>Lightbox2</value>
     </data>
-	<data name="LightboxType.Colorbox" xml:space="preserve">
+    <data name="LightboxType.Colorbox" xml:space="preserve">
         <value>Colorbox</value>
     </data>
 </root>

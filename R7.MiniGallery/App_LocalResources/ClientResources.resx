@@ -12,13 +12,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-	<data name="moreImagesFormat" xml:space="preserve">
+    <data name="moreImagesFormat" xml:space="preserve">
         <value>{0} more...</value>
     </data>
-	<data name="moreImagesErrorTitle" xml:space="preserve">
+    <data name="moreImagesErrorTitle" xml:space="preserve">
         <value>Oops, something went wrong!</value>
     </data>
-	<data name="moreImagesErrorMessage" xml:space="preserve">
+    <data name="moreImagesErrorMessage" xml:space="preserve">
         <value>Please reload page and try again.</value>
     </data>
 </root>
