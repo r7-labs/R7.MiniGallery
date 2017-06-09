@@ -14,6 +14,7 @@
 @using R7.MiniGallery
 @using R7.MiniGallery.ViewModels
 @using R7.MiniGallery.Lightboxes
+@using R7.MiniGallery.React
 
 @{
     JavaScript.RequestRegistration ("React");
@@ -23,6 +24,7 @@
     Model.Lightbox.Register (Dnn.DnnPage);
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/lib/module-loader.js");
     ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/css/style-" + Model.Settings.StyleSet.ToLowerInvariant () + ".css");
+    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/lib/Hello.js");
 
     if (Model.Images.Count == 0) {
         if (!Dnn.ModuleContext.IsEditable) {
@@ -45,3 +47,6 @@
 	data-total-images="@Model.TotalImages"
     data-images="@(JsonConvert.SerializeObject (Model.Images, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))">
 </div>
+@Html.ReactWithInit("Hello", new {
+    name = "John Doe"
+})

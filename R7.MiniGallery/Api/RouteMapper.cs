@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using DotNetNuke.Web.Api;
+using React;
 
 namespace R7.MiniGallery
 {
@@ -28,6 +29,9 @@ namespace R7.MiniGallery
 		public void RegisterRoutes (IMapRoute mapRouteManager)
 		{
 			mapRouteManager.MapHttpRoute ("R7.MiniGallery", "MiniGalleryMap1", "{controller}/{action}", null, null, new [] { "R7.MiniGallery.Api" });
+
+            var reactSiteConfiguration = ReactSiteConfiguration.Configuration ?? new ReactSiteConfiguration ();
+            reactSiteConfiguration.AddScript ("~/DesktopModules/MVC/R7.MiniGallery/js/src/Hello.jsx");
 		}
 	}
 }

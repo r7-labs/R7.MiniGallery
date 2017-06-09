@@ -46,6 +46,9 @@ namespace R7.MiniGallery.Controllers
         [ModuleActionItems]
         public ActionResult Index ()
         {
+            
+
+
             var settings = SettingsRepository.GetSettings (ActiveModule);
             var lightbox = LightboxFactory.Create (settings.LightboxType);
 
