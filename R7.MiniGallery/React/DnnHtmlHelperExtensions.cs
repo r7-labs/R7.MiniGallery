@@ -1,8 +1,8 @@
-﻿using React.Exceptions;
-using React.TinyIoC;
-using System.Web;
+﻿using System.Web;
 using DotNetNuke.Web.Mvc.Helpers;
 using React;
+using React.Exceptions;
+using React.TinyIoC;
 
 namespace R7.MiniGallery.React
 {
@@ -31,7 +31,7 @@ namespace R7.MiniGallery.React
         {
             IHtmlString result;
             try {
-                IReactComponent reactComponent = HtmlHelperExtensions.Environment.CreateComponent<T> (componentName, props, containerId, clientOnly);
+                IReactComponent reactComponent = Environment.CreateComponent (componentName, props, containerId, clientOnly);
                 if (!string.IsNullOrEmpty (htmlTag)) {
                     reactComponent.ContainerTag = htmlTag;
                 }
@@ -41,7 +41,7 @@ namespace R7.MiniGallery.React
                 result = new HtmlString (reactComponent.RenderHtml (clientOnly, serverOnly));
             }
             finally {
-                HtmlHelperExtensions.Environment.ReturnEngineToPool ();
+                Environment.ReturnEngineToPool ();
             }
             return result;
         }
@@ -50,12 +50,12 @@ namespace R7.MiniGallery.React
         {
             IHtmlString result;
             try {
-                string initJavaScript = HtmlHelperExtensions.Environment.GetInitJavaScript (clientOnly);
+                string initJavaScript = Environment.GetInitJavaScript (clientOnly);
                 result = new HtmlString ("<script type=\"text/javascript\">" +
                                          initJavaScript + "</script>");
             }
             finally {
-                HtmlHelperExtensions.Environment.ReturnEngineToPool ();
+                Environment.ReturnEngineToPool ();
             }
             return result;
         }
@@ -64,20 +64,20 @@ namespace R7.MiniGallery.React
         {
             IHtmlString result;
             try {
-                IReactComponent reactComponent = HtmlHelperExtensions.Environment.CreateComponent<T> (componentName, props, containerId, clientOnly);
+                IReactComponent reactComponent = Environment.CreateComponent (componentName, props, containerId, clientOnly);
                 if (!string.IsNullOrEmpty (htmlTag)) {
                     reactComponent.ContainerTag = htmlTag;
                 }
                 if (!string.IsNullOrEmpty (containerClass)) {
                     reactComponent.ContainerClass = containerClass;
                 }
-                string arg_5C_0 = reactComponent.RenderHtml (clientOnly, false);
+                string html = reactComponent.RenderHtml (clientOnly, false);
                 string tag = "<script type=\"text/javascript\">" + 
                     reactComponent.RenderJavaScript () + "</script>";
-                result = new HtmlString (arg_5C_0 + System.Environment.NewLine + tag);
+                result = new HtmlString (html + System.Environment.NewLine + tag);
             }
             finally {
-                HtmlHelperExtensions.Environment.ReturnEngineToPool ();
+                Environment.ReturnEngineToPool ();
             }
             return result;
         }
