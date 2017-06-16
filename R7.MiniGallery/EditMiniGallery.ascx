@@ -3,10 +3,18 @@
 <%@ Register TagPrefix="dnn" TagName="Audit" Src="~/controls/ModuleAuditControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Url" Src="~/controls/DnnUrlControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Picker" Src="~/controls/filepickeruploader.ascx" %> 
+<%@ Register TagPrefix="dnn" TagName="JavaScriptLibraryInclude" Src="~/admin/Skins/JavaScriptLibraryInclude.ascx" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web.Deprecated" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
+<%@ Import Namespace="R7.MiniGallery.React" %>
 
 <dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/MVC/R7.MiniGallery/css/admin.css" Priority="200" />
+<dnn:JavaScriptLibraryInclude runat="server" Name="React" />
+<dnn:JavaScriptLibraryInclude runat="server" Name="ReactDOM" />
+<dnn:DnnJsInclude runat="server" FilePath="~/DesktopModules/MVC/R7.MiniGallery/js/lib/Hello.js" />
+
+<%= ReactRenderer.ReactWithInit ("Hello", new { name = "John Doe" }) %>
+
 <div class="dnnForm dnnClear">
 	<fieldset>	
 		<div class="dnnFormItem">
