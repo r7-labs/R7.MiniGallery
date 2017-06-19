@@ -136,9 +136,27 @@ class MiniGallery extends React.Component {
         return null;
     }
 
+    renderBlueimp() {
+        if (this.props.lightboxType === "BlueimpLightbox") {
+            return (
+                <div id={"gallery-" + this.props.moduleId} className={"blueimp-gallery" + ((this.props.showControls === true)? " blueimp-gallery-controls" : "")}>
+                    <div className="slides"></div>
+                    <h3 className="title"></h3>
+                    <a className="prev">&#8249;</a>
+                    <a className="next">&#8250;</a>
+                    <a className="close">&times;</a>
+                    <a className="play-pause"></a>
+                    <ol className="indicator"></ol>
+                </div>
+            );
+        }
+        return null;
+    }
+
     render() {
         return (
             <div>
+                {this.renderBlueimp()}
                 <ul className={"MG_List MG_" + this.props.settings.styleSet}>
                     {this.state.images.map((img, index) => <MiniGalleryImage
                         index={index}
