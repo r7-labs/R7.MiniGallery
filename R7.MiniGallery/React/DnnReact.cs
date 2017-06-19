@@ -1,5 +1,5 @@
 ﻿//
-//  RouteMapper.cs
+//  ReactConfig.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,18 +19,33 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using DotNetNuke.Web.Api;
-using R7.MiniGallery.React;
+using React;
 
-namespace R7.MiniGallery
+namespace R7.MiniGallery.React
 {
-	public class RouteMapper : IServiceRouteMapper
-	{
-		public void RegisterRoutes (IMapRoute mapRouteManager)
-		{
-			mapRouteManager.MapHttpRoute ("R7.MiniGallery", "MiniGalleryMap1", "{controller}/{action}", null, null, new [] { "R7.MiniGallery.Api" });
+    public static class DnnReact
+    {
+        static readonly object reactSyncRoot = new object ();
 
-            DnnReact.AddScriptWithoutTransform ("~/DesktopModules/MVC/R7.MiniGallery/js/lib/Hello.js");
-		}
-	}
+        static bool _configured;
+
+        static void Configure (IReactSiteConfiguration reactConfig)
+        {
+            reactConfig.LoadBabel = false;
+        }
+
+        public static void AddScriptWithoutTransform (string fileName)
+        {
+            lock (reactSyncRoot) {
+                var reactConfig = ReactSiteConfiguration.Configuration;
+
+                if (!_configured) {
+                    Configure (reactConfig);
+                    _configured = true;
+                }
+
+                reactConfig.AddScriptWithoutTransform (fileName);
+            }
+        }
+    }
 }

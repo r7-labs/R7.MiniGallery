@@ -232,6 +232,7 @@
     <Compile Include="Models\MiniGallerySettingsRepository.cs" />
     <Compile Include="React\DnnHtmlHelperExtensions.cs" />
     <Compile Include="React\ReactRenderer.cs" />
+    <Compile Include="React\DnnReact.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
