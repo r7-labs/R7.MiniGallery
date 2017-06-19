@@ -147,7 +147,6 @@
     <None Include="SqlDataProvider\01.02.00.SqlDataProvider" />
     <None Include="App_LocalResources\ClientResources.resx" />
     <None Include="App_LocalResources\ClientResources.ru-RU.resx" />
-    <None Include="js\src\blueimp-lightbox.jsx" />
     <None Include="js\src\colorbox.jsx" />
     <None Include="js\src\lightbox2.jsx" />
     <None Include="js\src\minigallery.jsx" />

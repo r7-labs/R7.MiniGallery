@@ -20,19 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 (function ($, window, document) {
-    function getLightbox (lightboxType) {
-        if (lightboxType === "BlueimpLightbox" && typeof (BlueimpLightbox) !== "undefined") {
-            return BlueimpLightbox;
-        }
-        return MiniGallery;
-    }
-
     $(() => {
         $(".minigallery-root").each ((i, m) => {
             const moduleId = $(m).data ("module-id");
-            const Lightbox = getLightbox ($(m).data ("lightbox-type"));
             ReactDOM.render (
-                <Lightbox
+                <MiniGallery
                     moduleId={moduleId}
                     isEditable={$(m).data ("is-editable")}
                     editIcon={$(m).data ("edit-icon")}
