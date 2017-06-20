@@ -35,6 +35,13 @@ namespace R7.MiniGallery.React
         {
             reactConfig.SetLoadBabel (false);
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
+
+            #if DEBUG
+
+            reactConfig.SetStartEngines (1);
+            reactConfig.SetMaxEngines (1);
+
+            #endif
         }
 
         public static void AddScriptWithoutTransform (string fileName)
