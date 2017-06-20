@@ -20,18 +20,30 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using DotNetNuke.Web.Api;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Orc.SuperchargedReact.Web;
 using R7.MiniGallery.React;
 
 namespace R7.MiniGallery
 {
-	public class RouteMapper : IServiceRouteMapper
+    public class RouteMapper : IServiceRouteMapper
 	{
 		public void RegisterRoutes (IMapRoute mapRouteManager)
 		{
 			mapRouteManager.MapHttpRoute ("R7.MiniGallery", "MiniGalleryMap1", "{controller}/{action}", null, null, new [] { "R7.MiniGallery.Api" });
 
-            DnnReact.AddScriptWithoutTransform ("~/DesktopModules/MVC/R7.MiniGallery/js/lib/minigallery.js");
-            DnnReact.AddScriptWithoutTransform ("~/DesktopModules/MVC/R7.MiniGallery/js/lib/Hello.js");
+            var config = new ReactConfiguration {
+                EnableFileWatcher = false,
+                EnableCompilation = false,
+                DisableGlobalMembers = true,
+                SerializerSettings = new JsonSerializerSettings {
+                    StringEscapeHandling = StringEscapeHandling.EscapeHtml,
+                    ContractResolver = new CamelCasePropertyNamesContractResolver ()
+                }
+            };
+
+            DnnReact.AddScript ("MiniGallery", "~/DesktopModules/MVC/R7.MiniGallery/js/lib/minigallery.js", config);
 		}
 	}
 }

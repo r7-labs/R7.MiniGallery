@@ -19,9 +19,9 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using React;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
+using Orc.SuperchargedReact.Core;
+using Orc.SuperchargedReact.Web;
 
 namespace R7.MiniGallery.React
 {
@@ -29,32 +29,15 @@ namespace R7.MiniGallery.React
     {
         static readonly object reactSyncRoot = new object ();
 
-        static bool _configured;
+        static readonly Dictionary<string, ReactRunner> _runners = new Dictionary<string, ReactRunner> ();
 
-        static void Configure (IReactSiteConfiguration reactConfig)
-        {
-            reactConfig.SetLoadBabel (false);
-            reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
-
-            #if DEBUG
-
-            reactConfig.SetStartEngines (1);
-            reactConfig.SetMaxEngines (1);
-
-            #endif
-        }
-
-        public static void AddScriptWithoutTransform (string fileName)
+        public static void AddScript (string alias, string fileName, ReactConfiguration config)
         {
             lock (reactSyncRoot) {
-                var reactConfig = ReactSiteConfiguration.Configuration;
-
-                if (!_configured) {
-                    Configure (reactConfig);
-                    _configured = true;
-                }
-
-                reactConfig.AddScriptWithoutTransform (fileName);
+                _runners.Add (
+                    alias,
+                    new ReactRunner (fileName, config.EnableFileWatcher, config.EnableCompilation, config.DisableGlobalMembers, config.SerializerSettings)
+                );
             }
         }
     }
