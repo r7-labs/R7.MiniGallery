@@ -75,7 +75,7 @@ class MiniGallery extends React.Component {
             images: this.state.images
         });
 
-        getService ().getAllImages (
+        this.getService ().getAllImages (
             (data) => {
                 if (data.length > 0) {
                     this.setState ({
