@@ -39,13 +39,11 @@ namespace R7.MiniGallery.ViewModels
 
         public int TotalImages { get; set; }
 
-        public string ClientResources {
+        public Dictionary<string,string> ClientResources {
             get {
-                return JsonConvert.SerializeObject (
-                    LocalizationProvider.Instance.GetCompiledResourceFile (
+                return LocalizationProvider.Instance.GetCompiledResourceFile (
                         PortalSettings.Current, "/DesktopModules/MVC/R7.MiniGallery/App_LocalResources/ClientResources.resx",
                         Thread.CurrentThread.CurrentCulture.Name
-                    )
                 );
             }
         }

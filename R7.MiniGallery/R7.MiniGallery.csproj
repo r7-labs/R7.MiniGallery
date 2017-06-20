@@ -186,7 +186,6 @@
     <None Include="js\src\lightbox2.jsx" />
     <None Include="js\src\minigallery.jsx" />
     <None Include="js\src\module-loader.jsx" />
-    <None Include="js\src\Hello.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\MiniGalleryController.cs" />

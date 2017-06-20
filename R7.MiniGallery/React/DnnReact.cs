@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using React;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace R7.MiniGallery.React
 {
@@ -31,7 +33,8 @@ namespace R7.MiniGallery.React
 
         static void Configure (IReactSiteConfiguration reactConfig)
         {
-            reactConfig.LoadBabel = false;
+            reactConfig.SetLoadBabel (false);
+            reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
         }
 
         public static void AddScriptWithoutTransform (string fileName)
