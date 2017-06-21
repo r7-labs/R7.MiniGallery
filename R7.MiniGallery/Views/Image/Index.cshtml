@@ -15,6 +15,7 @@
 @using R7.MiniGallery.ViewModels
 @using R7.MiniGallery.Lightboxes
 @using R7.MiniGallery.React
+@using React
 
 @{
     JavaScript.RequestRegistration ("React");
@@ -47,3 +48,5 @@
     images = Model.Images,
     showControls = true
 })
+
+<p>@ReactEnvironment.Current.EngineVersion</p>

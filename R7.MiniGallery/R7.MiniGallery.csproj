@@ -132,6 +132,12 @@
     <Reference Include="JavaScriptEngineSwitcher.Jint">
       <HintPath>..\packages\JavaScriptEngineSwitcher.Jint.2.2.0\lib\net45\JavaScriptEngineSwitcher.Jint.dll</HintPath>
     </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Jurassic">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Jurassic.2.2.0\lib\net45\JavaScriptEngineSwitcher.Jurassic.dll</HintPath>
+    </Reference>
+    <Reference Include="Jurassic">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Jurassic.2.2.0\lib\net45\Jurassic.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="js\" />

@@ -19,10 +19,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using React;
-using Newtonsoft.Json.Serialization;
 using JavaScriptEngineSwitcher.Core;
 using JavaScriptEngineSwitcher.Jint;
+using JavaScriptEngineSwitcher.Jurassic;
+using Newtonsoft.Json.Serialization;
+using React;
 
 namespace R7.MiniGallery.React
 {
@@ -34,9 +35,10 @@ namespace R7.MiniGallery.React
 
         static void Configure (IReactSiteConfiguration reactConfig)
         {
-            var switcher = JsEngineSwitcher.Instance;
-            switcher.EngineFactories.AddJint ();
-            switcher.DefaultEngineName = JintJsEngine.EngineName;
+            var engineSwither = JsEngineSwitcher.Instance;
+            engineSwither.EngineFactories.AddJint ();
+            engineSwither.EngineFactories.AddJurassic ();
+            engineSwither.DefaultEngineName = JurassicJsEngine.EngineName;
 
             reactConfig.SetLoadBabel (false);
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
