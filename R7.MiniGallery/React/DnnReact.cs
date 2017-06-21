@@ -33,14 +33,16 @@ namespace R7.MiniGallery.React
 
         static bool _configured;
 
-        static void Configure (IReactSiteConfiguration reactConfig)
+        static void Configure ()
         {
             var engineSwither = JsEngineSwitcher.Instance;
-            // WTF: Jurassic should be added first to use it?
+
+            // WTF: Factory should be added first to use it?
+            engineSwither.EngineFactories.Clear ();
             engineSwither.EngineFactories.AddJurassic ();
             engineSwither.EngineFactories.AddJint ();
-            engineSwither.DefaultEngineName = JurassicJsEngine.EngineName;
 
+            var reactConfig = ReactSiteConfiguration.Configuration;
             reactConfig.SetLoadBabel (false);
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
             reactConfig.ReuseJavaScriptEngines = true;
@@ -52,17 +54,22 @@ namespace R7.MiniGallery.React
             #endif
         }
 
+        public static void ConfigureOnce ()
+        {
+            if (!_configured) {
+                lock (reactSyncRoot) {
+                    if (!_configured) {
+                        Configure ();
+                        _configured = true;
+                    }
+                }
+            }
+        }
+
         public static void AddScriptWithoutTransform (string fileName)
         {
             lock (reactSyncRoot) {
-                var reactConfig = ReactSiteConfiguration.Configuration;
-
-                if (!_configured) {
-                    Configure (reactConfig);
-                    _configured = true;
-                }
-
-                reactConfig.AddScriptWithoutTransform (fileName);
+                ReactSiteConfiguration.Configuration.AddScriptWithoutTransform (fileName);
             }
         }
     }

@@ -245,6 +245,7 @@
     <Compile Include="React\DnnHtmlHelperExtensions.cs" />
     <Compile Include="React\ReactRenderer.cs" />
     <Compile Include="React\DnnReact.cs" />
+    <Compile Include="React\ReactConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
