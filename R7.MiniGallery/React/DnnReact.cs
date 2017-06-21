@@ -20,8 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using React;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using JavaScriptEngineSwitcher.Core;
+using JavaScriptEngineSwitcher.Jint;
 
 namespace R7.MiniGallery.React
 {
@@ -33,13 +34,18 @@ namespace R7.MiniGallery.React
 
         static void Configure (IReactSiteConfiguration reactConfig)
         {
+            var switcher = JsEngineSwitcher.Instance;
+            switcher.EngineFactories.AddJint ();
+            switcher.DefaultEngineName = JintJsEngine.EngineName;
+
             reactConfig.SetLoadBabel (false);
             reactConfig.JsonSerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ();
+            reactConfig.ReuseJavaScriptEngines = true;
 
             #if DEBUG
 
             reactConfig.SetStartEngines (1);
-            reactConfig.SetMaxEngines (1);
+            reactConfig.SetMaxEngines (2);
 
             #endif
         }
