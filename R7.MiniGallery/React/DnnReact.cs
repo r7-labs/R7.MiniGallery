@@ -36,8 +36,9 @@ namespace R7.MiniGallery.React
         static void Configure (IReactSiteConfiguration reactConfig)
         {
             var engineSwither = JsEngineSwitcher.Instance;
-            engineSwither.EngineFactories.AddJint ();
+            // WTF: Jurassic should be added first to use it?
             engineSwither.EngineFactories.AddJurassic ();
+            engineSwither.EngineFactories.AddJint ();
             engineSwither.DefaultEngineName = JurassicJsEngine.EngineName;
 
             reactConfig.SetLoadBabel (false);
@@ -47,7 +48,6 @@ namespace R7.MiniGallery.React
             #if DEBUG
 
             reactConfig.SetStartEngines (1);
-            reactConfig.SetMaxEngines (2);
 
             #endif
         }
