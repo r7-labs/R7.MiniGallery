@@ -29,7 +29,7 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Services.FileSystem;
 using DotNetNuke.UI.Modules;
 using Newtonsoft.Json.Linq;
-using R7.DotNetNuke.Extensions.Utilities;
+using R7.Dnn.Extensions.Utilities;
 using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 

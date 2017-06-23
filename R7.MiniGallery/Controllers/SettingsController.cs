@@ -24,7 +24,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
-using R7.DotNetNuke.Extensions.Utilities;
+using R7.Dnn.Extensions.Utilities;
 using R7.MiniGallery.Models;
 using DnnValidateAntiForgeryTokenAttribute = DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryTokenAttribute;
 

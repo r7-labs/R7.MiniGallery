@@ -24,8 +24,8 @@ using DotNetNuke.Common;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
-using R7.DotNetNuke.Extensions.Modules;
-using R7.DotNetNuke.Extensions.Utilities;
+using R7.Dnn.Extensions.Modules;
+using R7.Dnn.Extensions.Utilities;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
 

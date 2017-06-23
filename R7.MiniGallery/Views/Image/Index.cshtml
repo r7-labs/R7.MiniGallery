@@ -14,7 +14,7 @@
 @using R7.MiniGallery
 @using R7.MiniGallery.ViewModels
 @using R7.MiniGallery.Lightboxes
-@using R7.MiniGallery.React
+@using R7.Dnn.Extensions.React
 @using React
 
 @{
@@ -36,8 +36,7 @@
         }
     }
 }
-
-@Html.ReactWithInit("MiniGallery", new {
+@Dnn.ReactWithInit("MiniGallery", new {
     moduleId = Dnn.ModuleContext.ModuleId,
     isEditable = Dnn.ModuleContext.IsEditable,
     editIcon = IconController.IconURL ("Edit", "16X16", "Gray"),

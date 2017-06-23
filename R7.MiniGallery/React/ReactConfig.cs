@@ -1,4 +1,4 @@
-﻿using R7.MiniGallery.React;
+﻿using R7.Dnn.Extensions.React;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod (typeof (R7.MiniGallery.React.ReactConfig), "Configure")]
 
@@ -6,12 +6,14 @@ namespace R7.MiniGallery.React
 {
     public static class ReactConfig
     {
+        const string scriptsPath = "~/DesktopModules/MVC/R7.MiniGallery/js/lib/";
+
         public static void Configure()
         {
-            DnnReact.ConfigureOnce ();
-
-            DnnReact.AddScriptWithoutTransform ("~/DesktopModules/MVC/R7.MiniGallery/js/lib/minigallery.js");
-            DnnReact.AddScriptWithoutTransform ("~/DesktopModules/MVC/R7.MiniGallery/js/lib/Hello.js");
+            DnnReact.AddScriptsWithoutTransform (
+                scriptsPath + "minigallery.js",
+                scriptsPath + "Hello.js"
+            );
         }
     }
 }

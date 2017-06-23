@@ -66,9 +66,6 @@
     <Reference Include="DotNetNuke.Web.Client">
       <HintPath>..\packages\DotNetNuke.Web.Client.8.0.4.226\lib\net40\DotNetNuke.Web.Client.dll</HintPath>
     </Reference>
-    <Reference Include="R7.DotNetNuke.Extensions">
-      <HintPath>..\packages\R7.DotNetNuke.Extensions.0.10.0\lib\net45\R7.DotNetNuke.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="DotNetNuke.Web.Mvc">
       <HintPath>..\packages\DotNetNuke.Web.Mvc.8.0.4.226\lib\net45\DotNetNuke.Web.Mvc.dll</HintPath>
     </Reference>
@@ -125,18 +122,30 @@
     <Reference Include="React.Web">
       <HintPath>..\packages\React.Web.3.0.1\lib\net40\React.Web.dll</HintPath>
     </Reference>
-    <Reference Include="jint">
-      <HintPath>..\packages\jint.2.10.2\lib\net45\jint.dll</HintPath>
-    </Reference>
     <Reference Include="System.Diagnostics.Contracts" />
-    <Reference Include="JavaScriptEngineSwitcher.Jint">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.Jint.2.2.0\lib\net45\JavaScriptEngineSwitcher.Jint.dll</HintPath>
+    <Reference Include="YamlDotNet">
+      <HintPath>..\packages\YamlDotNet.4.2.1\lib\net35\YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="R7.Dnn.Extensions">
+      <HintPath>..\packages\R7.Dnn.Extensions.0.11.0-alpha2\lib\net45\R7.Dnn.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="JavaScriptEngineSwitcher.Jurassic">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.Jurassic.2.2.0\lib\net45\JavaScriptEngineSwitcher.Jurassic.dll</HintPath>
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Jurassic.2.3.1\lib\net45\JavaScriptEngineSwitcher.Jurassic.dll</HintPath>
     </Reference>
     <Reference Include="Jurassic">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.Jurassic.2.2.0\lib\net45\Jurassic.dll</HintPath>
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Jurassic.2.3.1\lib\net45\Jurassic.dll</HintPath>
+    </Reference>
+    <Reference Include="jint">
+      <HintPath>..\packages\jint.2.10.4\lib\net45\jint.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Jint">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Jint.2.3.0\lib\net45\JavaScriptEngineSwitcher.Jint.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web.Mvc4">
+      <HintPath>..\packages\React.Web.Mvc4.3.0.1\lib\net40\React.Web.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="R7.Dnn.Extensions.React">
+      <HintPath>..\packages\R7.Dnn.Extensions.React.0.1.0-alpha3\lib\net45\R7.Dnn.Extensions.React.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -242,9 +251,6 @@
     <Compile Include="ViewModels\ImageViewModelRepository.cs" />
     <Compile Include="ViewModels\MiniGalleryClientSettings.cs" />
     <Compile Include="Models\MiniGallerySettingsRepository.cs" />
-    <Compile Include="React\DnnHtmlHelperExtensions.cs" />
-    <Compile Include="React\ReactRenderer.cs" />
-    <Compile Include="React\DnnReact.cs" />
     <Compile Include="React\ReactConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
