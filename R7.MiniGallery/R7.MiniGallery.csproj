@@ -184,7 +184,6 @@
     <Content Include="css\style-columns.css" />
     <Content Include="css\admin.css" />
     <Content Include="js\src\service.js" />
-    <Content Include="js\src\module-loader.js" />
     <Content Include="js\src\lightbox2.js" />
     <Content Include="js\src\colorbox.js" />
   </ItemGroup>
