@@ -11,8 +11,7 @@ namespace R7.MiniGallery.React
         public static void Configure()
         {
             DnnReact.AddScriptsWithoutTransform (
-                scriptsPath + "minigallery.js",
-                scriptsPath + "Hello.js"
+                scriptsPath + "MiniGallery.js"
             );
         }
     }
