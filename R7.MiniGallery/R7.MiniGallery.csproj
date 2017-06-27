@@ -122,7 +122,6 @@
     <Reference Include="React.Web">
       <HintPath>..\packages\React.Web.3.0.1\lib\net40\React.Web.dll</HintPath>
     </Reference>
-    <Reference Include="System.Diagnostics.Contracts" />
     <Reference Include="YamlDotNet">
       <HintPath>..\packages\YamlDotNet.4.2.1\lib\net35\YamlDotNet.dll</HintPath>
     </Reference>
