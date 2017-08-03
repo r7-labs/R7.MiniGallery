@@ -182,7 +182,7 @@ namespace R7.MiniGallery.ViewModels
         public string NavigateUrl {
             get {
                 if (!string.IsNullOrWhiteSpace (Model.Url)) {
-                    return Globals.LinkClick (Model.Url, ModuleContext.TabId, ModuleContext.ModuleId, false);
+                    return Globals.LinkClick (Model.Url, ModuleContext.TabId, ModuleContext.ModuleId, true);
                 }
                 return ImageSrc;
             }
