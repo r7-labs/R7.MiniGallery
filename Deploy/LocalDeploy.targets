@@ -7,8 +7,6 @@
 	<PropertyGroup>
 		<!-- Enable local deploy by default (standalone) -->
     	<EnableLocalDeploy Condition=" '$(EnableLocalDeploy)' == '' ">true</EnableLocalDeploy>
-		<!-- Include binary files in local deploy by default -->
-		<LocalDeployIncludeBinaries Condition=" '$(LocalDeployIncludeBinaries)' == '' ">true</LocalDeployIncludeBinaries>
 	</PropertyGroup>
 	
 	<Target Name="LocalDeploy" Condition=" '$(EnableLocalDeploy)' == 'true' " DependsOnTargets="Preprocess;Tests">
@@ -59,7 +57,7 @@
         </ItemGroup>
 		
 		<!-- Copy binaries -->
-        <Copy Condition=" '$(LocalDeployIncludeBinaries)' == 'true' " SourceFiles="@(LocalDeployBinaryFiles)" DestinationFolder="$(DnnLocalDeployPath)/bin" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(LocalDeployBinaryFiles)" DestinationFolder="$(DnnLocalDeployPath)/bin" SkipUnchangedFiles="true" />
 
 		<!-- Copy filtered Resource files -->
         <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules/MVC/%(RecursiveDir)" SkipUnchangedFiles="true" />
