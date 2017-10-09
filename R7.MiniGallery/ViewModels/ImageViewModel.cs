@@ -29,7 +29,7 @@ using DotNetNuke.Entities.Portals;
 using DotNetNuke.Services.FileSystem;
 using DotNetNuke.UI.Modules;
 using Newtonsoft.Json.Linq;
-using R7.DotNetNuke.Extensions.Utilities;
+using R7.Dnn.Extensions.Utilities;
 using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 
@@ -182,7 +182,7 @@ namespace R7.MiniGallery.ViewModels
         public string NavigateUrl {
             get {
                 if (!string.IsNullOrWhiteSpace (Model.Url)) {
-                    return Globals.LinkClick (Model.Url, ModuleContext.TabId, ModuleContext.ModuleId, false);
+                    return Globals.LinkClick (Model.Url, ModuleContext.TabId, ModuleContext.ModuleId, true);
                 }
                 return ImageSrc;
             }

@@ -62,6 +62,10 @@ class MiniGallery extends React.Component {
         };
     }
 
+    getService () {
+        return new window.MiniGalleryService (jQuery, this.props.moduleId);
+    }
+
     getAllImages (e) {
         e.preventDefault ();
 
@@ -71,7 +75,7 @@ class MiniGallery extends React.Component {
             images: this.state.images
         });
 
-        this.props.service.getAllImages (
+        this.getService ().getAllImages (
             (data) => {
                 if (data.length > 0) {
                     this.setState ({

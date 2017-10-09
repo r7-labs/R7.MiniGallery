@@ -24,7 +24,7 @@ using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 using DotNetNuke.Common;
-using R7.DotNetNuke.Extensions.TextExtensions;
+using R7.Dnn.Extensions.TextExtensions;
 
 namespace R7.MiniGallery.ViewModels
 {

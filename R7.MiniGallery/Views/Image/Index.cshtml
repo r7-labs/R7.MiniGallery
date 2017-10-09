@@ -14,14 +14,16 @@
 @using R7.MiniGallery
 @using R7.MiniGallery.ViewModels
 @using R7.MiniGallery.Lightboxes
+@using R7.Dnn.Extensions.React
+@using React
 
 @{
     JavaScript.RequestRegistration ("React");
     JavaScript.RequestRegistration ("ReactDOM");
     ServicesFramework.Instance.RequestAjaxScriptSupport ();
-    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/lib/minigallery.js");
+    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/lib/MiniGallery.js");
+    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/lib/service.js");
     Model.Lightbox.Register (Dnn.DnnPage);
-    ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/js/lib/module-loader.js");
     ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/css/style-" + Model.Settings.StyleSet.ToLowerInvariant () + ".css");
 
     if (Model.Images.Count == 0) {
@@ -34,14 +36,14 @@
         }
     }
 }
-
-<div class="minigallery-root"
-	data-lightbox-type="@(Model.Lightbox.GetType ().Name)"
-    data-module-id="@Dnn.ModuleContext.ModuleId"
-    data-is-editable="@(Dnn.ModuleContext.IsEditable.ToString ().ToLowerInvariant ())"
-    data-edit-icon="@(IconController.IconURL ("Edit", "16X16", "Gray"))"
-    data-resources="@Model.ClientResources"
-	data-settings="@(JsonConvert.SerializeObject (Model.ClientSettings, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))"
-	data-total-images="@Model.TotalImages"
-    data-images="@(JsonConvert.SerializeObject (Model.Images, Formatting.None, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver () }))">
-</div>
+@Dnn.ReactWithInit("MiniGallery", new {
+    moduleId = Dnn.ModuleContext.ModuleId,
+    isEditable = Dnn.ModuleContext.IsEditable,
+    editIcon = IconController.IconURL ("Edit", "16X16", "Gray"),
+    lightboxType = Model.Lightbox.GetType ().Name,
+    resources = Model.ClientResources,
+    settings = Model.ClientSettings,
+    totalImages = Model.TotalImages,
+    images = Model.Images,
+    showControls = true
+}, null, null, true)
