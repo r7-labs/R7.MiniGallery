@@ -16,6 +16,7 @@ or (at your option) any later version.
 
 - Install *React*, *ReactDOM*, *jQuery-BlueimpGallery* packages from [R7.Dnn.JavaScriptLibraries](https://github.com/roman-yagodin/R7.Dnn.JavaScriptLibraries/releases)
 - Install [R7.Dnn.Extensions](https://github.com/roman-yagodin/R7.Dnn.Extensions/releases) package
+- Install [R7.Dnn.Extensions.React](https://github.com/roman-yagodin/R7.Dnn.Extensions.React/releases) package
 - Install [R7.MiniGallery](https://github.com/roman-yagodin/R7.MiniGallery/releases) package
 
 ### Automatic thumbnails
