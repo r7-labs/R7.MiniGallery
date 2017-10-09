@@ -56,7 +56,7 @@ namespace R7.MiniGallery.Components
                             Title = imageTitle,
                             ModifiedTimeUtc = image.LastModifiedOnDate.ToUniversalTime (),
                             UniqueKey = string.Format ("//r7_MiniGallery?ImageId={0}", image.ImageID),
-                            Url = string.Format ("/Default.aspx?tabid={0}#{1}", moduleInfo.TabID, moduleInfo.ModuleID),
+                            Url = string.Format ("/Default.aspx?tabid={0}&mid={1}", moduleInfo.TabID, moduleInfo.ModuleID),
                             IsActive = image.IsPublished (now)
                         });
                     }
