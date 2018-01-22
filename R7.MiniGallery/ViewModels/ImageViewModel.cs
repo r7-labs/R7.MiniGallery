@@ -26,6 +26,7 @@ using System.Web.UI.WebControls;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Portals;
+using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Services.FileSystem;
 using DotNetNuke.UI.Modules;
 using Newtonsoft.Json.Linq;
@@ -181,8 +182,12 @@ namespace R7.MiniGallery.ViewModels
 
         public string NavigateUrl {
             get {
-                if (!string.IsNullOrWhiteSpace (Model.Url)) {
-                    return Globals.LinkClick (Model.Url, ModuleContext.TabId, ModuleContext.ModuleId, true);
+                if (!string.IsNullOrWhiteSpace(Model.Url)) {
+                    var urlType = Globals.GetURLType(Model.Url); 
+                    if (urlType == TabType.File || urlType == TabType.Tab || urlType == TabType.Member) {
+                        return Globals.LinkClick (Model.Url, ModuleContext.TabId, ModuleContext.ModuleId, true);
+                    }
+                    return Model.Url;
                 }
                 return ImageSrc;
             }
