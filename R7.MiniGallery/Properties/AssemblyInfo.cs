@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTitle("R7.MiniGallery")]
 [assembly: AssemblyDescription("Simple image gallery with lightbox and automatic thumbnails support")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("R7.Solutions")]
+[assembly: AssemblyCompany("R7.Labs")]
 [assembly: AssemblyProduct("R7.MiniGallery")]
 [assembly: AssemblyCopyright("Roman M. Yagodin")]
 [assembly: AssemblyTrademark("")]
@@ -17,7 +17,7 @@ using System.Runtime.CompilerServices;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion("1.3.0.*")]
+[assembly: AssemblyVersion("1.4.0.*")]
 
 // The following attributes are used to specify the signing key for the assembly, 
 // if desired. See the Mono documentation for more information about signing.

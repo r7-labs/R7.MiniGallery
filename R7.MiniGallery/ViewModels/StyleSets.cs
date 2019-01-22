@@ -4,7 +4,7 @@
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-//  Copyright (c) 2017 Roman M. Yagodin
+//  Copyright (c) 2017-2019 Roman M. Yagodin
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 using DotNetNuke.Common;
-using R7.Dnn.Extensions.TextExtensions;
+using R7.Dnn.Extensions.Text;
 
 namespace R7.MiniGallery.ViewModels
 {

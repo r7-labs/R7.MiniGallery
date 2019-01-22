@@ -4,7 +4,7 @@
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-//  Copyright (c) 2014-2017 Roman M. Yagodin
+//  Copyright (c) 2014-2019 Roman M. Yagodin
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -26,6 +26,8 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
 using R7.Dnn.Extensions.Modules;
+using R7.Dnn.Extensions.Text;
+using R7.Dnn.Extensions.Urls;
 using R7.Dnn.Extensions.Utilities;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
@@ -50,7 +52,7 @@ namespace R7.MiniGallery
 					int imageId;
 					if (int.TryParse (Request.QueryString ["ImageID"], out imageId))
 					{	
-                        _image = new MiniGalleryDataProvider ().Get<ImageInfo> (imageId, ModuleId);
+                        _image = new MiniGalleryDataProvider ().Get<ImageInfo,int,int> (imageId, ModuleId);
 					}
 					
 				}
@@ -169,7 +171,7 @@ namespace R7.MiniGallery
                     var image = new ImageInfo () {
                         Alt = textAlt.Text,
                         Title = textTitle.Text,
-                        SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? 0,
+                        SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? 0,
                         ModuleID = ModuleId,
                         Url = urlLink.Url,
                         ImageFileID = pickerImage.FileID,
@@ -191,7 +193,7 @@ namespace R7.MiniGallery
 					var image = Image;
 					image.Alt = textAlt.Text;
 					image.Title = textTitle.Text;
-                    image.SortIndex = TypeUtils.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
+                    image.SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
 					image.Url = urlLink.Url;
 					image.ImageFileID = pickerImage.FileID;
 					image.LastModifiedOnDate = DateTime.Now;
@@ -202,7 +204,7 @@ namespace R7.MiniGallery
 					dataProvider.Update<ImageInfo> (image);
 				}
 
-                CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
+                DataCache.ClearCache ("//r7_MiniGallery");
                 ModuleController.SynchronizeModule (ModuleId);
 
 				Response.Redirect (Globals.NavigateURL (), true);
@@ -230,7 +232,7 @@ namespace R7.MiniGallery
 				{
                     new MiniGalleryDataProvider ().Delete<ImageInfo> (Image);
 
-                    CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
+                    DataCache.ClearCache ("//r7_MiniGallery");
                     ModuleController.SynchronizeModule (ModuleId);
 
 					Response.Redirect (Globals.NavigateURL (), true);

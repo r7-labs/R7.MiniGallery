@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dotnetnuke type="Package" version="5.0">
     <packages>
-        <package name="R7.MiniGallery" type="Module" version="01.03.00">
+        <package name="R7.MiniGallery" type="Module" version="01.04.00">
             <friendlyName>R7.MiniGallery</friendlyName>
             <description>Simple image gallery with lightbox and automatic thumbnails support.</description>
             <owner>
                 <name>Roman M. Yagodin</name>
-                <organization>R7.Solutions</organization>
+                <organization>R7.Labs</organization>
                 <url>https://github.com/roman-yagodin/R7.MiniGallery</url>
                 <email>roman.yagodin@gmail.com</email>
             </owner>
@@ -14,7 +14,7 @@
             <releaseNotes src="releaseNotes.htm" />
             <dependencies>
                 <dependency type="coreVersion">08.00.04</dependency>
-                <dependency type="managedPackage" version="0.12.0">R7.Dnn.Extensions</dependency>
+                <dependency type="managedPackage" version="0.13.0">R7.Dnn.Extensions</dependency>
 				<dependency type="managedPackage" version="0.2.0">R7.Dnn.Extensions.React</dependency>
                 <dependency type="package">React</dependency>
                 <dependency type="package">ReactDOM</dependency>

@@ -4,7 +4,7 @@
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-//  Copyright (c) 2017 Roman M. Yagodin
+//  Copyright (c) 2017-2019 Roman M. Yagodin
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -20,11 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Web.Mvc;
+using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
-using R7.Dnn.Extensions.Utilities;
 using R7.MiniGallery.Models;
 using DnnValidateAntiForgeryTokenAttribute = DotNetNuke.Web.Mvc.Framework.ActionFilters.ValidateAntiForgeryTokenAttribute;
 
@@ -75,7 +75,7 @@ namespace R7.MiniGallery.Controllers
             }
 
             SettingsRepository.SaveSettings (ActiveModule, settings);
-            CacheHelper.RemoveCacheByPrefix ("//r7_MiniGallery");
+            DataCache.ClearCache ("//r7_MiniGallery");
             ModuleController.SynchronizeModule (ModuleContext.ModuleId);
 
             return RedirectToDefaultRoute ();
