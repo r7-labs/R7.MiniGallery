@@ -161,7 +161,7 @@ class MiniGallery extends React.Component {
         return (
             <div>
                 {this.renderBlueimp()}
-                <ul className={"r7-mg-list r7-mg-" + this.props.settings.styleSet}>
+                <ul className={"r7-mg-list r7-mg-" + this.props.settings.styleSet.toLowerCase()}>
                     {this.state.images.map((img, index) => <MiniGalleryImage
                         index={index}
                         navigateUrl={img.navigateUrl}
