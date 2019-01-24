@@ -1,17 +1,17 @@
-﻿.MG_List.MG_Columns {
+﻿.r7-mg-list.r7-mg-columns {
 }
 
-.MG_Columns .MG_Item, 
-.MG_Columns .MG_AltItem {
+.r7-mg-columns .r7-mg-item, 
+.r7-mg-columns .r7-mg-alt-item {
     display:inline-block;
     vertical-align:top;
     text-align:center
 }
 
-.MG_Columns .MG_Image {
+.r7-mg-columns .r7-mg-image {
     margin:2px 0
 }
 
-.MG_Columns .MG_Title {
+.r7-mg-columns .r7-mg-title {
     font-size:85%
 }

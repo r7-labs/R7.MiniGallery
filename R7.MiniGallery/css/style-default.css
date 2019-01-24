@@ -1,18 +1,18 @@
-﻿.MG_List.MG_Default {
+﻿.r7-mg-list.r7-mg-default {
 }
 
-.MG_Default .MG_Item, 
-.MG_Default .MG_AltItem {
+.r7-mg-default .r7-mg-item, 
+.r7-mg-default .r7-mg-alt-item {
     display:inline-block;
     vertical-align:top;
     text-align:center
 }
 
-.MG_Default .MG_Image {
+.r7-mg-default .r7-mg-image {
     margin:2px
 }
 
-.MG_Default .MG_Title {
+.r7-mg-default .r7-mg-title {
     position:absolute;
     bottom:0;
     z-index:10;

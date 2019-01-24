@@ -24,7 +24,7 @@ class MiniGalleryImage extends React.Component {
         if (this.props.isEditable) {
             return (
                 <a href={this.props.editUrl}>
-                    <img src={this.props.editIcon} className="MG_Edit" />
+                    <img src={this.props.editIcon} className="r7-mg-edit" />
                 </a>
             );
         }
@@ -34,7 +34,7 @@ class MiniGalleryImage extends React.Component {
     renderTitle() {
         if (this.props.showTitle && !!this.props.title) {
             return (
-                <p className="MG_Title">{this.props.title}</p>
+                <p className="r7-mg-title">{this.props.title}</p>
             );
         }
         return null;
@@ -42,10 +42,10 @@ class MiniGalleryImage extends React.Component {
 
     render() {
         return (
-            <li className={(this.props.index % 2 === 0)? "MG_Item" : "MG_AltItem"} style={this.props.itemStyle}>
+            <li className={(this.props.index % 2 === 0)? "r7-mg-item" : "r7-mg-alt-item"} style={this.props.itemStyle}>
                 {this.renderEditLink()}
-                <a href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="MG_Link" {...this.props.linkAttrs}>
-                    <img src={this.props.thumbnailUrl} alt={this.props.alt} style={this.props.style} className={(this.props.cssClass + " MG_Image").trim()} />
+                <a href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="r7-mg-link" {...this.props.linkAttrs}>
+                    <img src={this.props.thumbnailUrl} alt={this.props.alt} style={this.props.style} className={(this.props.cssClass + " r7-mg-image").trim()} />
                 </a>
                 {this.renderTitle()}
             </li>
@@ -120,7 +120,7 @@ class MiniGallery extends React.Component {
             }
             else if (this.state.loading) {
                 return (
-                    <div className="MG_MoreLoading">
+                    <div className="r7-mg-more-loading">
                         <img src="/images/loading.gif" />
                     </div>
                 );
@@ -161,7 +161,7 @@ class MiniGallery extends React.Component {
         return (
             <div>
                 {this.renderBlueimp()}
-                <ul className={"MG_List MG_" + this.props.settings.styleSet}>
+                <ul className={"r7-mg-list r7-mg-" + this.props.settings.styleSet}>
                     {this.state.images.map((img, index) => <MiniGalleryImage
                         index={index}
                         navigateUrl={img.navigateUrl}

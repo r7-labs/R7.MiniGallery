@@ -1,29 +1,29 @@
-﻿.MG_BulkAdd .listImages .imageImage 
+﻿.r7-mg-bulk-add .listImages .imageImage 
 {
 	float:right;
 	max-width:120px;
 	margin-top:9px
 }
 
-.MG_BulkAdd .listImages .divImage 
+.r7-mg-bulk-add .listImages .divImage 
 {
 	float:left;
 	width:120px
 }
 
-.MG_BulkAdd .listImages .divMiniForm
+.r7-mg-bulk-add .listImages .divMiniForm
 {
 	float:left;
 	margin-left:10px
 }
 
-.MG_BulkAdd .listImages .textSortIndex
+.r7-mg-bulk-add .listImages .textSortIndex
 {
 	float:right;
 	width:30px;
 	margin-bottom:8px
 }
 
-.MG_BulkAdd .listImages .textTitle { min-width:290px }
+.r7-mg-bulk-add .listImages .textTitle { min-width:290px }
 
-.MG_Settings #ImageHandlerParams { font-family:Monospace }
+.r7-mg-settings #ImageHandlerParams { font-family:Monospace }

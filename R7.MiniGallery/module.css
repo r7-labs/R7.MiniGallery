@@ -1,31 +1,31 @@
-ul.MG_List {
+﻿ul.r7-mg-list {
     list-style:none;
     margin-bottom:20px
 }
 
-ul.MG_List > li {
+ul.r7-mg-list > li {
     list-item-style:none
 }
 
-.MG_List {
+.r7-mg-list {
     display:block;
     width:100%;
     margin:0
 }
 
-.MG_List .MG_Edit {
+.r7-mg-list .r7-mg-edit {
 	position:absolute;
     z-index:10;
 	padding:8px
 }
 
-.MG_List .MG_Item,
-.MG_List .MG_AltItem {
+.r7-mg-list .r7-mg-item,
+.r7-mg-list .r7-mg-alt-item {
     position:relative
 }
 
-.MG_List .MG_NotPublished { opacity:0.3 }
+.r7-mg-list .r7-mg-not-published { opacity:0.3 }
 
-.MG_List .MG_NotPublished:hover { opacity:1 }
+.r7-mg-list .r7-mg-not-published:hover { opacity:1 }
 
-.MG_MoreLoading { text-align:center }
+.r7-mg-more-loading { text-align:center }
