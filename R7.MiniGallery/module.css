@@ -15,8 +15,9 @@ ul.r7-mg-list > li {
 
 .r7-mg-list .r7-mg-edit {
 	position:absolute;
-    z-index:10;
-	padding:8px
+	z-index:10;
+	padding:8px;
+	text-align:left
 }
 
 .r7-mg-list .r7-mg-item,

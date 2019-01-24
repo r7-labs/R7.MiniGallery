@@ -23,9 +23,11 @@ class MiniGalleryImage extends React.Component {
     renderEditLink () {
         if (this.props.isEditable) {
             return (
-                <a href={this.props.editUrl}>
-                    <img src={this.props.editIcon} className="r7-mg-edit" />
-                </a>
+                <div className="r7-mg-edit">
+	                <a href={this.props.editUrl}>
+	                    <img src={this.props.editIcon} />
+	                </a>
+                </div>
             );
         }
         return null;
