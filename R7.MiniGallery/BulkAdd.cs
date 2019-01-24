@@ -32,7 +32,6 @@ using DotNetNuke.Services.FileSystem;
 using R7.Dnn.Extensions.Modules;
 using R7.Dnn.Extensions.Text;
 using R7.Dnn.Extensions.Urls;
-using R7.Dnn.Extensions.Utilities;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
 
