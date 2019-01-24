@@ -46,22 +46,26 @@ namespace R7.MiniGallery.Controllers
         [ModuleActionItems]
         public ActionResult Index ()
         {
-            
-
-
             var settings = SettingsRepository.GetSettings (ActiveModule);
             var lightbox = LightboxFactory.Create (settings.LightboxType);
 
-            int totalImages;
             var images = ImageViewModelRepository.Instance.GetImages (ModuleContext,
                                                                       settings,
                                                                       lightbox,
-                                                                      false,
+                                                                      true,
                                                                       HttpContext.Timestamp,
-                                                                      out totalImages);
+                                                                      out int totalImages).ToList ();
+
+            var index = 0;
+            foreach (var image in images) {
+                if (index >= settings.NumberOfRecords) {
+                    image.IsHidden = true;
+                }
+                index++;
+            }
 
             var viewModel = new MiniGalleryViewModel {
-                Images = images.ToList (),
+                Images = images,
                 TotalImages = totalImages,
                 Settings = settings,
                 Lightbox = lightbox

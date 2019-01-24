@@ -4,7 +4,7 @@
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-//  Copyright (c) 2017 Roman M. Yagodin
+//  Copyright (c) 2017-2019 Roman M. Yagodin
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -38,21 +38,28 @@ namespace R7.MiniGallery.Data
             get { return _instance.Value; }
         }
 
-        public IEnumerable<ImageViewModel> GetImages (ModuleInstanceContext moduleContext, MiniGallerySettings settings, ILightbox lightbox, bool getAll, DateTime now, out int totalImages)
+        public IEnumerable<ImageViewModel> GetImages (ModuleInstanceContext moduleContext,
+                                                      MiniGallerySettings settings,
+                                                      ILightbox lightbox,
+                                                      bool getAll,
+                                                      DateTime now,
+                                                      out int totalImages)
         {
             var images = DataCache.GetCachedData<IEnumerable<ImageViewModel>> (
+                // FIXME: Timeout should be in minutes, not seconds
                 new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={moduleContext.TabModuleId}", 1200),
                 (c) => GetImages (moduleContext, settings, lightbox)
             );
 
-            var filteredImages = images.Where (img => img.IsPublished (now) || moduleContext.IsEditable);
-            totalImages = filteredImages.Count ();
+            var filteredImages = images.Where (img => img.IsPublished (now) || moduleContext.IsEditable).ToList ();
+            totalImages = filteredImages.Count;
 
             var comparer = new ImageComparer (settings.SortAscending);
-            return filteredImages
-                .OrderBy (img => img, comparer)
-                .Take ((!getAll && settings.NumberOfRecords > 0) ? settings.NumberOfRecords : int.MaxValue)
-                .ToList ();
+            if (getAll || settings.NumberOfRecords <= 0) {
+                return filteredImages.OrderBy (img => img, comparer);
+            }
+
+            return filteredImages.OrderBy (img => img, comparer).Take (settings.NumberOfRecords);
         }
 
         protected IEnumerable<ImageViewModel> GetImages (ModuleInstanceContext moduleContext,

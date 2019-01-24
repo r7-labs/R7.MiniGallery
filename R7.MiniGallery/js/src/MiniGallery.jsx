@@ -4,7 +4,7 @@
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-//  Copyright (c) 2017 Roman M. Yagodin
+//  Copyright (c) 2017-2019 Roman M. Yagodin
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+// TODO: Move to separate file
 class MiniGalleryImage extends React.Component {
     renderEditLink () {
         if (this.props.isEditable) {
@@ -41,10 +42,20 @@ class MiniGalleryImage extends React.Component {
         }
         return null;
     }
-
+    
+    getItemCssClass (index, isHidden) {
+        var cssClass = (index % 2 === 0)? "r7-mg-item" : "r7-mg-alt-item";
+        if (isHidden) {
+            cssClass += " r7-mg-d-none";
+        }
+        return cssClass; 
+    }
+    
     render() {
         return (
-            <li className={(this.props.index % 2 === 0)? "r7-mg-item" : "r7-mg-alt-item"} style={this.props.itemStyle}>
+            // TODO: Lazy-load hidden images
+            // TODO: Image CSS class from settings should override r7-mg-image
+            <li className={this.getItemCssClass(this.props.index, this.props.isHidden)} style={this.props.itemStyle}>
                 {this.renderEditLink()}
                 <a href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="r7-mg-link" {...this.props.linkAttrs}>
                     <img src={this.props.thumbnailUrl} alt={this.props.alt} style={this.props.style} className={(this.props.cssClass + " r7-mg-image").trim()} />
@@ -63,12 +74,8 @@ class MiniGallery extends React.Component {
             images: this.props.images
         };
     }
-
-    getService () {
-        return new window.MiniGalleryService (jQuery, this.props.moduleId);
-    }
-
-    getAllImages (e) {
+    
+    showAllImages (e) {
         e.preventDefault ();
 
         this.setState ({
@@ -76,47 +83,34 @@ class MiniGallery extends React.Component {
             error: false,
             images: this.state.images
         });
-
-        this.getService ().getAllImages (
-            (data) => {
-                if (data.length > 0) {
-                    this.setState ({
-                        loading: false,
-                        error: false,
-                        images: data
-                    });
-
-                    // TODO: Refactor this
-                    if (this.props.lightboxType === "Colorbox") {
-                        mgColorboxInit (jQuery);
-                    }
-                }
-                else {
-                    this.setErrorState ();
-                }
-            },
-            (xhr, status) => {
-                console.log (xhr);
-                console.log (status);
-                this.setErrorState ();
-            }
-        );
-    }
-
-    setErrorState () {
+        
+        this.state.images.map ((img) => {
+            if (img.isHidden === true)
+                img.isHidden = false;
+        });
+        
         this.setState ({
             loading: false,
-            error: true,
+            error: false,
             images: this.state.images
         });
     }
-
+    
+    getNumberOfHiddenImages (images) {
+        var n = 0;
+        images.map ((img) => {
+            if (img.isHidden) n++; 
+        });
+        return n;
+    }
+    
     renderMoreButton () {
-        if (this.props.settings.enableMoreImages && (this.props.totalImages > this.state.images.length)) {
+        const numOfHiddenImages = this.getNumberOfHiddenImages(this.state.images);
+        if (this.props.settings.enableMoreImages && numOfHiddenImages > 0) {
             if (!this.state.loading && !this.state.error) {
                 return (
-                    <button className="btn btn-sm btn-block btn-default" onClick={this.getAllImages.bind(this)}>
-                    {this.props.resources.moreImagesFormat.replace ("{0}", this.props.totalImages - this.state.images.length)}
+                    <button className="btn btn-sm btn-block btn-default" onClick={this.showAllImages.bind(this)}>
+                    {this.props.resources.moreImagesFormat.replace ("{0}", numOfHiddenImages)}
                     </button>
                 );
             }
@@ -130,18 +124,7 @@ class MiniGallery extends React.Component {
         }
         return null;
     }
-
-    renderError () {
-        if (this.state.error) {
-            return (
-                <div className="alert alert-danger" role="alert">
-                    <strong>{this.props.resources.moreImagesErrorTitle}</strong> {this.props.resources.moreImagesErrorMessage}
-                </div>
-            );
-        }
-        return null;
-    }
-
+    
     renderBlueimp() {
         if (this.props.lightboxType === "BlueimpLightbox") {
             return (
@@ -175,13 +158,13 @@ class MiniGallery extends React.Component {
                         editUrl={img.editUrl}
                         linkAttrs={img.linkAttributes}
                         itemStyle={img.itemStyle}
+                        isHidden={img.isHidden}
                         editIcon={this.props.editIcon}
                         isEditable={this.props.isEditable}
                         showTitle={this.props.settings.showTitles}
                         target={this.props.settings.target}
                         />)}
                 </ul>
-                {this.renderError()}
                 {this.renderMoreButton()}
             </div>
         );

@@ -160,7 +160,6 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Lightboxes\" />
     <Folder Include="css\" />
-    <Folder Include="Api\" />
     <Folder Include="js\src\" />
     <Folder Include="React\" />
   </ItemGroup>
@@ -182,7 +181,6 @@
     <Content Include="css\style-default.css" />
     <Content Include="css\style-columns.css" />
     <Content Include="css\admin.css" />
-    <Content Include="js\src\service.js" />
     <Content Include="js\src\lightbox2.js" />
     <Content Include="js\src\colorbox.js" />
   </ItemGroup>
@@ -244,8 +242,6 @@
     <Compile Include="Models\ModelHelper.cs" />
     <Compile Include="Models\ImageExtensions.cs" />
     <Compile Include="Models\ImageComparer.cs" />
-    <Compile Include="Api\ImageController.cs" />
-    <Compile Include="Api\RouteMapper.cs" />
     <Compile Include="ViewModels\ImageViewModelRepository.cs" />
     <Compile Include="ViewModels\MiniGalleryClientSettings.cs" />
     <Compile Include="Models\MiniGallerySettingsRepository.cs" />

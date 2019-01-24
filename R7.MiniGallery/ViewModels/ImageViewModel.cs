@@ -125,6 +125,8 @@ namespace R7.MiniGallery.ViewModels
 
         #endregion
 
+        public bool IsHidden { get; set; }
+
         public string ImageSrc {
             get {
                 return Globals.LinkClick ("FileID=" + Model.ImageFileID, ModuleContext.TabId, ModuleContext.ModuleId, false);
