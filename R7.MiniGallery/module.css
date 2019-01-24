@@ -24,9 +24,19 @@ ul.r7-mg-list > li {
 .r7-mg-list .r7-mg-alt-item {
     position:relative
 }
-
-.r7-mg-list .r7-mg-not-published { opacity:0.3 }
+.r7-mg-list .r7-mg-not-published {
+	border-left:3px solid;
+	opacity:0.3
+}
 
 .r7-mg-list .r7-mg-not-published:hover { opacity:1 }
+
+.r7-mg-list .r7-mg-not-published {
+	border-left-color:#fc3
+}
+
+.r7-mg-list .r7-mg-not-published.r7-mg-expired {
+	border-left-color:#f33	
+}
 
 .r7-mg-more-loading { text-align:center }

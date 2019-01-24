@@ -4,7 +4,7 @@
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-//  Copyright (c) 2017 Roman M. Yagodin
+//  Copyright (c) 2017-2019 Roman M. Yagodin
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -28,6 +28,11 @@ namespace R7.MiniGallery.Models
         public static bool IsPublished (this IImage image, DateTime now)
         {
             return ModelHelper.IsPublished (now, image.StartDate, image.EndDate);
+        }
+
+        public static bool HasBeenExpired (this IImage image, DateTime now)
+        {
+            return ModelHelper.HasBeenExpired (now, image.StartDate, image.EndDate);
         }
     }
 }

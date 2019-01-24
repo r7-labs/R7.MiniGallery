@@ -201,7 +201,9 @@ namespace R7.MiniGallery.ViewModels
             get {
                 return FormatHelper.JoinNotNullOrEmpty (
                     " ", Settings.ImageCssClass,
-                    (!Model.IsPublished (HttpContext.Current.Timestamp)) ? "r7-mg-not-published" : string.Empty
+                    (!Model.IsPublished (HttpContext.Current.Timestamp)) ?
+                        (Model.HasBeenExpired (HttpContext.Current.Timestamp) ?
+                            "r7-mg-not-published r7-mg-expired" : "r7-mg-not-published") : string.Empty
                 );
             }
         }
