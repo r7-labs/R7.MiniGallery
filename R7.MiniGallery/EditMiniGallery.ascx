@@ -32,7 +32,7 @@
 		</div> 
 		<div class="dnnFormItem">
 		    <dnn:Label id="labelSortIndex" runat="server" ControlName="textSortIndex" Suffix=":" />
-			<asp:TextBox id="textSortIndex" runat="server" Text="0" />
+			<asp:TextBox id="textSortIndex" runat="server" />
 		</div>
         <div class="dnnFormItem">
             <dnn:Label ID="labelStartDate" runat="server" ControlName="datetimeStartDate" />

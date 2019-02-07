@@ -125,14 +125,17 @@ namespace R7.MiniGallery
 						ctlAudit.CreatedByUser = Image.CreatedByUserName;
 						ctlAudit.LastModifiedByUser = Image.LastModifiedByUserName;
 					}
-					else if (Request.QueryString ["ImageID"] != null)
+                    else if (Request.QueryString ["ImageID"] != null)
 					{
 						// no image with ImageID=x was found in a DB
 						Response.Redirect (Globals.NavigateURL (), true);
 					}
 					else
 					{
-						// new image
+                        // new image
+                        var dataProvider = new MiniGalleryDataProvider ();
+                        textSortIndex.Text = (dataProvider.GetBaseSortIndex (ModuleId) + 10).ToString ();
+                        			
 						buttonDelete.Visible = false;
 						ctlAudit.Visible = false;
 					}				
