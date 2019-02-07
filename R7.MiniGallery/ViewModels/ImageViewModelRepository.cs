@@ -45,8 +45,7 @@ namespace R7.MiniGallery.Data
                                                       out int totalImages)
         {
             var images = DataCache.GetCachedData<IEnumerable<ImageViewModel>> (
-                // FIXME: Timeout should be in minutes, not seconds
-                new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={moduleContext.TabModuleId}", 1200),
+                new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={moduleContext.TabModuleId}", 60),
                 (c) => GetImages (moduleContext, settings, lightbox)
             );
 
