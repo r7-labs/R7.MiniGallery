@@ -20,7 +20,7 @@ ul.r7-mg-list > li {
 	text-align:left
 }
 
-.r7-mg-d-none { display:none }
+.r7-mg-d-none { display:none !important }
 
 .r7-mg-list .r7-mg-item,
 .r7-mg-list .r7-mg-alt-item {
