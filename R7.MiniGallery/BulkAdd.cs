@@ -29,7 +29,6 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.FileSystem;
-using R7.Dnn.Extensions.Collections;
 using R7.Dnn.Extensions.Modules;
 using R7.Dnn.Extensions.Text;
 using R7.Dnn.Extensions.Urls;
@@ -121,8 +120,9 @@ namespace R7.MiniGallery
 					}
 				}
 
-                var sortIndex = GetBaseSortIndex ();
+
                 var dataProvider = new MiniGalleryDataProvider ();
+                var sortIndex = dataProvider.GetBaseSortIndex (ModuleId);
 
                 foreach (var image in images.OrderBy (i => i.Order).ThenBy (i => i.FileName)) {
                     sortIndex += 10;
@@ -151,15 +151,7 @@ namespace R7.MiniGallery
 			}
 		}
 
-        int GetBaseSortIndex ()
-        {
-            var images = new MiniGalleryDataProvider ().GetObjects<ImageInfo> (ModuleId);
-            if (!images.IsNullOrEmpty ()) {
-                return images.Max (i => i.SortIndex);
-            }
 
-            return 0;
-        }
 
         protected void dllFolders_SelectionChanged (object sender, EventArgs e)
 		{
