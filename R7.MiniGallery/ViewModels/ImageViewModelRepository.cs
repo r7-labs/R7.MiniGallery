@@ -41,7 +41,6 @@ namespace R7.MiniGallery.Data
         public IEnumerable<ImageViewModel> GetImages (ModuleInstanceContext moduleContext,
                                                       MiniGallerySettings settings,
                                                       ILightbox lightbox,
-                                                      bool getAll,
                                                       DateTime now,
                                                       out int totalImages)
         {
@@ -55,11 +54,12 @@ namespace R7.MiniGallery.Data
             totalImages = filteredImages.Count;
 
             var comparer = new ImageComparer (settings.SortAscending);
-            if (getAll || settings.NumberOfRecords <= 0) {
-                return filteredImages.OrderBy (img => img, comparer);
-            }
 
-            return filteredImages.OrderBy (img => img, comparer).Take (settings.NumberOfRecords);
+            if (!settings.EnableMoreImages && settings.NumberOfRecords > 0 && totalImages > settings.NumberOfRecords) {
+                return filteredImages.OrderBy (img => img, comparer).Take (settings.NumberOfRecords);
+            }
+        
+            return filteredImages.OrderBy (img => img, comparer);
         }
 
         protected IEnumerable<ImageViewModel> GetImages (ModuleInstanceContext moduleContext,
