@@ -27,7 +27,7 @@
 				</div>
 				<div class="divMiniForm">
 					<asp:CheckBox id="checkIsIncluded" runat="server" Checked="false" />	
-					<asp:TextBox id="textSortIndex" runat="server" CssClass="textSortIndex" Text="0" />
+					<asp:TextBox id="textOrder" runat="server" CssClass="textOrder" />
 					<br />
 					<asp:TextBox id="textTitle" runat="server" CssClass="textTitle" MaxLength="255"  />
 				</div>		

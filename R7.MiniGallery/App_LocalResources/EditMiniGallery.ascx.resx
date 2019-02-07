@@ -49,7 +49,7 @@
         <value>Sort Index</value>
     </data>
     <data name="labelSortIndex.Help" xml:space="preserve">
-        <value>Sort index value. </value>
+        <value>Sort index value.</value>
     </data>
     <data name="labelStartDate.Text">
         <value>Start Publication:</value>

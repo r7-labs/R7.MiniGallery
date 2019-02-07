@@ -4,7 +4,7 @@
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-//  Copyright (c) 2014 Roman M. Yagodin
+//  Copyright (c) 2014-2019 Roman M. Yagodin
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -19,36 +19,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using DotNetNuke.Services.FileSystem;
-
 namespace R7.MiniGallery.Models
 {
 	public class ImageToAdd
 	{
-		public ImageToAdd (IFileInfo file)
-		{
-			ImageFileID = file.FileId;
-			FileName = file.FileName;
-			IsIncluded = true;
-		}
-		
 		public int ImageFileID { get; set; }
+
+        public string FileName { get; set; }
 		
-		public string FileName { get; set; }
+        public string Title { get; set; }
 
-		public string Alt { get; set; }
-		
-		public int SortIndex { get; set; }
-
-		public bool IsIncluded { get; set; }
-
+        public int Order { get; set; }
+        		
 		public ImageInfo ToImageInfo ()
 		{
-			return new ImageInfo () {
-				Alt = Alt,
-				ImageFileID = ImageFileID,
-				SortIndex = SortIndex
+            return new ImageInfo () {
+                Title = Title,
+                ImageFileID = ImageFileID
 			};
 		}
 	}

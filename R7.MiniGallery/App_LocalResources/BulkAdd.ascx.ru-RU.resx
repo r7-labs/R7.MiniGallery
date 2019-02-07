@@ -30,8 +30,8 @@
     <data name="buttonAdd.Text" xml:space="preserve">
         <value>Добавить</value>
     </data>
-    <data name="textSortIndex.ToolTip" xml:space="preserve">
-        <value>Индекс сортировки</value>
+    <data name="textOrder.ToolTip" xml:space="preserve">
+        <value>Относительный порядок добавления изображений - любое целое число. Это не индекс сортировки!</value>
     </data>
     <data name="textTitle.ToolTip" xml:space="preserve">
         <value>Заголовок</value>

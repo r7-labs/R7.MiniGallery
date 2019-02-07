@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
@@ -29,6 +29,7 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.FileSystem;
+using R7.Dnn.Extensions.Collections;
 using R7.Dnn.Extensions.Modules;
 using R7.Dnn.Extensions.Text;
 using R7.Dnn.Extensions.Urls;
@@ -98,35 +99,47 @@ namespace R7.MiniGallery
 			try
 			{
 				var now = DateTime.Now;
+                var images = new List<ImageToAdd> ();
 
-                var dataProvider = new MiniGalleryDataProvider ();
-				foreach (DataListItem item in listImages.Items)
-				{
-					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
+                foreach (DataListItem item in listImages.Items) {
+                    var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
 					var textTitle = item.FindControl ("textTitle") as TextBox;
-					var textSortIndex = item.FindControl ("textSortIndex") as TextBox;
+					var textOrder = item.FindControl ("textOrder") as TextBox;
 					var hiddenImageFileID = item.FindControl ("hiddenImageFileID") as HiddenField;
 
 					// add only selected items
 					if (checkIsIncluded.Checked)
 					{
-						var image = new ImageInfo () {
-							ImageFileID = int.Parse (hiddenImageFileID.Value),
-                            Alt = string.Empty, // title value should be used for Alt dynamically in the View
-							Title = textTitle.Text,
-							Url = string.Empty,
-                            SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? 0,
-							ModuleID = ModuleId,
-							CreatedOnDate = now,
-							LastModifiedOnDate = now,
-							CreatedByUserID = UserId,
-							LastModifiedByUserID = UserId
+                        var image = new ImageToAdd {
+                            ImageFileID = int.Parse (hiddenImageFileID.Value),
+                            FileName = checkIsIncluded.Text,
+                            Title = textTitle.Text,							
+                            Order = ParseHelper.ParseToNullable<int> (textOrder.Text) ?? int.MaxValue,
+							
 						};
-
-                        dataProvider.Add<ImageInfo> (image);
+                        images.Add (image);
 					}
 				}
-				
+
+                var sortIndex = GetBaseSortIndex ();
+                var dataProvider = new MiniGalleryDataProvider ();
+
+                foreach (var image in images.OrderBy (i => i.Order).ThenBy (i => i.FileName)) {
+                    sortIndex += 10;
+
+                    var img = image.ToImageInfo ();
+                    img.SortIndex = sortIndex;
+                    img.Url = string.Empty;
+                    img.Alt = string.Empty;
+                    img.ModuleID = ModuleId;
+                    img.CreatedOnDate = now;
+                    img.LastModifiedOnDate = now;
+                    img.CreatedByUserID = UserId;
+                    img.LastModifiedByUserID = UserId;
+
+                    dataProvider.Add (img);
+                }
+
                 DataCache.ClearCache ("//r7_MiniGallery");
                 ModuleController.SynchronizeModule (ModuleId);
 				
@@ -138,7 +151,17 @@ namespace R7.MiniGallery
 			}
 		}
 
-		protected void dllFolders_SelectionChanged (object sender, EventArgs e)
+        int GetBaseSortIndex ()
+        {
+            var images = new MiniGalleryDataProvider ().GetObjects<ImageInfo> (ModuleId);
+            if (!images.IsNullOrEmpty ()) {
+                return images.Max (i => i.SortIndex);
+            }
+
+            return 0;
+        }
+
+        protected void dllFolders_SelectionChanged (object sender, EventArgs e)
 		{
 			var folder = ddlFolders.SelectedFolder;
 			var files = FolderManager.Instance.GetFiles (folder);
@@ -169,20 +192,16 @@ namespace R7.MiniGallery
 			var imageImage = e.Item.FindControl ("imageImage") as Image;
 			var checkIsIncluded = e.Item.FindControl ("checkIsIncluded") as CheckBox;
 			var textTitle = e.Item.FindControl ("textTitle") as TextBox;
-			var textSortIndex = e.Item.FindControl ("textSortIndex") as TextBox;
+			var textOrder = e.Item.FindControl ("textOrder") as TextBox;
 			var hiddenImageFileID = e.Item.FindControl ("hiddenImageFileID") as HiddenField;
 
-            // FIXME: Localize tooltips
             textTitle.ToolTip = LocalizeString ("textTitle.ToolTip");
-            textSortIndex.ToolTip = LocalizeString ("textSortIndex.ToolTip");
+            textOrder.ToolTip = LocalizeString ("textOrder.ToolTip");
 
             imageImage.ImageUrl = Globals.LinkClick ("FileID=" + file.FileId, TabId, ModuleId, false);
 			checkIsIncluded.Text = file.FileName;
 			hiddenImageFileID.Value = file.FileId.ToString ();
-
-            // set default sort index as first number in a filename, multiplied by 10
-            textSortIndex.Text = (ExtractInt32 (Path.GetFileNameWithoutExtension (file.FileName)) * 10).ToString ();
-		}
+        }
 
 		protected void buttonChecks_Click (object sender, EventArgs e)
 		{
@@ -210,12 +229,11 @@ namespace R7.MiniGallery
 
 		#endregion
 	
-        private int ExtractInt32 (string text, int defaultValue = default (int))
+        private int TryExtractInt32 (string text, int defaultValue = default (int))
         {
             var matches = Regex.Matches (text, @"\d+");
             if (matches != null && matches.Count > 0) {
-                int result;
-                if (int.TryParse (matches [0].Value, out result))
+                if (int.TryParse (matches [0].Value, out int result))
                     return result;
             }
 

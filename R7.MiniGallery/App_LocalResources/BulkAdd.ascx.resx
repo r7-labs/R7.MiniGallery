@@ -30,8 +30,8 @@
     <data name="buttonAdd.Text" xml:space="preserve">
         <value>Add</value>
     </data>
-    <data name="textSortIndex.ToolTip" xml:space="preserve">
-        <value>Sort Index</value>
+    <data name="textOrder.ToolTip" xml:space="preserve">
+        <value>Relative image insert order - any integer. This is not sort index!</value>
     </data>
     <data name="textTitle.ToolTip" xml:space="preserve">
         <value>Title</value>
