@@ -52,16 +52,14 @@ namespace R7.MiniGallery.Controllers
             var images = ImageViewModelRepository.Instance.GetImages (ModuleContext,
                                                                       settings,
                                                                       lightbox,
-                                                                      true,
                                                                       HttpContext.Timestamp,
                                                                       out int totalImages).ToList ();
 
-            var index = 0;
-            foreach (var image in images) {
-                if (index >= settings.NumberOfRecords) {
-                    image.IsHidden = true;
+
+            if (settings.EnableMoreImages && settings.NumberOfRecords > 0 && images.Count > settings.NumberOfRecords) {
+                for (var i = settings.NumberOfRecords; i < images.Count; i++) {
+                    images [i].IsHidden = true;
                 }
-                index++;
             }
 
             var viewModel = new MiniGalleryViewModel {
