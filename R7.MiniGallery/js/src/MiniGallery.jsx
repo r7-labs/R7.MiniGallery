@@ -53,7 +53,6 @@ class MiniGalleryImage extends React.Component {
     
     render() {
         return (
-            // TODO: Lazy-load hidden images
             // TODO: Image CSS class from settings should override r7-mg-image
             <li className={this.getItemCssClass(this.props.index, this.props.isHidden)} style={this.props.itemStyle}>
                 {this.renderEditLink()}
@@ -77,7 +76,7 @@ class MiniGallery extends React.Component {
     
     showAllImages (e) {
         e.preventDefault ();
-
+        
         this.setState ({
             loading: true,
             error: false,
@@ -105,6 +104,7 @@ class MiniGallery extends React.Component {
     }
     
     renderMoreButton () {
+        // TODO: Remove loading and error states?
         const numOfHiddenImages = this.getNumberOfHiddenImages(this.state.images);
         if (this.props.settings.enableMoreImages && numOfHiddenImages > 0) {
             if (!this.state.loading && !this.state.error) {
