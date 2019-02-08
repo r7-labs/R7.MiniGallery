@@ -34,6 +34,7 @@ using R7.Dnn.Extensions.Text;
 using R7.Dnn.Extensions.Urls;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
+using R7.University.Components;
 
 namespace R7.MiniGallery
 {
@@ -120,12 +121,11 @@ namespace R7.MiniGallery
 					}
 				}
 
-
                 var dataProvider = new MiniGalleryDataProvider ();
                 var sortIndex = dataProvider.GetBaseSortIndex (ModuleId);
 
                 foreach (var image in images.OrderBy (i => i.Order).ThenBy (i => i.FileName)) {
-                    sortIndex += 10;
+                    sortIndex += MiniGalleryConfig.Instance.SortIndexIncrement;
 
                     var img = image.ToImageInfo ();
                     img.SortIndex = sortIndex;
@@ -150,8 +150,6 @@ namespace R7.MiniGallery
 				Exceptions.ProcessModuleLoadException (this, ex);
 			}
 		}
-
-
 
         protected void dllFolders_SelectionChanged (object sender, EventArgs e)
 		{

@@ -30,6 +30,7 @@ using R7.Dnn.Extensions.Text;
 using R7.Dnn.Extensions.Urls;
 using R7.MiniGallery.Data;
 using R7.MiniGallery.Models;
+using R7.University.Components;
 
 namespace R7.MiniGallery
 {
@@ -134,7 +135,7 @@ namespace R7.MiniGallery
 					{
                         // new image
                         var dataProvider = new MiniGalleryDataProvider ();
-                        textSortIndex.Text = (dataProvider.GetBaseSortIndex (ModuleId) + 10).ToString ();
+                        textSortIndex.Text = (dataProvider.GetBaseSortIndex (ModuleId) + MiniGalleryConfig.Instance.SortIndexIncrement).ToString ();
                         			
 						buttonDelete.Visible = false;
 						ctlAudit.Visible = false;

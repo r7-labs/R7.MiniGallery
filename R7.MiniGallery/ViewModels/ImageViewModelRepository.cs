@@ -27,6 +27,7 @@ using DotNetNuke.UI.Modules;
 using R7.MiniGallery.Lightboxes;
 using R7.MiniGallery.Models;
 using R7.MiniGallery.ViewModels;
+using R7.University.Components;
 
 namespace R7.MiniGallery.Data
 {
@@ -45,7 +46,7 @@ namespace R7.MiniGallery.Data
                                                       out int totalImages)
         {
             var images = DataCache.GetCachedData<IEnumerable<ImageViewModel>> (
-                new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={moduleContext.TabModuleId}", 60),
+                new CacheItemArgs ($"//r7_MiniGallery?TabModuleId={moduleContext.TabModuleId}", MiniGalleryConfig.Instance.DataCacheTime),
                 (c) => GetImages (moduleContext, settings, lightbox)
             );
 
