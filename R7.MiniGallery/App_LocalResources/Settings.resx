@@ -76,13 +76,13 @@
         <value>Thumb Width (px):</value>
     </data>
     <data name="ThumbWidth.Help" xml:space="preserve">
-        <value>Specify thumbnail image width in px or set to 0.</value>
+        <value>Specify thumbnail image width in px or 0 for auto. Leave empty to use default value from the site config.</value>
     </data>
     <data name="ThumbHeight.Text" xml:space="preserve">
         <value>Thumb Height (px):</value>
     </data>
     <data name="ThumbHeight.Help" xml:space="preserve">
-        <value>Specify thumbnail image width in pixels or set to 0.</value>
+        <value>Specify thumbnail image height in pixels or 0 for auto. Leave empty to use default value from the site config.</value>
     </data>
     <data name="ShowTitles.Text" xml:space="preserve">
         <value>Show Titles?</value>

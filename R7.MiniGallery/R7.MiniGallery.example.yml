@@ -1,2 +1,5 @@
 ﻿data-cache-time: 60
-sort-index-increment: 10
+sort-index-step: 10
+
+default-thumb-width: 262
+default-thumb-height: 0

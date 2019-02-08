@@ -76,13 +76,13 @@
         <value>Ширина миниатюры (px):</value>
     </data>
     <data name="ThumbWidth.Help" xml:space="preserve">
-        <value>Укажите ширину миниатюры в пикселах или введите 0.</value>
+        <value>Укажите ширину миниатюры в пикселах или 0 для автоопределения. Оставьте поле пустым для использования значения по-умолчанию из настроек сайта.</value>
     </data>
     <data name="ThumbHeight.Text" xml:space="preserve">
         <value>Высота миниатюры (px):</value>
     </data>
     <data name="ThumbHeight.Help" xml:space="preserve">
-        <value>Укажите высоту миниатюры в пикселах или введите 0.</value>
+        <value>Укажите высоту миниатюры в пикселах или 0 для автоопределения. Оставьте поле пустым для использования значения по-умолчанию из настроек сайта.</value>
     </data>
     <data name="ShowTitles.Text" xml:space="preserve">
         <value>Показывать заголовки?</value>

@@ -66,11 +66,11 @@ namespace R7.MiniGallery.Controllers
                 settings.NumberOfRecords = 0;
             }
 
-            if (settings.ThumbWidth < 0) {
+            if (settings.ThumbWidth != null && settings.ThumbWidth <= 0) {
                 settings.ThumbWidth = 0;
             }
 
-            if (settings.ThumbHeight < 0) {
+            if (settings.ThumbHeight != null && settings.ThumbHeight <= 0) {
                 settings.ThumbHeight = 0;
             }
 

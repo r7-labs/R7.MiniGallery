@@ -135,7 +135,7 @@ namespace R7.MiniGallery
 					{
                         // new image
                         var dataProvider = new MiniGalleryDataProvider ();
-                        textSortIndex.Text = (dataProvider.GetBaseSortIndex (ModuleId) + MiniGalleryConfig.Instance.SortIndexIncrement).ToString ();
+                        textSortIndex.Text = (dataProvider.GetBaseSortIndex (ModuleId) + MiniGalleryConfig.Instance.SortIndexStep).ToString ();
                         			
 						buttonDelete.Visible = false;
 						ctlAudit.Visible = false;

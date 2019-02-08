@@ -25,6 +25,10 @@ namespace R7.MiniGallery.Models
     {
         public int DataCacheTime { get; set; } = 60;
 
-        public int SortIndexIncrement { get; set; } = 10;
+        public int SortIndexStep { get; set; } = 10;
+
+        public int DefaultThumbWidth { get; set; } = 262;
+
+        public int DefaultThumbHeight { get; set; }
     }
 }

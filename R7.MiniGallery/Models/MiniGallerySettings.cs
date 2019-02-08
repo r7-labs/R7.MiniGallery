@@ -23,6 +23,7 @@ using System;
 using System.Web.UI.WebControls;
 using DotNetNuke.Entities.Modules.Settings;
 using R7.MiniGallery.Lightboxes;
+using R7.University.Components;
 
 namespace R7.MiniGallery.Models
 {
@@ -89,14 +90,18 @@ namespace R7.MiniGallery.Models
         /// </summary>
         /// <value>The width of the thumb.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public int ThumbWidth { get; set; } = 262;
+        public int? ThumbWidth { get; set; }
+
+        public int GetThumbWidth () => ThumbWidth ?? MiniGalleryConfig.Instance.DefaultThumbWidth;
 
         /// <summary>
         /// Gets or sets the height of the thumb.
         /// </summary>
         /// <value>The height of the thumb.</value>
         [TabModuleSetting (Prefix = "MiniGallery_")]
-        public int ThumbHeight { get; set; } = 0;
+        public int? ThumbHeight { get; set; }
+
+        public int GetThumbHeight () => ThumbHeight ?? MiniGalleryConfig.Instance.DefaultThumbHeight;
 
         /// <summary>
         /// Gets or sets a value indicating whether module shows image titles.

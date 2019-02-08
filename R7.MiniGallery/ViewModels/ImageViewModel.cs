@@ -147,10 +147,10 @@ namespace R7.MiniGallery.ViewModels
                 else {
                     hanglerUrl += "fileticket={fileticket}";
 
-                    if (Settings.ThumbWidth > 0)
+                    if (Settings.GetThumbWidth () > 0)
                         hanglerUrl += "&width={width}";
 
-                    if (Settings.ThumbHeight > 0)
+                    if (Settings.GetThumbHeight () > 0)
                         hanglerUrl += "&height={height}";
                 }
 
@@ -163,7 +163,7 @@ namespace R7.MiniGallery.ViewModels
                         break;
 
                     case "width":
-                        hanglerUrl = hanglerUrl.Replace (enclosedTag, Settings.ThumbWidth.ToString ());
+                        hanglerUrl = hanglerUrl.Replace (enclosedTag, Settings.GetThumbWidth ().ToString ());
                         break;
 
                     case "fileid":
@@ -171,7 +171,7 @@ namespace R7.MiniGallery.ViewModels
                         break;
 
                     case "height":
-                        hanglerUrl = hanglerUrl.Replace (enclosedTag, Settings.ThumbHeight.ToString ());
+                        hanglerUrl = hanglerUrl.Replace (enclosedTag, Settings.GetThumbHeight ().ToString ());
                         break;
                     }
                 }
@@ -214,14 +214,14 @@ namespace R7.MiniGallery.ViewModels
             get {
                 var style = new ImageStyle ();
                 if (Settings.ImageWidth.IsEmpty && Settings.ImageHeight.IsEmpty) {
-                    if (Settings.ThumbWidth > 0 && Settings.ThumbHeight > 0) {
+                    if (Settings.GetThumbWidth () > 0 && Settings.GetThumbHeight () > 0) {
                         // If both ThumbWidth & ThumbHeight are not null, produced image dimensions are determined
                         // also by ResizeMode image handler param. Default is "Fit" - so, by example, if produced
                         // images have same width, height may vary, and vice versa.
-                    } else if (Settings.ThumbWidth > 0) {
-                        style.Width = Unit.Pixel (Settings.ThumbWidth).ToString ();
+                    } else if (Settings.GetThumbWidth () > 0) {
+                        style.Width = Unit.Pixel (Settings.GetThumbWidth ()).ToString ();
                     } else if (Settings.ThumbHeight > 0) {
-                        style.Height = Unit.Pixel (Settings.ThumbHeight).ToString ();
+                        style.Height = Unit.Pixel (Settings.GetThumbHeight ()).ToString ();
                     }
                 } else {
                     if (!Settings.ImageWidth.IsEmpty)

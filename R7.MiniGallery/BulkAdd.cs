@@ -125,7 +125,7 @@ namespace R7.MiniGallery
                 var sortIndex = dataProvider.GetBaseSortIndex (ModuleId);
 
                 foreach (var image in images.OrderBy (i => i.Order).ThenBy (i => i.FileName)) {
-                    sortIndex += MiniGalleryConfig.Instance.SortIndexIncrement;
+                    sortIndex += MiniGalleryConfig.Instance.SortIndexStep;
 
                     var img = image.ToImageInfo ();
                     img.SortIndex = sortIndex;
