@@ -51,22 +51,22 @@
     <data name="labelSortIndex.Help" xml:space="preserve">
         <value>Значение индекса сортировки.</value>
     </data>
-    <data name="labelStartDate.Text">
+    <data name="labelStartDate.Text" xml:space="preserve">
         <value>Начало публикации:</value>
     </data>
-    <data name="labelStartDate.Help">
+    <data name="labelStartDate.Help" xml:space="preserve">
         <value>Введите дату, начиная с которой изображение должно быть опубликовано на сайте.</value>
     </data>
-    <data name="labelEndDate.Text">
+    <data name="labelEndDate.Text" xml:space="preserve">
         <value>Окончание публикации:</value>
     </data>
-    <data name="labelEndDate.Help">
+    <data name="labelEndDate.Help" xml:space="preserve">
         <value>Введите дату, при наступлении которой изображение должно быть снято с публикации на сайте.</value>
     </data>
-	<data name="btnDeleteWithFile.Text">
+	<data name="btnDeleteWithFile.Text" xml:space="preserve">
         <value>Удалить вместе с файлом</value>
     </data>
-	<data name="btnDeleteWithFile_Confirm.Text">
+	<data name="btnDeleteWithFile_Confirm.Text" xml:space="preserve">
         <value>Уверены, что хотите удалить это изображение вместе со связанным с ним файлом? Обратите внимание, что файл будет удален только в том случае, если на него не ссылаются другие изображения или элементы контента DNN.</value>
     </data>
 </root>

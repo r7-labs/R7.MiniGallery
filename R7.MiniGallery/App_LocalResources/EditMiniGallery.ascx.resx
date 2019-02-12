@@ -51,22 +51,22 @@
     <data name="labelSortIndex.Help" xml:space="preserve">
         <value>Sort index value.</value>
     </data>
-    <data name="labelStartDate.Text">
+    <data name="labelStartDate.Text" xml:space="preserve">
         <value>Start Publication:</value>
     </data>
-    <data name="labelStartDate.Help">
+    <data name="labelStartDate.Help" xml:space="preserve">
         <value>Enter the date from current image should be published on the site.</value>
     </data>
-    <data name="labelEndDate.Text">
+    <data name="labelEndDate.Text" xml:space="preserve">
         <value>End Publication:</value>
     </data>
-    <data name="labelEndDate.Help">
+    <data name="labelEndDate.Help" xml:space="preserve">
         <value>Enter the date from current image should be removed from publication on the site.</value>
     </data>
-	<data name="btnDeleteWithFile.Text">
+	<data name="btnDeleteWithFile.Text" xml:space="preserve">
         <value>Delete with File</value>
     </data>
-	<data name="btnDeleteWithFile_Confirm.Text">
+	<data name="btnDeleteWithFile_Confirm.Text" xml:space="preserve">
         <value>Are you sure you want to delete this image along with the associated file? Note that file will be deleted only if it's not referenced by other images or DNN content items.</value>
     </data>
 </root>
