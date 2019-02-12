@@ -29,6 +29,7 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.FileSystem;
+using R7.Dnn.Extensions.FileSystem;
 using R7.Dnn.Extensions.Modules;
 using R7.Dnn.Extensions.Text;
 using R7.Dnn.Extensions.Urls;
@@ -69,20 +70,20 @@ namespace R7.MiniGallery
 		{
 			base.OnLoad (e);
 			
-			/*
-			try
-			{
-				if (!IsPostBack)
-				{
-				}
-				else
-				{
+			try {
+				if (!IsPostBack) {
+                    var folderId = FolderHistory.GetLastFolderId (Request, PortalId);
+                    if (folderId != null) {
+                        var folder = FolderManager.Instance.GetFolder (folderId.Value);
+                        if (folder != null) {
+                            ddlFolders.SelectedFolder = folder;
+                        }
+                    }
 				}
 			}
-			catch (Exception ex)
-			{
+			catch (Exception ex) {
 				Exceptions.ProcessModuleLoadException (this, ex);
-			}*/
+			}
 		}
 
 		/// <summary>
@@ -139,6 +140,8 @@ namespace R7.MiniGallery
 
                     dataProvider.Add (img);
                 }
+
+                FolderHistory.RememberFolder (Request, Response, ddlFolders.SelectedFolder.FolderID, PortalId);
 
                 DataCache.ClearCache ("//r7_MiniGallery");
                 ModuleController.SynchronizeModule (ModuleId);

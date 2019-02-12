@@ -24,7 +24,9 @@ using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
+using DotNetNuke.Services.FileSystem;
 using DotNetNuke.Services.Localization;
+using R7.Dnn.Extensions.FileSystem;
 using R7.Dnn.Extensions.Modules;
 using R7.Dnn.Extensions.Text;
 using R7.Dnn.Extensions.Urls;
@@ -79,9 +81,10 @@ namespace R7.MiniGallery
 
 			// setup image picker
 			pickerImage.FileFilter = Globals.glbImageFileTypes;
+            pickerImage.FolderPath = GetImagesFolderPath ();
 
-			// event wireup
-			buttonUpdate.Click += OnUpdateClick;
+            // event wireup
+            buttonUpdate.Click += OnUpdateClick;
 			buttonDelete.Click += OnDeleteClick;
             btnDeleteWithFile.Click += OnDeleteClick;
 
@@ -90,11 +93,24 @@ namespace R7.MiniGallery
             btnDeleteWithFile.Attributes.Add ("onClick", "javascript:return confirm('" + LocalizeString ("btnDeleteWithFile_Confirm.Text") + "');");
         }
 
-		/// <summary>
-		/// Handles the load event.
-		/// </summary>
-		/// <param name="e">Event args</param>
-		protected override void OnLoad (EventArgs e)
+        string GetImagesFolderPath ()
+        {
+            var folderId = FolderHistory.GetLastFolderId (Request, PortalId);
+            if (folderId != null) {
+                var folder = FolderManager.Instance.GetFolder (folderId.Value);
+                if (folder != null) {
+                    return folder.FolderPath;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Handles the load event.
+        /// </summary>
+        /// <param name="e">Event args</param>
+        protected override void OnLoad (EventArgs e)
 		{
 			base.OnLoad (e);
 
@@ -151,30 +167,31 @@ namespace R7.MiniGallery
 			}
 		}
 
-		/// <summary>
-		/// Handles Click event for cmdUpdate button
-		/// </summary>
-		/// <param name='sender'>
-		/// Sender.
-		/// </param>
-		/// <param name='e'>
-		/// Event args.
-		/// </param>
-		protected void OnUpdateClick (object sender, EventArgs e)
+        /// <summary>
+        /// Handles Click event for cmdUpdate button
+        /// </summary>
+        /// <param name='sender'>
+        /// Sender.
+        /// </param>
+        /// <param name='e'>
+        /// Event args.
+        /// </param>
+        protected void OnUpdateClick (object sender, EventArgs e)
 		{
 			try
 			{
                 var dataProvider = new MiniGalleryDataProvider ();
 
-				// determine if we are adding or updating
-				// ALT: if (Null.IsNull (itemId))
+                // determine if we are adding or updating
+                // ALT: if (Null.IsNull (itemId))
+                var image = default (ImageInfo);
 				if (Image == null)
 				{
 					// populate new object properties with data from controls to add new record
 
 					var now = DateTime.Now;
 
-                    var image = new ImageInfo () {
+                    image = new ImageInfo () {
                         Alt = textAlt.Text,
                         Title = textTitle.Text,
                         SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? 0,
@@ -196,7 +213,7 @@ namespace R7.MiniGallery
 					// update properties of existing object with data from controls 
 					// to update existing record
 					// image = ctrl.Get<ImageInfo> (imageId.Value, ModuleId);
-					var image = Image;
+					image = Image;
 					image.Alt = textAlt.Text;
 					image.Title = textTitle.Text;
                     image.SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
@@ -210,6 +227,8 @@ namespace R7.MiniGallery
 					dataProvider.Update<ImageInfo> (image);
 				}
 
+                RememberFolder (image.ImageFileID);
+
                 DataCache.ClearCache ("//r7_MiniGallery");
                 ModuleController.SynchronizeModule (ModuleId);
 
@@ -221,16 +240,29 @@ namespace R7.MiniGallery
 			}
 		}
 
-		/// <summary>
-		/// Handles Click event for cmdDelete button
-		/// </summary>
-		/// <param name='sender'>
-		/// Sender.
-		/// </param>
-		/// <param name='e'>
-		/// Event args.
-		/// </param>
-		protected void OnDeleteClick (object sender, EventArgs e)
+        void RememberFolder (int imageFileId)
+        {
+            if (imageFileId > 0) {
+                var file = FileManager.Instance.GetFile (imageFileId);
+                if (file != null) {
+                    var folder = FolderManager.Instance.GetFolder (file.FolderId);
+                    if (folder != null) {
+                        FolderHistory.RememberFolder (Request, Response, folder.FolderID, PortalId);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles Click event for cmdDelete button
+        /// </summary>
+        /// <param name='sender'>
+        /// Sender.
+        /// </param>
+        /// <param name='e'>
+        /// Event args.
+        /// </param>
+        protected void OnDeleteClick (object sender, EventArgs e)
 		{
 			try
 			{
