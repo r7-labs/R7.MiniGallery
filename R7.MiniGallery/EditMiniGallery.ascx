@@ -45,8 +45,10 @@
 	</fieldset>
 	<ul class="dnnActions dnnClear">
 		<li><asp:LinkButton id="buttonUpdate" runat="server" CssClass="dnnPrimaryAction" ResourceKey="cmdUpdate" CausesValidation="true" /></li>
+		<li>&nbsp;</li>
 		<li><asp:LinkButton id="buttonDelete" runat="server" CssClass="dnnSecondaryAction" ResourceKey="cmdDelete" CausesValidation="false" /></li>
 		<li><asp:LinkButton id="btnDeleteWithFile" runat="server" CssClass="dnnSecondaryAction" ResourceKey="btnDeleteWithFile.Text" CausesValidation="false" /></li>
+		<li>&nbsp;</li>
 		<li><asp:HyperLink id="linkCancel" runat="server" CssClass="dnnSecondaryAction" ResourceKey="cmdCancel" /></li>
 	</ul>
 	<hr />
