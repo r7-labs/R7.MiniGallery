@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Linq;
+using DotNetNuke.Entities.Content;
+using DotNetNuke.Services.FileSystem;
 using R7.Dnn.Extensions.Collections;
 using R7.Dnn.Extensions.Data;
 using R7.MiniGallery.Models;
@@ -36,6 +38,30 @@ namespace R7.MiniGallery.Data
             }
 
             return 0;
+        }
+
+        bool IsNotFileReferencedByContentItems (IImage image)
+        {
+            var contentCtrl = new ContentController ();
+            return contentCtrl.GetUnIndexedContentItems ().Where (
+                ci => ci.Images.Any (img => img.FileId == image.ImageFileID) ||
+                      ci.Files.Any (img => img.FileId == image.ImageFileID)
+            ).IsNullOrEmpty ();
+        }
+
+        bool IsNotFileReferencedByOtherImages (IImage image) {
+            return GetObjects<ImageInfo> ("where ImageFileID = @0 and ImageID <> @1",
+                image.ImageFileID, image.ImageID).IsNullOrEmpty ();
+        }
+
+        public void DeleteImageFile (IImage image)
+        {
+            if (IsNotFileReferencedByOtherImages (image) && IsNotFileReferencedByContentItems (image)) {
+                var imageFile = FileManager.Instance.GetFile (image.ImageFileID);
+                if (imageFile != null) {
+                    FileManager.Instance.DeleteFile (imageFile);
+                }
+            }
         }
     }
 }

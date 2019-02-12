@@ -1,4 +1,4 @@
-using System.Web.UI.WebControls;
+﻿using System.Web.UI.WebControls;
 using DotNetNuke.UI.UserControls;
 using DotNetNuke.Web.UI.WebControls;
 
@@ -8,6 +8,7 @@ namespace R7.MiniGallery
 	{
 		protected LinkButton buttonUpdate;
 		protected LinkButton buttonDelete;
+        protected LinkButton btnDeleteWithFile;
 		protected HyperLink linkCancel;
 		protected TextBox textAlt;
 		protected TextBox textTitle;

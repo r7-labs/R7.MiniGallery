@@ -1,4 +1,4 @@
-//
+﻿//
 //  EditMiniGallery.ascx.cs
 //
 //  Author:
@@ -83,10 +83,12 @@ namespace R7.MiniGallery
 			// event wireup
 			buttonUpdate.Click += OnUpdateClick;
 			buttonDelete.Click += OnDeleteClick;
+            btnDeleteWithFile.Click += OnDeleteClick;
 
-			// add confirmation dialog to delete button
-			buttonDelete.Attributes.Add ("onClick", "javascript:return confirm('" + Localization.GetString ("DeleteItem") + "');");
-		}
+            // add confirmation dialog to delete button
+            buttonDelete.Attributes.Add ("onClick", "javascript:return confirm('" + Localization.GetString ("DeleteItem") + "');");
+            btnDeleteWithFile.Attributes.Add ("onClick", "javascript:return confirm('" + LocalizeString ("btnDeleteWithFile_Confirm.Text") + "');");
+        }
 
 		/// <summary>
 		/// Handles the load event.
@@ -138,7 +140,8 @@ namespace R7.MiniGallery
                         textSortIndex.Text = (dataProvider.GetBaseSortIndex (ModuleId) + MiniGalleryConfig.Instance.SortIndexStep).ToString ();
                         			
 						buttonDelete.Visible = false;
-						ctlAudit.Visible = false;
+                        btnDeleteWithFile.Visible = false;
+                        ctlAudit.Visible = false;
 					}				
 				}
 			}
@@ -233,7 +236,12 @@ namespace R7.MiniGallery
 			{
 				if (Image != null)
 				{
-                    new MiniGalleryDataProvider ().Delete<ImageInfo> (Image);
+                    var dataProvider = new MiniGalleryDataProvider ();
+                    dataProvider.Delete (Image);
+
+                    if (sender == btnDeleteWithFile) {
+                        dataProvider.DeleteImageFile (Image);
+                    }
 
                     DataCache.ClearCache ("//r7_MiniGallery");
                     ModuleController.SynchronizeModule (ModuleId);

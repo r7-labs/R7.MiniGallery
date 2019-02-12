@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
@@ -62,5 +62,11 @@
     </data>
     <data name="labelEndDate.Help">
         <value>Enter the date from current image should be removed from publication on the site.</value>
+    </data>
+	<data name="btnDeleteWithFile.Text">
+        <value>Delete with File</value>
+    </data>
+	<data name="btnDeleteWithFile_Confirm.Text">
+        <value>Are you sure you want to delete this image along with the associated file? Note that file will be deleted only if it's not referenced by other images or DNN content items.</value>
     </data>
 </root>

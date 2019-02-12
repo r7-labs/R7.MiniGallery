@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
@@ -62,5 +62,11 @@
     </data>
     <data name="labelEndDate.Help">
         <value>Введите дату, при наступлении которой изображение должно быть снято с публикации на сайте.</value>
+    </data>
+	<data name="btnDeleteWithFile.Text">
+        <value>Удалить вместе с файлом</value>
+    </data>
+	<data name="btnDeleteWithFile_Confirm.Text">
+        <value>Уверены, что хотите удалить это изображение вместе со связанным с ним файлом? Обратите внимание, что файл будет удален только в том случае, если на него не ссылаются другие изображения или элементы контента DNN.</value>
     </data>
 </root>
