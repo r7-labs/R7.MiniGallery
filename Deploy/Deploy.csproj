@@ -77,9 +77,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dummy.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\R7.MiniGallery\R7.MiniGallery.csproj">
       <Project>{9ECEA34A-5419-4E3E-8416-3765C581BD0D}</Project>
       <Name>R7.MiniGallery</Name>
