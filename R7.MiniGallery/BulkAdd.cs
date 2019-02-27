@@ -77,6 +77,7 @@ namespace R7.MiniGallery
                         var folder = FolderManager.Instance.GetFolder (folderId.Value);
                         if (folder != null) {
                             ddlFolders.SelectedFolder = folder;
+                            dllFolders_SelectionChanged (ddlFolders, new EventArgs ());
                         }
                     }
 				}
