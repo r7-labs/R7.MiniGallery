@@ -162,6 +162,8 @@
     <Folder Include="css\" />
     <Folder Include="js\src\" />
     <Folder Include="React\" />
+    <Folder Include="Views\QuickSettings\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
@@ -183,6 +185,9 @@
     <Content Include="css\admin.css" />
     <Content Include="js\src\lightbox2.js" />
     <Content Include="js\src\colorbox.js" />
+    <Content Include="Views\QuickSettings\Index.html" />
+    <Content Include="js\quickSettings.js" />
+    <Content Include="js\service.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_LocalResources\EditMiniGallery.ascx.resx">
@@ -250,6 +255,9 @@
     <Compile Include="Models\ImageToAdd.cs" />
     <Compile Include="Components\MiniGalleryConfig.cs" />
     <Compile Include="Models\MiniGalleryPortalConfig.cs" />
+    <Compile Include="Services\ServiceRouteMapper.cs" />
+    <Compile Include="ViewModels\QuickSettingsViewModel.cs" />
+    <Compile Include="Services\QuickSettingsController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

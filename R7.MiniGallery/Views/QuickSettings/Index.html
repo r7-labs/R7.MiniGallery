@@ -1,0 +1,26 @@
+﻿[JavaScript:{ jsname: "JQuery" }]
+[JavaScript:{ jsname: "Knockout" }]
+[JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
+[JavaScript:{ path: "~/DesktopModules/MVC/R7.MiniGallery/js/service.js"}]
+[JavaScript:{ path: "~/DesktopModules/MVC/R7.MiniGallery/js/quickSettings.js"}]
+
+<div id="QuickSettings-[ModuleContext:ModuleId]" class="dnnForm">
+	<fieldset>
+		<div>
+			<label>Image CSS class:</label><br />
+			<input id="mg_qs_imageCssClass_[ModuleContext:ModuleId]" type="text" />
+		</div>
+		<div>
+			<label>Number of Records:</label><br />
+			<input id="mg_qs_numberOfRecords_[ModuleContext:ModuleId]" type="number" min="1" value="3" />
+		</div>
+	</fieldset>
+</div>
+<script>
+    jQuery(function ($) {
+        var moduleId = [ModuleContext:ModuleId];
+        var element = 'QuickSettings-[ModuleContext:ModuleId]';
+        var quickSettings = new minigallery.quickSettings(element, moduleId);
+        quickSettings.init();
+    });
+</script>
