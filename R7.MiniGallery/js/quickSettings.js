@@ -6,12 +6,14 @@ minigallery.quickSettings = function (root, moduleId) {
 	var setFormData = function (data) {
 		$("#r7_mg_qsettings_imageCssClass_" + moduleId).val (data.imageCssClass);
         $("#r7_mg_qsettings_numberOfRecords_" + moduleId).val (data.numberOfRecords);
+        $("#r7_mg_qsettings_showTitles_" + moduleId).each (function () { this.checked = data.showTitles; });
 	};
 	
 	var getFormData = function () {
 		return {
 			imageCssClass: $("#r7_mg_qsettings_imageCssClass_" + moduleId).val (),
-            numberOfRecords: $("#r7_mg_qsettings_numberOfRecords_" + moduleId).val ()
+            numberOfRecords: $("#r7_mg_qsettings_numberOfRecords_" + moduleId).val (),
+            showTitles: $("#r7_mg_qsettings_showTitles_" + moduleId).is (":checked")
 		}
 	};
 	

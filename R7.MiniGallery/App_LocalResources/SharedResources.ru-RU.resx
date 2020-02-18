@@ -18,6 +18,9 @@
 	<data name="NumberOfRecords.Text" xml:space="preserve">
         <value>Показывать изображений:</value>
     </data>
+	<data name="ShowTitles.Text" xml:space="preserve">
+        <value>Показывать заголовки?</value>
+    </data>
 	<data name="QuickSettings_Error.Text" xml:space="preserve">
         <value>Ой, что-то пошло не так! Пожалуйста, перезагрузите страницу.</value>
     </data>

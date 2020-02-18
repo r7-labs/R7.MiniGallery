@@ -81,9 +81,6 @@
     <data name="ThumbHeight.Help" xml:space="preserve">
         <value>Укажите высоту миниатюры в пикселах или 0 для автоопределения. Оставьте поле пустым для использования значения по-умолчанию из настроек сайта.</value>
     </data>
-    <data name="ShowTitles.Text" xml:space="preserve">
-        <value>Показывать заголовки?</value>
-    </data>
     <data name="ShowTitles.Help" xml:space="preserve">
         <value>Отметьте, чтобы отобразить заголовки рядом с изображениями.</value>
     </data>

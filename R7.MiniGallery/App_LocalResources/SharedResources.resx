@@ -18,6 +18,9 @@
 	<data name="NumberOfRecords.Text" xml:space="preserve">
         <value>Number of Images to Show:</value>
     </data>
+    <data name="ShowTitles.Text" xml:space="preserve">
+        <value>Show Titles?</value>
+    </data>
 	<data name="QuickSettings_Error.Text" xml:space="preserve">
         <value>Oh, something went wrong! Please reload the page.</value>
     </data>

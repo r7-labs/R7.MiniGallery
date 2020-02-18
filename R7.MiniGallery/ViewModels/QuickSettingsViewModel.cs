@@ -10,5 +10,8 @@ namespace R7.MiniGallery.ViewModels
 
         [JsonProperty ("numberOfRecords")]
         public int NumberOfRecords { get; set; }
+
+        [JsonProperty ("showTitles")]
+        public bool ShowTitles { get; set; }
     }
 }

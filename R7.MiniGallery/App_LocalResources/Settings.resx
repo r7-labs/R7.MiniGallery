@@ -81,9 +81,6 @@
     <data name="ThumbHeight.Help" xml:space="preserve">
         <value>Specify thumbnail image height in pixels or 0 for auto. Leave empty to use default value from the site config.</value>
     </data>
-    <data name="ShowTitles.Text" xml:space="preserve">
-        <value>Show Titles?</value>
-    </data>
     <data name="ShowTitles.Help" xml:space="preserve">
         <value>Check to display image title beside the image.</value>
     </data>

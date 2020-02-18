@@ -46,7 +46,8 @@ namespace R7.MiniGallery.Controllers.ServiceControllers
 
                 var quickSettings = new QuickSettingsViewModel {
                     ImageCssClass = settings.ImageCssClass,
-                    NumberOfRecords = settings.NumberOfRecords
+                    NumberOfRecords = settings.NumberOfRecords,
+                    ShowTitles = settings.ShowTitles
                 };
 
                 return Request.CreateResponse (quickSettings);
@@ -66,6 +67,7 @@ namespace R7.MiniGallery.Controllers.ServiceControllers
 
                 settings.ImageCssClass = quickSettings.ImageCssClass;
                 settings.NumberOfRecords = quickSettings.NumberOfRecords;
+                settings.ShowTitles = quickSettings.ShowTitles;
 
                 SettingsRepository.SaveSettings (ActiveModule, settings);
 

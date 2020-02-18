@@ -5,19 +5,25 @@
 [JavaScript:{ path: "~/DesktopModules/MVC/R7.MiniGallery/js/quickSettings.js"}]
 
 <div id="r7_mg_qsettings_[ModuleContext:ModuleId]" class="r7-mg-qsettings">
-	<p class="alert alert-danger r7-mg-qsettings-form-error">
-		[Resx:{key:"QuickSettings_Error"}]
-	</p>	
+	<div class="alert alert-danger r7-mg-qsettings-form-error">
+		<p class="mb-0">[Resx:{key:"QuickSettings_Error"}]</p>
+	</div>	
 	<div class="r7-mg-qsettings-form">
 		<div class="form-group">
-			<label>[Resx:{key:"ImageCssClass"}]</label>
+			<label for="r7_mg_qsettings_imageCssClass_[ModuleContext:ModuleId]">[Resx:{key:"ImageCssClass"}]</label>
 			<input id="r7_mg_qsettings_imageCssClass_[ModuleContext:ModuleId]" type="text" class="form-control" />
 		</div>
 		<div class="form-group">
-			<label>[Resx:{key:"NumberOfRecords"}]</label>
+			<label for="r7_mg_qsettings_numberOfRecords_[ModuleContext:ModuleId]">[Resx:{key:"NumberOfRecords"}]</label>
 			<input id="r7_mg_qsettings_numberOfRecords_[ModuleContext:ModuleId]" type="number" min="0" value="3" class="form-control" />
 		</div>
-	</div>	
+		<div class="form-group">
+			<div class="form-check">
+		        <input id="r7_mg_qsettings_showTitles_[ModuleContext:ModuleId]" type="checkbox" class="form-check-input" checked="checked" />
+		        <label class="form-check-label" for="r7_mg_qsettings_showTitles_[ModuleContext:ModuleId]">[Resx:{key:"ShowTitles"}]</label>
+			</div>
+		</div>	
+	</div>
 </div>
 <script>
 	jQuery(function($) {
