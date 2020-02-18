@@ -84,6 +84,16 @@
                                         <supportsPopUps>True</supportsPopUps>
                                         <viewOrder>0</viewOrder>
                                     </moduleControl>
+									<moduleControl>
+								        <controlKey>QuickSettings</controlKey>
+								        <controlSrc>DesktopModules/MVC/R7.MiniGallery/QuickSettings.html</controlSrc>
+								        <supportsPartialRendering>False</supportsPartialRendering>
+								        <controlTitle>MiniGallery QuickSettings</controlTitle>
+								        <controlType>Edit</controlType>
+								        <iconFile />
+								        <helpUrl />
+								        <viewOrder>0</viewOrder>
+									</moduleControl>
                                 </moduleControls>
                             </moduleDefinition>
                         </moduleDefinitions>
