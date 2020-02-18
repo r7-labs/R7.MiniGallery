@@ -24,9 +24,6 @@
     <data name="StyleSet.Help" xml:space="preserve">
         <value>Style set name for the gallery. You can add more style sets by placing style-*.css files into the css folder inside module install folder.</value>
     </data>
-    <data name="ImageCssClass.Text" xml:space="preserve">
-        <value>Image CSS Classes:</value>
-    </data>
     <data name="ImageCssClass.Help" xml:space="preserve">
         <value>Enter space-separated list of CSS classes to apply to module images.</value>
     </data>
@@ -89,9 +86,6 @@
     </data>
     <data name="ShowTitles.Help" xml:space="preserve">
         <value>Check to display image title beside the image.</value>
-    </data>
-    <data name="NumberOfRecords.Text" xml:space="preserve">
-        <value>Show Number of Images:</value>
     </data>
     <data name="NumberOfRecords.Help" xml:space="preserve">
         <value>Enter the number of images to show or set to 0 to show all images.</value>

@@ -24,9 +24,6 @@
     <data name="StyleSet.Help" xml:space="preserve">
         <value>Имя набора стилей галереи. Вы можете добавить свои наборы стилей, поместив файлы style-*.css в папку css внутри папки установки модуля.</value>
     </data>
-    <data name="ImageCssClass.Text" xml:space="preserve">
-        <value>CSS классы изображений:</value>
-    </data>
     <data name="ImageCssClass.Help" xml:space="preserve">
         <value>Введите список CSS классов, которые будут применены к изображениям модуля. Элементы списка разделяйте пробелом.</value>
     </data>
@@ -89,9 +86,6 @@
     </data>
     <data name="ShowTitles.Help" xml:space="preserve">
         <value>Отметьте, чтобы отобразить заголовки рядом с изображениями.</value>
-    </data>
-    <data name="NumberOfRecords.Text" xml:space="preserve">
-        <value>Показывать изображений:</value>
     </data>
     <data name="NumberOfRecords.Help" xml:space="preserve">
         <value>Укажите количество отображаемых изображений или введите 0, чтобы показать все изображения.</value>

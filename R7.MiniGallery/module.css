@@ -43,6 +43,13 @@ ul.r7-mg-list > li {
 
 .r7-mg-more-loading { text-align:center }
 
-.r7-mg-qsettings label { font-size:80% }
-.r7-mg-qsettings input[type="number"] { width:100% }
-.r7-mg-qsettings .r7-mg-qsettings-form-group { margin-bottom:1rem }  
+.r7-mg-qsettings {
+	min-width:320px;
+	padding-top:1rem
+}
+
+.r7-mg-qsettings .r7-mg-qsettings-form { display:block }
+.r7-mg-qsettings .r7-mg-qsettings-form-error { display:none }
+
+.r7-mg-qsettings.error .r7-mg-qsettings-form { display:none }
+.r7-mg-qsettings.error .r7-mg-qsettings-form-error { display:block }

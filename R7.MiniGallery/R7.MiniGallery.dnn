@@ -86,7 +86,7 @@
                                     </moduleControl>
 									<moduleControl>
 								        <controlKey>QuickSettings</controlKey>
-								        <controlSrc>DesktopModules/MVC/R7.MiniGallery/Views/QuickSettings/Index.html</controlSrc>
+								        <controlSrc>DesktopModules/MVC/R7.MiniGallery/QuickSettings.html</controlSrc>
 								        <supportsPartialRendering>False</supportsPartialRendering>
 								        <controlTitle>MiniGallery QuickSettings</controlTitle>
 								        <controlType>Edit</controlType>

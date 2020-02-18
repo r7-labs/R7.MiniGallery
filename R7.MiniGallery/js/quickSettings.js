@@ -3,9 +3,34 @@ var minigallery = minigallery || {};
 
 minigallery.quickSettings = function (root, moduleId) {
 	
+	var setFormData = function (data) {
+		$("#r7_mg_qsettings_imageCssClass_" + moduleId).val (data.imageCssClass);
+        $("#r7_mg_qsettings_numberOfRecords_" + moduleId).val (data.numberOfRecords);
+	};
+	
+	var getFormData = function () {
+		return {
+			imageCssClass: $("#r7_mg_qsettings_imageCssClass_" + moduleId).val (),
+            numberOfRecords: $("#r7_mg_qsettings_numberOfRecords_" + moduleId).val ()
+		}
+	};
+	
+	var setError = function () {
+		$("r7_mg_qsettings_" + moduleId).addClass ("error");
+	};
+	
+	var isError = function () {
+		$("r7_mg_qsettings_" + moduleId).hasClass ("error");
+	}
+	
 	var updateSettings = function () {
 		var deferred = $.Deferred();
-        var service = new minigallery.service ($, moduleId);
+		if (isError ()) {
+			// disable further updates
+			deferred.reject ();
+			return deferred.promise ();
+		}
+		var service = new minigallery.service ($, moduleId);
         service.updateSettings (
             function (data) {
                 // TODO: Update main view w/o page reload
@@ -13,15 +38,12 @@ minigallery.quickSettings = function (root, moduleId) {
                 document.location.reload (true);
             },
             function (xhr, status) {
-                // TODO: error state
                 deferred.reject ();
                 console.log (xhr);
                 console.log (status);
+                setError ();
             },
-            {
-                imageCssClass: $("#mg_qs_imageCssClass_" + moduleId).val (),
-                numberOfRecords: $("#mg_qs_numberOfRecords_" + moduleId).val ()
-            }
+            getFormData ()
         );
         
         return deferred.promise ();
@@ -31,14 +53,12 @@ minigallery.quickSettings = function (root, moduleId) {
         var service = new minigallery.service ($, moduleId);
         var settings = service.getSettings (
             function (data) {
-                // fill the form
-                $("#mg_qs_imageCssClass_" + moduleId).val (data.imageCssClass);
-                $("#mg_qs_numberOfRecords_" + moduleId).val (data.numberOfRecords);
+                setFormData (data);
             },
             function (xhr, status) {
                 console.log (xhr);
                 console.log (status);
-                // TODO: error state
+                setError ();
             }
         );
     };

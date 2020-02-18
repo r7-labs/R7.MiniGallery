@@ -1,0 +1,29 @@
+﻿[JavaScript:{ jsname: "JQuery" }]
+[JavaScript:{ jsname: "Knockout" }]
+[JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
+[JavaScript:{ path: "~/DesktopModules/MVC/R7.MiniGallery/js/service.js"}]
+[JavaScript:{ path: "~/DesktopModules/MVC/R7.MiniGallery/js/quickSettings.js"}]
+
+<div id="r7_mg_qsettings_[ModuleContext:ModuleId]" class="r7-mg-qsettings">
+	<p class="alert alert-danger r7-mg-qsettings-form-error">
+		[Resx:{key:"QuickSettings_Error"}]
+	</p>	
+	<div class="r7-mg-qsettings-form">
+		<div class="form-group">
+			<label>[Resx:{key:"ImageCssClass"}]</label>
+			<input id="r7_mg_qsettings_imageCssClass_[ModuleContext:ModuleId]" type="text" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>[Resx:{key:"NumberOfRecords"}]</label>
+			<input id="r7_mg_qsettings_numberOfRecords_[ModuleContext:ModuleId]" type="number" min="0" value="3" class="form-control" />
+		</div>
+	</div>	
+</div>
+<script>
+	jQuery(function($) {
+	    var moduleId = [ModuleContext:ModuleId];
+	    var element = "r7_mg_qsettings_[ModuleContext:ModuleId]";
+	    var quickSettings = new minigallery.quickSettings(element, moduleId);
+	    quickSettings.init();
+	});
+</script>
