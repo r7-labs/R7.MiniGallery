@@ -19,11 +19,6 @@ minigallery.service = function ($, moduleId) {
         });
     };
     
-    /*
-    this.getAllImages = function (success, fail) {
-        this.ajaxCall ("GET", "Image", "GetAll", null, null, success, fail);
-    };*/
-    
     this.getSettings = function (success, fail) {
         this.ajaxCall ("GET", "QuickSettings", "Get", null, null, success, fail);
     };

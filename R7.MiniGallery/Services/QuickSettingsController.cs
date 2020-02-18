@@ -12,7 +12,7 @@ namespace R7.MiniGallery.Services
     /// <summary>
     /// ContentTypeController provides the Web Services to manage Data Types
     /// </summary>
-    [SupportedModules ("R7_MiniGallery")]
+    [SupportedModules ("R7.MiniGallery")]
     [DnnModuleAuthorize (AccessLevel = SecurityAccessLevel.Edit)]
     public class QuickSettingsController: DnnApiController
     {
@@ -38,7 +38,7 @@ namespace R7.MiniGallery.Services
         }
 
         [HttpPost]
-        public HttpResponseMessage Save (QuickSettingsViewModel quickSettings)
+        public HttpResponseMessage Update (QuickSettingsViewModel quickSettings)
         {
             try {
                 var settings = SettingsRepository.GetSettings (ActiveModule);

@@ -1,39 +1,39 @@
-﻿var minigallery = minigallery || {};
+﻿// TODO: Convert to React
+var minigallery = minigallery || {};
 
-minigallery.quickSettings = function(root, moduleId) {
+minigallery.quickSettings = function (root, moduleId) {
 	
-	var saveSettings = function () {
-        alert("Save Settings");
+	var updateSettings = function () {
+		var deferred = $.Deferred();
         var service = new minigallery.service ($, moduleId);
-        // TODO: Get values from form
-        // update settings on server
         service.updateSettings (
             function (data) {
-                // TODO: Call setState
+                // TODO: Update main view w/o page reload
+                deferred.resolve ();
+                document.location.reload (true);
             },
             function (xhr, status) {
+                // TODO: error state
+                deferred.reject ();
                 console.log (xhr);
                 console.log (status);
-                // TODO: Call setErrorState
+            },
+            {
+                imageCssClass: $("#mg_qs_imageCssClass_" + moduleId).val (),
+                numberOfRecords: $("#mg_qs_numberOfRecords_" + moduleId).val ()
             }
         );
+        
+        return deferred.promise ();
     };
-
-    var cancelSettings = function () {
-        // do nothing?
-    };
-
+    
     var loadSettings = function () {
-        // TODO: Get values from server, fill the form
         var service = new minigallery.service ($, moduleId);
         var settings = service.getSettings (
             function (data) {
-                if (data.length > 0) {
-                    // TODO: fill the form
-                }
-                else {
-                    // TODO: error state
-                }
+                // fill the form
+                $("#mg_qs_imageCssClass_" + moduleId).val (data.imageCssClass);
+                $("#mg_qs_numberOfRecords_" + moduleId).val (data.numberOfRecords);
             },
             function (xhr, status) {
                 console.log (xhr);
@@ -42,12 +42,18 @@ minigallery.quickSettings = function(root, moduleId) {
             }
         );
     };
-
+    
+    var cancelSettings = function () {
+        var deferred = $.Deferred ();
+        deferred.resolve ();
+        return deferred.promise ();
+    };
+     
     var init = function () {
         // wire up the default save and cancel buttons
         $(root).dnnQuickSettings({
             moduleId: moduleId,
-            onSave: saveSettings,
+            onSave: updateSettings,
             onCancel: cancelSettings
         });
         loadSettings();

@@ -42,3 +42,7 @@ ul.r7-mg-list > li {
 }
 
 .r7-mg-more-loading { text-align:center }
+
+.r7-mg-qsettings label { font-size:80% }
+.r7-mg-qsettings input[type="number"] { width:100% }
+.r7-mg-qsettings .r7-mg-qsettings-form-group { margin-bottom:1rem }  
