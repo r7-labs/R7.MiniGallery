@@ -58,8 +58,8 @@ class MiniGalleryImage extends React.Component {
                 {this.renderEditLink()}
                 <a href={this.props.navigateUrl} target={this.props.target} title={this.props.title} className="r7-mg-link" {...this.props.linkAttrs}>
                     <img src={this.props.thumbnailUrl} alt={this.props.alt} style={this.props.style} className={(this.props.cssClass + " r7-mg-image").trim()} />
+                    {this.renderTitle()}
                 </a>
-                {this.renderTitle()}
             </li>
         );
     }
