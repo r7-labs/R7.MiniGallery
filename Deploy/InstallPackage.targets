@@ -13,7 +13,7 @@
 		<!-- Remove tmp directory (if previous build failed) -->
 		<RemoveDir Directories="$(TmpDir)" />
         <PropertyGroup>
-            <PackageFileName>$(PackageName)-$(ReleaseVersion)-Install.$(Configuration).zip</PackageFileName>
+            <PackageFileName>$(PackageName)-$(ReleaseVersion)-$([System.DateTime]::Now.ToString("yyMMdd"))-Install.$(Configuration).zip</PackageFileName>
         </PropertyGroup>
         <!-- Declare binaries -->
         <ItemGroup>
