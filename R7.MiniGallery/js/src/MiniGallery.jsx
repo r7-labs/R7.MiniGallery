@@ -1,10 +1,10 @@
 ﻿//
-//  minigallery.jsx
+//  MiniGallery.jsx
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-//  Copyright (c) 2017-2019 Roman M. Yagodin
+//  Copyright (c) 2017-2020 Roman M. Yagodin
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -109,7 +109,7 @@ class MiniGallery extends React.Component {
         if (this.props.settings.enableMoreImages && numOfHiddenImages > 0) {
             if (!this.state.loading && !this.state.error) {
                 return (
-                    <button className="btn btn-sm btn-block btn-default" onClick={this.showAllImages.bind(this)}>
+                    <button className="btn btn-sm btn-block btn-outline-secondary" onClick={this.showAllImages.bind(this)}>
                     {this.props.resources.moreImagesFormat.replace ("{0}", numOfHiddenImages)}
                     </button>
                 );

@@ -1,6 +1,7 @@
 ﻿ul.r7-mg-list {
     list-style:none;
-    margin-bottom:20px
+    margin-bottom:1rem;
+	padding-left:0
 }
 
 ul.r7-mg-list > li {
@@ -43,6 +44,7 @@ ul.r7-mg-list > li {
 
 .r7-mg-more-loading { text-align:center }
 
+/* TODO: Move to admin.css? */ 
 .r7-mg-qsettings {
 	min-width:320px;
 	padding-top:1rem
