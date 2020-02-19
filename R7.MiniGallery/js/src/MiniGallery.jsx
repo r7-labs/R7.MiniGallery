@@ -37,7 +37,7 @@ class MiniGalleryImage extends React.Component {
     renderTitle() {
         if (this.props.showTitle && !!this.props.title) {
             return (
-                <p className="r7-mg-title">{this.props.title}</p>
+                <div className="r7-mg-title">{this.props.title}</div>
             );
         }
         return null;
