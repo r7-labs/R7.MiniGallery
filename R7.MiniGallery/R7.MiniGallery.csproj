@@ -209,7 +209,7 @@
     <None Include="App_LocalResources\ClientResources.resx" />
     <None Include="App_LocalResources\ClientResources.ru-RU.resx" />
     <None Include="js\src\MiniGallery.jsx" />
-    <None Include="R7.MiniGallery.example.yml" />
+    <None Include="R7.MiniGallery.development.yml" />
     <None Include="App_LocalResources\SharedResources.resx" />
     <None Include="App_LocalResources\SharedResources.ru-RU.resx" />
   </ItemGroup>
