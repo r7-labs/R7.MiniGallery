@@ -43,3 +43,10 @@ ul.r7-mg-list > li {
 }
 
 .r7-mg-more-loading { text-align:center }
+
+/* BS3 shims */
+.r7-mg-list .img-rounded { border-radius:.25rem !important }
+.r7-mg-list .img-responsive {
+	max-width:100%;
+	height:auto
+}
