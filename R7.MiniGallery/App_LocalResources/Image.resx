@@ -16,7 +16,7 @@
         <value>&lt;p&gt;A R7.MiniGallery module&lt;/p&gt;</value>
     </data>
     <data name="BulkAddImages.Text" xml:space="preserve">
-        <value>Bulk Add Images</value>
+        <value>Add from Folder</value>
     </data>
     <data name="AddImage.Text" xml:space="preserve">
         <value>Add Image</value>

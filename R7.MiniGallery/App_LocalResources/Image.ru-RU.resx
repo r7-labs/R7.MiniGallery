@@ -16,7 +16,7 @@
         <value>&lt;p&gt;Модуль R7.MiniGallery&lt;/p&gt;</value>
     </data>
     <data name="BulkAddImages.Text" xml:space="preserve">
-        <value>Новые из папки</value>
+        <value>Добавить из папки</value>
     </data>
     <data name="AddImage.Text" xml:space="preserve">
         <value>Новое изображение</value>
