@@ -131,9 +131,9 @@ class MiniGallery extends React.Component {
                 <div id={"gallery-" + this.props.moduleId} className={"blueimp-gallery" + ((this.props.showControls === true)? " blueimp-gallery-controls" : "")}>
                     <div className="slides"></div>
                     <h3 className="title"></h3>
-                    <a className="prev">&#8249;</a>
-                    <a className="next">&#8250;</a>
-                    <a className="close">&times;</a>
+                    <a className="prev"></a>
+                    <a className="next"></a>
+                    <a className="close"></a>
                     <a className="play-pause"></a>
                     <ol className="indicator"></ol>
                 </div>
