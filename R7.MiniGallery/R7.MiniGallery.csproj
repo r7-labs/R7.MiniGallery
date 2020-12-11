@@ -236,6 +236,7 @@
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Models\IImage.cs" />
+    <Compile Include="Properties\SolutionInfo.cs" />
     <Compile Include="ViewModels\ImageViewModel.cs" />
     <Compile Include="Lightboxes\Colorbox.cs" />
     <Compile Include="Lightboxes\Lightbox.cs" />
