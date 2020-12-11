@@ -1,109 +1,119 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="InstallPackage">
-	<Import Project="__Settings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
-	<Import Project="Bundle.targets" Condition=" '$(BundleImported)' == '' "/>
-    <Import Project="Tests.targets" Condition=" '$(TestsImported)' == '' "/>
 
-	<PropertyGroup>
-		<!-- Enable install package creation by default (standalone) -->
-    	<EnableInstallPackage Condition=" '$(EnableInstallPackage)' == '' ">true</EnableInstallPackage>
-  	</PropertyGroup>
-	<Target Name="InstallPackage" Condition=" '$(EnableInstallPackage)' == 'true' " DependsOnTargets="Bundle;Tests">
+  <Import Project="__Settings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
+  <Import Project="Bundle.targets" Condition=" '$(BundleImported)' == '' "/>
+  <Import Project="Tests.targets" Condition=" '$(TestsImported)' == '' "/>
 
-		<!-- Remove tmp directory (if previous build failed) -->
-		<RemoveDir Directories="$(TmpDir)" />
-        <PropertyGroup>
-            <PackageFileName>$(PackageName)-$(ReleaseVersion)-Install.$(Configuration).zip</PackageFileName>
-        </PropertyGroup>
-        <!-- Declare binaries -->
-        <ItemGroup>
-            <InstallBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.dll" />
-			<InstallBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.pdb" Condition="'$(Configuration)' == 'Debug'" />
-        </ItemGroup>
+  <PropertyGroup>
+    <!-- Enable install package creation by default (standalone) -->
+    <EnableInstallPackage Condition=" '$(EnableInstallPackage)' == '' ">true</EnableInstallPackage>
+  </PropertyGroup>
 
-        <!-- Generate main manifest file -->
-        <Exec Command="$(Pwsh) GenerateManifest.ps1 &quot;$(MainProjectOutputPath)/$(MainProjectName).dnn.template&quot; $(ReleaseVersion)" />
+  <Target Name="InstallPackage" Condition=" '$(EnableInstallPackage)' == 'true' " DependsOnTargets="Bundle;Tests">
 
-        <!-- Declare manifest files -->
-        <ItemGroup>
-            <InstallManifestFiles Include="$(MainProjectPath)/*.dnn" />
-            <InstallManifestFiles Include="$(MainProjectPath)/*.dnn6" />
-            <InstallManifestFiles Include="$(MainProjectPath)/license.htm" />
-            <InstallManifestFiles Include="$(MainProjectPath)/releaseNotes.htm" />
-        </ItemGroup>
-        <!-- Declare SqlDataProvider files -->
-        <ItemGroup>
-            <InstallSqlDataProviderFiles Include="$(MainProjectPath)/SqlDataProvider/*.SqlDataProvider" />
-        </ItemGroup>
-        <!-- Declare resource files -->
-        <ItemGroup>
-            <InstallResourceFiles Include="../**/*.ascx" />
-            <InstallResourceFiles Include="../**/*.aspx" />
-            <InstallResourceFiles Include="../**/*.asmx" />
-            <InstallResourceFiles Include="../**/*.ashx" />
-			<InstallResourceFiles Include="../**/*.cshtml" />
-            <InstallResourceFiles Include="../**/*.resx" />
-            <InstallResourceFiles Include="../**/*.css" />
-            <InstallResourceFiles Include="../**/*.html" />
-            <InstallResourceFiles Include="../**/*.htm" Exclude="$(MainProjectPath)/license.htm;$(MainProjectPath)/releaseNotes.htm" />
-            <InstallResourceFiles Include="../**/*.xml" />
-            <InstallResourceFiles Include="../**/*.xsl" />
-            <InstallResourceFiles Include="../**/*.xslt" />
-            <InstallResourceFiles Include="../**/*.yml" Exclude="../.travis.yml" />
-            <InstallResourceFiles Include="../**/*.resx" />
-            <InstallResourceFiles Include="../**/*.js" />
-            <InstallResourceFiles Include="../**/*.jpg" />
-            <InstallResourceFiles Include="../**/*.png" />
-            <InstallResourceFiles Include="../**/*.gif" />
-        </ItemGroup>
-        <!-- Declare excluded files -->
-        <ItemGroup>
-			<InstallExcludeFiles Include="../packages/**/*" />
-			<InstallExcludeFiles Include="../node_modules/**/*" />
-            <InstallExcludeFiles Include="../Deploy/**/*" />
-            <InstallExcludeFiles Include="../.*/**/*" />
-			<InstallExcludeFiles Include="../*/bin/**/*" />
-            <InstallExcludeFiles Include="../*/obj/**/*" />
-            <InstallExcludeFiles Include="../*/_ReSharper*/**/*" />
-        </ItemGroup>
+    <!-- Remove tmp directory (if previous build failed) -->
+    <RemoveDir Directories="$(TmpDir)" />
+    <PropertyGroup>
+      <PackageFileName>$(PackageName)-$(ReleaseVersion)-Install.$(Configuration).zip</PackageFileName>
+    </PropertyGroup>
 
-        <!-- Apply excluded files filters -->
-        <ItemGroup>
-            <InstallResourceFilteredFiles Include="@(InstallResourceFiles)" Exclude="@(InstallExcludeFiles)" />
-        </ItemGroup>
+    <!-- Declare binaries -->
+    <ItemGroup>
+      <InstallBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.dll" />
+      <InstallBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.pdb" Condition="'$(Configuration)' == 'Debug'" />
+    </ItemGroup>
 
-		<!-- Copy binaries -->
-        <Copy SourceFiles="@(InstallBinaryFiles)" DestinationFolder="$(TmpDir)/Package/bin" />
-        <!-- Copy manifest files -->
-        <Copy SourceFiles="@(InstallManifestFiles)" DestinationFolder="$(TmpDir)/Package" />
-        <!-- Copy SqlDataProvider files -->
-        <Copy SourceFiles="@(InstallSqlDataProviderFiles)" DestinationFolder="$(TmpDir)/Package/SqlDataProvider" />
-        <!-- Copy filtered Resource files to tmp/Resources dir -->
-		<Copy SourceFiles="@(InstallResourceFilteredFiles)" DestinationFolder="$(TmpDir)/Resources/%(RecursiveDir)" />
+    <!-- Generate main manifest file -->
+    <Exec Command="$(Pwsh) GenerateManifest.ps1 &quot;$(MainProjectOutputPath)/$(MainProjectName).dnn.template&quot; $(ReleaseVersion)" />
 
-        <!-- Declare files to zip -->
-        <ItemGroup>
-            <InstallResourceZipFiles Include="$(TmpDir)/Resources/**/*.*" />
-        </ItemGroup>
+    <!-- Declare manifest files -->
+    <ItemGroup>
+      <InstallManifestFiles Include="$(MainProjectPath)/*.dnn" />
+      <InstallManifestFiles Include="$(MainProjectPath)/*.dnn6" />
+      <InstallManifestFiles Include="$(MainProjectPath)/license.htm" />
+      <InstallManifestFiles Include="$(MainProjectPath)/releaseNotes.htm" />
+    </ItemGroup>
 
-		<!-- Create Resources.zip -->
-        <Zip Condition=" '$(OS)' != 'Unix' " Files="@(InstallResourceZipFiles)" WorkingDirectory="$(MSBuildProjectDirectory)\tmp\Resources" ZipFileName="$(TmpDir)/Resources/Resources.zip" />
-        <Exec Condition=" '$(OS)' == 'Unix' " Command="zip -r -6 -UN=UTF8 &quot;Resources.zip&quot; ." WorkingDirectory="$(TmpDir)/Resources" />
-        <!-- Move Resources.zip to tmp/Package dir -->
-        <Copy SourceFiles="$(TmpDir)/Resources/Resources.zip" DestinationFolder="$(TmpDir)/Package/" />
-        <Delete Files="$(TmpDir)/Resources/Resources.zip" />
+    <!-- Declare SqlDataProvider files -->
+    <ItemGroup>
+      <InstallSqlDataProviderFiles Include="$(MainProjectPath)/SqlDataProvider/*.SqlDataProvider" />
+    </ItemGroup>
 
-        <!-- Declare install package files -->
-        <ItemGroup>
-            <InstallPackageFiles Include="$(TmpDir)/Package/**/*.*" />
-        </ItemGroup>
-        <!-- Create the install package -->
-        <Zip Condition=" '$(OS)' != 'Unix' " Files="@(InstallPackageFiles)" WorkingDirectory="$(MSBuildProjectDirectory)\tmp\Package" ZipFileName="$(TmpDir)/Package/$(PackageFileName)" />
-        <Exec Condition=" '$(OS)' == 'Unix' " Command="zip -r -6 -UN=UTF8 &quot;$(PackageFileName)&quot; ." WorkingDirectory="$(TmpDir)/Package" />
-        <!-- Move the install package to the output directory -->
-        <Copy SourceFiles="$(TmpDir)/Package/$(PackageFileName)" DestinationFolder="$(PackageOutputPath)/" />
-        <Delete Files="$(TmpDir)/Package/$(PackageFileName)" />
-        <!-- Cleanup -->
-        <RemoveDir Directories="$(TmpDir)" />
-    </Target>
+    <!-- Declare resource files -->
+    <ItemGroup>
+      <InstallResourceFiles Include="../**/*.ascx" />
+      <InstallResourceFiles Include="../**/*.aspx" />
+      <InstallResourceFiles Include="../**/*.asmx" />
+      <InstallResourceFiles Include="../**/*.ashx" />
+      <InstallResourceFiles Include="../**/*.cshtml" />
+      <InstallResourceFiles Include="../**/*.resx" />
+      <InstallResourceFiles Include="../**/*.css" />
+      <InstallResourceFiles Include="../**/*.html" />
+      <InstallResourceFiles Include="../**/*.htm" Exclude="$(MainProjectPath)/license.htm;$(MainProjectPath)/releaseNotes.htm" />
+      <InstallResourceFiles Include="../**/*.xml" />
+      <InstallResourceFiles Include="../**/*.xsl" />
+      <InstallResourceFiles Include="../**/*.xslt" />
+      <InstallResourceFiles Include="../**/*.yml" Exclude="../.travis.yml" />
+      <InstallResourceFiles Include="../**/*.resx" />
+      <InstallResourceFiles Include="../**/*.js" />
+      <InstallResourceFiles Include="../**/*.jpg" />
+      <InstallResourceFiles Include="../**/*.png" />
+      <InstallResourceFiles Include="../**/*.gif" />
+    </ItemGroup>
+
+    <!-- Declare excluded files -->
+    <ItemGroup>
+      <InstallExcludeFiles Include="../packages/**/*" />
+      <InstallExcludeFiles Include="../node_modules/**/*" />
+      <InstallExcludeFiles Include="../Deploy/**/*" />
+      <InstallExcludeFiles Include="../.*/**/*" />
+      <InstallExcludeFiles Include="../*/bin/**/*" />
+      <InstallExcludeFiles Include="../*/obj/**/*" />
+      <InstallExcludeFiles Include="../*/_ReSharper*/**/*" />
+    </ItemGroup>
+
+    <!-- Apply excluded files filters -->
+    <ItemGroup>
+      <InstallResourceFilteredFiles Include="@(InstallResourceFiles)" Exclude="@(InstallExcludeFiles)" />
+    </ItemGroup>
+
+    <!-- Copy binaries -->
+    <Copy SourceFiles="@(InstallBinaryFiles)" DestinationFolder="$(TmpDir)/Package/bin" />
+    <!-- Copy manifest files -->
+    <Copy SourceFiles="@(InstallManifestFiles)" DestinationFolder="$(TmpDir)/Package" />
+    <!-- Copy SqlDataProvider files -->
+    <Copy SourceFiles="@(InstallSqlDataProviderFiles)" DestinationFolder="$(TmpDir)/Package/SqlDataProvider" />
+    <!-- Copy filtered Resource files to tmp/Resources dir -->
+    <Copy SourceFiles="@(InstallResourceFilteredFiles)" DestinationFolder="$(TmpDir)/Resources/%(RecursiveDir)" />
+
+    <!-- Declare files to zip -->
+    <ItemGroup>
+      <InstallResourceZipFiles Include="$(TmpDir)/Resources/**/*.*" />
+    </ItemGroup>
+
+    <!-- Create Resources.zip -->
+    <Zip Condition=" '$(OS)' != 'Unix' " Files="@(InstallResourceZipFiles)" WorkingDirectory="$(MSBuildProjectDirectory)\tmp\Resources" ZipFileName="$(TmpDir)/Resources/Resources.zip" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="zip -r -6 -UN=UTF8 &quot;Resources.zip&quot; ." WorkingDirectory="$(TmpDir)/Resources" />
+    <!-- Move Resources.zip to tmp/Package dir -->
+    <Copy SourceFiles="$(TmpDir)/Resources/Resources.zip" DestinationFolder="$(TmpDir)/Package/" />
+    <Delete Files="$(TmpDir)/Resources/Resources.zip" />
+
+    <!-- Declare install package files -->
+    <ItemGroup>
+      <InstallPackageFiles Include="$(TmpDir)/Package/**/*.*" />
+    </ItemGroup>
+
+    <!-- Create the install package -->
+    <Zip Condition=" '$(OS)' != 'Unix' " Files="@(InstallPackageFiles)" WorkingDirectory="$(MSBuildProjectDirectory)\tmp\Package" ZipFileName="$(TmpDir)/Package/$(PackageFileName)" />
+    <Exec Condition=" '$(OS)' == 'Unix' " Command="zip -r -6 -UN=UTF8 &quot;$(PackageFileName)&quot; ." WorkingDirectory="$(TmpDir)/Package" />
+
+    <!-- Move the install package to the output directory -->
+    <Copy SourceFiles="$(TmpDir)/Package/$(PackageFileName)" DestinationFolder="$(PackageOutputPath)/" />
+    <Delete Files="$(TmpDir)/Package/$(PackageFileName)" />
+
+    <!-- Cleanup -->
+    <RemoveDir Directories="$(TmpDir)" />
+
+  </Target>
 </Project>

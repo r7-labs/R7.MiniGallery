@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Bundle">
-    <Import Project="__Settings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
+  <Import Project="__Settings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
+  <PropertyGroup>
+    <BundleImported>true</BundleImported>
+  </PropertyGroup>
+  <Target Name="Bundle">
     <PropertyGroup>
-        <BundleImported>true</BundleImported>
+      <BabelPresets Condition=" '$(Configuration)' == 'Release' ">es2015,react,babili</BabelPresets>
+      <BabelPresets Condition=" '$(Configuration)' == 'Debug' ">es2015,react</BabelPresets>
     </PropertyGroup>
-	<Target Name="Bundle">
-		<PropertyGroup>
-            <BabelPresets Condition=" '$(Configuration)' == 'Release' ">es2015,react,babili</BabelPresets>
-            <BabelPresets Condition=" '$(Configuration)' == 'Debug' ">es2015,react</BabelPresets>
-        </PropertyGroup>
-		<!-- Compile JSX -->
-        <Exec Command="npm-run babel &quot;$(MainProjectPath)/js/src&quot; --out-dir &quot;$(MainProjectPath)/js/lib&quot; --presets=$(BabelPresets)" />
-	</Target>
+    <!-- Compile JSX -->
+    <Exec Command="npm-run babel &quot;$(MainProjectPath)/js/src&quot; --out-dir &quot;$(MainProjectPath)/js/lib&quot; --presets=$(BabelPresets)" />
+  </Target>
 </Project>
