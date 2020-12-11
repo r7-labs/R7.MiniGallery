@@ -18,7 +18,7 @@
         <!-- /MVC - place module folders directly in DesktopModules/MVC -->
         <!-- /$(MainProjectName) - place module folders in DesktopModules/$(MainProjectName) -->
         <!-- /MVC/$(MainProjectName) - place module folders in DesktopModules/MVC/$(MainProjectName) -->
-        <ProjectModulesPathPrefix>/$(MainProjectName)</ProjectModulesPathPrefix>
+        <ProjectModulesPathPrefix>/MVC</ProjectModulesPathPrefix>
     </PropertyGroup>
 
     <!-- Derieved properties -->

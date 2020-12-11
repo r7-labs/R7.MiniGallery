@@ -61,7 +61,7 @@
     <!-- Copy config files -->
     <Copy SourceFiles="$(MainProjectPath)/R7.MiniGallery.development.yml" DestinationFiles="$(DnnLocalDeployPath)/Portals/0/R7.MiniGallery.yml" SkipUnchangedFiles="true" />
     <!-- Copy filtered Resource files -->
-    <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules/MVC/%(RecursiveDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(LocalDeployResourceFilteredFiles)" DestinationFolder="$(DnnLocalDeployPath)/DesktopModules$(ProjectModulesPathPrefix)/%(RecursiveDir)" SkipUnchangedFiles="true" />
 
   </Target>
 </Project>
