@@ -200,7 +200,9 @@
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
     <None Include="App_LocalResources\BulkAdd.ascx.ru-RU.resx" />
-    <None Include="R7.MiniGallery.dnn" />
+    <None Include="R7.MiniGallery.dnn.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="App_LocalResources\Image.resx" />
     <None Include="App_LocalResources\Image.ru-RU.resx" />
     <None Include="App_LocalResources\Settings.ru-RU.resx" />

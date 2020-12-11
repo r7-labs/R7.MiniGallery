@@ -82,4 +82,7 @@
       <Name>R7.MiniGallery</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="GenerateManifest.ps1" />
+  </ItemGroup>
 </Project>

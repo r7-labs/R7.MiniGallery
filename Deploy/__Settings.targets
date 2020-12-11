@@ -2,20 +2,44 @@
 
     <!-- Import MSBuild.Community.Tasks -->
     <Import Project="../packages/MSBuildTasks.1.5.0.235/tools/MSBuild.Community.Tasks.Targets" />
-    
+
     <!-- Main properties -->
     <PropertyGroup>
         <PackageName>R7.MiniGallery</PackageName>
-        <PackageOutputPath>bin/Deploy</PackageOutputPath>
-        <TmpDir>bin/tmp</TmpDir>
-        <DnnLocalDeployPath Condition=" '$(OS)' == 'Unix' ">$(HOME)/mnt/dnn8</DnnLocalDeployPath>
+        <MainProjectName>R7.MiniGallery</MainProjectName>
+        <MainProjectPath>../$(MainProjectName)</MainProjectPath>
+    </PropertyGroup>
+
+    <!-- Local deploy properties -->
+    <PropertyGroup>
+        <DnnLocalDeployPath Condition=" '$(OS)' == 'Unix' ">/mnt/hdd/$(HOME)/mnt/dnn804</DnnLocalDeployPath>
         <DnnLocalDeployPath Condition=" '$(OS)' != 'Unix' ">C:\Dotnetnuke804</DnnLocalDeployPath>
-		<BuildSettingsImported>true</BuildSettingsImported>
+        <!-- Empty - place module folders directly in DesktopModules -->
+        <!-- /MVC - place module folders directly in DesktopModules/MVC -->
+        <!-- /$(MainProjectName) - place module folders in DesktopModules/$(MainProjectName) -->
+        <!-- /MVC/$(MainProjectName) - place module folders in DesktopModules/MVC/$(MainProjectName) -->
+        <ProjectModulesPathPrefix>/$(MainProjectName)</ProjectModulesPathPrefix>
     </PropertyGroup>
 
     <!-- Derieved properties -->
     <PropertyGroup>
-        <MainProjectPath>../$(PackageName)</MainProjectPath>
-        <MainProjectOutputPath>$(MainProjectPath)/bin/$(Configuration)</MainProjectOutputPath>
+      <MainProjectOutputPath>$(MainProjectPath)/bin/$(Configuration)</MainProjectOutputPath>
+      <DnnBinPath>$(DnnLocalDeployPath)/bin</DnnBinPath>
+      <DnnSkinsPath>$(DnnLocalDeployPath)/Portals/_default/Skins</DnnSkinsPath>
+      <DnnContainersPath>$(DnnLocalDeployPath)/Portals/_default/Containers</DnnContainersPath>
+      <DnnMenusPath>$(DnnLocalDeployPath)/DesktopModules/DDRMenu</DnnMenusPath>
+      <DnnModulesPath>$(DnnLocalDeployPath)/DesktopModules</DnnModulesPath>
+      <DnnJsLibrariesPath>$(DnnLocalDeployPath)/Resources/Libraries</DnnJsLibrariesPath>
+      <ProjectSkinsPath>$(DnnSkinsPath)/$(MainProjectName)</ProjectSkinsPath>
+      <ProjectContainersPath>$(DnnContainersPath)/$(MainProjectName)</ProjectContainersPath>
+      <ProjectMenusPath>$(DnnMenusPath)</ProjectMenusPath>
+      <ProjectModulesPath>$(DnnModulesPath)$(ProjectModulesPathPrefix)</ProjectModulesPath>
     </PropertyGroup>
-</Project>
+
+    <!-- Internal settings -->
+    <PropertyGroup>
+      <PackageOutputPath>$(MSBuildProjectDirectory)/bin/Deploy</PackageOutputPath>
+      <TmpDir>bin/tmp</TmpDir>
+      <BuildSettingsImported>true</BuildSettingsImported>
+    </PropertyGroup>
+  </Project>

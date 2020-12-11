@@ -3,7 +3,7 @@
 	<Import Project="__Settings.targets" Condition=" '$(BuildSettingsImported)' == '' " />
 	<Import Project="Bundle.targets" Condition=" '$(BundleImported)' == '' "/>
     <Import Project="Tests.targets" Condition=" '$(TestsImported)' == '' "/>
-	
+
 	<PropertyGroup>
 		<!-- Enable install package creation by default (standalone) -->
     	<EnableInstallPackage Condition=" '$(EnableInstallPackage)' == '' ">true</EnableInstallPackage>
@@ -20,6 +20,10 @@
             <InstallBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.dll" />
 			<InstallBinaryFiles Include="$(MainProjectOutputPath)/R7.MiniGallery*.pdb" Condition="'$(Configuration)' == 'Debug'" />
         </ItemGroup>
+
+        <!-- Generate main manifest file -->
+        <Exec Command="$(Pwsh) GenerateManifest.ps1 &quot;$(MainProjectOutputPath)/$(MainProjectName).dnn.template&quot; $(ReleaseVersion)" />
+
         <!-- Declare manifest files -->
         <ItemGroup>
             <InstallManifestFiles Include="$(MainProjectPath)/*.dnn" />
@@ -62,7 +66,7 @@
             <InstallExcludeFiles Include="../*/obj/**/*" />
             <InstallExcludeFiles Include="../*/_ReSharper*/**/*" />
         </ItemGroup>
-		
+
         <!-- Apply excluded files filters -->
         <ItemGroup>
             <InstallResourceFilteredFiles Include="@(InstallResourceFiles)" Exclude="@(InstallExcludeFiles)" />
@@ -76,19 +80,19 @@
         <Copy SourceFiles="@(InstallSqlDataProviderFiles)" DestinationFolder="$(TmpDir)/Package/SqlDataProvider" />
         <!-- Copy filtered Resource files to tmp/Resources dir -->
 		<Copy SourceFiles="@(InstallResourceFilteredFiles)" DestinationFolder="$(TmpDir)/Resources/%(RecursiveDir)" />
-        
+
         <!-- Declare files to zip -->
         <ItemGroup>
             <InstallResourceZipFiles Include="$(TmpDir)/Resources/**/*.*" />
         </ItemGroup>
-		      
+
 		<!-- Create Resources.zip -->
         <Zip Condition=" '$(OS)' != 'Unix' " Files="@(InstallResourceZipFiles)" WorkingDirectory="$(MSBuildProjectDirectory)\tmp\Resources" ZipFileName="$(TmpDir)/Resources/Resources.zip" />
         <Exec Condition=" '$(OS)' == 'Unix' " Command="zip -r -6 -UN=UTF8 &quot;Resources.zip&quot; ." WorkingDirectory="$(TmpDir)/Resources" />
         <!-- Move Resources.zip to tmp/Package dir -->
         <Copy SourceFiles="$(TmpDir)/Resources/Resources.zip" DestinationFolder="$(TmpDir)/Package/" />
         <Delete Files="$(TmpDir)/Resources/Resources.zip" />
-        	
+
         <!-- Declare install package files -->
         <ItemGroup>
             <InstallPackageFiles Include="$(TmpDir)/Package/**/*.*" />

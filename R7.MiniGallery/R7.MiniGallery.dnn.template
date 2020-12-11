@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dotnetnuke type="Package" version="5.0">
     <packages>
-        <package name="R7.MiniGallery" type="Module" version="01.05.02">
+        <package name="R7.MiniGallery" type="Module" version="{{Version}}">
             <friendlyName>R7.MiniGallery</friendlyName>
             <description>Simple image gallery with lightbox and automatic thumbnails support.</description>
             <owner>
