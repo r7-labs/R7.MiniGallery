@@ -103,15 +103,15 @@
                     <scripts>
                         <basePath>DesktopModules\MVC\R7.MiniGallery</basePath>
                         <script type="Install">
-                            <name>SqlDataProvider\01.00.00.SqlDataProvider</name>
+                            <name>SqlDataProvider\01.00.00.dnn.sql</name>
                             <version>01.00.00</version>
                         </script>
                         <script type="Install">
-                            <name>SqlDataProvider\01.02.00.SqlDataProvider</name>
+                            <name>SqlDataProvider\01.02.00.dnn.sql</name>
                             <version>01.02.00</version>
                         </script>
                         <script type="UnInstall">
-                            <name>SqlDataProvider\Uninstall.SqlDataProvider</name>
+                            <name>SqlDataProvider\Uninstall.dnn.sql</name>
                         </script>
                     </scripts>
                 </component>

@@ -194,8 +194,8 @@
     </None>
     <None Include="App_LocalResources\EditMiniGallery.ascx.ru-RU.resx" />
     <None Include="assets\js\MiniGallery.jsx" />
-    <None Include="SqlDataProvider\01.00.00.SqlDataProvider" />
-    <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
+    <Content Include="SqlDataProvider\01.00.00.dnn.sql" />
+    <Content Include="SqlDataProvider\Uninstall.dnn.sql" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
     <None Include="App_LocalResources\BulkAdd.ascx.ru-RU.resx" />
     <None Include="R7.MiniGallery.dnn.template">
@@ -205,7 +205,7 @@
     <None Include="App_LocalResources\Image.ru-RU.resx" />
     <None Include="App_LocalResources\Settings.ru-RU.resx" />
     <None Include="App_LocalResources\Settings.resx" />
-    <None Include="SqlDataProvider\01.02.00.SqlDataProvider" />
+    <Content Include="SqlDataProvider\01.02.00.dnn.sql" />
     <None Include="App_LocalResources\ClientResources.resx" />
     <None Include="App_LocalResources\ClientResources.ru-RU.resx" />
     <None Include="R7.MiniGallery.development.yml" />
