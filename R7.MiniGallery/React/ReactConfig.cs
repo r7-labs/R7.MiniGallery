@@ -6,12 +6,12 @@ namespace R7.MiniGallery.React
 {
     public static class ReactConfig
     {
-        const string scriptsPath = "~/DesktopModules/MVC/R7.MiniGallery/js/lib/";
+        const string scriptsPath = "~/DesktopModules/MVC/R7.MiniGallery/assets/js/";
 
         public static void Configure()
         {
             DnnReact.AddScriptsWithoutTransform (
-                scriptsPath + "MiniGallery.js"
+                scriptsPath + "MiniGallery.min.js"
             );
         }
     }

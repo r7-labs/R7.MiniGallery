@@ -42,15 +42,15 @@ class MiniGalleryImage extends React.Component {
         }
         return null;
     }
-    
+
     getItemCssClass (index, isHidden) {
         var cssClass = (index % 2 === 0)? "r7-mg-item" : "r7-mg-alt-item";
         if (isHidden) {
             cssClass += " r7-mg-d-none";
         }
-        return cssClass; 
+        return cssClass;
     }
-    
+
     render() {
         return (
             // TODO: Image CSS class from settings should override r7-mg-image
@@ -73,36 +73,36 @@ class MiniGallery extends React.Component {
             images: this.props.images
         };
     }
-    
+
     showAllImages (e) {
         e.preventDefault ();
-        
+
         this.setState ({
             loading: true,
             error: false,
             images: this.state.images
         });
-        
+
         this.state.images.map ((img) => {
             if (img.isHidden === true)
                 img.isHidden = false;
         });
-        
+
         this.setState ({
             loading: false,
             error: false,
             images: this.state.images
         });
     }
-    
+
     getNumberOfHiddenImages (images) {
         var n = 0;
         images.map ((img) => {
-            if (img.isHidden) n++; 
+            if (img.isHidden) n++;
         });
         return n;
     }
-    
+
     renderMoreButton () {
         // TODO: Remove loading and error states?
         const numOfHiddenImages = this.getNumberOfHiddenImages(this.state.images);
@@ -124,7 +124,7 @@ class MiniGallery extends React.Component {
         }
         return null;
     }
-    
+
     renderBlueimp() {
         if (this.props.lightboxType === "BlueimpLightbox") {
             return (
@@ -170,3 +170,6 @@ class MiniGallery extends React.Component {
         );
     }
 }
+
+// basic export
+window.MiniGallery = MiniGallery;

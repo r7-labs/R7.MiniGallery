@@ -148,7 +148,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="js\" />
     <Folder Include="Models\" />
     <Folder Include="SqlDataProvider\" />
     <Folder Include="Properties\" />
@@ -159,13 +158,18 @@
     <Folder Include="Controllers\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Lightboxes\" />
-    <Folder Include="css\" />
-    <Folder Include="js\src\" />
     <Folder Include="React\" />
     <Folder Include="Services\" />
     <Folder Include="Controllers\ServiceControllers\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\admin.css" />
+    <Content Include="assets\css\style-columns.css" />
+    <Content Include="assets\css\style-default.css" />
+    <Content Include="assets\js\colorbox.js" />
+    <Content Include="assets\js\lightbox2.js" />
+    <Content Include="assets\js\quickSettings.js" />
+    <Content Include="assets\js\service.js" />
     <Content Include="module.css" />
     <Content Include="EditMiniGallery.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
@@ -180,13 +184,6 @@
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="css\style-default.css" />
-    <Content Include="css\style-columns.css" />
-    <Content Include="css\admin.css" />
-    <Content Include="js\src\lightbox2.js" />
-    <Content Include="js\src\colorbox.js" />
-    <Content Include="js\quickSettings.js" />
-    <Content Include="js\service.js" />
     <Content Include="QuickSettings.html" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +193,7 @@
       <DeployService-TargetDirectoryId>ProgramFilesRoot</DeployService-TargetDirectoryId>
     </None>
     <None Include="App_LocalResources\EditMiniGallery.ascx.ru-RU.resx" />
+    <None Include="assets\js\MiniGallery.jsx" />
     <None Include="SqlDataProvider\01.00.00.SqlDataProvider" />
     <None Include="SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
@@ -210,7 +208,6 @@
     <None Include="SqlDataProvider\01.02.00.SqlDataProvider" />
     <None Include="App_LocalResources\ClientResources.resx" />
     <None Include="App_LocalResources\ClientResources.ru-RU.resx" />
-    <None Include="js\src\MiniGallery.jsx" />
     <None Include="R7.MiniGallery.development.yml" />
     <None Include="App_LocalResources\SharedResources.resx" />
     <None Include="App_LocalResources\SharedResources.ru-RU.resx" />

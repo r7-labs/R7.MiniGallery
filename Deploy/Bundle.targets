@@ -5,11 +5,6 @@
     <BundleImported>true</BundleImported>
   </PropertyGroup>
   <Target Name="Bundle">
-    <PropertyGroup>
-      <BabelPresets Condition=" '$(Configuration)' == 'Release' ">es2015,react,babili</BabelPresets>
-      <BabelPresets Condition=" '$(Configuration)' == 'Debug' ">es2015,react</BabelPresets>
-    </PropertyGroup>
-    <!-- Compile JSX -->
-    <Exec Command="npm-run babel &quot;$(MainProjectPath)/js/src&quot; --out-dir &quot;$(MainProjectPath)/js/lib&quot; --presets=$(BabelPresets)" />
+    <Exec Command="npm run build" />
   </Target>
 </Project>

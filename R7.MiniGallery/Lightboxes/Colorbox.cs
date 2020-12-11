@@ -35,7 +35,7 @@ namespace R7.MiniGallery.Lightboxes
             JavaScript.RequestRegistration ("Colorbox");
             RegisterLocalizationScript (page);
 
-            ClientResourceManager.RegisterScript (page, "~/DesktopModules/MVC/R7.MiniGallery/js/lib/colorbox.js");
+            ClientResourceManager.RegisterScript (page, "~/DesktopModules/MVC/R7.MiniGallery/assets/js/colorbox.js");
             ClientResourceManager.RegisterStyleSheet (page, "~/Resources/Libraries/Colorbox/01_06_04/example1/colorbox.css");
         }
 
@@ -59,7 +59,7 @@ namespace R7.MiniGallery.Lightboxes
             if (lang == "pt") {
                 return "pt-BR";
             }
-             
+
             if (lang == "zh") {
                 return "zh-CN";
             }
