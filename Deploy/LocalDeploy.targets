@@ -44,11 +44,8 @@
             <LocalDeployExcludeFiles Include="../packages/**/*" />
 			<LocalDeployExcludeFiles Include="../node_modules/**/*" />
             <LocalDeployExcludeFiles Include="../Deploy/**/*" />
-            <LocalDeployExcludeFiles Include="../.git/**/*" />
-			<LocalDeployExcludeFiles Include="../.vs/**/*" />
-			<LocalDeployExcludeFiles Include="../.vscode/**/*" />
-            <LocalDeployExcludeFiles Include="../.svn/**/*" />
-            <LocalDeployExcludeFiles Include="../*/bin/**/*" />
+            <LocalDeployExcludeFiles Include="../.*/**/*" />
+			<LocalDeployExcludeFiles Include="../*/bin/**/*" />
             <LocalDeployExcludeFiles Include="../*/obj/**/*" />
             <LocalDeployExcludeFiles Include="../*/_ReSharper*/**/*" />
         </ItemGroup>

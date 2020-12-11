@@ -57,11 +57,8 @@
 			<InstallExcludeFiles Include="../packages/**/*" />
 			<InstallExcludeFiles Include="../node_modules/**/*" />
             <InstallExcludeFiles Include="../Deploy/**/*" />
-            <InstallExcludeFiles Include="../.git/**/*" />
-			<InstallExcludeFiles Include="../.vs/**/*" />
-			<InstallExcludeFiles Include="../.vscode/**/*" />
-			<InstallExcludeFiles Include="../.svn/**/*" />
-            <InstallExcludeFiles Include="../*/bin/**/*" />
+            <InstallExcludeFiles Include="../.*/**/*" />
+			<InstallExcludeFiles Include="../*/bin/**/*" />
             <InstallExcludeFiles Include="../*/obj/**/*" />
             <InstallExcludeFiles Include="../*/_ReSharper*/**/*" />
         </ItemGroup>
