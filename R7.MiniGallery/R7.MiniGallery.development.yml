@@ -1,6 +1,6 @@
 ﻿data-cache-time: 60         # in minutes
- 
+
 sort-index-step: 10
 
-default-thumb-width: 262    # in px
+default-thumb-width: 350    # in px
 default-thumb-height: 0     # in px, 0 is for auto

@@ -27,7 +27,7 @@ namespace R7.MiniGallery.Models
 
         public int SortIndexStep { get; set; } = 10;
 
-        public int DefaultThumbWidth { get; set; } = 262;
+        public int DefaultThumbWidth { get; set; } = 350;
 
         public int DefaultThumbHeight { get; set; }
     }
