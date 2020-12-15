@@ -40,10 +40,16 @@ ul.r7-mg-list > li {
 }
 
 .r7-mg-list .r7-mg-not-published.r7-mg-expired {
-	outline-color:#f33	
+	outline-color:#f33
 }
 
 .r7-mg-more-loading { text-align:center }
+
+.r7-mg-list .r7-mg-image.rounded + .r7-mg-title,
+.r7-mg-list .r7-mg-image.img-rounded + .r7-mg-title {
+	border-bottom-left-radius:.25rem;
+	border-bottom-right-radius:.25rem
+}
 
 /* BS3 shims */
 .r7-mg-list .img-rounded { border-radius:.25rem !important }
