@@ -166,6 +166,7 @@
     <Content Include="assets\css\admin.css" />
     <Content Include="assets\css\style-columns.css" />
     <Content Include="assets\css\style-default.css" />
+    <Content Include="assets\css\style-flow.css" />
     <Content Include="assets\js\colorbox.js" />
     <Content Include="assets\js\lightbox2.js" />
     <Content Include="assets\js\quickSettings.js" />

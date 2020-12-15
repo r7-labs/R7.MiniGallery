@@ -1,7 +1,7 @@
-﻿.r7-mg-list.r7-mg-columns {
-}
+﻿/* Obsolete */
+.r7-mg-list.r7-mg-columns {}
 
-.r7-mg-columns .r7-mg-item, 
+.r7-mg-columns .r7-mg-item,
 .r7-mg-columns .r7-mg-alt-item {
     display:inline-block;
     vertical-align:top;

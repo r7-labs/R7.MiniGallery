@@ -1,16 +1,17 @@
-﻿.r7-mg-list.r7-mg-default {}
+﻿.r7-mg-list.r7-mg-flow {}
 
-.r7-mg-default .r7-mg-item,
-.r7-mg-default .r7-mg-alt-item {
+.r7-mg-flow .r7-mg-item,
+.r7-mg-flow .r7-mg-alt-item {
+    display:inline-block;
+
     vertical-align:top;
-    text-align:center
 }
 
-.r7-mg-default .r7-mg-image {
+.r7-mg-flow .r7-mg-image {
     margin:2px
 }
 
-.r7-mg-default .r7-mg-title {
+.r7-mg-flow .r7-mg-title {
     position:absolute;
     bottom:0;
     z-index:10;
@@ -24,8 +25,8 @@
 }
 
 /* temp workaround */
-.r7-mg-default .r7-mg-image.rounded + .r7-mg-title,
-.r7-mg-default .r7-mg-image.img-rounded + .r7-mg-title {
+.r7-mg-flow .r7-mg-image.rounded + .r7-mg-title,
+.r7-mg-flow .r7-mg-image.img-rounded + .r7-mg-title {
 	border-bottom-left-radius:.25rem;
 	border-bottom-right-radius:.25rem
 }
