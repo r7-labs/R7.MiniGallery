@@ -1,22 +1,11 @@
 ﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<MiniGalleryViewModel>
-
-@using System.Collections.Generic
-@using DotNetNuke.Collections
-@using DotNetNuke.Web.Mvc.Helpers
-@using DotNetNuke.Entities.Icons
 @using DotNetNuke.Web.Client.ClientResourceManagement
 @using DotNetNuke.Framework
 @using DotNetNuke.Framework.JavaScriptLibraries
 @using DotNetNuke.Common
-@using DotNetNuke.Common.Utilities
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Serialization
-@using R7.MiniGallery
 @using R7.MiniGallery.ViewModels
-@using R7.MiniGallery.Lightboxes
-@using R7.Dnn.Extensions.React
-@using React
-
 @{
     JavaScript.RequestRegistration ("React");
     JavaScript.RequestRegistration ("ReactDOM");
@@ -24,8 +13,7 @@
     ClientResourceManager.RegisterScript (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/assets/js/MiniGallery.min.js");
     Model.Lightbox.Register (Dnn.DnnPage);
     ClientResourceManager.RegisterStyleSheet (Dnn.DnnPage, "~/DesktopModules/MVC/R7.MiniGallery/assets/css/style-" + Model.Settings.StyleSet.ToLowerInvariant () + ".css");
-
-    if (Model.Images.Count == 0) {
+	if (Model.Images.Count == 0) {
         if (!Dnn.ModuleContext.IsEditable) {
             var containerControl = Globals.FindControlRecursiveDown (Dnn.DnnPage, "ctr" + Dnn.ModuleContext.ModuleId);
             containerControl.Visible = false;
@@ -35,14 +23,8 @@
         }
     }
 }
-@Dnn.ReactWithInit("MiniGallery", new {
-    moduleId = Dnn.ModuleContext.ModuleId,
-    isEditable = Dnn.ModuleContext.IsEditable,
-    editIcon = IconController.IconURL ("Edit", "16X16", "Gray"),
-    lightboxType = Model.Lightbox.GetType ().Name,
-    resources = Model.ClientResources,
-    settings = Model.ClientSettings,
-    totalImages = Model.TotalImages,
-    images = Model.Images,
-    showControls = true
-}, null, null, true)
+<div class="r7-mg-react-root"
+     data-module-id="@Dnn.ModuleContext.ModuleId"
+     data-model="@JsonConvert.SerializeObject(Model, new JsonSerializerSettings {ContractResolver = new CamelCasePropertyNamesContractResolver ()})">
+</div>
+

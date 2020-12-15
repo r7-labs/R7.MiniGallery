@@ -85,66 +85,15 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="VroomJs">
-      <HintPath>..\packages\VroomJs.1.2.3\lib\net45\VroomJs.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Caching" />
-    <Reference Include="WebActivatorEx">
-      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
-    </Reference>
-    <Reference Include="jint">
-      <HintPath>..\packages\jint.2.10.4\lib\net45\jint.dll</HintPath>
-    </Reference>
-    <Reference Include="JavaScriptEngineSwitcher.Core">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.Core.2.4.9\lib\net45\JavaScriptEngineSwitcher.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="JavaScriptEngineSwitcher.ChakraCore">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.ChakraCore.2.4.8\lib\net45\JavaScriptEngineSwitcher.ChakraCore.dll</HintPath>
-    </Reference>
-    <Reference Include="JavaScriptEngineSwitcher.Jurassic">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.Jurassic.2.4.2\lib\net45\JavaScriptEngineSwitcher.Jurassic.dll</HintPath>
-    </Reference>
-    <Reference Include="Jurassic">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.Jurassic.2.4.2\lib\net45\Jurassic.dll</HintPath>
-    </Reference>
-    <Reference Include="ClearScript">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.2.4.2\lib\net45\ClearScript.dll</HintPath>
-    </Reference>
-    <Reference Include="JavaScriptEngineSwitcher.V8">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.2.4.2\lib\net45\JavaScriptEngineSwitcher.V8.dll</HintPath>
-    </Reference>
-    <Reference Include="JavaScriptEngineSwitcher.Jint">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.Jint.2.4.0\lib\net45\JavaScriptEngineSwitcher.Jint.dll</HintPath>
-    </Reference>
-    <Reference Include="JSPool">
-      <HintPath>..\packages\JSPool.3.0.1\lib\net40-client\JSPool.dll</HintPath>
-    </Reference>
-    <Reference Include="MsieJavaScriptEngine">
-      <HintPath>..\packages\MsieJavaScriptEngine.2.2.3\lib\net45\MsieJavaScriptEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="JavaScriptEngineSwitcher.Msie">
-      <HintPath>..\packages\JavaScriptEngineSwitcher.Msie.2.4.9\lib\net45\JavaScriptEngineSwitcher.Msie.dll</HintPath>
-    </Reference>
     <Reference Include="NGettext">
       <HintPath>..\packages\NGettext.0.6.5\lib\net45\NGettext.dll</HintPath>
-    </Reference>
-    <Reference Include="React.Core">
-      <HintPath>..\packages\React.Core.3.1.0\lib\net40\React.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="React.Web">
-      <HintPath>..\packages\React.Web.3.1.0\lib\net40\React.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="React.Web.Mvc4">
-      <HintPath>..\packages\React.Web.Mvc4.3.1.0\lib\net40\React.Web.Mvc4.dll</HintPath>
     </Reference>
     <Reference Include="YamlDotNet">
       <HintPath>..\packages\YamlDotNet.8.1.0\lib\net45\YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="R7.Dnn.Extensions">
       <HintPath>..\packages\R7.Dnn.Extensions.0.14.2\lib\net45\R7.Dnn.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="R7.Dnn.Extensions.React">
-      <HintPath>..\packages\R7.Dnn.Extensions.React.0.3.0\lib\net45\R7.Dnn.Extensions.React.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -158,7 +107,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Lightboxes\" />
-    <Folder Include="React\" />
     <Folder Include="Services\" />
     <Folder Include="Controllers\ServiceControllers\" />
   </ItemGroup>
@@ -253,8 +201,6 @@
     <Compile Include="ViewModels\ImageViewModelRepository.cs" />
     <Compile Include="ViewModels\MiniGalleryClientSettings.cs" />
     <Compile Include="Models\MiniGallerySettingsRepository.cs" />
-    <Compile Include="React\ReactConfig.cs" />
-    <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="Models\ImageToAdd.cs" />
     <Compile Include="Components\MiniGalleryConfig.cs" />
     <Compile Include="Models\MiniGalleryPortalConfig.cs" />

@@ -15,8 +15,7 @@
             <dependencies>
                 <dependency type="coreVersion">08.00.04</dependency>
                 <dependency type="managedPackage" version="0.14.0">R7.Dnn.Extensions</dependency>
-				<dependency type="managedPackage" version="0.3.0">R7.Dnn.Extensions.React</dependency>
-                <dependency type="package">React</dependency>
+				<dependency type="package">React</dependency>
                 <dependency type="package">ReactDOM</dependency>
                 <dependency type="package">jQuery-BlueimpGallery</dependency>
             </dependencies>
