@@ -1,10 +1,17 @@
+# user-specific
 /.vs
+/.idea/
 *.userprefs
-*.min.js
+*.usertasks
+*.csproj.user
+*.DotSettings.user
 
+# build output
 bin/
 obj/
 **/js/lib/
+*.min.js
 
+# packages
 /packages/
 /node_modules/
