@@ -7,7 +7,7 @@
 }
 
 .r7-mg-default .r7-mg-image {
-    margin:2px
+    margin:2px 0 2px 0
 }
 
 .r7-mg-default .r7-mg-title {
@@ -18,7 +18,7 @@
     color:#fff;
     background-color: rgba(0, 0, 0, 0.47);
     text-align:left;
-    margin:2px;
+    margin:2px 0 2px 0;
     padding:.25rem 1rem .5rem 1rem;
     width:100%
 }
