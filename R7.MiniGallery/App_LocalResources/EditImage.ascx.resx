@@ -75,4 +75,10 @@
 	<data name="lblOpenInLightbox.Help" xml:space="preserve">
 		<value>If checked, module will try to open the image in the lightbox.</value>
 	</data>
+	<data name="lblCssClass.Text" xml:space="preserve">
+		<value>CSS Class(es):</value>
+	</data>
+	<data name="lblCssClass.Help" xml:space="preserve">
+		<value>CSS classes for the image to use instead of defined in module settings.</value>
+	</data>
 </root>

@@ -35,10 +35,14 @@
 			<asp:CheckBox id="chkOpenInLightbox" runat="server" />
 		</div>
 		<div class="dnnFormItem">
+			<dnn:Label id="lblCssClass" runat="server" ControlName="txtCssClass" />
+        	<asp:TextBox id="txtCssClass" runat="server" />
+        </div>
+		<div class="dnnFormItem">
 		    <dnn:Label id="labelSortIndex" runat="server" ControlName="textSortIndex" Suffix=":" />
 			<asp:TextBox id="textSortIndex" runat="server" />
 		</div>
-        <div class="dnnFormItem">
+		<div class="dnnFormItem">
             <dnn:Label ID="labelStartDate" runat="server" ControlName="datetimeStartDate" />
             <dnn:DnnDateTimePicker id="datetimeStartDate" runat="server" />
         </div>

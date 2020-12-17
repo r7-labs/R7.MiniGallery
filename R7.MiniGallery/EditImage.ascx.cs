@@ -111,6 +111,7 @@ namespace R7.MiniGallery
 
 						urlLink.Url = Image.Url;
                         chkOpenInLightbox.Checked = Image.OpenInLightbox;
+                        txtCssClass.Text = Image.CssClass;
 
                         pickerImage.FileID = Image.ImageFileID;
 
@@ -177,6 +178,8 @@ namespace R7.MiniGallery
                         SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? 0,
                         ModuleID = ModuleId,
                         Url = urlLink.Url,
+                        OpenInLightbox = chkOpenInLightbox.Checked,
+                        CssClass = txtCssClass.Text,
                         ImageFileID = pickerImage.FileID,
                         CreatedOnDate = now,
                         LastModifiedOnDate = now,
@@ -199,6 +202,7 @@ namespace R7.MiniGallery
                     image.SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
 					image.Url = urlLink.Url;
                     image.OpenInLightbox = chkOpenInLightbox.Checked;
+                    image.CssClass = txtCssClass.Text;
                     image.ImageFileID = pickerImage.FileID;
 					image.LastModifiedOnDate = DateTime.Now;
 					image.LastModifiedByUserID = UserId;

@@ -6,3 +6,8 @@ IF NOT EXISTS (select * from sys.columns where object_id = object_id(N'{database
     ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
         ADD OpenInLightbox bit NOT NULL DEFAULT ((1))
 GO
+
+IF NOT EXISTS (select * from sys.columns where object_id = object_id(N'{databaseOwner}[{objectQualifier}MiniGallery_Images]') and name = N'CssClass')
+    ALTER TABLE {databaseOwner}[{objectQualifier}MiniGallery_Images]
+        ADD CssClass nvarchar(255) NULL
+GO

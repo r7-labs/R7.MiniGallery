@@ -75,4 +75,10 @@
 	<data name="lblOpenInLightbox.Help" xml:space="preserve">
 		<value>Если включено, модуль будет пытаться открыть это изображение внутри Lightbox.</value>
 	</data>
+	<data name="lblCssClass.Text" xml:space="preserve">
+		<value>Класс(ы) CSS:</value>
+	</data>
+	<data name="lblCssClass.Help" xml:space="preserve">
+		<value>Классы CSS для изображения, которые будут использованы вместо классов, заданных в настройках модуля.</value>
+	</data>
 </root>

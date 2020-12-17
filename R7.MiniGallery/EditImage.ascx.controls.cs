@@ -15,6 +15,7 @@ namespace R7.MiniGallery
 		protected DnnFilePickerUploader pickerImage;
 		protected DnnUrlControl urlLink;
         protected CheckBox chkOpenInLightbox;
+        protected TextBox txtCssClass;
 		protected TextBox textSortIndex;
         protected DnnDateTimePicker datetimeStartDate;
         protected DnnDateTimePicker datetimeEndDate;
