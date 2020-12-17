@@ -156,8 +156,8 @@ class MiniGallery extends React.Component {
             const moduleId = $(m).data ("module-id");
             const model = $(m).data ("model");
             ReactDOM.render (<MiniGallery moduleId={moduleId}
-                isEditable={model.isEditable}
-                editIcon={model.editIcon}
+                isEditable={$(m).data ("is-editable")}
+                editIcon={$(m).data ("edit-icon")}
                 lightboxType={model.lightboxType}
                 resources={model.clientResources}
                 settings={model.clientSettings}

@@ -3,6 +3,7 @@
 @using DotNetNuke.Framework
 @using DotNetNuke.Framework.JavaScriptLibraries
 @using DotNetNuke.Common
+@using DotNetNuke.Entities.Icons
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Serialization
 @using R7.MiniGallery.ViewModels
@@ -25,6 +26,8 @@
 }
 <div class="r7-mg-react-root"
      data-module-id="@Dnn.ModuleContext.ModuleId"
+     data-is-editable="@Dnn.ModuleContext.IsEditable.ToString().ToLowerInvariant()"
+     data-edit-icon='@IconController.IconURL("Edit", "16X16", "Gray")'
      data-model="@JsonConvert.SerializeObject(Model, new JsonSerializerSettings {ContractResolver = new CamelCasePropertyNamesContractResolver ()})">
 </div>
 
