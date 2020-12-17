@@ -12,18 +12,16 @@
 		</div>
 		<asp:Panel id="panelCheck" runat="server" Visible="false" CssClass="dnnFormItem mb-3">
 			<div class="dnnLabel"></div>
-			<asp:LinkButton id="buttonCheckAll" runat="server" CssClass="btn btn-sm btn-outline-secondary" ResourceKey="buttonCheckAll" />
-			&#160;
-			<asp:LinkButton id="buttonUncheckAll" runat="server" CssClass="btn btn-sm btn-outline-secondary" ResourceKey="buttonUncheckAll" />
-			&#160;
-			<asp:LinkButton id="buttonInvertSelection" runat="server" CssClass="btn btn-sm btn-outline-secondary" ResourceKey="buttonInvertSelection" />
+			<asp:LinkButton id="buttonCheckAll" runat="server" CssClass="btn btn-sm btn-outline-secondary mr-3" ResourceKey="buttonCheckAll" />
+			<asp:LinkButton id="buttonUncheckAll" runat="server" CssClass="btn btn-sm btn-outline-secondary mr-3" ResourceKey="buttonUncheckAll" />
+			<asp:LinkButton id="buttonInvertSelection" runat="server" CssClass="btn btn-sm btn-outline-secondary mr-3" ResourceKey="buttonInvertSelection" />
 		</asp:Panel>
 		<asp:DataList ID="listImages" runat="server" OnItemDataBound="listImages_ItemDataBound"
 			RepeatLayout="Flow" CssClass="listImages" >
 			<ItemTemplate>
 				<div class="dnnLabel"></div>
 				<div class="divImage">
-					<asp:Image id="imageImage" runat="server" CssClass="imageImage" />
+					<asp:Image id="imageImage" runat="server" CssClass="img-thumbnail imageImage" />
 				</div>
 				<div class="divMiniForm">
 					<asp:CheckBox id="checkIsIncluded" runat="server" Checked="false" />
