@@ -4,7 +4,7 @@ var path = require ("path");
 var jsxConfig = {
     mode: "production",
     entry: {
-        MiniGallery: "./R7.MiniGallery/assets/js/MiniGallery.jsx"
+        MiniGallery: "./R7.MiniGallery/Views/Image/MiniGallery.jsx"
     },
     output: {
         path: path.resolve (__dirname, "R7.MiniGallery/assets/js"),

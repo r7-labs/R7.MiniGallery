@@ -143,7 +143,6 @@
       <DeployService-TargetDirectoryId>ProgramFilesRoot</DeployService-TargetDirectoryId>
     </None>
     <None Include="App_LocalResources\EditMiniGallery.ascx.ru-RU.resx" />
-    <None Include="assets\js\MiniGallery.jsx" />
     <Content Include="SqlDataProvider\01.00.00.dnn.sql" />
     <Content Include="SqlDataProvider\Uninstall.dnn.sql" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
@@ -161,6 +160,7 @@
     <None Include="R7.MiniGallery.development.yml" />
     <None Include="App_LocalResources\SharedResources.resx" />
     <None Include="App_LocalResources\SharedResources.ru-RU.resx" />
+    <None Include="Views\Image\MiniGallery.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\MiniGalleryController.cs" />
