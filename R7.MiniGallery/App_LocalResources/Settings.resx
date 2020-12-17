@@ -120,10 +120,4 @@
     <data name="LightboxType.BlueimpGallery" xml:space="preserve">
         <value>blueimp Gallery</value>
     </data>
-    <data name="LightboxType.Lightbox" xml:space="preserve">
-        <value>Lightbox2</value>
-    </data>
-    <data name="LightboxType.Colorbox" xml:space="preserve">
-        <value>Colorbox</value>
-    </data>
 </root>

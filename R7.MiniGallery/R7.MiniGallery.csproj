@@ -115,8 +115,6 @@
     <Content Include="assets\css\style-columns.css" />
     <Content Include="assets\css\style-default.css" />
     <Content Include="assets\css\style-flow.css" />
-    <Content Include="assets\js\colorbox.js" />
-    <Content Include="assets\js\lightbox2.js" />
     <Content Include="assets\js\quickSettings.js" />
     <Content Include="assets\js\service.js" />
     <Content Include="module.css" />
@@ -185,8 +183,6 @@
     <Compile Include="Models\IImage.cs" />
     <Compile Include="Properties\SolutionInfo.cs" />
     <Compile Include="ViewModels\ImageViewModel.cs" />
-    <Compile Include="Lightboxes\Colorbox.cs" />
-    <Compile Include="Lightboxes\Lightbox.cs" />
     <Compile Include="Lightboxes\Nonebox.cs" />
     <Compile Include="Lightboxes\LightboxType.cs" />
     <Compile Include="Lightboxes\ILightbox.cs" />
