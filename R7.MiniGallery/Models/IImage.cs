@@ -25,35 +25,68 @@ namespace R7.MiniGallery.Models
 {
     public interface IImage
 	{
-        int ImageID { get; set; }
+        int ImageID { get; }
 
-		int ModuleID { get; set; }
+		int ModuleID { get; }
 
-		int ImageFileID { get; set; }
+		int ImageFileID { get; }
 
-		string Alt { get; set; }
+		string Alt { get; }
 
-		string Title { get; set; }
+		string Title { get; }
 
-		string Url { get; set; }
+		string Url { get; }
 
-        bool OpenInLightbox { get; set; }
+        bool OpenInLightbox { get; }
 
-        string CssClass { get; set; }
+        string CssClass { get; }
 
-		int SortIndex { get; set; }
+		int SortIndex { get; }
 
-        DateTime? StartDate { get; set; }
+        DateTime? StartDate { get; }
 
-        DateTime? EndDate { get; set; }
+        DateTime? EndDate { get; }
 
-        int LastModifiedByUserID { get; set; }
+        int LastModifiedByUserID { get; }
 
-        DateTime LastModifiedOnDate { get; set; }
+        DateTime LastModifiedOnDate { get; }
 
-        int CreatedByUserID { get; set; }
+        int CreatedByUserID { get; }
 
-        DateTime CreatedOnDate { get; set; }
+        DateTime CreatedOnDate { get; }
+    }
+
+    public interface IImageWritable: IImage
+    {
+        new int ImageID { get; set; }
+
+        new int ModuleID { get; set; }
+
+        new int ImageFileID { get; set; }
+
+        new string Alt { get; set; }
+
+        new string Title { get; set; }
+
+        new string Url { get; set; }
+
+        new bool OpenInLightbox { get; set; }
+
+        new string CssClass { get; set; }
+
+        new int SortIndex { get; set; }
+
+        new DateTime? StartDate { get; set; }
+
+        new DateTime? EndDate { get; set; }
+
+        new int LastModifiedByUserID { get; set; }
+
+        new DateTime LastModifiedOnDate { get; set; }
+
+        new int CreatedByUserID { get; set; }
+
+        new DateTime CreatedOnDate { get; set; }
     }
 }
 

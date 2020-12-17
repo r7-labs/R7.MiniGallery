@@ -1,24 +1,3 @@
-//
-//  ImageInfo.cs
-//
-//  Author:
-//       Roman M. Yagodin <roman.yagodin@gmail.com>
-//
-//  Copyright (c) 2014-2017 Roman M. Yagodin
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using DotNetNuke.ComponentModel.DataAnnotations;
 using DotNetNuke.Entities.Portals;
@@ -27,27 +6,19 @@ using DotNetNuke.Entities.Users;
 namespace R7.MiniGallery.Models
 {
 	// More attributes for class:
-	// Set caching for table: [Cacheable("Redhound.MiniGallery_Images", CacheItemPriority.Default, 20)]
+	// Set caching for table: [Cacheable("R7.MiniGallery_Images", CacheItemPriority.Default, 20)]
 	// Explicit mapping declaration: [DeclareColumns]
-
-	// More attributes for class properties:
+    // More attributes for class properties:
 	// Custom column name: [ColumnName("ImageID")]
 	// Explicit include column: [IncludeColumn]
 	// Note: DAL 2 have no AutoJoin analogs from PetaPOCO at this time
+
 	[TableName ("MiniGallery_Images")]
 	[PrimaryKey ("ImageID", AutoIncrement = true)]
 	[Scope ("ModuleID")]
-	public class ImageInfo : IImage
+	public class ImageInfo : IImageWritable
 	{
-		#region Fields
-
-		private string createdByUserName;
-
-		private string lastModifiedByUserName;
-
-		#endregion
-
-		#region IImage implementation
+        #region IImage implementation
 
 		public int ImageID { get; set; }
 
@@ -71,10 +42,6 @@ namespace R7.MiniGallery.Models
 
         public DateTime? EndDate { get; set; }
 
-		#endregion
-
-        #region IAuditable implementation
-
         public int LastModifiedByUserID { get; set; }
 
         public DateTime LastModifiedOnDate { get; set; }
@@ -87,6 +54,9 @@ namespace R7.MiniGallery.Models
 
         #region Joins
 
+        private string createdByUserName;
+
+        // TODO: Move to ViewModel
 		[IgnoreColumn]
 		public string CreatedByUserName
 		{
@@ -105,6 +75,9 @@ namespace R7.MiniGallery.Models
 			}
 		}
 
+        private string lastModifiedByUserName;
+
+        // TODO: Move to ViewModel
 		[IgnoreColumn]
 		public string LastModifiedByUserName
 		{

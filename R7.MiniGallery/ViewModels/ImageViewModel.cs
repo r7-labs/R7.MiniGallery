@@ -37,86 +37,50 @@ namespace R7.MiniGallery.ViewModels
 
         #region IImage implementation
 
-        public string Alt {
-            get { return GetAlt (); }
-            set { throw new NotImplementedException (); }
-        }
+        public string Alt => GetAlt ();
 
-        public int CreatedByUserID {
-            get { return Model.CreatedByUserID; }
-            set { throw new NotImplementedException (); }
-        }
+        public int CreatedByUserID => Model.CreatedByUserID;
 
-        public DateTime CreatedOnDate {
-            get { return Model.CreatedOnDate; }
-            set { throw new NotImplementedException (); }
-        }
+        public DateTime CreatedOnDate => Model.CreatedOnDate;
 
-        public int LastModifiedByUserID {
-            get { return Model.LastModifiedByUserID; }
-            set { throw new NotImplementedException (); }
-        }
+        public int LastModifiedByUserID => Model.LastModifiedByUserID;
 
-        public DateTime LastModifiedOnDate {
-            get { return Model.LastModifiedOnDate; }
-            set { throw new NotImplementedException (); }
-        }
+        public DateTime LastModifiedOnDate => Model.LastModifiedOnDate;
 
-        public int ImageID {
-            get { return Model.ImageID; }
-            set { throw new NotImplementedException (); }
-        }
+        public int ImageID => Model.ImageID;
 
-        public int ImageFileID {
-            get { return Model.ImageFileID; }
-            set { throw new NotImplementedException (); }
-        }
+        public int ImageFileID => Model.ImageFileID;
 
-        public DateTime? StartDate {
-            get { return Model.StartDate; }
-            set { throw new NotImplementedException (); }
-        }
+        public DateTime? StartDate => Model.StartDate;
 
-        public DateTime? EndDate {
-            get { return Model.EndDate; }
-            set { throw new NotImplementedException (); }
-        }
+        public DateTime? EndDate => Model.EndDate;
 
-        public int ModuleID {
-            get { return Model.ModuleID; }
-            set { throw new NotImplementedException (); }
-        }
+        public int ModuleID => Model.ModuleID;
 
-        public int SortIndex {
-            get { return Model.SortIndex; }
-            set { throw new NotImplementedException (); }
-        }
+        public int SortIndex => Model.SortIndex;
 
-        public string Title {
-            get { return Model.Title; }
-            set { throw new NotImplementedException (); }
-        }
+        public string Title => Model.Title;
 
-        public string Url {
-            get { return Model.Url; }
-            set { throw new NotImplementedException (); }
-        }
+        public string Url => Model.Url;
 
-        public bool OpenInLightbox
-        {
-            get { return Model.OpenInLightbox; }
-            set { throw new NotImplementedException(); }
+        public bool OpenInLightbox => Model.OpenInLightbox;
+
+        public string CssClass {
+            get {
+                return FormatHelper.JoinNotNullOrEmpty (
+                    " ", !string.IsNullOrEmpty (Model.CssClass)? Model.CssClass : Settings.ImageCssClass,
+                    (!Model.IsPublished (HttpContext.Current.Timestamp)) ?
+                        (Model.HasBeenExpired (HttpContext.Current.Timestamp) ?
+                            "r7-mg-not-published r7-mg-expired" : "r7-mg-not-published") : string.Empty
+                );
+            }
         }
 
         #endregion
 
         public bool IsHidden { get; set; }
 
-        public string ImageSrc {
-            get {
-                return Globals.LinkClick ("FileID=" + Model.ImageFileID, ModuleContext.TabId, ModuleContext.ModuleId, false);
-            }
-        }
+        public string ImageSrc => Globals.LinkClick ("FileID=" + Model.ImageFileID, ModuleContext.TabId, ModuleContext.ModuleId, false);
 
         private string [] imageHandlerTags = { "fileticket", "width", "fileid", "height" };
 
@@ -180,21 +144,7 @@ namespace R7.MiniGallery.ViewModels
             }
         }
 
-        public string EditUrl {
-            get { return ModuleContext.EditUrl ("imageid", Model.ImageID.ToString (), "Edit"); }
-        }
-
-        public string CssClass {
-            get {
-                return FormatHelper.JoinNotNullOrEmpty (
-                    " ", !string.IsNullOrEmpty (Model.CssClass)? Model.CssClass : Settings.ImageCssClass,
-                    (!Model.IsPublished (HttpContext.Current.Timestamp)) ?
-                        (Model.HasBeenExpired (HttpContext.Current.Timestamp) ?
-                            "r7-mg-not-published r7-mg-expired" : "r7-mg-not-published") : string.Empty
-                );
-            }
-            set { throw new NotImplementedException(); }
-        }
+        public string EditUrl => ModuleContext.EditUrl ("imageid", Model.ImageID.ToString (), "Edit");
 
         public ImageStyle Style {
             get {
