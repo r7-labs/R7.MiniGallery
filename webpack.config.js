@@ -29,8 +29,8 @@ var jsxConfig = {
 var jsConfig = {
     mode: "production",
     entry: {
-        colorbox: "./R7.MiniGallery/assets/js/colorbox.js",
-        lightbox2: "./R7.MiniGallery/assets/js/colorbox.js"
+        quickSettings: "./R7.MiniGallery/assets/js/quickSettings.js",
+        service: "./R7.MiniGallery/assets/js/service.js"
     },
     output: {
         path: path.resolve (__dirname, "R7.MiniGallery/assets/js"),
