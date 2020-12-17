@@ -4,7 +4,7 @@ using DotNetNuke.Web.UI.WebControls;
 
 namespace R7.MiniGallery
 {
-    public partial class EditMiniGallery
+    public partial class EditImage
 	{
 		protected LinkButton buttonUpdate;
 		protected LinkButton buttonDelete;

@@ -120,7 +120,7 @@
     <Content Include="assets\js\quickSettings.js" />
     <Content Include="assets\js\service.js" />
     <Content Include="module.css" />
-    <Content Include="EditMiniGallery.ascx">
+    <Content Include="EditImage.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Content>
     <Content Include="BulkAdd.ascx">
@@ -137,12 +137,12 @@
     <Content Include="QuickSettings.html" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_LocalResources\EditMiniGallery.ascx.resx">
+    <None Include="App_LocalResources\EditImage.ascx.resx">
       <DeployService-Deploy>True</DeployService-Deploy>
       <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
       <DeployService-TargetDirectoryId>ProgramFilesRoot</DeployService-TargetDirectoryId>
     </None>
-    <None Include="App_LocalResources\EditMiniGallery.ascx.ru-RU.resx" />
+    <None Include="App_LocalResources\EditImage.ascx.ru-RU.resx" />
     <Content Include="SqlDataProvider\01.00.00.dnn.sql" />
     <Content Include="SqlDataProvider\Uninstall.dnn.sql" />
     <None Include="App_LocalResources\BulkAdd.ascx.resx" />
@@ -164,11 +164,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\MiniGalleryController.cs" />
-    <Compile Include="EditMiniGallery.ascx.cs">
-      <DependentUpon>EditMiniGallery.ascx</DependentUpon>
+    <Compile Include="EditImage.ascx.cs">
+      <DependentUpon>EditImage.ascx</DependentUpon>
     </Compile>
-    <Compile Include="EditMiniGallery.ascx.controls.cs">
-      <DependentUpon>EditMiniGallery.ascx</DependentUpon>
+    <Compile Include="EditImage.ascx.controls.cs">
+      <DependentUpon>EditImage.ascx</DependentUpon>
     </Compile>
     <Compile Include="Models\ImageInfo.cs" />
     <Compile Include="BulkAdd.cs">

@@ -15,8 +15,7 @@ using R7.University.Components;
 
 namespace R7.MiniGallery
 {
-    // TODO: Rename to EditImage
-    public partial class EditMiniGallery : PortalModuleBase<MiniGallerySettings>
+    public partial class EditImage : PortalModuleBase<MiniGallerySettings>
 	{
 		#region Properties
 

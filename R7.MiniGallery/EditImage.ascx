@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="false" CodeBehind="EditMiniGallery.ascx.cs" Inherits="R7.MiniGallery.EditMiniGallery" %>
+﻿<%@ Control Language="C#" AutoEventWireup="false" CodeBehind="EditImage.ascx.cs" Inherits="R7.MiniGallery.EditImage" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/labelcontrol.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Audit" Src="~/controls/ModuleAuditControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Url" Src="~/controls/DnnUrlControl.ascx" %>
