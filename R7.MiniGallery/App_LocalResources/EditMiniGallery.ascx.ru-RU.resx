@@ -69,4 +69,10 @@
 	<data name="btnDeleteWithFile_Confirm.Text" xml:space="preserve">
         <value>Уверены, что хотите удалить это изображение вместе со связанным с ним файлом? Обратите внимание, что файл будет удален только в том случае, если на него не ссылаются другие изображения или элементы контента DNN.</value>
     </data>
+	<data name="lblOpenInLightbox.Text" xml:space="preserve">
+		<value>Открыть в Lightbox?</value>
+	</data>
+	<data name="lblOpenInLightbox.Help" xml:space="preserve">
+		<value>Если включено, модуль будет пытаться открыть это изображение внутри Lightbox.</value>
+	</data>
 </root>

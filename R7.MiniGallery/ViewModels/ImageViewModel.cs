@@ -123,6 +123,12 @@ namespace R7.MiniGallery.ViewModels
             set { throw new NotImplementedException (); }
         }
 
+        public bool OpenInLightbox
+        {
+            get { return Model.OpenInLightbox; }
+            set { throw new NotImplementedException(); }
+        }
+
         #endregion
 
         public bool IsHidden { get; set; }
@@ -185,7 +191,7 @@ namespace R7.MiniGallery.ViewModels
         public string NavigateUrl {
             get {
                 if (!string.IsNullOrWhiteSpace(Model.Url)) {
-                    var urlType = Globals.GetURLType(Model.Url); 
+                    var urlType = Globals.GetURLType(Model.Url);
                     if (urlType == TabType.File || urlType == TabType.Tab || urlType == TabType.Member) {
                         return Globals.LinkClick (Model.Url, ModuleContext.TabId, ModuleContext.ModuleId, true);
                     }
@@ -237,7 +243,8 @@ namespace R7.MiniGallery.ViewModels
 
         public JRaw LinkAttributes {
             get {
-                return new JRaw (Lightbox.GetLinkAttributes (Model, ModuleContext.ModuleId));
+                var lightbox = OpenInLightbox ? Lightbox : LightboxFactory.Create (LightboxType.None);
+                return new JRaw (lightbox.GetLinkAttributes (Model, ModuleContext.ModuleId));
             }
         }
 

@@ -1,25 +1,4 @@
-﻿//
-//  EditMiniGallery.ascx.cs
-//
-//  Author:
-//       Roman M. Yagodin <roman.yagodin@gmail.com>
-//
-//  Copyright (c) 2014-2019 Roman M. Yagodin
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-using System;
+﻿using System;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Modules;
@@ -36,6 +15,7 @@ using R7.University.Components;
 
 namespace R7.MiniGallery
 {
+    // TODO: Rename to EditImage
     public partial class EditMiniGallery : PortalModuleBase<MiniGallerySettings>
 	{
 		#region Properties
@@ -53,10 +33,10 @@ namespace R7.MiniGallery
 					// parse querystring parameters on first
 					int imageId;
 					if (int.TryParse (Request.QueryString ["ImageID"], out imageId))
-					{	
+					{
                         _image = new MiniGalleryDataProvider ().Get<ImageInfo,int,int> (imageId, ModuleId);
 					}
-					
+
 				}
 				return _image;
 			}
@@ -131,14 +111,15 @@ namespace R7.MiniGallery
                         datetimeEndDate.SelectedDate = Image.EndDate;
 
 						urlLink.Url = Image.Url;
+                        chkOpenInLightbox.Checked = Image.OpenInLightbox;
 
                         pickerImage.FileID = Image.ImageFileID;
-							
+
 						// setup audit control
-						ctlAudit.CreatedDate = 
+						ctlAudit.CreatedDate =
 							Image.CreatedOnDate.ToShortDateString () + " " +
 						Image.CreatedOnDate.ToLongTimeString ();
-						ctlAudit.LastModifiedDate = 
+						ctlAudit.LastModifiedDate =
 							Image.LastModifiedOnDate.ToShortDateString () + " " +
 						Image.LastModifiedOnDate.ToLongTimeString ();
 						ctlAudit.CreatedByUser = Image.CreatedByUserName;
@@ -154,11 +135,11 @@ namespace R7.MiniGallery
                         // new image
                         var dataProvider = new MiniGalleryDataProvider ();
                         textSortIndex.Text = (dataProvider.GetBaseSortIndex (ModuleId) + MiniGalleryConfig.Instance.SortIndexStep).ToString ();
-                        			
+
 						buttonDelete.Visible = false;
                         btnDeleteWithFile.Visible = false;
                         ctlAudit.Visible = false;
-					}				
+					}
 				}
 			}
 			catch (Exception ex)
@@ -204,13 +185,13 @@ namespace R7.MiniGallery
                         LastModifiedByUserID = UserId,
                         StartDate = datetimeStartDate.SelectedDate,
                         EndDate = datetimeEndDate.SelectedDate
-					};					
+					};
 
 					dataProvider.Add<ImageInfo> (image);
 				}
 				else
 				{
-					// update properties of existing object with data from controls 
+					// update properties of existing object with data from controls
 					// to update existing record
 					// image = ctrl.Get<ImageInfo> (imageId.Value, ModuleId);
 					image = Image;
@@ -218,7 +199,8 @@ namespace R7.MiniGallery
 					image.Title = textTitle.Text;
                     image.SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
 					image.Url = urlLink.Url;
-					image.ImageFileID = pickerImage.FileID;
+                    image.OpenInLightbox = chkOpenInLightbox.Checked;
+                    image.ImageFileID = pickerImage.FileID;
 					image.LastModifiedOnDate = DateTime.Now;
 					image.LastModifiedByUserID = UserId;
                     image.StartDate = datetimeStartDate.SelectedDate;

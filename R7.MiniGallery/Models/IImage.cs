@@ -37,6 +37,8 @@ namespace R7.MiniGallery.Models
 
 		string Url { get; set; }
 
+        bool OpenInLightbox { get; set; }
+
 		int SortIndex { get; set; }
 
         DateTime? StartDate { get; set; }

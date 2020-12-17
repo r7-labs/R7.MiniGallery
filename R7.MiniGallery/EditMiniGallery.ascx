@@ -2,13 +2,13 @@
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/labelcontrol.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Audit" Src="~/controls/ModuleAuditControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Url" Src="~/controls/DnnUrlControl.ascx" %>
-<%@ Register TagPrefix="dnn" TagName="Picker" Src="~/controls/filepickeruploader.ascx" %> 
+<%@ Register TagPrefix="dnn" TagName="Picker" Src="~/controls/filepickeruploader.ascx" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web.Deprecated" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
 <dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/MVC/R7.MiniGallery/css/admin.css" />
 <div class="dnnForm dnnClear">
-	<fieldset>	
+	<fieldset>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelImage" runat="server" ControlName="urlImage" Suffix=":" />
 			<dnn:Picker id="pickerImage" runat="server" Required="true" />
@@ -28,8 +28,12 @@
 			        ShowUrls="true" ShowUsers="true"
 					ShowLog="false" ShowTrack="false"
 					ShowNone="true" ShowNewWindow="false"
-					IncludeActiveTab="true" />                
-		</div> 
+					IncludeActiveTab="true" />
+		</div>
+		<div class="dnnFormItem">
+        	<dnn:Label id="lblOpenInLightbox" runat="server" ControlName="chkOpenInLightbox" />
+			<asp:CheckBox id="chkOpenInLightbox" runat="server" />
+		</div>
 		<div class="dnnFormItem">
 		    <dnn:Label id="labelSortIndex" runat="server" ControlName="textSortIndex" Suffix=":" />
 			<asp:TextBox id="textSortIndex" runat="server" />

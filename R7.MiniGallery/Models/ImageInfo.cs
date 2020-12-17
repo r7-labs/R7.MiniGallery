@@ -29,7 +29,7 @@ namespace R7.MiniGallery.Models
 	// More attributes for class:
 	// Set caching for table: [Cacheable("Redhound.MiniGallery_Images", CacheItemPriority.Default, 20)]
 	// Explicit mapping declaration: [DeclareColumns]
-	
+
 	// More attributes for class properties:
 	// Custom column name: [ColumnName("ImageID")]
 	// Explicit include column: [IncludeColumn]
@@ -40,7 +40,7 @@ namespace R7.MiniGallery.Models
 	public class ImageInfo : IImage
 	{
 		#region Fields
-		
+
 		private string createdByUserName;
 
 		private string lastModifiedByUserName;
@@ -61,7 +61,9 @@ namespace R7.MiniGallery.Models
 
 		public string Url { get; set; }
 
-		public int SortIndex { get; set; }
+        public bool OpenInLightbox { get; set; }
+
+        public int SortIndex { get; set; }
 
 		public DateTime? StartDate { get; set; }
 
@@ -85,7 +87,7 @@ namespace R7.MiniGallery.Models
 
 		[IgnoreColumn]
 		public string CreatedByUserName
-		{ 
+		{
 			get
 			{
 				if (createdByUserName == null)
@@ -103,7 +105,7 @@ namespace R7.MiniGallery.Models
 
 		[IgnoreColumn]
 		public string LastModifiedByUserName
-		{ 
+		{
 			get
 			{
 				if (lastModifiedByUserName == null)
