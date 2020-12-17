@@ -163,7 +163,7 @@ class MiniGallery extends React.Component {
                 settings={model.clientSettings}
                 totalImages={model.totalImages}
                 images={model.images}
-                showControls="true"
+                showControls={true}
             />, m);
         });
     });
