@@ -10,34 +10,34 @@
 			<dnn:Label id="labelFolder" runat="server" ControlName="ddlFolders" Suffix=":" />
 			<dnn:DnnFolderDropDownList id="ddlFolders" runat="server" AutoPostBack="true" />
 		</div>
-		<asp:Panel id="panelCheck" runat="server" Visible="false" CssClass="dnnFormItem">
+		<asp:Panel id="panelCheck" runat="server" Visible="false" CssClass="dnnFormItem mb-3">
 			<div class="dnnLabel"></div>
-			<asp:LinkButton id="buttonCheckAll" runat="server" CssClass="dnnSecondaryAction" ResourceKey="buttonCheckAll" />
+			<asp:LinkButton id="buttonCheckAll" runat="server" CssClass="btn btn-sm btn-outline-secondary" ResourceKey="buttonCheckAll" />
 			&#160;
-			<asp:LinkButton id="buttonUncheckAll" runat="server" CssClass="dnnSecondaryAction" ResourceKey="buttonUncheckAll" />
+			<asp:LinkButton id="buttonUncheckAll" runat="server" CssClass="btn btn-sm btn-outline-secondary" ResourceKey="buttonUncheckAll" />
 			&#160;
-			<asp:LinkButton id="buttonInvertSelection" runat="server" CssClass="dnnSecondaryAction" ResourceKey="buttonInvertSelection" />
+			<asp:LinkButton id="buttonInvertSelection" runat="server" CssClass="btn btn-sm btn-outline-secondary" ResourceKey="buttonInvertSelection" />
 		</asp:Panel>
-		<asp:DataList ID="listImages" runat="server" OnItemDataBound="listImages_ItemDataBound" 
+		<asp:DataList ID="listImages" runat="server" OnItemDataBound="listImages_ItemDataBound"
 			RepeatLayout="Flow" CssClass="listImages" >
 			<ItemTemplate>
 				<div class="dnnLabel"></div>
-				<div class="divImage">	
+				<div class="divImage">
 					<asp:Image id="imageImage" runat="server" CssClass="imageImage" />
 				</div>
 				<div class="divMiniForm">
-					<asp:CheckBox id="checkIsIncluded" runat="server" Checked="false" />	
+					<asp:CheckBox id="checkIsIncluded" runat="server" Checked="false" />
 					<asp:TextBox id="textOrder" runat="server" CssClass="textOrder" />
 					<br />
 					<asp:TextBox id="textTitle" runat="server" CssClass="textTitle" MaxLength="255"  />
-				</div>		
+				</div>
 				<asp:HiddenField id="hiddenImageFileID" runat="server" />
 			</ItemTemplate>
 			<ItemStyle CssClass="dnnFormItem" />
 		</asp:DataList>
 	</fieldset>
 	<ul class="dnnActions dnnClear">
-		<li><asp:LinkButton id="buttonAdd" runat="server" CssClass="dnnPrimaryAction" resourcekey="buttonAdd.Text" CausesValidation="true" OnClick="buttonAdd_Click" Visible="false" /></li>
-		<li><asp:HyperLink id="linkCancel" runat="server" CssClass="dnnSecondaryAction" resourcekey="cmdCancel" /></li>
+		<li><asp:LinkButton id="buttonAdd" runat="server" CssClass="btn btn-primary mr-3" resourcekey="buttonAdd.Text" CausesValidation="true" OnClick="buttonAdd_Click" Visible="false" /></li>
+		<li><asp:HyperLink id="linkCancel" runat="server" CssClass="btn btn-outline-secondary" resourcekey="cmdCancel" /></li>
 	</ul>
 </div>

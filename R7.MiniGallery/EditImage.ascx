@@ -48,12 +48,10 @@
         </div>
 	</fieldset>
 	<ul class="dnnActions dnnClear">
-		<li><asp:LinkButton id="buttonUpdate" runat="server" CssClass="dnnPrimaryAction" ResourceKey="cmdUpdate" CausesValidation="true" /></li>
-		<li>&nbsp;</li>
-		<li><asp:LinkButton id="buttonDelete" runat="server" CssClass="dnnSecondaryAction" ResourceKey="cmdDelete" CausesValidation="false" /></li>
-		<li><asp:LinkButton id="btnDeleteWithFile" runat="server" CssClass="dnnSecondaryAction" ResourceKey="btnDeleteWithFile.Text" CausesValidation="false" /></li>
-		<li>&nbsp;</li>
-		<li><asp:HyperLink id="linkCancel" runat="server" CssClass="dnnSecondaryAction" ResourceKey="cmdCancel" /></li>
+		<li><asp:LinkButton id="buttonUpdate" runat="server" CssClass="btn btn-primary mr-3" ResourceKey="cmdUpdate" CausesValidation="true" /></li>
+		<li><asp:LinkButton id="buttonDelete" runat="server" CssClass="btn btn-danger mr-3" ResourceKey="cmdDelete" CausesValidation="false" /></li>
+		<li><asp:LinkButton id="btnDeleteWithFile" runat="server" CssClass="btn btn-danger mr-3" ResourceKey="btnDeleteWithFile.Text" CausesValidation="false" /></li>
+		<li><asp:HyperLink id="linkCancel" runat="server" CssClass="btn btn-outline-secondary" ResourceKey="cmdCancel" /></li>
 	</ul>
 	<hr />
 	<dnn:Audit id="ctlAudit" runat="server" />
