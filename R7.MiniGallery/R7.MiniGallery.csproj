@@ -116,7 +116,6 @@
     <Content Include="assets\css\style-default.css" />
     <Content Include="assets\css\style-flow.css" />
     <Content Include="assets\js\quickSettings.js" />
-    <Content Include="assets\js\service.js" />
     <Content Include="module.css" />
     <Content Include="EditImage.ascx">
       <DeployService-Deploy>True</DeployService-Deploy>

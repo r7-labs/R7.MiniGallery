@@ -29,8 +29,7 @@ var jsxConfig = {
 var jsConfig = {
     mode: "production",
     entry: {
-        quickSettings: "./R7.MiniGallery/assets/js/quickSettings.js",
-        service: "./R7.MiniGallery/assets/js/service.js"
+        quickSettings: "./R7.MiniGallery/assets/js/quickSettings.js"
     },
     output: {
         path: path.resolve (__dirname, "R7.MiniGallery/assets/js"),

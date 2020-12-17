@@ -1,14 +1,42 @@
 ﻿// TODO: Convert to React
 var minigallery = minigallery || {};
 
+minigallery.service = function ($, moduleId) {
+    var baseServicePath = $.dnnSF(moduleId).getServiceRoot("R7.MiniGallery");
+    this.ajaxCall = function (type, controller, action, id, data, success, fail) {
+        $.ajax({
+            type: type,
+            url: baseServicePath + controller + "/" + action + (id != null ? "/" + id : ""),
+            beforeSend: $.dnnSF(moduleId).setModuleHeaders,
+            data: data
+        }).done(function (retData) {
+            if (success != undefined) {
+                success(retData);
+            }
+        }).fail(function (xhr, status) {
+            if (fail != undefined) {
+                fail(xhr, status);
+            }
+        });
+    };
+
+    this.getSettings = function (success, fail) {
+        this.ajaxCall("GET", "QuickSettings", "Get", null, null, success, fail);
+    };
+
+    this.updateSettings = function (success, fail, data) {
+        this.ajaxCall("POST", "QuickSettings", "Update", null, data, success, fail);
+    };
+};
+
 minigallery.quickSettings = function (root, moduleId) {
-	
+
 	var setFormData = function (data) {
 		$("#r7_mg_qsettings_imageCssClass_" + moduleId).val (data.imageCssClass);
         $("#r7_mg_qsettings_numberOfRecords_" + moduleId).val (data.numberOfRecords);
         $("#r7_mg_qsettings_showTitles_" + moduleId).each (function () { this.checked = data.showTitles; });
 	};
-	
+
 	var getFormData = function () {
 		return {
 			imageCssClass: $("#r7_mg_qsettings_imageCssClass_" + moduleId).val (),
@@ -16,15 +44,15 @@ minigallery.quickSettings = function (root, moduleId) {
             showTitles: $("#r7_mg_qsettings_showTitles_" + moduleId).is (":checked")
 		}
 	};
-	
+
 	var setError = function () {
 		$("r7_mg_qsettings_" + moduleId).addClass ("error");
 	};
-	
+
 	var isError = function () {
 		$("r7_mg_qsettings_" + moduleId).hasClass ("error");
 	}
-	
+
 	var updateSettings = function () {
 		var deferred = $.Deferred();
 		if (isError ()) {
@@ -47,10 +75,10 @@ minigallery.quickSettings = function (root, moduleId) {
             },
             getFormData ()
         );
-        
+
         return deferred.promise ();
     };
-    
+
     var loadSettings = function () {
         var service = new minigallery.service ($, moduleId);
         var settings = service.getSettings (
@@ -64,13 +92,13 @@ minigallery.quickSettings = function (root, moduleId) {
             }
         );
     };
-    
+
     var cancelSettings = function () {
         var deferred = $.Deferred ();
         deferred.resolve ();
         return deferred.promise ();
     };
-     
+
     var init = function () {
         // wire up the default save and cancel buttons
         $(root).dnnQuickSettings({
@@ -85,3 +113,6 @@ minigallery.quickSettings = function (root, moduleId) {
         init: init
     }
 };
+
+// basic export
+window.minigallery = minigallery;
