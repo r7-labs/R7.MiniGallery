@@ -3,7 +3,8 @@
 .r7-mg-default .r7-mg-item,
 .r7-mg-default .r7-mg-alt-item {
     vertical-align:top;
-    text-align:center
+    text-align:center;
+    list-style: none
 }
 
 .r7-mg-default .r7-mg-image {

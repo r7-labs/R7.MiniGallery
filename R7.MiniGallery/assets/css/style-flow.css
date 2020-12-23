@@ -3,8 +3,8 @@
 .r7-mg-flow .r7-mg-item,
 .r7-mg-flow .r7-mg-alt-item {
     display:inline-block;
-
     vertical-align:top;
+    list-style: none
 }
 
 .r7-mg-flow .r7-mg-image {
