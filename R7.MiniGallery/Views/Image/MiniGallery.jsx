@@ -4,8 +4,8 @@ class MiniGalleryImage extends React.Component {
         if (this.props.isEditable) {
             return (
                 <div className="r7-mg-edit">
-	                <a href={this.props.editUrl}>
-	                    <img src={this.props.editIcon} />
+	                <a href={this.props.editUrl} className="btn btn-sm btn-outline-secondary">
+	                    <i className="fas fa-pencil-alt"></i>
 	                </a>
                 </div>
             );
