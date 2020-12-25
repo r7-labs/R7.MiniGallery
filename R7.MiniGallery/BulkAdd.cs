@@ -1,24 +1,3 @@
-//
-//  BulkAdd.cs
-//
-//  Author:
-//       Roman M. Yagodin <roman.yagodin@gmail.com>
-//
-//  Copyright (c) 2014-2019 Roman M. Yagodin
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +48,7 @@ namespace R7.MiniGallery
 		protected override void OnLoad (EventArgs e)
 		{
 			base.OnLoad (e);
-			
+
 			try {
 				if (!IsPostBack) {
                     var folderId = FolderHistory.GetLastFolderId (Request, PortalId);
@@ -115,9 +94,9 @@ namespace R7.MiniGallery
                         var image = new ImageToAdd {
                             ImageFileID = int.Parse (hiddenImageFileID.Value),
                             FileName = checkIsIncluded.Text,
-                            Title = textTitle.Text,							
+                            Title = textTitle.Text.Trim (),
                             Order = ParseHelper.ParseToNullable<int> (textOrder.Text) ?? int.MaxValue,
-							
+
 						};
                         images.Add (image);
 					}
@@ -146,7 +125,7 @@ namespace R7.MiniGallery
 
                 DataCache.ClearCache ("//r7_MiniGallery");
                 ModuleController.SynchronizeModule (ModuleId);
-				
+
 				Response.Redirect (Globals.NavigateURL (), true);
 			}
 			catch (Exception ex)
@@ -159,8 +138,8 @@ namespace R7.MiniGallery
 		{
 			var folder = ddlFolders.SelectedFolder;
 			var files = FolderManager.Instance.GetFiles (folder);
-			
-			files = files.Where (file => 
+
+			files = files.Where (file =>
 				Globals.glbImageFileTypes.Contains (file.Extension.ToLowerInvariant ()))
 				.OrderBy (file => file.FileName);
 
@@ -204,14 +183,14 @@ namespace R7.MiniGallery
 				foreach (DataListItem item in listImages.Items)
 				{
 					var checkIsIncluded = item.FindControl ("checkIsIncluded") as CheckBox;
-					
+
 					if (sender == buttonCheckAll)
 						checkIsIncluded.Checked = true;
 					else if (sender == buttonUncheckAll)
 						checkIsIncluded.Checked = false;
 					else if (sender == buttonInvertSelection)
 						checkIsIncluded.Checked = !checkIsIncluded.Checked;
-					else 
+					else
 						break;
 				}
 			}
@@ -222,7 +201,7 @@ namespace R7.MiniGallery
 		}
 
 		#endregion
-	
+
         private int TryExtractInt32 (string text, int defaultValue = default (int))
         {
             var matches = Regex.Matches (text, @"\d+");

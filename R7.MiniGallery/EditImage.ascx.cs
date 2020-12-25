@@ -173,13 +173,13 @@ namespace R7.MiniGallery
 					var now = DateTime.Now;
 
                     image = new ImageInfo () {
-                        Alt = textAlt.Text,
-                        Title = textTitle.Text,
+                        Alt = textAlt.Text.Trim (),
+                        Title = textTitle.Text.Trim (),
                         SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? 0,
                         ModuleID = ModuleId,
                         Url = urlLink.Url,
                         OpenInLightbox = chkOpenInLightbox.Checked,
-                        CssClass = txtCssClass.Text,
+                        CssClass = txtCssClass.Text.Trim (),
                         ImageFileID = pickerImage.FileID,
                         CreatedOnDate = now,
                         LastModifiedOnDate = now,
@@ -197,12 +197,12 @@ namespace R7.MiniGallery
 					// to update existing record
 					// image = ctrl.Get<ImageInfo> (imageId.Value, ModuleId);
 					image = Image;
-					image.Alt = textAlt.Text;
-					image.Title = textTitle.Text;
+					image.Alt = textAlt.Text.Trim ();
+					image.Title = textTitle.Text.Trim ();
                     image.SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
 					image.Url = urlLink.Url;
                     image.OpenInLightbox = chkOpenInLightbox.Checked;
-                    image.CssClass = txtCssClass.Text;
+                    image.CssClass = txtCssClass.Text.Trim ();
                     image.ImageFileID = pickerImage.FileID;
 					image.LastModifiedOnDate = DateTime.Now;
 					image.LastModifiedByUserID = UserId;
