@@ -19,7 +19,7 @@
         </div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelAlt" runat="server" ControlName="textAlt" Suffix=":" />
-			<asp:TextBox id="textAlt" runat="server" />
+			<asp:TextBox id="textAlt" runat="server" MaxLength="255" />
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelLink" runat="server" ControlName="urlLink" Suffix=":" />
