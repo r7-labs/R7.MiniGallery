@@ -7,7 +7,7 @@
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
 <dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/MVC/R7.MiniGallery/css/admin.css" />
-<div class="dnnForm dnnClear">
+<div class="dnnForm dnnClear r7-mg-edit-image">
 	<fieldset>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelImage" runat="server" ControlName="urlImage" Suffix=":" />
@@ -15,7 +15,7 @@
 		</div>
 		<div class="dnnFormItem">
             <dnn:Label id="labelTitle" runat="server" ControlName="textTitle" Suffix=":" />
-            <asp:TextBox id="textTitle" runat="server" TextMode="Multiline" Rows="2" />
+			<asp:TextBox id="textTitle" runat="server" CssClass="r7-mg-fullwidth-control" MaxLength="255" />
         </div>
 		<div class="dnnFormItem">
 			<dnn:Label id="labelAlt" runat="server" ControlName="textAlt" Suffix=":" />

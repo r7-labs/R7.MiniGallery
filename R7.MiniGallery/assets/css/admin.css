@@ -1,4 +1,9 @@
-﻿.r7-mg-bulk-add .listImages .imageImage {
+﻿.r7-mg-edit-image .dnnFormItem .r7-mg-fullwidth-control {
+	width: calc(100% - 1rem);
+	max-width: none;
+}
+
+.r7-mg-bulk-add .listImages .imageImage {
 	float:right;
 	max-width:120px;
 	margin-top:9px
