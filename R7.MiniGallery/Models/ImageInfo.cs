@@ -32,7 +32,7 @@ namespace R7.MiniGallery.Models
 
 		public string Url { get; set; }
 
-        public bool OpenInLightbox { get; set; }
+        public bool OpenInLightbox { get; set; } = true;
 
         public string CssClass { get; set; }
 

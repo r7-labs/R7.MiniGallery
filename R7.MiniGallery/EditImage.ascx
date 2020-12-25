@@ -32,7 +32,7 @@
 		</div>
 		<div class="dnnFormItem">
         	<dnn:Label id="lblOpenInLightbox" runat="server" ControlName="chkOpenInLightbox" />
-			<asp:CheckBox id="chkOpenInLightbox" runat="server" />
+			<asp:CheckBox id="chkOpenInLightbox" runat="server" Checked="true" />
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="lblCssClass" runat="server" ControlName="txtCssClass" />
