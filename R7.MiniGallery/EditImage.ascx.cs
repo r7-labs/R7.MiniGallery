@@ -148,74 +148,52 @@ namespace R7.MiniGallery
 			}
 		}
 
-        /// <summary>
-        /// Handles Click event for cmdUpdate button
-        /// </summary>
-        /// <param name='sender'>
-        /// Sender.
-        /// </param>
-        /// <param name='e'>
-        /// Event args.
-        /// </param>
         protected void OnUpdateClick (object sender, EventArgs e)
 		{
 			try
 			{
-                var dataProvider = new MiniGalleryDataProvider ();
-
-                // determine if we are adding or updating
-                // ALT: if (Null.IsNull (itemId))
+                var now = DateTime.Now;
+                var addNew = Image == null;
                 var image = default (ImageInfo);
-				if (Image == null)
-				{
-					// populate new object properties with data from controls to add new record
 
-					var now = DateTime.Now;
-
-                    image = new ImageInfo () {
-                        Alt = textAlt.Text.Trim (),
-                        Title = textTitle.Text.Trim (),
+				if (addNew)
+                {
+					image = new ImageInfo {
                         SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? 0,
                         ModuleID = ModuleId,
-                        Url = urlLink.Url,
-                        OpenInLightbox = chkOpenInLightbox.Checked,
-                        CssClass = txtCssClass.Text.Trim (),
-                        ImageFileID = pickerImage.FileID,
                         CreatedOnDate = now,
-                        LastModifiedOnDate = now,
-                        CreatedByUserID = UserId,
-                        LastModifiedByUserID = UserId,
-                        StartDate = datetimeStartDate.SelectedDate,
-                        EndDate = datetimeEndDate.SelectedDate
-					};
-
-					dataProvider.Add<ImageInfo> (image);
-				}
+                        CreatedByUserID = UserId
+                    };
+                }
 				else
 				{
-					// update properties of existing object with data from controls
-					// to update existing record
-					// image = ctrl.Get<ImageInfo> (imageId.Value, ModuleId);
 					image = Image;
-					image.Alt = textAlt.Text.Trim ();
-					image.Title = textTitle.Text.Trim ();
                     image.SortIndex = ParseHelper.ParseToNullable<int> (textSortIndex.Text) ?? Image.SortIndex;
-					image.Url = urlLink.Url;
-                    image.OpenInLightbox = chkOpenInLightbox.Checked;
-                    image.CssClass = txtCssClass.Text.Trim ();
-                    image.ImageFileID = pickerImage.FileID;
-					image.LastModifiedOnDate = DateTime.Now;
-					image.LastModifiedByUserID = UserId;
-                    image.StartDate = datetimeStartDate.SelectedDate;
-                    image.EndDate = datetimeEndDate.SelectedDate;
+                }
 
-					dataProvider.Update<ImageInfo> (image);
-				}
+                image.ImageFileID = pickerImage.FileID;
+                image.Alt = textAlt.Text.Trim ();
+                image.Title = textTitle.Text.Trim ();
+                image.Url = urlLink.Url;
+                image.OpenInLightbox = chkOpenInLightbox.Checked;
+                image.CssClass = txtCssClass.Text.Trim ();
+                image.StartDate = datetimeStartDate.SelectedDate;
+                image.EndDate = datetimeEndDate.SelectedDate;
+                image.LastModifiedOnDate = DateTime.Now;
+                image.LastModifiedByUserID = UserId;
 
-                RememberFolder (image.ImageFileID);
+                var dataProvider = new MiniGalleryDataProvider ();
+                if (addNew) {
+                    dataProvider.Add (image);
+                }
+                else {
+                    dataProvider.Update (image);
+                }
 
                 DataCache.ClearCache ("//r7_MiniGallery");
                 ModuleController.SynchronizeModule (ModuleId);
+
+                RememberFolder (image.ImageFileID);
 
 				Response.Redirect (Globals.NavigateURL (), true);
 			}
