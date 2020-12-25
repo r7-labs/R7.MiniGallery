@@ -36,7 +36,7 @@
 		</div>
 		<div class="dnnFormItem">
 			<dnn:Label id="lblCssClass" runat="server" ControlName="txtCssClass" />
-        	<asp:TextBox id="txtCssClass" runat="server" />
+        	<asp:TextBox id="txtCssClass" runat="server" MaxLength="128" />
         </div>
 		<div class="dnnFormItem">
 		    <dnn:Label id="labelSortIndex" runat="server" ControlName="textSortIndex" Suffix=":" />
