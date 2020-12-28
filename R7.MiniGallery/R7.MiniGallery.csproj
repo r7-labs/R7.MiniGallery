@@ -126,7 +126,7 @@
     <Content Include="releaseNotes.htm" />
     <Content Include="license.htm" />
     <Content Include="packages.config" />
-    <Content Include="SqlDataProvider\01.07.00.dnn.sql" />
+    <Content Include="SqlDataProvider\01.06.00.dnn.sql" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
