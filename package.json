@@ -7,7 +7,7 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^2.1.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.3.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
